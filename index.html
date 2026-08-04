@@ -81,12 +81,13 @@
   .picker-btn .pn{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .picker-btn .caret{color:var(--muted);font-size:.8rem}
   .picker-btn .thumb{width:32px;height:32px}
-  .picker-panel{position:absolute;z-index:40;left:0;right:0;margin-top:5px;background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.55);padding:8px;max-height:330px;display:flex;flex-direction:column}
-  .picker-search{margin-bottom:6px}
-  .picker-list{overflow-y:auto}
-  .picker-item{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:8px;cursor:pointer}
+  .picker-panel{position:absolute;z-index:40;left:0;right:0;margin-top:5px;background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.55);padding:8px;display:flex;flex-direction:column;overflow:hidden}
+  .picker-search{margin-bottom:6px;flex:0 0 auto}
+  .pfilters{flex:0 0 auto}
+  .picker-list{max-height:250px;overflow-y:auto;overflow-x:hidden;min-height:0}
+  .picker-item{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:8px;cursor:pointer;min-width:0}
   .picker-item:hover,.picker-item.on{background:var(--panel2)}
-  .picker-item .pn{flex:1}
+  .picker-item .pn{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .picker-item .thumb{width:32px;height:32px}
   .picker-item .tag{flex:0 0 auto}
   .pfilters{display:flex;gap:6px;margin-bottom:6px}
