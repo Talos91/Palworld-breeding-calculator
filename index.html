@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Palworld Breeding Path Calculator</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2430; --line:#2a3441;
+    --txt:#e6edf3; --muted:#8b97a7; --accent:#4dd0e1; --accent2:#7c4dff;
+    --good:#2ee06a; --warn:#ffb454; --bad:#ff6b6b; --chip:#233041;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 20% -10%,#16233b 0%,var(--bg) 55%);
+    color:var(--txt); line-height:1.5; min-height:100vh;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:28px 18px 80px}
+  header h1{font-size:1.7rem;margin:0 0 4px;letter-spacing:.3px}
+  header h1 span{color:var(--accent)}
+  header p{color:var(--muted);margin:0 0 22px;font-size:.95rem}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:18px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .tab{background:var(--chip);border:1px solid var(--line);color:var(--muted);padding:9px 16px;border-radius:999px;cursor:pointer;font-size:.9rem;font-weight:600}
+  .tab.active{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#0d1117;border-color:transparent}
+  label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 6px}
+  .row{display:flex;gap:14px;flex-wrap:wrap}
+  .row > div{flex:1;min-width:200px}
+  select,input{width:100%;padding:11px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--txt);font-size:.95rem}
+  .opts{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:.88rem;color:var(--muted)}
+  .opts label{display:inline-flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;margin:0;color:var(--txt);cursor:pointer}
+  button.go{margin-top:16px;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#0d1117;border:none;padding:12px 22px;border-radius:10px;font-weight:800;font-size:.95rem;cursor:pointer}
+  button.go:hover{filter:brightness(1.08)}
+  .result{margin-top:6px}
+  .hint{color:var(--muted);font-size:.88rem}
+  .empty{color:var(--muted);text-align:center;padding:30px}
+  /* path chain */
+  .chain{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .step{display:flex;align-items:center;gap:12px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;flex-wrap:wrap}
+  .stepno{width:26px;height:26px;border-radius:50%;background:var(--accent2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex:0 0 auto}
+  .pal{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+  .plus{color:var(--muted);font-weight:700}
+  .arrow{color:var(--accent);font-weight:800;margin:0 2px}
+  .tag{font-size:.68rem;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .tag.special{background:rgba(124,77,255,.2);color:#c9b6ff}
+  .tag.catch{background:rgba(46,224,106,.16);color:var(--good)}
+  .tag.breed{background:rgba(255,180,84,.16);color:var(--warn)}
+  .child{color:var(--accent)}
+  .summary{background:var(--panel2);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;margin-bottom:14px;font-size:.9rem}
+  .summary b{color:var(--accent)}
+  /* combos grid */
+  .combogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:8px}
+  .combo{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem}
+  .combo .c{font-weight:800;color:var(--accent);margin-bottom:4px}
+  .combo .p{color:var(--muted);font-size:.82rem}
+  .search{margin:10px 0}
+  footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:24px}
+  .note{font-size:.82rem;color:var(--warn);margin-top:10px}
+  /* mount planner */
+  .srcrow{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+  .srcrow .idx{flex:0 0 auto;width:24px;height:24px;border-radius:6px;background:var(--chip);color:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem}
+  .srcrow select{flex:2;min-width:120px}
+  .srcrow input.skill{flex:2;min-width:120px}
+  .optline{display:inline-flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;margin:0;color:var(--txt);cursor:pointer;font-size:.88rem;padding-top:6px}
+  .phase{margin:18px 0 8px;font-weight:800;color:var(--accent);font-size:.95rem;border-bottom:1px solid var(--line);padding-bottom:6px}
+  .skilltag{font-size:.68rem;padding:2px 8px;border-radius:999px;background:rgba(77,208,225,.16);color:var(--accent);font-weight:700;margin-left:4px}
+  .merge{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;flex-wrap:wrap;margin-bottom:8px}
+  .carrier{display:inline-flex;flex-direction:column;gap:3px;background:var(--chip);border-radius:8px;padding:6px 9px;font-size:.82rem}
+  .carrier b{color:var(--txt)}
+  .carrier .sk{color:var(--accent);font-size:.72rem}
+  a{color:var(--accent)}
+  .kbd{font-family:ui-monospace,monospace;background:var(--chip);padding:1px 6px;border-radius:6px;font-size:.82rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🥚 Palworld <span>Breeding Path</span> Calculator</h1>
+    <p>Start from one parent → find every child it can make, the shortest path to any target, and how to carry a passive skill down the line.</p>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="path">🎯 Path to a target</div>
+    <div class="tab" data-tab="mount">🏆 Perfect mount (multi-skill)</div>
+    <div class="tab" data-tab="all">🧬 All combinations</div>
+    <div class="tab" data-tab="lookup">🔎 Single pairing</div>
+  </div>
+
+  <datalist id="passives">
+    <option>Swift</option><option>Runner</option><option>Nimble</option>
+    <option>Legend</option><option>Lucky</option><option>Ferocious</option>
+    <option>Musclehead</option><option>Burly Body</option><option>Serious</option>
+    <option>Motivational Leader</option><option>Lord of the Sea</option>
+    <option>Divine Dragon</option><option>Celestial Emperor</option>
+    <option>Hooligan</option><option>Brave</option><option>Vampiric</option>
+    <option>Artisan</option><option>Work Slave</option><option>Logistics Guru</option>
+  </datalist>
+
+  <!-- PATH / SKILL TRANSFER -->
+  <div class="card tab-panel" id="panel-path">
+    <div class="row">
+      <div>
+        <label>Parent I have (the one with the skill)</label>
+        <select id="p-parent"></select>
+      </div>
+      <div>
+        <label>Target child species I want</label>
+        <select id="p-target"></select>
+      </div>
+    </div>
+    <div class="opts">
+      <label><input type="checkbox" id="p-catchonly" /> Only suggest partners I can catch in the wild</label>
+    </div>
+    <button class="go" id="p-go">Find shortest path →</button>
+    <div class="result" id="p-result"></div>
+  </div>
+
+  <!-- PERFECT MOUNT: MULTI-SKILL PLANNER -->
+  <div class="card tab-panel" id="panel-mount" style="display:none">
+    <p class="hint" style="margin:0 0 14px">Pick up to 4 source Pals, each carrying one passive skill you want, then a final target species. The app plans how to gather all the skills onto the target.</p>
+    <div id="m-sources"></div>
+    <div class="row" style="margin-top:6px">
+      <div>
+        <label>Final target species</label>
+        <select id="m-target"></select>
+      </div>
+      <div>
+        <label>&nbsp;</label>
+        <label class="optline"><input type="checkbox" id="m-catchonly" /> Only route through catchable partners</label>
+      </div>
+    </div>
+    <button class="go" id="m-go">Plan the build →</button>
+    <div class="result" id="m-result"></div>
+  </div>
+
+  <!-- ALL COMBOS FROM ONE PARENT -->
+  <div class="card tab-panel" id="panel-all" style="display:none">
+    <div class="row">
+      <div>
+        <label>Parent</label>
+        <select id="a-parent"></select>
+      </div>
+      <div>
+        <label>Partner pool</label>
+        <select id="a-pool">
+          <option value="all">Any species as partner</option>
+          <option value="catch">Only catchable partners</option>
+        </select>
+      </div>
+    </div>
+    <button class="go" id="a-go">Show every child →</button>
+    <div class="result" id="a-result"></div>
+  </div>
+
+  <!-- SINGLE PAIRING -->
+  <div class="card tab-panel" id="panel-lookup" style="display:none">
+    <div class="row">
+      <div><label>Parent A</label><select id="l-a"></select></div>
+      <div><label>Parent B</label><select id="l-b"></select></div>
+    </div>
+    <button class="go" id="l-go">Breed →</button>
+    <div class="result" id="l-result"></div>
+  </div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+/* ============================================================
+   Palworld breeding data (embedded; injected from research).
+   Schema:
+     PAL_DATA.pals: [{name, combiRank, catchable}]
+     PAL_DATA.specialCombos: [{parents:[a,b], child}]
+     PAL_DATA.formula: string
+     PAL_DATA.meta: {source, version, coverage}
+   ============================================================ */
+const PAL_DATA = /*__DATA__*/ {"pals":[{"name":"Lamball","combiRank":1470,"catchable":true,"paldeckId":26},{"name":"Cattiva","combiRank":1460,"catchable":true,"paldeckId":45},{"name":"Chikipi","combiRank":1500,"catchable":true,"paldeckId":61},{"name":"Lifmunk","combiRank":1430,"catchable":true,"paldeckId":6},{"name":"Foxparks","combiRank":1400,"catchable":true,"paldeckId":19},{"name":"Fuack","combiRank":1330,"catchable":true,"paldeckId":58},{"name":"Sparkit","combiRank":1410,"catchable":true,"paldeckId":64},{"name":"Tanzee","combiRank":1250,"catchable":true,"paldeckId":106},{"name":"Rooby","combiRank":1155,"catchable":true,"paldeckId":136},{"name":"Pengullet","combiRank":1350,"catchable":true,"paldeckId":22},{"name":"Penking","combiRank":520,"catchable":true,"paldeckId":120},{"name":"Jolthog","combiRank":1370,"catchable":true,"paldeckId":16},{"name":"Jolthog Cryst","combiRank":1360,"catchable":false,"paldeckId":17},{"name":"Gumoss","combiRank":1240,"catchable":true,"paldeckId":111},{"name":"Vixy","combiRank":1450,"catchable":true,"paldeckId":78},{"name":"Hoocrates","combiRank":1390,"catchable":true,"paldeckId":81},{"name":"Teafant","combiRank":1490,"catchable":true,"paldeckId":13},{"name":"Depresso","combiRank":1380,"catchable":true,"paldeckId":46},{"name":"Cremis","combiRank":1455,"catchable":true,"paldeckId":133},{"name":"Daedream","combiRank":1230,"catchable":true,"paldeckId":105},{"name":"Rushoar","combiRank":1130,"catchable":true,"paldeckId":5},{"name":"Nox","combiRank":1180,"catchable":true,"paldeckId":119},{"name":"Fuddler","combiRank":1220,"catchable":true,"paldeckId":100},{"name":"Killamari","combiRank":1290,"catchable":true,"paldeckId":84},{"name":"Mau","combiRank":1480,"catchable":true,"paldeckId":3},{"name":"Mau Cryst","combiRank":1440,"catchable":false,"paldeckId":4},{"name":"Celeray","combiRank":870,"catchable":true,"paldeckId":126},{"name":"Direhowl","combiRank":1060,"catchable":true,"paldeckId":14},{"name":"Tocotoco","combiRank":1340,"catchable":true,"paldeckId":7},{"name":"Flopie","combiRank":1280,"catchable":true,"paldeckId":90},{"name":"Mozzarina","combiRank":910,"catchable":true,"paldeckId":85},{"name":"Bristla","combiRank":1320,"catchable":true,"paldeckId":20},{"name":"Gobfin","combiRank":1090,"catchable":true,"paldeckId":24},{"name":"Gobfin Ignis","combiRank":1100,"catchable":false,"paldeckId":25},{"name":"Hangyu","combiRank":1420,"catchable":true,"paldeckId":30},{"name":"Hangyu Cryst","combiRank":1422,"catchable":false,"paldeckId":31},{"name":"Mossanda","combiRank":430,"catchable":true,"paldeckId":96},{"name":"Mossanda Lux","combiRank":390,"catchable":false,"paldeckId":97},{"name":"Woolipop","combiRank":1190,"catchable":true,"paldeckId":38},{"name":"Caprity","combiRank":930,"catchable":true,"paldeckId":74},{"name":"Melpaca","combiRank":890,"catchable":true,"paldeckId":40},{"name":"Eikthyrdeer","combiRank":920,"catchable":true,"paldeckId":8},{"name":"Eikthyrdeer Terra","combiRank":900,"catchable":false,"paldeckId":9},{"name":"Nitewing","combiRank":420,"catchable":true,"paldeckId":89},{"name":"Ribunny","combiRank":1310,"catchable":true,"paldeckId":115},{"name":"Incineram","combiRank":590,"catchable":true,"paldeckId":1},{"name":"Incineram Noct","combiRank":580,"catchable":false,"paldeckId":2},{"name":"Cinnamoth","combiRank":490,"catchable":true,"paldeckId":130},{"name":"Arsox","combiRank":790,"catchable":true,"paldeckId":98},{"name":"Dumud","combiRank":895,"catchable":true,"paldeckId":134},{"name":"Cawgnito","combiRank":1080,"catchable":true,"paldeckId":43},{"name":"Leezpunk","combiRank":1120,"catchable":true,"paldeckId":56},{"name":"Leezpunk Ignis","combiRank":1140,"catchable":false,"paldeckId":57},{"name":"Loupmoon","combiRank":950,"catchable":true,"paldeckId":29},{"name":"Galeclaw","combiRank":1030,"catchable":true,"paldeckId":11},{"name":"Robinquill","combiRank":1020,"catchable":true,"paldeckId":51},{"name":"Robinquill Terra","combiRank":1000,"catchable":false,"paldeckId":52},{"name":"Gorirat","combiRank":1040,"catchable":true,"paldeckId":15},{"name":"Beegarde","combiRank":1070,"catchable":true,"paldeckId":94},{"name":"Elizabee","combiRank":330,"catchable":true,"paldeckId":93},{"name":"Grintale","combiRank":510,"catchable":true,"paldeckId":129},{"name":"Swee","combiRank":1300,"catchable":true,"paldeckId":112},{"name":"Sweepa","combiRank":410,"catchable":true,"paldeckId":113},{"name":"Chillet","combiRank":800,"catchable":true,"paldeckId":121},{"name":"Univolt","combiRank":680,"catchable":true,"paldeckId":18},{"name":"Foxcicle","combiRank":760,"catchable":true,"paldeckId":103},{"name":"Pyrin","combiRank":360,"catchable":true,"paldeckId":34},{"name":"Pyrin Noct","combiRank":240,"catchable":false,"paldeckId":35},{"name":"Reindrix","combiRank":880,"catchable":true,"paldeckId":75},{"name":"Rayhound","combiRank":740,"catchable":true,"paldeckId":99},{"name":"Kitsun","combiRank":830,"catchable":true,"paldeckId":55},{"name":"Dazzi","combiRank":1210,"catchable":true,"paldeckId":23},{"name":"Lunaris","combiRank":1110,"catchable":true,"paldeckId":21},{"name":"Dinossom","combiRank":820,"catchable":true,"paldeckId":62},{"name":"Dinossom Lux","combiRank":810,"catchable":false,"paldeckId":63},{"name":"Surfent","combiRank":560,"catchable":true,"paldeckId":41},{"name":"Surfent Terra","combiRank":550,"catchable":false,"paldeckId":42},{"name":"Maraith","combiRank":1150,"catchable":true,"paldeckId":50},{"name":"Digtoise","combiRank":850,"catchable":true,"paldeckId":10},{"name":"Tombat","combiRank":750,"catchable":true,"paldeckId":95},{"name":"Lovander","combiRank":940,"catchable":true,"paldeckId":80},{"name":"Flambelle","combiRank":1405,"catchable":true,"paldeckId":135},{"name":"Vanwyrm","combiRank":660,"catchable":true,"paldeckId":59},{"name":"Vanwyrm Cryst","combiRank":620,"catchable":false,"paldeckId":60},{"name":"Bushi","combiRank":640,"catchable":true,"paldeckId":125},{"name":"Beakon","combiRank":220,"catchable":true,"paldeckId":116},{"name":"Ragnahawk","combiRank":380,"catchable":true,"paldeckId":124},{"name":"Katress","combiRank":700,"catchable":true,"paldeckId":114},{"name":"Wixen","combiRank":1160,"catchable":true,"paldeckId":79},{"name":"Verdash","combiRank":990,"catchable":true,"paldeckId":102},{"name":"Vaelet","combiRank":1050,"catchable":true,"paldeckId":88},{"name":"Sibelyx","combiRank":450,"catchable":true,"paldeckId":77},{"name":"Elphidran","combiRank":540,"catchable":true,"paldeckId":36},{"name":"Elphidran Aqua","combiRank":530,"catchable":false,"paldeckId":37},{"name":"Kelpsea","combiRank":1260,"catchable":true,"paldeckId":82},{"name":"Kelpsea Ignis","combiRank":1270,"catchable":true,"paldeckId":83},{"name":"Azurobe","combiRank":500,"catchable":true,"paldeckId":44},{"name":"Cryonlinx","combiRank":130,"catchable":true,"paldeckId":39},{"name":"Blazehowl","combiRank":710,"catchable":true,"paldeckId":107},{"name":"Blazehowl Noct","combiRank":670,"catchable":false,"paldeckId":108},{"name":"Relaxaurus","combiRank":280,"catchable":true,"paldeckId":53},{"name":"Relaxaurus Lux","combiRank":270,"catchable":false,"paldeckId":54},{"name":"Broncherry","combiRank":860,"catchable":true,"paldeckId":70},{"name":"Broncherry Aqua","combiRank":840,"catchable":false,"paldeckId":71},{"name":"Petallia","combiRank":780,"catchable":true,"paldeckId":128},{"name":"Reptyro","combiRank":320,"catchable":true,"paldeckId":48},{"name":"Ice Reptyro","combiRank":230,"catchable":false,"paldeckId":49},{"name":"Kingpaca","combiRank":470,"catchable":true,"paldeckId":109},{"name":"Ice Kingpaca","combiRank":440,"catchable":false,"paldeckId":110},{"name":"Mammorest","combiRank":300,"catchable":true,"paldeckId":67},{"name":"Mammorest Cryst","combiRank":290,"catchable":false,"paldeckId":68},{"name":"Wumpo","combiRank":460,"catchable":true,"paldeckId":86},{"name":"Wumpo Botan","combiRank":480,"catchable":true,"paldeckId":87},{"name":"Warsect","combiRank":340,"catchable":true,"paldeckId":117},{"name":"Fenglope","combiRank":980,"catchable":true,"paldeckId":47},{"name":"Felbat","combiRank":1010,"catchable":true,"paldeckId":69},{"name":"Quivern","combiRank":350,"catchable":true,"paldeckId":122},{"name":"Blazamut","combiRank":10,"catchable":true,"paldeckId":73},{"name":"Helzephyr","combiRank":190,"catchable":true,"paldeckId":123},{"name":"Astegon","combiRank":150,"catchable":true,"paldeckId":101},{"name":"Menasting","combiRank":260,"catchable":true,"paldeckId":131},{"name":"Anubis","combiRank":570,"catchable":true,"paldeckId":0},{"name":"Jormuntide","combiRank":310,"catchable":true,"paldeckId":27},{"name":"Jormuntide Ignis","combiRank":315,"catchable":true,"paldeckId":28},{"name":"Suzaku","combiRank":50,"catchable":true,"paldeckId":32},{"name":"Suzaku Aqua","combiRank":30,"catchable":false,"paldeckId":33},{"name":"Grizzbolt","combiRank":200,"catchable":true,"paldeckId":12},{"name":"Lyleen","combiRank":250,"catchable":true,"paldeckId":91},{"name":"Lyleen Noct","combiRank":210,"catchable":false,"paldeckId":92},{"name":"Faleris","combiRank":370,"catchable":true,"paldeckId":72},{"name":"Orserk","combiRank":140,"catchable":true,"paldeckId":132},{"name":"Shadowbeak","combiRank":60,"catchable":true,"paldeckId":76},{"name":"Paladius","combiRank":80,"catchable":true,"paldeckId":118},{"name":"Necromus","combiRank":70,"catchable":true,"paldeckId":127},{"name":"Frostallion","combiRank":120,"catchable":true,"paldeckId":65},{"name":"Frostallion Noct","combiRank":100,"catchable":false,"paldeckId":66},{"name":"Jetragon","combiRank":90,"catchable":true,"paldeckId":104}],"specialCombos":[{"parents":["Relaxaurus","Sparkit"],"child":"Relaxaurus Lux"},{"parents":["Incineram","Maraith"],"child":"Incineram Noct"},{"parents":["Mau","Pengullet"],"child":"Mau Cryst"},{"parents":["Vanwyrm","Foxcicle"],"child":"Vanwyrm Cryst"},{"parents":["Eikthyrdeer","Hangyu"],"child":"Eikthyrdeer Terra"},{"parents":["Elphidran","Surfent"],"child":"Elphidran Aqua"},{"parents":["Pyrin","Katress"],"child":"Pyrin Noct"},{"parents":["Mammorest","Wumpo"],"child":"Mammorest Cryst"},{"parents":["Mossanda","Grizzbolt"],"child":"Mossanda Lux"},{"parents":["Dinossom","Rayhound"],"child":"Dinossom Lux"},{"parents":["Jolthog","Pengullet"],"child":"Jolthog Cryst"},{"parents":["Frostallion","Helzephyr"],"child":"Frostallion Noct"},{"parents":["Kingpaca","Reindrix"],"child":"Ice Kingpaca"},{"parents":["Lyleen","Menasting"],"child":"Lyleen Noct"},{"parents":["Leezpunk","Flambelle"],"child":"Leezpunk Ignis"},{"parents":["Blazehowl","Felbat"],"child":"Blazehowl Noct"},{"parents":["Robinquill","Fuddler"],"child":"Robinquill Terra"},{"parents":["Broncherry","Fuack"],"child":"Broncherry Aqua"},{"parents":["Surfent","Dumud"],"child":"Surfent Terra"},{"parents":["Gobfin","Rooby"],"child":"Gobfin Ignis"},{"parents":["Suzaku","Jormuntide"],"child":"Suzaku Aqua"},{"parents":["Reptyro","Foxcicle"],"child":"Ice Reptyro"},{"parents":["Hangyu","Swee"],"child":"Hangyu Cryst"},{"parents":["Mossanda","Petallia"],"child":"Lyleen"},{"parents":["Vanwyrm","Anubis"],"child":"Faleris"},{"parents":["Mossanda","Rayhound"],"child":"Grizzbolt"},{"parents":["Grizzbolt","Relaxaurus"],"child":"Orserk"},{"parents":["Kitsun","Astegon"],"child":"Shadowbeak"},{"parents":["Frostallion","Frostallion"],"child":"Frostallion"},{"parents":["Jetragon","Jetragon"],"child":"Jetragon"},{"parents":["Paladius","Paladius"],"child":"Paladius"},{"parents":["Necromus","Necromus"],"child":"Necromus"}],"formula":"When two parents A and B have no special combo (and are different species), the child is the breedable species whose combiRank is numerically closest to the target target = floor((combiRank_A + combiRank_B + 1) / 2). (Equivalently: the average of the two parents' combiRanks, rounded to the nearer integer with .5 rounding UP.) Tie-break: if two species are equidistant from the target, the one with the lower internal Paldeck index (earlier Paldeck / smaller id) is chosen. Two additional rules: (1) same species + same species always yields that same species; (2) special-combo-exclusive children (the variant subtype forms listed in specialCombos, e.g. Relaxaurus Lux) are EXCLUDED from this nearest-match search — if the nearest species is one of them, the next-nearest eligible species is used instead. Those variants can only be produced by their specific parent pair.","meta":{"source":"community datamine (Nilyang404 / beckerfelipee calculators)","coverage":"combiRank values, the special-combo table, and the roster are taken from the datamined data files in the Nilyang404/PalWorld-Breeding-Calculator GitHub repo (data.csv = combiRank/'power' + paldeck id; unique_combo.csv = special combos; PBCalculator.py = reference algorithm). The 28 override combos cross-validate exactly with beckerfelipee/PalworldBreedingCalculator's documented '28 unique/subtype combinations'. Roster = 137 breedable base-game entries (all pre-1.0/base-game species incl. subtype variants). CORRECTION applied: source unique_combo.csv had a data-entry bug (Hangyu+Swee listed child as 'Gobfin Ignis'); corrected to 'Hangyu Cryst'. CATCHABLE CAVEAT: 'catchable' here means the species is reachable WITHOUT its specific breeding combo (i.e. it can appear as a default-formula breeding result and/or a wild spawn). It is set false for the 23 variant subtype forms that the default formula excludes (only obtainable via their unique parent pair). In retail Palworld 1.x, SOME of these 23 variants (e.g. Incineram Noct, Jolthog Cryst, Mammorest Cryst, Vanwyrm Cryst, Ice Kingpaca, Ice Reptyro) also have wild spawns and would be 'catchable' under a pure-obtainability definition — verify per-pal wild spawns on paldb.cc if that distinction matters for your calculator. The clearest true breed-only cases are the Lux/Noct legendary variants: Relaxaurus Lux, Mossanda Lux, Frostallion Noct, Lyleen Noct, Suzaku Aqua. NOT included as special combos (unverifiable / conflicting sources): 'Jormuntide + Kingpaca = Jormuntide Ignis' and 'Kitsun + Astegon = Kitsun Noct' from the task prompt — the datamined source lists Kitsun+Astegon=Shadowbeak (there is no 'Kitsun Noct' species in the base game), and lists no override combo producing Jormuntide Ignis (Jormuntide Ignis, combiRank 315, and Kelpsea Ignis / Wumpo Botan are produced by the default formula and/or caught wild). TIE-BREAK NOTE: the reference implementation (PBCalculator.py) sorts by |power-average| then by paldeck id; some guides phrase the tie-break as 'lower combi rank'. These agree in the vast majority of cases; treat paldeck-id tie-break as canonical."}} /*__ENDDATA__*/;
+
+/* ---------- Engine ---------- */
+const Engine = (() => {
+  const pals = PAL_DATA.pals.slice();
+  const byName = new Map(pals.map(p => [p.name, p]));
+  // Pals eligible to be produced by the default (rank) rule = catchable pals with a numeric
+  // combiRank (special-combo-only variants are excluded from the nearest-match search).
+  // Ordered by Paldeck id so equidistant ties resolve to the smaller id (reference-impl rule).
+  const resultPool = pals.filter(p => typeof p.combiRank === "number" && p.catchable)
+                         .sort((a,b) => (a.paldeckId||0) - (b.paldeckId||0) || a.combiRank - b.combiRank);
+  // Special combos, keyed by unordered pair.
+  const key = (a,b) => [a,b].sort().join("|");
+  const special = new Map();
+  (PAL_DATA.specialCombos || []).forEach(c => special.set(key(c.parents[0], c.parents[1]), c.child));
+
+  // Default rule: child rank target = floor((rA + rB + 1)/2); nearest combiRank wins.
+  // Tie-break: smaller combiRank, then name order (matches datamined ordering).
+  function defaultChild(a, b){
+    const pa = byName.get(a), pb = byName.get(b);
+    if(!pa || !pb || typeof pa.combiRank !== "number" || typeof pb.combiRank !== "number") return null;
+    if(a === b) return a; // same species always breeds true
+    const target = Math.floor((pa.combiRank + pb.combiRank + 1) / 2);
+    let best = null, bestDist = Infinity;
+    for(const p of resultPool){
+      const d = Math.abs(p.combiRank - target);
+      if(d < bestDist){ bestDist = d; best = p; }
+    }
+    return best ? best.name : null;
+  }
+
+  // Full breed: special combo if present, else default rule. Returns child name or null.
+  function breed(a, b){
+    const s = special.get(key(a,b));
+    if(s) return s;
+    return defaultChild(a, b);
+  }
+
+  function isSpecial(a, b){ return special.has(key(a,b)); }
+
+  // All children obtainable from `parent` using partners in the pool.
+  // Returns Map child -> [{partner, special}]
+  function childrenFrom(parent, catchOnly){
+    const out = new Map();
+    for(const partner of pals){
+      if(catchOnly && !partner.catchable) continue;
+      const child = breed(parent.name, partner.name);
+      if(!child) continue;
+      if(!out.has(child)) out.set(child, []);
+      out.get(child).push({ partner: partner.name, special: isSpecial(parent.name, partner.name) });
+    }
+    return out;
+  }
+
+  // BFS shortest species-path from source -> target.
+  // Each edge: current species + partner -> next species. Returns array of steps or null.
+  function shortestPath(source, target, catchOnly){
+    if(source === target) return [];
+    const prev = new Map();       // species -> {from, partner, special}
+    const seen = new Set([source]);
+    let frontier = [source];
+    while(frontier.length){
+      const next = [];
+      for(const cur of frontier){
+        for(const partner of pals){
+          if(catchOnly && !partner.catchable) continue;
+          const child = breed(cur, partner.name);
+          if(!child || child === cur || seen.has(child)) continue;
+          seen.add(child);
+          prev.set(child, { from: cur, partner: partner.name, special: isSpecial(cur, partner.name) });
+          if(child === target){
+            // reconstruct
+            const path = [];
+            let c = target;
+            while(prev.has(c)){
+              const e = prev.get(c);
+              path.unshift({ from: e.from, partner: e.partner, child: c, special: e.special });
+              c = e.from;
+            }
+            return path;
+          }
+          next.push(child);
+        }
+      }
+      frontier = next;
+    }
+    return null; // unreachable
+  }
+
+  return { pals, byName, breed, isSpecial, childrenFrom, shortestPath };
+})();
+
+/* ---------- UI helpers ---------- */
+const $ = s => document.querySelector(s);
+const namesSorted = Engine.pals.map(p => p.name).sort((a,b)=>a.localeCompare(b));
+function fillSelect(sel, selected){
+  sel.innerHTML = namesSorted.map(n => `<option${n===selected?" selected":""}>${n}</option>`).join("");
+}
+function catchable(name){ const p = Engine.byName.get(name); return p && p.catchable; }
+function palChip(name, cls=""){
+  const c = catchable(name);
+  const tag = c ? `<span class="tag catch">catch</span>` : `<span class="tag breed">breed</span>`;
+  return `<span class="pal ${cls}">${name}</span> ${tag}`;
+}
+
+/* ---------- Tabs ---------- */
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");
+  document.querySelectorAll(".tab-panel").forEach(p=>p.style.display="none");
+  $("#panel-"+t.dataset.tab).style.display="block";
+}));
+
+/* ---------- Path / skill transfer ---------- */
+function renderPath(){
+  const source = $("#p-parent").value, target = $("#p-target").value;
+  const catchOnly = $("#p-catchonly").checked;
+  const box = $("#p-result");
+  if(source === target){
+    box.innerHTML = `<div class="summary">Parent and target are the same species — your <b>${source}</b> already is the target. To move a passive within the same species, breed it with another <b>${source}</b> and keep the offspring that inherit the skill.</div>`;
+    return;
+  }
+  const path = Engine.shortestPath(source, target, catchOnly);
+  if(!path){
+    box.innerHTML = `<div class="summary">No breeding path found from <b>${source}</b> to <b>${target}</b>${catchOnly?" using only catchable partners":""}.<div class="note">Some Pals (e.g. certain legendaries) can't be produced by breeding up from other species — the only way to get one carrying your passive is to breed two of that species where one already has it.</div></div>`;
+    return;
+  }
+  const steps = path.length;
+  let html = `<div class="summary">Shortest path: <b>${steps}</b> breeding step${steps>1?"s":""} from <b>${source}</b> to <b>${target}</b>.
+    Keep the offspring that inherited the skill at each step and breed it forward.</div><div class="chain">`;
+  // starting parent
+  html += `<div class="step"><span class="stepno">•</span><div>Start with your <b>${source}</b> (the one carrying the passive skill).</div></div>`;
+  path.forEach((s, i) => {
+    html += `<div class="step">
+      <span class="stepno">${i+1}</span>
+      ${palChip(s.from)} <span class="plus">+</span> ${palChip(s.partner)}
+      <span class="arrow">→</span> <span class="pal child">${s.child}</span>
+      ${s.special?'<span class="tag special">special combo</span>':''}
+    </div>`;
+  });
+  html += `</div>`;
+  html += `<p class="hint" style="margin-top:12px">💡 In Palworld a child can inherit passive skills from <em>either</em> parent, so the partner doesn't need the skill — it only steers the offspring toward the next species. Breed several eggs per step and keep the one that kept the passive.</p>`;
+  box.innerHTML = html;
+}
+
+/* ---------- All combinations ---------- */
+function renderAll(){
+  const parent = $("#a-parent").value;
+  const catchOnly = $("#a-pool").value === "catch";
+  const map = Engine.childrenFrom(Engine.byName.get(parent), catchOnly);
+  const box = $("#a-result");
+  if(map.size === 0){ box.innerHTML = `<div class="empty">No children found.</div>`; return; }
+  const entries = [...map.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+  let html = `<div class="summary"><b>${parent}</b> can produce <b>${entries.length}</b> different children (partners in parentheses).</div>`;
+  html += `<input class="search" id="a-search" placeholder="filter children…" />`;
+  html += `<div class="combogrid" id="a-grid">`;
+  entries.forEach(([child, list]) => {
+    const partners = list.map(x => x.partner + (x.special?" ✦":"")).sort();
+    html += `<div class="combo" data-name="${child.toLowerCase()}">
+      <div class="c">${child}${catchable(child)?"":' <span class="tag breed">breed-only</span>'}</div>
+      <div class="p">with: ${partners.join(", ")}</div>
+    </div>`;
+  });
+  html += `</div>`;
+  box.innerHTML = html;
+  $("#a-search").addEventListener("input", e => {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll("#a-grid .combo").forEach(c => {
+      c.style.display = c.dataset.name.includes(q) ? "" : "none";
+    });
+  });
+}
+
+/* ---------- Single pairing ---------- */
+function renderLookup(){
+  const a = $("#l-a").value, b = $("#l-b").value;
+  const child = Engine.breed(a, b);
+  const sp = Engine.isSpecial(a, b);
+  const box = $("#l-result");
+  if(!child){ box.innerHTML = `<div class="empty">These two can't be bred together.</div>`; return; }
+  box.innerHTML = `<div class="step" style="justify-content:center;font-size:1.05rem">
+    ${palChip(a)} <span class="plus">+</span> ${palChip(b)}
+    <span class="arrow">→</span> <span class="pal child">${child}</span>
+    ${sp?'<span class="tag special">special combo</span>':''}
+  </div>`;
+}
+
+/* ---------- Perfect mount: multi-skill planner ---------- */
+// Render a routing chain (list of {from,partner,child,special}) into HTML steps, tagged with a skill.
+function chainHTML(path, skill){
+  let h = `<div class="chain">`;
+  path.forEach((s,i) => {
+    h += `<div class="step">
+      <span class="stepno">${i+1}</span>
+      ${palChip(s.from)} <span class="plus">+</span> ${palChip(s.partner)}
+      <span class="arrow">→</span> <span class="pal child">${s.child}</span>
+      ${s.special?'<span class="tag special">special combo</span>':''}
+    </div>`;
+  });
+  h += `</div><p class="hint" style="margin:6px 0 0">Keep the egg that inherited <span class="skilltag">${skill}</span> at each step.</p>`;
+  return h;
+}
+function carrierHTML(target, skills){
+  return `<span class="carrier"><b>${target}</b><span class="sk">${skills.join(" · ")}</span></span>`;
+}
+function renderMount(){
+  const target = $("#m-target").value;
+  const catchOnly = $("#m-catchonly").checked;
+  const box = $("#m-result");
+  // Collect active sources (a row counts if a skill name was entered).
+  const sources = [];
+  for(let i=1;i<=4;i++){
+    const skill = ($("#m-k"+i).value || "").trim();
+    const species = $("#m-p"+i).value;
+    if(skill) sources.push({ species, skill });
+  }
+  if(sources.length === 0){
+    box.innerHTML = `<div class="summary">Enter at least one passive skill on a source Pal above (e.g. <b>Swift</b> on <b>Chikipi</b>).</div>`;
+    return;
+  }
+
+  // Phase 1: route each source's skill onto the target species.
+  let html = `<div class="summary">Goal: a <b>${target}</b> carrying <b>${sources.map(s=>s.skill).join(", ")}</b> (${sources.length} skill${sources.length>1?"s":""}).</div>`;
+  html += `<div class="phase">Phase 1 — get each skill onto ${target}</div>`;
+  const routed = []; // skills that made it onto a target-species carrier
+  const failed = [];
+  sources.forEach(src => {
+    if(src.species === target){
+      routed.push(src.skill);
+      html += `<div class="merge">Your <b>${target}</b> already is the target species — it carries <span class="skilltag">${src.skill}</span>, ready to combine.</div>`;
+      return;
+    }
+    const path = Engine.shortestPath(src.species, target, catchOnly);
+    if(!path){
+      failed.push(src);
+      html += `<div class="merge"><div>⚠️ No breeding route from <b>${src.species}</b> to <b>${target}</b>${catchOnly?" using only catchable partners":""}, so <span class="skilltag">${src.skill}</span> can't be moved onto ${target} by breeding.</div></div>`;
+      return;
+    }
+    routed.push(src.skill);
+    html += `<div style="margin:4px 0 14px">
+      <div style="margin-bottom:6px">Route <span class="skilltag">${src.skill}</span> from <b>${src.species}</b> → <b>${target}</b>
+        <span class="tag">${path.length} step${path.length>1?"s":""}</span></div>
+      ${chainHTML(path, src.skill)}
+    </div>`;
+  });
+
+  // Phase 2: combine skills within the target species (same species breeds true → no drift).
+  if(routed.length >= 2){
+    html += `<div class="phase">Phase 2 — stack the skills on ${target}</div>`;
+    html += `<p class="hint" style="margin:0 0 10px">You now have ${routed.length} × <b>${target}</b>, each carrying one skill. Breed ${target} × ${target} — it always makes ${target}, so the species is safe while you merge passive pools. Keep the offspring with the most desired skills each time:</p>`;
+    // Pairwise merge queue.
+    let queue = routed.map(sk => [sk]);
+    let step = 1;
+    while(queue.length > 1){
+      const a = queue.shift(), b = queue.shift();
+      const merged = [...a, ...b];
+      html += `<div class="merge">
+        <span class="stepno">${step++}</span>
+        ${carrierHTML(target, a)} <span class="plus">×</span> ${carrierHTML(target, b)}
+        <span class="arrow">→</span> ${carrierHTML(target, merged)}
+      </div>`;
+      queue.push(merged);
+    }
+    html += `<div class="summary" style="margin-top:12px">🏆 Result: a <b>${target}</b> with <b>${queue[0].join(" · ")}</b>.</div>`;
+  } else if(routed.length === 1){
+    html += `<div class="summary" style="margin-top:12px">🏆 Result: after Phase 1 you have a <b>${target}</b> with <b>${routed[0]}</b>. Add more source skills above to stack up to 4.</div>`;
+  }
+
+  // Caveats.
+  html += `<div class="note">Passive inheritance is RNG: a child pulls skills from <em>both</em> parents' pools (up to the 4-skill cap), so breed several eggs per step and keep the best. Junk passives on your source Pals compete for those 4 slots — for a clean 4/4 result, isolate each desired skill on its source first (breed until it has only that passive), and don't exceed 4 target skills total.</div>`;
+  box.innerHTML = html;
+}
+
+/* ---------- Init ---------- */
+["p-parent","p-target","a-parent","l-a","l-b","m-target"].forEach(id => fillSelect($("#"+id)));
+$("#p-parent").value = namesSorted.includes("Cattiva") ? "Cattiva" : namesSorted[0];
+$("#p-target").value = namesSorted.includes("Jetragon") ? "Jetragon" : namesSorted[namesSorted.length-1];
+$("#l-b").selectedIndex = 1;
+
+// Build the 4 source rows for the mount planner (pre-filled with the worked example).
+const seedS = ["Chikipi","Cattiva","",""], seedK = ["Swift","Runner","",""];
+let srcHTML = "";
+for(let i=1;i<=4;i++){
+  srcHTML += `<div class="srcrow">
+    <span class="idx">${i}</span>
+    <select id="m-p${i}"></select>
+    <input class="skill" id="m-k${i}" list="passives" placeholder="passive skill (e.g. Swift)" />
+  </div>`;
+}
+$("#m-sources").innerHTML = srcHTML;
+for(let i=1;i<=4;i++){
+  fillSelect($("#m-p"+i));
+  if(seedS[i-1] && namesSorted.includes(seedS[i-1])) $("#m-p"+i).value = seedS[i-1];
+  $("#m-k"+i).value = seedK[i-1];
+}
+$("#m-target").value = namesSorted.includes("Vanwyrm") ? "Vanwyrm" : namesSorted[0];
+
+$("#p-go").addEventListener("click", renderPath);
+$("#a-go").addEventListener("click", renderAll);
+$("#l-go").addEventListener("click", renderLookup);
+$("#m-go").addEventListener("click", renderMount);
+
+const m = PAL_DATA.meta || {};
+$("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank`
+  + (m.source ? ` · data: ${m.source}` : "")
+  + `<br><span class="hint">Not affiliated with Pocketpair. Breeding data is community-sourced and may need updating for new game patches.</span>`;
+</script>
+</body>
+</html>
