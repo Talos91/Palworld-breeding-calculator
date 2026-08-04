@@ -42,12 +42,16 @@ Wait about a minute and the site goes live at
 
 ## Data & credits
 
-Breeding data (137 Pals, combi-ranks, 32 special combos) is community-sourced
-from datamined breeding calculators. It reflects the base-game roster and may
-need updating for later game patches — edit the `PAL_DATA` block in `index.html`.
+Breeding data (288 Pals covering the current Feybreak roster — dex #001–#204
+incl. variant forms — with real datamined CombiRanks and 258 special combos)
+comes from [CreativeTechGuy/PalworldDBIndex](https://github.com/CreativeTechGuy/PalworldDBIndex)
+(datamined game DataTables) and is cross-checked against
+[tylercamp/palcalc](https://github.com/tylercamp/palcalc). Passive-skill names,
+ranks, and effect descriptions (145 inheritable skills) come from a Feybreak-era
+datamine. To update for a later patch, edit the `PAL_DATA` / `PASSIVES` blocks
+in `index.html`.
 
 Pal portraits in `img/` are from
-[mlg404/palworld-paldex-api](https://github.com/mlg404/palworld-paldex-api) (MIT),
-resized to 256px and stored by Paldeck id.
+[tylercamp/palcalc](https://github.com/tylercamp/palcalc), stored by name-slug.
 
 Not affiliated with Pocketpair. Palworld is a trademark of Pocketpair, Inc.
