@@ -46,4 +46,8 @@ Breeding data (137 Pals, combi-ranks, 32 special combos) is community-sourced
 from datamined breeding calculators. It reflects the base-game roster and may
 need updating for later game patches — edit the `PAL_DATA` block in `index.html`.
 
+Pal portraits in `img/` are from
+[mlg404/palworld-paldex-api](https://github.com/mlg404/palworld-paldex-api) (MIT),
+resized to 256px and stored by Paldeck id.
+
 Not affiliated with Pocketpair. Palworld is a trademark of Pocketpair, Inc.
