@@ -17,15 +17,15 @@ It's one self-contained file — no build step, no server, no internet needed.
 - **Hosted:** enable GitHub Pages (see below) and it's live at
   `https://talos91.github.io/palworld-breeding-calculator/`.
 
-## Enabling GitHub Pages
+## Enabling GitHub Pages (one-time, ~1 minute)
 
-This repo includes a workflow (`.github/workflows/pages.yml`) that deploys the
-site automatically on every push to `main`. To turn it on once:
+1. Go to the repo's **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Set **Branch** to `main` and the folder to `/ (root)`, then **Save**.
 
-1. Go to **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-
-The next push (or a manual run of the "Deploy to GitHub Pages" workflow) publishes the site.
+Wait about a minute and the site goes live at
+`https://talos91.github.io/palworld-breeding-calculator/`. Every future push to
+`main` re-publishes it automatically — no workflow needed.
 
 ## How the breeding math works
 
