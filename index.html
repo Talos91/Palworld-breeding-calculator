@@ -110,6 +110,29 @@
   .rk.bad{background:rgba(255,107,107,.16);color:var(--bad)}
   .picker-btn .rk{margin-right:2px}
   .picker-btn.placeholder .pn{color:var(--muted);font-weight:500}
+  .ownstar{color:#ffd23f;font-size:.8rem;flex:0 0 auto}
+  /* My Pals */
+  .mp-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .mini{background:var(--chip);border:1px solid var(--line);color:var(--muted);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:700}
+  .mini:hover{border-color:var(--bad);color:var(--bad)}
+  .owngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px;margin-top:6px;max-height:460px;overflow-y:auto;padding:2px}
+  .owncard{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:7px 9px;cursor:pointer;position:relative;user-select:none}
+  .owncard:hover{border-color:var(--accent)}
+  .owncard.own{border-color:var(--good);background:rgba(46,224,106,.09)}
+  .owncard .ocn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.82rem;font-weight:600}
+  .owncard .ock{position:absolute;top:-6px;right:-6px;background:var(--good);color:#0d1117;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900}
+  /* chips + wishlist */
+  .chipbar{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+  .chip{background:rgba(77,208,225,.16);color:var(--accent);border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+  .chip .x{cursor:pointer;opacity:.7}
+  .chip .x:hover{opacity:1;color:var(--bad)}
+  .wlrow{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .wlrow.done{opacity:.55}
+  .wlrow.done .wlname{text-decoration:line-through}
+  .wlrow .wlmain{flex:1;min-width:0}
+  .wlrow .wlname{font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .wlrow .wlskills{margin-top:3px;display:flex;gap:5px;flex-wrap:wrap}
+  .wldone{width:18px;height:18px;flex:0 0 auto;cursor:pointer}
   a{color:var(--accent)}
   .kbd{font-family:ui-monospace,monospace;background:var(--chip);padding:1px 6px;border-radius:6px;font-size:.82rem}
 </style>
@@ -126,6 +149,8 @@
     <div class="tab" data-tab="mount">🏆 Perfect Pal (multi-skill)</div>
     <div class="tab" data-tab="all">🧬 All combinations</div>
     <div class="tab" data-tab="lookup">🔎 Single pairing</div>
+    <div class="tab" data-tab="mypals">📦 My Pals</div>
+    <div class="tab" data-tab="wishlist">📝 Wishlist</div>
   </div>
 
 
@@ -142,7 +167,8 @@
       </div>
     </div>
     <div class="opts">
-      <label><input type="checkbox" id="p-catchonly" /> Only suggest partners I can catch in the wild</label>
+      <label><input type="checkbox" id="p-catchonly" /> Only catchable partners</label>
+      <label><input type="checkbox" id="p-ownedonly" /> Only Pals I own</label>
     </div>
     <button class="go" id="p-go">Find shortest path →</button>
     <div class="result" id="p-result"></div>
@@ -159,7 +185,8 @@
       </div>
       <div>
         <label>&nbsp;</label>
-        <label class="optline"><input type="checkbox" id="m-catchonly" /> Only route through catchable partners</label>
+        <label class="optline"><input type="checkbox" id="m-catchonly" /> Only catchable partners</label>
+        <label class="optline"><input type="checkbox" id="m-ownedonly" /> Only Pals I own</label>
       </div>
     </div>
     <button class="go" id="m-go">Plan the build →</button>
@@ -178,6 +205,7 @@
         <select id="a-pool">
           <option value="all">Any species as partner</option>
           <option value="catch">Only catchable partners</option>
+          <option value="owned">Only Pals I own</option>
         </select>
       </div>
     </div>
@@ -193,6 +221,44 @@
     </div>
     <button class="go" id="l-go">Breed →</button>
     <div class="result" id="l-result"></div>
+  </div>
+
+  <!-- MY PALS -->
+  <div class="card tab-panel" id="panel-mypals" style="display:none">
+    <div class="mp-head">
+      <div><b id="mp-count">0</b> Pals owned <span class="hint">· saved in this browser (accounts coming later)</span></div>
+      <button class="mini" id="mp-clear">Clear all</button>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <div><label>Search</label><input id="mp-search" placeholder="name or #number…" /></div>
+      <div><label>Type</label><select id="mp-type"></select></div>
+      <div><label>Work skill</label><select id="mp-work"></select></div>
+      <div><label>&nbsp;</label><label class="optline"><input type="checkbox" id="mp-ownedonly" /> Show owned only</label></div>
+    </div>
+    <p class="hint" style="margin:10px 0 6px">Tap a Pal to toggle whether you own it.</p>
+    <div id="mp-grid" class="owngrid"></div>
+
+    <div class="phase" style="margin-top:22px">🧬 Breed a Pal you don't have — from your collection</div>
+    <p class="hint" style="margin:0 0 10px">Pick a Pal you want. If it's reachable by breeding from the Pals you own, you'll get the full breeding tree (leaves = Pals you already have).</p>
+    <div class="row">
+      <div><label>Target Pal</label><select id="mp-target"></select></div>
+      <div style="flex:0 0 auto;display:flex;align-items:flex-end"><button class="go" id="mp-plan" style="margin-top:0">Plan from my Pals →</button></div>
+    </div>
+    <div id="mp-planresult" class="result"></div>
+  </div>
+
+  <!-- WISHLIST -->
+  <div class="card tab-panel" id="panel-wishlist" style="display:none">
+    <div class="phase" style="margin-top:0">➕ Add a Pal you're chasing</div>
+    <div class="row">
+      <div><label>Pal I want</label><select id="wl-pal"></select></div>
+      <div><label>Desired skills (pick up to 4)</label><input type="hidden" id="wl-skill" /></div>
+    </div>
+    <div id="wl-chips" class="chipbar"></div>
+    <button class="go" id="wl-add">Add to wishlist →</button>
+
+    <div class="phase" style="margin-top:22px">📝 My wishlist</div>
+    <div id="wl-list"></div>
   </div>
 
   <footer id="foot"></footer>
@@ -271,12 +337,12 @@ const Engine = (() => {
 
   function isSpecial(a, b){ return special.has(key(a,b)); }
 
-  // All children obtainable from `parent` using partners in the pool.
+  // All children obtainable from `parent`. `partnerOk` (optional) filters the partner pool.
   // Returns Map child -> [{partner, special}]
-  function childrenFrom(parent, catchOnly){
+  function childrenFrom(parent, partnerOk){
     const out = new Map();
     for(const partner of pals){
-      if(catchOnly && !partner.catchable) continue;
+      if(partnerOk && !partnerOk(partner)) continue;
       const child = breed(parent.name, partner.name);
       if(!child) continue;
       if(!out.has(child)) out.set(child, []);
@@ -285,9 +351,9 @@ const Engine = (() => {
     return out;
   }
 
-  // BFS shortest species-path from source -> target.
+  // BFS shortest species-path from source -> target. `partnerOk` (optional) filters partners.
   // Each edge: current species + partner -> next species. Returns array of steps or null.
-  function shortestPath(source, target, catchOnly){
+  function shortestPath(source, target, partnerOk){
     if(source === target) return [];
     const prev = new Map();       // species -> {from, partner, special}
     const seen = new Set([source]);
@@ -296,7 +362,7 @@ const Engine = (() => {
       const next = [];
       for(const cur of frontier){
         for(const partner of pals){
-          if(catchOnly && !partner.catchable) continue;
+          if(partnerOk && !partnerOk(partner)) continue;
           const child = breed(cur, partner.name);
           if(!child || child === cur || seen.has(child)) continue;
           seen.add(child);
@@ -344,6 +410,16 @@ function fillSelect(sel, selected){
   sel.innerHTML = namesSorted.map(n => `<option${n===selected?" selected":""}>${n}</option>`).join("");
 }
 function catchable(name){ const p = Engine.byName.get(name); return p && p.catchable; }
+
+/* ---------- Collection state (saved in this browser; real accounts coming later) ---------- */
+const STORE_KEY = "palworld_companion_v1";
+let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[]}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[]}; } })();
+function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){} }
+function isOwned(n){ return !!STATE.owned[n]; }
+function setOwned(n, v){ if(v) STATE.owned[n]=1; else delete STATE.owned[n]; saveState(); }
+function ownedNames(){ return Object.keys(STATE.owned).filter(n => Engine.byName.has(n)); }
+function ownedCount(){ return ownedNames().length; }
+function partnerFilter(catchOnly, ownedOnly){ return p => (!catchOnly || p.catchable) && (!ownedOnly || isOwned(p.name)); }
 
 // Thumbnails: img/<paldeckId>.png, with a generated coloured-initial badge as fallback.
 function slug(n){ return n.toLowerCase().replace(/[^a-z0-9]/g,""); }
@@ -402,7 +478,7 @@ function makePicker(selectId){
       if(wf && !worksOf(n).includes(wf)) return false;
       return true;
     }).map(n =>
-      `<div class="picker-item${n===sel.value?" on":""}" data-n="${n}"><span class="dexno">${dexStr(n)}</span>${thumb(n)}<span class="pn">${n}</span>${typeBadges(n)}${catchable(n)?'':'<span class="tag breed">breed</span>'}</div>`).join("");
+      `<div class="picker-item${n===sel.value?" on":""}" data-n="${n}"><span class="dexno">${dexStr(n)}</span>${thumb(n)}<span class="pn">${n}</span>${isOwned(n)?'<span class="ownstar" title="you own this">★</span>':''}${typeBadges(n)}${catchable(n)?'':'<span class="tag breed">breed</span>'}</div>`).join("");
     list.innerHTML = rows || `<div class="empty" style="padding:14px">no matches</div>`;
   }
   function close(){ panel.style.display = "none"; }
@@ -432,7 +508,8 @@ function rankInfo(r){
   if(r>=4)  return {cls:"top",  label:"★"+r};
   return {cls:"good", label:"+"+r};
 }
-function makeSkillPicker(hiddenId){
+function makeSkillPicker(hiddenId, opts){
+  opts = opts || {};
   const hid = document.getElementById(hiddenId); if(!hid) return;
   const wrap = document.createElement("div"); wrap.className = "picker";
   const btn = document.createElement("button"); btn.type = "button"; btn.className = "picker-btn";
@@ -470,7 +547,10 @@ function makeSkillPicker(hiddenId){
   search.addEventListener("input", buildList);
   list.addEventListener("click", e => {
     const it = e.target.closest(".picker-item"); if(!it) return;
-    hid.value = it.dataset.n; renderBtn(); close();
+    const v = it.dataset.n;
+    hid.value = v; renderBtn(); close();
+    if(opts.onPick) opts.onPick(v);
+    if(opts.resetAfter){ hid.value = ""; renderBtn(); }
   });
   renderBtn();
 }
@@ -481,20 +561,23 @@ document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () =>
   t.classList.add("active");
   document.querySelectorAll(".tab-panel").forEach(p=>p.style.display="none");
   $("#panel-"+t.dataset.tab).style.display="block";
+  if(t.dataset.tab==="mypals") renderMyPals();
+  if(t.dataset.tab==="wishlist") renderWishlist();
 }));
 
 /* ---------- Path / skill transfer ---------- */
 function renderPath(){
   const source = $("#p-parent").value, target = $("#p-target").value;
-  const catchOnly = $("#p-catchonly").checked;
+  const catchOnly = $("#p-catchonly").checked, ownedOnly = $("#p-ownedonly").checked;
   const box = $("#p-result");
   if(source === target){
     box.innerHTML = `<div class="summary">Parent and target are the same species — your <b>${source}</b> already is the target. To move a passive within the same species, breed it with another <b>${source}</b> and keep the offspring that inherit the skill.</div>`;
     return;
   }
-  const path = Engine.shortestPath(source, target, catchOnly);
+  const path = Engine.shortestPath(source, target, partnerFilter(catchOnly, ownedOnly));
   if(!path){
-    box.innerHTML = `<div class="summary">No breeding path found from <b>${source}</b> to <b>${target}</b>${catchOnly?" using only catchable partners":""}.<div class="note">Some Pals (e.g. certain legendaries) can't be produced by breeding up from other species — the only way to get one carrying your passive is to breed two of that species where one already has it.</div></div>`;
+    const filt = ownedOnly ? " using only Pals you own" : (catchOnly ? " using only catchable partners" : "");
+    box.innerHTML = `<div class="summary">No breeding path found from <b>${source}</b> to <b>${target}</b>${filt}.<div class="note">Some Pals (e.g. certain legendaries) can't be produced by breeding up from other species — the only way to get one carrying your passive is to breed two of that species where one already has it. ${ownedOnly?"Or turn off <b>Only use Pals I own</b> to see the full path.":""}</div></div>`;
     return;
   }
   const steps = path.length;
@@ -518,8 +601,8 @@ function renderPath(){
 /* ---------- All combinations ---------- */
 function renderAll(){
   const parent = $("#a-parent").value;
-  const catchOnly = $("#a-pool").value === "catch";
-  const map = Engine.childrenFrom(Engine.byName.get(parent), catchOnly);
+  const pool = $("#a-pool").value;
+  const map = Engine.childrenFrom(Engine.byName.get(parent), partnerFilter(pool==="catch", pool==="owned"));
   const box = $("#a-result");
   if(map.size === 0){ box.innerHTML = `<div class="empty">No children found.</div>`; return; }
   const entries = [...map.entries()].sort((a,b)=>(dexOf(a[0])??9999)-(dexOf(b[0])??9999) || a[0].localeCompare(b[0]));
@@ -577,7 +660,8 @@ function carrierHTML(target, skills){
 }
 function renderMount(){
   const target = $("#m-target").value;
-  const catchOnly = $("#m-catchonly").checked;
+  const catchOnly = $("#m-catchonly").checked, ownedOnly = $("#m-ownedonly").checked;
+  const partnerOk = partnerFilter(catchOnly, ownedOnly);
   const box = $("#m-result");
   // Collect active sources (a row counts if a skill name was entered).
   const sources = [];
@@ -602,10 +686,11 @@ function renderMount(){
       html += `<div class="merge">Your <b>${target}</b> already is the target species — it carries <span class="skilltag">${src.skill}</span>, ready to combine.</div>`;
       return;
     }
-    const path = Engine.shortestPath(src.species, target, catchOnly);
+    const path = Engine.shortestPath(src.species, target, partnerOk);
     if(!path){
       failed.push(src);
-      html += `<div class="merge"><div>⚠️ No breeding route from <b>${src.species}</b> to <b>${target}</b>${catchOnly?" using only catchable partners":""}, so <span class="skilltag">${src.skill}</span> can't be moved onto ${target} by breeding.</div></div>`;
+      const filt = ownedOnly ? " using only Pals you own" : (catchOnly ? " using only catchable partners" : "");
+      html += `<div class="merge"><div>⚠️ No breeding route from <b>${src.species}</b> to <b>${target}</b>${filt}, so <span class="skilltag">${src.skill}</span> can't be moved onto ${target} by breeding.</div></div>`;
       return;
     }
     routed.push(src.skill);
@@ -643,6 +728,88 @@ function renderMount(){
   box.innerHTML = html;
 }
 
+/* ---------- My Pals + collection-based breeding ---------- */
+// Everything breedable from the Pals you own (fixpoint over all pairs), recording each Pal's parents.
+function ownedClosure(){
+  const known = new Set(ownedNames());
+  const producedBy = new Map();          // child -> {a, b, special}
+  let addedLast = [...known];
+  while(addedLast.length){
+    const knownArr = [...known];
+    const newly = [];
+    for(const a of addedLast){
+      for(const b of knownArr){
+        const c = Engine.breed(a, b);
+        if(!c || known.has(c)) continue;
+        known.add(c); producedBy.set(c, {a, b, special: Engine.isSpecial(a,b)}); newly.push(c);
+      }
+    }
+    addedLast = newly;
+  }
+  return {known, producedBy};
+}
+// Ordered, de-duplicated build steps (leaves = owned Pals) to reach a target.
+function collectSteps(target, producedBy){
+  const owned = new Set(ownedNames()), steps = [], done = new Set();
+  (function visit(n){
+    if(owned.has(n) || done.has(n)) return;
+    const pb = producedBy.get(n); if(!pb) return;
+    visit(pb.a); visit(pb.b);
+    if(done.has(n)) return; done.add(n);
+    steps.push({a: pb.a, b: pb.b, c: n, special: pb.special});
+  })(target);
+  return steps;
+}
+function renderMyPals(){
+  $("#mp-count").textContent = ownedCount();
+  const q = $("#mp-search").value.trim().toLowerCase();
+  const num = /^#?\d+$/.test(q) ? parseInt(q.replace("#",""),10) : null;
+  const tf = $("#mp-type").value, wf = $("#mp-work").value, oo = $("#mp-ownedonly").checked;
+  const rows = namesByDex.filter(n => {
+    if(oo && !isOwned(n)) return false;
+    if(num!=null){ if(dexNum(dexOf(n))!==num) return false; }
+    else if(q && !n.toLowerCase().includes(q)) return false;
+    if(tf && !typesOf(n).includes(tf)) return false;
+    if(wf && !worksOf(n).includes(wf)) return false;
+    return true;
+  }).map(n => `<div class="owncard${isOwned(n)?" own":""}" data-n="${n}"><span class="dexno">${dexStr(n)}</span>${thumb(n)}<span class="ocn">${n}</span>${isOwned(n)?'<span class="ock">✓</span>':""}</div>`).join("");
+  $("#mp-grid").innerHTML = rows || `<div class="empty">no matches</div>`;
+}
+function renderMissingBreed(){
+  const target = $("#mp-target").value, box = $("#mp-planresult");
+  if(ownedCount() === 0){ box.innerHTML = `<div class="summary">Mark some Pals as owned first (tap them above).</div>`; return; }
+  if(isOwned(target)){ box.innerHTML = `<div class="summary">You already own <b>${target}</b>. 🎉</div>`; return; }
+  const {known, producedBy} = ownedClosure();
+  if(!known.has(target)){
+    const ig = Engine.byName.get(target);
+    box.innerHTML = `<div class="summary">You can't breed <b>${target}</b> from your current Pals.<div class="note">Catch it, or add the missing intermediate Pals to your collection. ${ig && ig.ignoreCombi ? `<b>${target}</b> is breed-only via its own self-combo — you'd need two of it.` : ""}</div></div>`;
+    return;
+  }
+  const steps = collectSteps(target, producedBy);
+  let html = `<div class="summary">✅ You can breed <b>${target}</b> from your collection in <b>${steps.length}</b> step${steps.length>1?"s":""}.</div><div class="chain">`;
+  steps.forEach((s,i) => { html += `<div class="step"><span class="stepno">${i+1}</span>${palChip(s.a)} <span class="plus">+</span> ${palChip(s.b)} <span class="arrow">→</span> ${childChip(s.c)} ${s.special?'<span class="tag special">special combo</span>':""}</div>`; });
+  html += `</div><p class="hint" style="margin-top:10px">Each result feeds the next step; the leaves are Pals you already own.</p>`;
+  box.innerHTML = html;
+}
+
+/* ---------- Wishlist ---------- */
+let wlTemp = [];
+function renderWlChips(){ $("#wl-chips").innerHTML = wlTemp.length ? wlTemp.map((s,i)=>`<span class="chip" data-i="${i}">${s} <span class="x">✕</span></span>`).join("") : `<span class="hint">no skills added yet (optional)</span>`; }
+function renderWishlist(){
+  const box = $("#wl-list");
+  if(!STATE.wishlist.length){ box.innerHTML = `<div class="empty">Nothing on your wishlist yet.</div>`; return; }
+  box.innerHTML = STATE.wishlist.map((w,idx) => {
+    const owned = isOwned(w.pal);
+    return `<div class="wlrow${w.done?" done":""}" data-i="${idx}">
+      <input type="checkbox" class="wldone" ${w.done?"checked":""}>
+      ${thumb(w.pal)}
+      <div class="wlmain"><div class="wlname">${dexStr(w.pal)} ${w.pal} ${owned?'<span class="tag catch">owned</span>':""}</div>
+      <div class="wlskills">${(w.skills||[]).length ? w.skills.map(s=>`<span class="skilltag">${s}</span>`).join(" ") : '<span class="hint">any skills</span>'}</div></div>
+      <button class="mini wlremove">remove</button>
+    </div>`;
+  }).join("");
+}
+
 /* ---------- Init ---------- */
 ["p-parent","p-target","a-parent","l-a","l-b","m-target"].forEach(id => fillSelect($("#"+id)));
 $("#p-parent").value = namesSorted.includes("Cattiva") ? "Cattiva" : namesSorted[0];
@@ -670,7 +837,27 @@ $("#m-target").value = namesSorted.includes("Vanwyrm") ? "Vanwyrm" : namesSorted
 // Upgrade every Pal <select> into a searchable image picker (values already set above).
 ["p-parent","p-target","a-parent","l-a","l-b","m-target","m-p1","m-p2","m-p3","m-p4"].forEach(makePicker);
 // Build the passive-skill pickers for the 4 Perfect Pal rows (hidden values seeded above).
-["m-k1","m-k2","m-k3","m-k4"].forEach(makeSkillPicker);
+["m-k1","m-k2","m-k3","m-k4"].forEach(id => makeSkillPicker(id));
+
+// ----- My Pals + Wishlist -----
+$("#mp-type").innerHTML = `<option value="">All types</option>` + ALL_TYPES.map(t => `<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");
+$("#mp-work").innerHTML = `<option value="">All work skills</option>` + ALL_WORKS.map(w => `<option value="${w}">${prettyWork(w)}</option>`).join("");
+fillSelect($("#mp-target")); $("#mp-target").value = namesByDex.find(n => !isOwned(n)) || namesByDex[0]; makePicker("mp-target");
+fillSelect($("#wl-pal")); makePicker("wl-pal");
+makeSkillPicker("wl-skill", { onPick: v => { if(v && wlTemp.length < 4 && !wlTemp.includes(v)){ wlTemp.push(v); renderWlChips(); } }, resetAfter: true });
+renderWlChips();
+
+$("#mp-grid").addEventListener("click", e => { const c = e.target.closest(".owncard"); if(!c) return; setOwned(c.dataset.n, !isOwned(c.dataset.n)); renderMyPals(); });
+$("#mp-search").addEventListener("input", renderMyPals);
+["mp-type","mp-work"].forEach(id => $("#"+id).addEventListener("change", renderMyPals));
+$("#mp-ownedonly").addEventListener("change", renderMyPals);
+$("#mp-clear").addEventListener("click", () => { if(confirm("Clear all owned Pals?")){ STATE.owned = {}; saveState(); renderMyPals(); } });
+$("#mp-plan").addEventListener("click", renderMissingBreed);
+
+$("#wl-chips").addEventListener("click", e => { if(e.target.classList.contains("x")){ wlTemp.splice(+e.target.closest(".chip").dataset.i, 1); renderWlChips(); } });
+$("#wl-add").addEventListener("click", () => { STATE.wishlist.push({pal: $("#wl-pal").value, skills: wlTemp.slice(), done: false}); wlTemp = []; renderWlChips(); saveState(); renderWishlist(); });
+$("#wl-list").addEventListener("click", e => { const row = e.target.closest(".wlrow"); if(row && e.target.classList.contains("wlremove")){ STATE.wishlist.splice(+row.dataset.i, 1); saveState(); renderWishlist(); } });
+$("#wl-list").addEventListener("change", e => { if(e.target.classList.contains("wldone")){ STATE.wishlist[+e.target.closest(".wlrow").dataset.i].done = e.target.checked; saveState(); renderWishlist(); } });
 
 $("#p-go").addEventListener("click", renderPath);
 $("#a-go").addEventListener("click", renderAll);
