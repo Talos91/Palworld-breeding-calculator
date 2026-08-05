@@ -1,13 +1,32 @@
-# 🥚 Palworld Breeding Path Calculator
+# 🥚 Palworld Companion & Breeding Calculator
 
-A single-file, offline web app that, **starting from one parent Pal**, tells you:
+A single-file, offline web app covering the full current (Feybreak) roster of
+**288 Pals**. Tabs:
 
-- **🎯 Path to a target** — the shortest breeding chain from a parent to any target species. Doubles as a **skill-transfer planner**: your Cattiva has a great passive and you want it on a Jetragon → it finds the shortest species chain so you carry the passive down the line.
-- **🏆 Perfect mount (multi-skill)** — pick up to **4 source Pals**, each carrying a passive skill you want, plus a final target species. It produces a two-phase build plan: (1) route each skill onto the target species, then (2) stack all the skills within the target species (same-species breeding never drifts the species).
-- **🧬 All combinations** — every child a given parent can produce, and which partner makes each.
-- **🔎 Single pairing** — quick "A + B = ?" lookup.
+- **🎯 Path to a target** — shortest breeding chain from a parent to any target;
+  doubles as a **skill-transfer planner** (carry a passive down the chain).
+- **🏆 Perfect Pal (multi-skill)** — pick up to 4 source Pals each with a desired
+  passive + a target; get a two-phase build plan (route each skill onto the
+  target, then stack them within the species), with a passive-inheritance egg
+  estimate.
+- **🧬 All combinations** — every child a parent can make and the partner for each.
+- **🔎 Single pairing** — "A + B = ?" plus a **best-partner finder** (parent +
+  wanted child → every partner that makes it).
+- **📦 My Pals** — mark the Pals you own (saved in-browser, import/export JSON);
+  filter routes to **only Pals you own**; **breed a Pal you don't have** from your
+  collection; **"what can I breed?"** from what you have.
+- **📝 Wishlist** — target Pals + desired skills, with per-entry plans and a
+  **whole-wishlist farm optimizer** (shared intermediates merged).
+- **🏅 Tiers & Jobs** — per-Pal **stat card** (HP/Atk/Def, rarity, size, mount
+  type + speed, partner skill, work levels, drops); **tier lists** (fastest
+  flying/ground/swimming mounts, strongest attackers, highest HP, best base
+  Pals); and a **best-Pals-for-a-job** ranker.
 
-Every Pal is tagged **catch** (wild-obtainable) or **breed-only**, and you can restrict paths to only route through catchable partners.
+Every Pal is tagged **catch** (wild-obtainable) or **breed-only**, has an element
+badge and Paldeck number, and pickers filter by name/number/type/work skill.
+
+> Accounts/cloud sync are planned; for now your collection & wishlist live in the
+> browser's `localStorage` — use **Export** in My Pals to back them up.
 
 ## Run it
 
