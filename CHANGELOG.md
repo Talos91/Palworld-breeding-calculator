@@ -5,7 +5,39 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.4.0`).
+The current release is shown in the app footer (`v1.5.0`).
+
+---
+
+## [1.5.0] — Terraria Pals, effigy layers, visual glow-up & fixes
+
+### Added
+- **11 Terraria "Tides of Terraria" crossover Pals** (roster now **299**):
+  Eye of Cthulhu, Demon Eye, Green/Blue/Illuminant/Purple/Rainbow/Red Slime,
+  Enchanted Sword, Cave Bat, Illuminant Bat — with real datamined stats,
+  elements, work suitabilities and portraits. They're catch-only (no breeding
+  combi in the game data), so they show across the Dex/Map/Tiers but are
+  correctly flagged non-breedable.
+- **Per-type effigy map layers** — Lifmunk plus every Pal-effigy type
+  (Lamball, Pengullet, Munchill, Rooby, Herbil, Tanzee, Depresso, Lunaris,
+  Relaxaurus, Yakumo) each as its own toggle; tapping a marker shows what that
+  effigy boosts. New **🗿 Effigies guide** lists all 13 types, counts & effects.
+- **Ore split by material** — the mining layer is now separate **Ore, Coal,
+  Sulfur, Pure Quartz, Pal Crystal and Nightstone** toggles (a gap vs
+  palcompanion.com), so you can isolate the exact resource you're farming.
+
+### Changed — 🎨 maximum visual glow-up
+- Living **aurora** background, gradient-framed brand header with a glossy
+  animated egg mark, page/tab **entrance animations**, frosted-glass bottom dock
+  with a glowing active indicator, hover-lift cards & Pal tiles, vivid gradient
+  element badges, glossy buttons, glowing stat/production bars and accent
+  section headers. Fully theme-aware and respects reduced-motion.
+
+### Fixed
+- **Capture calculator** was collapsing to ~1% for the **Ultimate / Exotic /
+  Sol / Ancient** spheres (their multiplier isn't in the datamine → the formula
+  hit a null). Sphere power for those tiers is now derived from the datamined
+  capture-level, giving a correct, monotonic curve across all 10 spheres.
 
 ---
 

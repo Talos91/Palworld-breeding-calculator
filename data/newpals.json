@@ -1,0 +1,475 @@
+{
+  "pals": [
+    {
+      "name": "Eye of Cthulhu",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T01",
+      "types": [
+        "dark"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 4
+        }
+      ]
+    },
+    {
+      "name": "Demon Eye",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T02",
+      "types": [
+        "dark"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Green Slime",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T03",
+      "types": [
+        "grass"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Blue Slime",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T04",
+      "types": [
+        "water"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Illuminant Slime",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T05",
+      "types": [
+        "neutral"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Purple Slime",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T06",
+      "types": [
+        "dark"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Rainbow Slime",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T07",
+      "types": [
+        "neutral"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Red Slime",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T08",
+      "types": [
+        "fire"
+      ],
+      "works": [
+        {
+          "t": "transporting",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Enchanted Sword",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T09",
+      "types": [
+        "neutral"
+      ],
+      "works": [
+        {
+          "t": "lumbering",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Cave Bat",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T10",
+      "types": [
+        "neutral"
+      ],
+      "works": [
+        {
+          "t": "gathering",
+          "lvl": 1
+        }
+      ]
+    },
+    {
+      "name": "Illuminant Bat",
+      "combiRank": null,
+      "combiDuplicatePriority": null,
+      "ignoreCombi": true,
+      "catchable": true,
+      "dex": "T11",
+      "types": [
+        "neutral"
+      ],
+      "works": [
+        {
+          "t": "gathering",
+          "lvl": 1
+        }
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "name": "Eye of Cthulhu",
+      "stats": {
+        "hp": 110,
+        "meleeAttack": 100,
+        "shotAttack": 105,
+        "defense": 95
+      },
+      "attack": 105,
+      "rideSprintSpeed": null,
+      "runSpeed": 900,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 6,
+      "size": "l"
+    },
+    {
+      "name": "Demon Eye",
+      "stats": {
+        "hp": 105,
+        "meleeAttack": 100,
+        "shotAttack": 110,
+        "defense": 95
+      },
+      "attack": 110,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Green Slime",
+      "stats": {
+        "hp": 65,
+        "meleeAttack": 100,
+        "shotAttack": 70,
+        "defense": 80
+      },
+      "attack": 70,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Blue Slime",
+      "stats": {
+        "hp": 70,
+        "meleeAttack": 100,
+        "shotAttack": 70,
+        "defense": 80
+      },
+      "attack": 70,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Illuminant Slime",
+      "stats": {
+        "hp": 80,
+        "meleeAttack": 100,
+        "shotAttack": 75,
+        "defense": 85
+      },
+      "attack": 75,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 4,
+      "size": "s"
+    },
+    {
+      "name": "Purple Slime",
+      "stats": {
+        "hp": 75,
+        "meleeAttack": 100,
+        "shotAttack": 70,
+        "defense": 80
+      },
+      "attack": 70,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Rainbow Slime",
+      "stats": {
+        "hp": 105,
+        "meleeAttack": 100,
+        "shotAttack": 95,
+        "defense": 105
+      },
+      "attack": 95,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 4,
+      "size": "m"
+    },
+    {
+      "name": "Red Slime",
+      "stats": {
+        "hp": 70,
+        "meleeAttack": 100,
+        "shotAttack": 75,
+        "defense": 85
+      },
+      "attack": 75,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Enchanted Sword",
+      "stats": {
+        "hp": 95,
+        "meleeAttack": 100,
+        "shotAttack": 105,
+        "defense": 90
+      },
+      "attack": 105,
+      "rideSprintSpeed": null,
+      "runSpeed": 600,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Cave Bat",
+      "stats": {
+        "hp": 65,
+        "meleeAttack": 100,
+        "shotAttack": 75,
+        "defense": 80
+      },
+      "attack": 75,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 3,
+      "size": "s"
+    },
+    {
+      "name": "Illuminant Bat",
+      "stats": {
+        "hp": 80,
+        "meleeAttack": 100,
+        "shotAttack": 80,
+        "defense": 95
+      },
+      "attack": 80,
+      "rideSprintSpeed": null,
+      "runSpeed": 300,
+      "mount": {
+        "rideable": false,
+        "fly": false,
+        "swim": false,
+        "ground": true
+      },
+      "partnerSkill": null,
+      "drops": [
+        "Yakushima Ingot"
+      ],
+      "rarity": 4,
+      "size": "s"
+    }
+  ],
+  "portraits_downloaded": [
+    "Eye of Cthulhu",
+    "Demon Eye",
+    "Green Slime",
+    "Blue Slime",
+    "Illuminant Slime",
+    "Purple Slime",
+    "Rainbow Slime",
+    "Red Slime",
+    "Enchanted Sword",
+    "Cave Bat",
+    "Illuminant Bat"
+  ],
+  "portraits_missing": [],
+  "_meta": {
+    "source": "CreativeTechGuy/PalworldDBIndex (DT_PalMonsterParameter.json, PalIcon/Normal/Yakushima portraits) cross-checked with oMaN-Rod/palworld-save-pal pals.json + l10n/en",
+    "notes": "11 Terraria 'Tides of Terraria' crossover Pals (internal tribe YakushimaMonster/YakushimaBoss). ALL are non-breedable: the raw datamine flags IgnoreCombi=True and ZukanIndex=-1 (no real Paldeck number), and none appear in DT_PalCombiUnique -- so combiRank/combiDuplicatePriority set to null and ignoreCombi=true (the CombiRank=3100/Priority=310000 seen in the tables is the engine's default sentinel for ignored Pals, NOT a real breeding rank; not used). Because there is no official Paldeck index, dex ids are synthetic T01-T11 (T=Tides of Terraria collab). Elements/works/stats/rarity/size are real datamined values. Selyne (internal MoonQueen, dex 190) was ALREADY present -- not re-added. Moon Lord (RAID_YakushimaBoss002) and True Eye of Cthulhu (RAID_YakushimaBoss001_Green) are raid bosses (IsBoss=true, no element, not catchable in Paldeck) -- excluded. partnerSkill omitted (null): these Pals have no named partner skill in DT_PartnerSkillParameter (ActiveSkill 'Unknown'). drops=['Yakushima Ingot'] (internal item YakushimaIngot001, the collab material each drops). Slug convention: name.toLowerCase() then strip everything except [a-z0-9] -> e.g. 'Eye of Cthulhu' -> 'eyeofcthulhu.png'. Portraits resized 128x128 -> 100x100 to match existing img/*.png."
+  }
+}
