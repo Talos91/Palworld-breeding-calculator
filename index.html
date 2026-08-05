@@ -445,6 +445,25 @@
   .gsrow .thumb{width:34px;height:34px}
   .gsrow .pn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
 
+
+  /* tech, base planner, skill rows */
+  .techlvl{flex:0 0 auto;width:44px;height:38px;border-radius:9px;background:var(--chip);color:var(--accent);font-weight:900;font-size:.78rem;display:flex;align-items:center;justify-content:center}
+  .basegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:9px}
+  .basecard{position:relative;padding:8px}
+  .basecard .baserm{position:absolute;top:-7px;right:-7px;width:20px;height:20px;border-radius:50%;background:var(--bad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.5)}
+  .covgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:6px}
+  .covrow{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:.85rem}
+  .covrow.gap{border-color:rgba(255,111,111,.4);background:rgba(255,111,111,.07)}
+  .covrow .covwork{flex:1;font-weight:700}
+  .covrow .covlv{color:var(--accent);font-weight:900}
+  .covrow .covpal{color:var(--muted);font-size:.78rem}
+  .covrow .covnone{color:var(--bad);font-weight:800;font-size:.78rem}
+  .skillrow{display:flex;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid var(--line);font-size:.85rem}
+  .skillrow:last-child{border-bottom:none}
+  .skillrow .skname{flex:1;font-weight:600}
+  .skillrow .skpow{color:var(--warn);font-weight:800;font-size:.78rem}
+  .skillrow .skcd{color:var(--muted);font-size:.78rem}
+
 </style>
 </head>
 <body>
@@ -619,7 +638,28 @@
     <div id="bld-list" class="result"></div>
   </div>
 
-  <div class="card tab-panel" id="panel-jobs" style="display:none">
+  <!-- WIKI: TECH TREE -->
+  <div class="card tab-panel" id="panel-tech" style="display:none">
+    <div class="row" style="margin-bottom:8px">
+      <div><label>Search</label><input id="tech-search" placeholder="tech or what it unlocks…" /></div>
+      <div><label>&nbsp;</label><label class="optline"><input type="checkbox" id="tech-ancient" /> Ancient tech only</label></div>
+    </div>
+    <div id="tech-list" class="result"></div>
+  </div>
+
+  <div class="card tab-panel" id="panel-base" style="display:none">
+    <div class="phase" style="margin-top:0">🏭 Your base team <span class="hint" id="base-count"></span></div>
+    <div id="base-team" class="basegrid"></div>
+    <div class="row" style="margin:12px 0">
+      <div><label>Add a Pal to the base</label><select id="base-pick"></select></div>
+      <div style="flex:0 0 auto;display:flex;align-items:flex-end;gap:6px">
+        <button class="go" id="base-add" style="margin-top:0">＋ Add</button>
+        <button class="mini" id="base-clear" style="align-self:flex-end;padding:12px 14px">Clear</button>
+      </div>
+    </div>
+    <div class="phase">⚙️ Work coverage</div>
+    <div id="base-cov" class="covgrid"></div>
+    <div class="phase">🛠️ Best Pals for a job</div>
     <div class="row">
       <div><label>Work skill</label><select id="job-work"></select></div>
       <div><label>&nbsp;</label><label class="optline"><input type="checkbox" id="job-owned" /> Only Pals I own</label></div>
@@ -821,7 +861,7 @@ function catchable(name){ const p = Engine.byName.get(name); return p && p.catch
 
 /* ---------- Collection state (saved in this browser; real accounts coming later) ---------- */
 const STORE_KEY = "palworld_companion_v1";
-let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[]}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[]}; } })();
+let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[], base:[]}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[], base:[]}; } })();
 function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){} }
 function isOwned(n){ return !!STATE.owned[n]; }
 function setOwned(n, v){ if(v) STATE.owned[n]=1; else delete STATE.owned[n]; saveState(); }
@@ -997,7 +1037,8 @@ const PAGE_META = {
   items:{t:"Items", s:()=>ITEMS?`${ITEMS.length} ITEMS`:"LOADING…"},
   buildings:{t:"Buildings", s:()=>BUILDINGS?`${BUILDINGS.length} STRUCTURES`:"LOADING…"},
   schematics:{t:"Schematics", s:()=>(SCHEMATICS&&SCHEMATICS.length?SCHEMATICS.length+" ENTRIES":"COMING SOON")},
-  jobs:{t:"Best Pals for a Job", s:()=>"RANKED BY WORK LEVEL"},
+  tech:{t:"Technology", s:()=>TECH?`${TECH.length} TECHS`:"LOADING…"},
+  base:{t:"Base Planner", s:()=>`${(STATE.base||[]).length}/15 ASSIGNED · WORK COVERAGE`},
   tierlists:{t:"Tier Lists", s:()=>"MOUNTS · ATTACK · HP · BASE"},
 };
 const SECTIONS = [
@@ -1005,11 +1046,11 @@ const SECTIONS = [
   {id:"pals",  icon:IC.pals,  label:"Pals", panels:[["mypals","📦 My Pals"]]},
   {id:"wish",  icon:IC.wish,  label:"Wishlist", panels:[["wishlist","📝 Wishlist"]]},
   {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"]]},
-  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["dex","🐾 Pals"],["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tierlists","🏅 Tiers"],["jobs","🛠️ Jobs"]]},
+  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["dex","🐾 Pals"],["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"]]},
 ];
-let ITEMS = null, BUILDINGS = null;
+let ITEMS = null, BUILDINGS = null, TECH = null;
 const PANEL_RENDER = { mypals:renderMyPals, dex:renderDex, wishlist:renderWishlist, map:renderMap,
-  items:renderItems, buildings:renderBuildings, schematics:renderSchematics, jobs:renderJobs, tierlists:renderTiers };
+  items:renderItems, buildings:renderBuildings, schematics:renderSchematics, tech:renderTech, base:renderBase, tierlists:renderTiers };
 let curSection = null; const lastPanel = {};
 function selectPanel(pid){
   document.querySelectorAll(".tab-panel").forEach(p => p.style.display = "none");
@@ -1292,6 +1333,24 @@ function renderWishlist(){
 const INH_W = [0, 0.40, 0.30, 0.20, 0.10];
 function estCleanEggs(k){ k = Math.min(Math.max(k,1), 4); let p = 0; for(let c=k; c<=4; c++) p += INH_W[c]; return p>0 ? Math.ceil(1/p) : 99; }
 
+/* ---------- Elements + active skills ---------- */
+const ELEMENTS = {"neutral":{"strongVs":[],"weakVs":["dark"]},"fire":{"strongVs":["ice","grass"],"weakVs":["water"]},"water":{"strongVs":["fire"],"weakVs":["electric"]},"grass":{"strongVs":["ground"],"weakVs":["fire"]},"electric":{"strongVs":["water"],"weakVs":["ground"]},"ice":{"strongVs":["dragon"],"weakVs":["fire"]},"ground":{"strongVs":["electric"],"weakVs":["grass"]},"dark":{"strongVs":["neutral"],"weakVs":["dragon"]},"dragon":{"strongVs":["dark"],"weakVs":["ice"]}};
+let SKILLS = null;
+async function loadSkills(){ if(SKILLS) return SKILLS; try{ const r=await fetch("data/skills.json"); SKILLS=await r.json(); }catch(e){ SKILLS={skills:{},palSkills:{}}; } return SKILLS; }
+function matchupHTML(name){
+  const ts = typesOf(name); if(!ts.length) return "";
+  const strong=new Set(), weak=new Set();
+  ts.forEach(t => { const e=ELEMENTS[t]; if(e){ e.strongVs.forEach(x=>strong.add(x)); e.weakVs.forEach(x=>weak.add(x)); } });
+  const badges = arr => [...arr].map(t=>`<span class="tb tb-${t}">${t}</span>`).join("") || '<span class="hint">—</span>';
+  return `<div class="pdsection">Matchups</div><div class="statline">⚔️ <b>Strong vs:</b> ${badges(strong)}</div><div class="statline">🛡️ <b>Weak vs:</b> ${badges(weak)}</div>`;
+}
+function skillsHTML(name){
+  if(!SKILLS || !SKILLS.palSkills || !SKILLS.palSkills[name]) return "";
+  const keys = SKILLS.palSkills[name]; if(!keys.length) return "";
+  const rows = keys.map(k => { const s=SKILLS.skills[k]; if(!s) return ""; return `<div class="skillrow"><span class="tb tb-${s.element||'neutral'}">${s.element||'?'}</span><span class="skname">${s.name}</span>${s.power?`<span class="skpow">⚔ ${s.power}</span>`:""}${s.cd!=null?`<span class="skcd">⏱ ${s.cd}s</span>`:""}</div>`; }).filter(Boolean).join("");
+  return `<div class="pdsection">Active skills</div>${rows}`;
+}
+
 /* ---------- Best-partner finder ---------- */
 function renderBestPartner(){
   const parent = $("#bp-parent").value, child = $("#bp-child").value, box = $("#bp-result");
@@ -1436,9 +1495,12 @@ function renderPalInfo(name){
     <div class="pdsection">Work suitability</div>
     ${works.length ? works.map(w=>workDots(w.t, w.lvl)).join("") : '<div class="hint">None</div>'}
     ${mount}
+    ${matchupHTML(n)}
     ${s && s.partnerSkill && s.partnerSkill.name ? `<div class="pdsection">Partner skill</div><div class="statline"><b>${s.partnerSkill.name}</b> — ${s.partnerSkill.description||""}</div>` : ""}
+    ${skillsHTML(n)}
     ${s && s.drops && s.drops.length ? `<div class="pdsection">Drops</div><div class="pddrops">${s.drops.map(d=>`<span class="chip">${d}</span>`).join("")}</div>` : ""}
   </div>`;
+  if(!SKILLS) loadSkills().then(() => { if(renderPalInfo._last===n) renderPalInfo(n); });
 }
 
 /* ---------- Map (pan + pinch/wheel zoom + marker clustering) ---------- */
@@ -1615,6 +1677,38 @@ async function renderBuildings(){
   renderCraftList(box, BUILDINGS, $("#bld-search"), $("#bld-cat"), "buildings", "🏠", "buildings");
 }
 
+/* ---------- Wiki: Tech tree ---------- */
+async function loadTech(){ if(TECH) return TECH; try{ const r=await fetch("data/tech.json"); TECH=(await r.json()).tech||[]; }catch(e){ TECH=[]; } return TECH; }
+async function renderTech(){
+  const box=$("#tech-list");
+  if(!TECH){ box.innerHTML=`<div class="empty">Loading tech…</div>`; await loadTech(); const ps=document.querySelector("#pagehead .pagesub"); if(ps) ps.textContent=`${TECH.length} TECHS`; }
+  if(!TECH.length){ box.innerHTML=`<div class="empty">Tech data coming soon.</div>`; return; }
+  const q=($("#tech-search").value||"").trim().toLowerCase(), anc=$("#tech-ancient").checked;
+  const list=TECH.filter(t => (!anc||t.ancient) && (!q || t.name.toLowerCase().includes(q) || (t.unlocks||[]).some(u=>u.toLowerCase().includes(q))));
+  box.innerHTML=`<div class="summary">${list.length} tech${list.length!==1?"s":""}.</div><div class="schgrid">` + list.slice(0,400).map(t =>
+    `<div class="schcard"><div class="schtop"><span class="techlvl">Lv${t.level}</span><div class="schnames"><div class="schunlock">${t.name}</div><div class="schsub">${t.cost!=null?`${t.cost} ${t.ancient?"ancient ":""}point${t.cost!==1?"s":""}`:"&nbsp;"}</div></div>${t.ancient?`<span class="schtier rar-3">Ancient</span>`:""}</div>${t.description?`<div class="itemdesc">${t.description}</div>`:""}${(t.unlocks&&t.unlocks.length)?`<div class="itemdrops">🔓 ${t.unlocks.join(", ")}</div>`:""}</div>`).join("")
+    + `</div>` + (list.length>400?`<p class="hint" style="padding:8px">Showing first 400 — search to narrow.</p>`:"");
+}
+
+/* ---------- Wiki: Base planner ---------- */
+function worksLvl(n, w){ const p=Engine.byName.get(n); const x=((p&&p.works)||[]).find(x=>x.t===w); return x?x.lvl:0; }
+function bestForWork(w){ const r=Engine.pals.filter(p=>(p.works||[]).some(x=>x.t===w)).map(p=>({n:p.name, lvl:worksLvl(p.name,w)})).sort((a,b)=>(isOwned(b.n)-isOwned(a.n))||b.lvl-a.lvl); return r[0]?r[0].n:null; }
+function baseAdd(n){ STATE.base=STATE.base||[]; if(n && !STATE.base.includes(n) && STATE.base.length<15){ STATE.base.push(n); saveState(); renderBase(); } }
+function baseRemove(n){ STATE.base=(STATE.base||[]).filter(x=>x!==n); saveState(); renderBase(); }
+function renderBase(){
+  STATE.base=STATE.base||[]; const team=STATE.base;
+  $("#base-count").textContent=`(${team.length}/15)`;
+  const psub=document.querySelector("#pagehead .pagesub"); if(psub) psub.textContent=`${team.length}/15 ASSIGNED · WORK COVERAGE`;
+  $("#base-team").innerHTML = team.length ? team.map(n=>`<div class="owncard basecard" data-n="${n}"><img class="thumb ocimg" loading="lazy" style="--ring:${ringOf(n)}" alt="${n}" data-name="${n}" src="${imgURL(n)}"><div class="ocn">${n}</div><span class="baserm" title="remove">✕</span></div>`).join("") : `<div class="hint" style="padding:8px">No Pals assigned — add some below to see your base's work coverage &amp; gaps.</div>`;
+  $("#base-cov").innerHTML = ALL_WORKS.map(w=>{
+    let best=0,bp=null; team.forEach(n=>{ const lv=worksLvl(n,w); if(lv>best){best=lv;bp=n;} });
+    if(best) return `<div class="covrow"><span class="covwork">${prettyWork(w)}</span><b class="covlv">Lv${best}</b><span class="covpal">${bp}</span></div>`;
+    const sug=bestForWork(w);
+    return `<div class="covrow gap"><span class="covwork">${prettyWork(w)}</span><span class="covnone">no cover</span>${sug?`<span class="covpal">try ${sug}${isOwned(sug)?" ★":""}</span>`:""}</div>`;
+  }).join("");
+  renderJobs();
+}
+
 /* ---------- Init ---------- */
 ["p-parent","p-target","a-parent","l-a","l-b","m-target"].forEach(id => fillSelect($("#"+id)));
 $("#p-parent").value = namesSorted.includes("Cattiva") ? "Cattiva" : namesSorted[0];
@@ -1688,6 +1782,16 @@ $("#job-work").innerHTML = ALL_WORKS.map(w => `<option value="${w}">${prettyWork
 $("#job-work").value = ALL_WORKS.includes("mining") ? "mining" : ALL_WORKS[0];
 $("#job-work").addEventListener("change", renderJobs);
 $("#job-owned").addEventListener("change", renderJobs);
+
+// Tech tree
+$("#tech-search").addEventListener("input", renderTech);
+$("#tech-ancient").addEventListener("change", renderTech);
+
+// Base planner
+fillSelect($("#base-pick")); $("#base-pick").value = namesByDex.includes("Lamball") ? "Lamball" : namesByDex[0]; makePicker("base-pick");
+$("#base-add").addEventListener("click", () => baseAdd($("#base-pick").value));
+$("#base-clear").addEventListener("click", () => { if(confirm("Clear your base team?")){ STATE.base=[]; saveState(); renderBase(); } });
+$("#base-team").addEventListener("click", e => { const c=e.target.closest(".basecard"); if(c && e.target.classList.contains("baserm")) baseRemove(c.dataset.n); });
 
 // Wiki: Pal Dex (grid → detail)
 $("#dex-type").innerHTML = `<option value="">All types</option>` + ALL_TYPES.map(t => `<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");
