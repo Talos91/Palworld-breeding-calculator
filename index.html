@@ -1854,8 +1854,9 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
+const APP_VERSION = "1.2.0";
 const m = PAL_DATA.meta || {};
-$("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank`
+$("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")
   + `<br><span class="hint">Not affiliated with Pocketpair. Breeding data is community-sourced and may need updating for new game patches.</span>`;
 
