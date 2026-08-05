@@ -25,8 +25,11 @@ A single-file, offline web app covering the full current (Feybreak) roster of
 Every Pal is tagged **catch** (wild-obtainable) or **breed-only**, has an element
 badge and Paldeck number, and pickers filter by name/number/type/work skill.
 
-> Accounts/cloud sync are planned; for now your collection & wishlist live in the
-> browser's `localStorage` — use **Export** in My Pals to back them up.
+> **Accounts & cloud sync** are built in (Supabase): sign in with the **👤**
+> button and your owned Pals, wishlist and base plan sync across devices. It's
+> optional — with no keys configured the app runs entirely on the browser's
+> `localStorage` (use **Export** in My Pals to back up). See
+> [`SUPABASE_SETUP.md`](SUPABASE_SETUP.md) for the ~2-minute setup.
 
 ## Run it
 

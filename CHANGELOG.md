@@ -5,20 +5,36 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.2.0`).
+The current release is shown in the app footer (`v1.3.0`).
 
 ---
 
 ## [Unreleased]
 
 ### Planned
-- **Accounts & cloud sync** (Supabase) — sign in to sync your owned Pals,
-  wishlist and base plan across devices; falls back to local storage when
-  signed out.
 - **Capture-rate calculator** — estimate catch odds by sphere and HP (community
   formula; flagged as an estimate).
 - **Damage / type-effectiveness calculator** — boss-counter suggestions from the
   element chart.
+
+---
+
+## [1.3.0] — Accounts & cloud sync
+
+### Added
+- **👤 Account & cloud sync** via Supabase — sign up / sign in with email +
+  password and your **owned Pals, wishlist and base plan sync automatically**
+  across every device on each change.
+- Header account button with a sign-in / sign-out modal and a "Sync now" action.
+- Graceful fallback: with no Supabase keys configured (or offline) the app runs
+  exactly as before on browser-local storage — nothing to set up to use it.
+- **`SUPABASE_SETUP.md`** — ~2-minute one-time setup: create a free project, run
+  the provided SQL (a `profiles` table protected by Row-Level-Security so each
+  user only ever sees their own row), and paste in your project URL + anon key.
+
+### Security
+- Row Level Security policies restrict every read/write to the signed-in user's
+  own row; the anon key is safe to ship in the public static site.
 
 ---
 

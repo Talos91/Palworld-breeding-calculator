@@ -445,6 +445,26 @@
   .gsrow .thumb{width:34px;height:34px}
   .gsrow .pn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
 
+  /* account / cloud sync */
+  .acctbody{overflow-y:auto;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px}
+  .acctbody label{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .acctbody input[type=email],.acctbody input[type=password]{width:100%;padding:11px 12px;border-radius:11px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-size:.95rem}
+  .acctbtnrow{display:flex;gap:8px;flex-wrap:wrap}
+  .acctbtnrow button{flex:1;min-width:120px;padding:11px 14px;border-radius:11px;border:1px solid var(--line2);background:var(--chip);color:var(--txt);font-weight:800;cursor:pointer;transition:filter .15s,border-color .15s}
+  .acctbtnrow button.primary{background:linear-gradient(90deg,var(--accent2),var(--accent));color:var(--ink);border:none}
+  .acctbtnrow button:hover{filter:brightness(1.07)}
+  .acctmsg{font-size:.82rem;padding:9px 11px;border-radius:10px;line-height:1.45}
+  .acctmsg.err{background:rgba(255,90,90,.12);color:#ff8a8a;border:1px solid rgba(255,90,90,.25)}
+  .acctmsg.ok{background:rgba(53,227,198,.12);color:var(--accent2);border:1px solid rgba(53,227,198,.25)}
+  .acctmsg.info{background:var(--panel2);color:var(--muted)}
+  .acctstat{display:flex;align-items:center;gap:10px;padding:12px;border-radius:12px;background:var(--panel2);border:1px solid var(--line)}
+  .acctstat .who{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .acctstat .who b{display:block;font-size:.95rem}
+  .acctstat .who span{font-size:.75rem;color:var(--muted)}
+  .acctsetup{font-size:.82rem;line-height:1.55;color:var(--muted)}
+  .acctsetup code{background:var(--panel2);padding:1px 6px;border-radius:6px;font-size:.78rem}
+  .acctsetup ol{margin:8px 0 0;padding-left:20px} .acctsetup li{margin:4px 0}
+
 
   /* tech, base planner, skill rows */
   .techlvl{flex:0 0 auto;width:44px;height:38px;border-radius:9px;background:var(--chip);color:var(--accent);font-weight:900;font-size:.78rem;display:flex;align-items:center;justify-content:center}
@@ -472,6 +492,7 @@
     <div class="brandmark">🥚</div>
     <div class="brandtext"><h1>Palworld <span>Companion</span></h1><div class="brandsub">Breeding · Collection · Map · Tiers</div></div>
     <button id="searchbtn" class="iconbtn" title="Search everything">🔎</button>
+    <button id="acctbtn" class="iconbtn" title="Account &amp; cloud sync">👤</button>
     <button id="themebtn" class="iconbtn" title="Toggle theme">☾</button>
     <button id="installbtn" style="display:none">⬇ Install</button>
   </header>
@@ -702,6 +723,13 @@
   </div>
 </div>
 
+<div class="gsearch" id="acctmodal" style="display:none">
+  <div class="gsbox">
+    <div class="gsbar"><strong style="flex:1;display:flex;align-items:center;padding-left:4px">☁️ Account &amp; Cloud Sync</strong><button id="acct-close" class="iconbtn">✕</button></div>
+    <div id="acct-body" class="acctbody"></div>
+  </div>
+</div>
+
 <nav class="dock" id="dock"></nav>
 
 <script>
@@ -862,11 +890,96 @@ function catchable(name){ const p = Engine.byName.get(name); return p && p.catch
 /* ---------- Collection state (saved in this browser; real accounts coming later) ---------- */
 const STORE_KEY = "palworld_companion_v1";
 let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[], base:[]}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[], base:[]}; } })();
-function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){} }
+function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){} if(typeof Cloud!=="undefined") Cloud.onLocalChange(); }
 function isOwned(n){ return !!STATE.owned[n]; }
 function setOwned(n, v){ if(v) STATE.owned[n]=1; else delete STATE.owned[n]; saveState(); }
 function ownedNames(){ return Object.keys(STATE.owned).filter(n => Engine.byName.has(n)); }
 function ownedCount(){ return ownedNames().length; }
+
+/* ---------- Cloud sync (Supabase) ---------- */
+/* To enable accounts + cross-device sync, create a free Supabase project and
+   paste its URL + anon (public) key below. Leave blank to run local-only.
+   See SUPABASE_SETUP.md for the one-time table + SQL. */
+const SUPABASE_URL  = "";   // e.g. "https://xxxxxxxx.supabase.co"
+const SUPABASE_ANON = "";   // the project's anon/public key
+
+const Cloud = (() => {
+  let client = null, user = null, pushTimer = null, pulling = false;
+  const enabled = () => !!(SUPABASE_URL && SUPABASE_ANON);
+  const listeners = [];
+  function onChange(fn){ listeners.push(fn); }
+  function emit(){ listeners.forEach(fn => { try{ fn(); }catch(e){} }); }
+
+  async function load(){
+    if(client) return client;
+    if(!enabled()) return null;
+    if(!window.supabase){
+      await new Promise((res, rej) => {
+        const s = document.createElement("script");
+        s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+        s.onload = res; s.onerror = () => rej(new Error("Could not load Supabase (offline?)"));
+        document.head.appendChild(s);
+      });
+    }
+    client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    client.auth.onAuthStateChange((_ev, session) => {
+      user = session ? session.user : null;
+      if(user) pull();
+      emit();
+    });
+    const { data } = await client.auth.getSession();
+    user = data.session ? data.session.user : null;
+    if(user) await pull();
+    return client;
+  }
+
+  async function pull(){
+    if(!client || !user) return;
+    pulling = true;
+    try {
+      const { data, error } = await client.from("profiles")
+        .select("data").eq("id", user.id).maybeSingle();
+      if(!error && data && data.data){
+        const r = data.data;
+        STATE.owned    = Object.assign({}, r.owned || {});
+        STATE.wishlist = Array.isArray(r.wishlist) ? r.wishlist : [];
+        STATE.base     = Array.isArray(r.base) ? r.base : [];
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){}
+        rerenderAll();
+      } else if(!error && !data){
+        await push(true); // first sign-in: seed remote from local
+      }
+    } finally { pulling = false; emit(); }
+  }
+
+  async function push(force){
+    if(!client || !user || (pulling && !force)) return;
+    const payload = { id: user.id, data: { owned: STATE.owned, wishlist: STATE.wishlist, base: STATE.base } };
+    await client.from("profiles").upsert(payload, { onConflict: "id" });
+    emit();
+  }
+
+  function onLocalChange(){
+    if(!client || !user || pulling) return;
+    clearTimeout(pushTimer);
+    pushTimer = setTimeout(() => push(false), 700);
+  }
+
+  function rerenderAll(){
+    try{ if(typeof renderMyPals==="function") renderMyPals(); }catch(e){}
+    try{ if(typeof renderWishlist==="function") renderWishlist(); }catch(e){}
+    try{ if(typeof renderBase==="function") renderBase(); }catch(e){}
+    fillCollectionCounts();
+  }
+  function fillCollectionCounts(){ try{ document.querySelectorAll("[data-ownedcount]").forEach(el=>el.textContent=ownedCount()); }catch(e){} }
+
+  async function signIn(email, pw){ const c = await load(); const { error } = await c.auth.signInWithPassword({ email, password: pw }); if(error) throw error; }
+  async function signUp(email, pw){ const c = await load(); const { data, error } = await c.auth.signUp({ email, password: pw }); if(error) throw error; return data; }
+  async function signOut(){ if(client){ await client.auth.signOut(); user = null; emit(); } }
+
+  return { enabled, load, signIn, signUp, signOut, pull, push, onLocalChange, onChange,
+           get user(){ return user; } };
+})();
 function partnerFilter(catchOnly, ownedOnly){ return p => (!catchOnly || p.catchable) && (!ownedOnly || isOwned(p.name)); }
 
 // Thumbnails: img/<paldeckId>.png, with a generated coloured-initial badge as fallback.
@@ -1847,14 +1960,70 @@ $("#searchbtn").addEventListener("click", gsOpen);
 $("#gs-close").addEventListener("click", gsClose);
 $("#gs-input").addEventListener("input", gsRun);
 $("#gsearch").addEventListener("click", e => { if(e.target.id==="gsearch") gsClose(); });
-document.addEventListener("keydown", e => { if(e.key==="Escape") gsClose(); });
+document.addEventListener("keydown", e => { if(e.key==="Escape"){ gsClose(); acctClose(); } });
+
+/* ---------- Account modal ---------- */
+function esc(s){ return String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function acctMsg(txt, cls){ const b=$("#acct-body"); const el=document.createElement("div"); el.className="acctmsg "+(cls||"info"); el.textContent=txt; b.appendChild(el); }
+function renderAcct(){
+  const b = $("#acct-body"); b.innerHTML = "";
+  if(!Cloud.enabled()){
+    b.innerHTML = `<div class="acctmsg info">Cloud sync isn't configured for this build yet — your collection, wishlist and base plan are safely saved in this browser.</div>
+      <div class="acctsetup"><b>Want sync across devices?</b> It takes ~2 minutes:
+        <ol>
+          <li>Create a free project at <code>supabase.com</code>.</li>
+          <li>Run the SQL from <code>SUPABASE_SETUP.md</code> (creates the <code>profiles</code> table + security rules).</li>
+          <li>Paste your project <code>URL</code> and <code>anon key</code> into <code>SUPABASE_URL</code> / <code>SUPABASE_ANON</code> near the top of the app script.</li>
+        </ol>
+        Until then, use <b>Export</b> in the My Pals tab to back up your data.</div>`;
+    return;
+  }
+  const u = Cloud.user;
+  if(u){
+    b.innerHTML = `<div class="acctstat"><div style="font-size:1.5rem">✅</div>
+      <div class="who"><b>Signed in</b><span>${esc(u.email||"")}</span></div></div>
+      <div class="acctmsg ok">Your owned Pals, wishlist and base plan sync automatically to the cloud on every change.</div>
+      <div class="acctbtnrow"><button id="acct-syncnow">↻ Sync now</button><button id="acct-signout">Sign out</button></div>`;
+    $("#acct-syncnow").addEventListener("click", async () => { try{ await Cloud.push(true); acctMsg("Synced to cloud ✓","ok"); }catch(e){ acctMsg(e.message||"Sync failed","err"); } });
+    $("#acct-signout").addEventListener("click", async () => { await Cloud.signOut(); renderAcct(); });
+    return;
+  }
+  b.innerHTML = `
+    <div><label>Email</label><input type="email" id="acct-email" autocomplete="email" placeholder="you@example.com" /></div>
+    <div><label>Password</label><input type="password" id="acct-pw" autocomplete="current-password" placeholder="••••••••" /></div>
+    <div class="acctbtnrow"><button class="primary" id="acct-signin">Sign in</button><button id="acct-signup">Create account</button></div>
+    <div class="acctmsg info">Signing in pulls your saved collection from the cloud and keeps every device in sync.</div>`;
+  const email = () => $("#acct-email").value.trim(), pw = () => $("#acct-pw").value;
+  function busy(txt){ b.querySelectorAll("button").forEach(x=>x.disabled=true); acctMsg(txt,"info"); }
+  $("#acct-signin").addEventListener("click", async () => {
+    if(!email()||!pw()){ acctMsg("Enter your email and password.","err"); return; }
+    busy("Signing in…");
+    try{ await Cloud.signIn(email(), pw()); renderAcct(); }
+    catch(e){ renderAcct(); acctMsg(e.message||"Sign-in failed","err"); }
+  });
+  $("#acct-signup").addEventListener("click", async () => {
+    if(!email()||pw().length<6){ acctMsg("Enter an email and a password of at least 6 characters.","err"); return; }
+    busy("Creating account…");
+    try{ const d = await Cloud.signUp(email(), pw());
+      if(d && d.session){ renderAcct(); }
+      else { renderAcct(); acctMsg("Account created — check your email to confirm, then sign in.","ok"); }
+    } catch(e){ renderAcct(); acctMsg(e.message||"Sign-up failed","err"); }
+  });
+}
+function acctOpen(){ $("#acctmodal").style.display="flex"; renderAcct(); if(Cloud.enabled()) Cloud.load().then(renderAcct).catch(()=>{}); }
+function acctClose(){ $("#acctmodal").style.display="none"; }
+$("#acctbtn").addEventListener("click", acctOpen);
+$("#acct-close").addEventListener("click", acctClose);
+$("#acctmodal").addEventListener("click", e => { if(e.target.id==="acctmodal") acctClose(); });
+Cloud.onChange(() => { if($("#acctmodal").style.display==="flex") renderAcct(); });
+if(Cloud.enabled()) Cloud.load().catch(()=>{});
 
 $("#p-go").addEventListener("click", renderPath);
 $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.2.0";
+const APP_VERSION = "1.3.0";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")
