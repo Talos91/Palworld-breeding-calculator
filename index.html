@@ -1028,8 +1028,8 @@ function ownedCount(){ return ownedNames().length; }
 /* To enable accounts + cross-device sync, create a free Supabase project and
    paste its URL + anon (public) key below. Leave blank to run local-only.
    See SUPABASE_SETUP.md for the one-time table + SQL. */
-const SUPABASE_URL  = "";   // e.g. "https://xxxxxxxx.supabase.co"
-const SUPABASE_ANON = "";   // the project's anon/public key
+const SUPABASE_URL  = "https://rljnavqnwawcdizjjxgr.supabase.co";   // project URL (no trailing /rest/v1/)
+const SUPABASE_ANON = "sb_publishable_tanifXHvb_pOfz29mb9zOw_kyh4zU1o";   // publishable (public) key — safe to ship; RLS protects data
 
 const Cloud = (() => {
   let client = null, user = null, pushTimer = null, pulling = false;
@@ -1042,12 +1042,17 @@ const Cloud = (() => {
     if(client) return client;
     if(!enabled()) return null;
     if(!window.supabase){
-      await new Promise((res, rej) => {
-        const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
-        s.onload = res; s.onerror = () => rej(new Error("Could not load Supabase (offline?)"));
-        document.head.appendChild(s);
-      });
+      const CDNS = [
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2",
+        "https://unpkg.com/@supabase/supabase-js@2",
+        "https://esm.sh/@supabase/supabase-js@2?bundle"
+      ];
+      let ok = false;
+      for(const url of CDNS){
+        try{ await new Promise((res, rej) => { const s=document.createElement("script"); s.src=url; s.onload=res; s.onerror=()=>rej(new Error("cdn")); document.head.appendChild(s); }); if(window.supabase){ ok=true; break; } }
+        catch(e){ /* try next CDN */ }
+      }
+      if(!ok || !window.supabase) throw new Error("Couldn't load the sync library — check your connection and try again.");
     }
     client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
     client.auth.onAuthStateChange((_ev, session) => {
