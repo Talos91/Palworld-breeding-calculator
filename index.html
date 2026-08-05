@@ -414,6 +414,22 @@
   .tag.src-boss{background:rgba(224,69,63,.16);color:#ff9a95}
   .tag.src-dungeon{background:rgba(255,194,75,.14);color:var(--warn)}
 
+
+  /* Wiki: dex card dex-number tag, item/building recipe cards */
+  .dexcard{cursor:pointer}
+  .dextag{position:absolute;top:5px;left:5px;font-family:ui-monospace,monospace;font-size:.6rem;font-weight:800;color:var(--muted);background:rgba(9,13,22,.6);padding:1px 5px;border-radius:6px;z-index:1}
+  :root[data-theme=light] .dextag{background:rgba(255,255,255,.7)}
+  .itemdesc{font-size:.8rem;color:var(--muted);line-height:1.45}
+  .recipe{background:var(--panelSolid);border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+  .recipehead{font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent2);font-weight:800;margin-bottom:5px}
+  .ingrow{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;padding:2px 0}
+  .ingrow span{color:var(--muted)} .ingrow b{color:var(--accent);font-weight:800;flex:0 0 auto}
+  .rar-0{background:var(--chip);color:var(--muted)}
+  .rar-1{background:rgba(58,217,139,.18);color:var(--good)}
+  .rar-2{background:rgba(74,168,255,.18);color:#8fc4ff}
+  .rar-3{background:rgba(167,139,250,.22);color:#cbbcff}
+  .rar-4{background:linear-gradient(90deg,#ffd23f,#ffb454);color:#231a00}
+
 </style>
 </head>
 <body>
@@ -558,10 +574,33 @@
     <div id="wl-list"></div>
   </div>
 
-  <!-- TIERS & JOBS -->
-  <div class="card tab-panel" id="panel-info" style="display:none">
-    <div class="row"><div style="max-width:360px"><label>Look up a Pal</label><select id="info-pal"></select></div></div>
-    <div id="info-card" class="result"></div>
+  <!-- WIKI: PAL DEX -->
+  <div class="card tab-panel" id="panel-dex" style="display:none">
+    <div class="row" style="margin-bottom:8px">
+      <div><label>Search</label><input id="dex-search" placeholder="name or #number…" /></div>
+      <div><label>Type</label><select id="dex-type"></select></div>
+      <div><label>Work skill</label><select id="dex-work"></select></div>
+    </div>
+    <div id="dex-grid" class="owngrid"></div>
+    <div id="info-card" class="result" style="margin-top:14px"></div>
+  </div>
+
+  <!-- WIKI: ITEMS -->
+  <div class="card tab-panel" id="panel-items" style="display:none">
+    <div class="row" style="margin-bottom:8px">
+      <div><label>Search</label><input id="items-search" placeholder="item name…" /></div>
+      <div><label>Category</label><select id="items-cat"></select></div>
+    </div>
+    <div id="items-list" class="result"></div>
+  </div>
+
+  <!-- WIKI: BUILDINGS -->
+  <div class="card tab-panel" id="panel-buildings" style="display:none">
+    <div class="row" style="margin-bottom:8px">
+      <div><label>Search</label><input id="bld-search" placeholder="building name…" /></div>
+      <div><label>Category</label><select id="bld-cat"></select></div>
+    </div>
+    <div id="bld-list" class="result"></div>
   </div>
 
   <div class="card tab-panel" id="panel-jobs" style="display:none">
@@ -918,6 +957,8 @@ const IC = {
   map:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.9 8.1l-2.1 5.7-5.7 2.1 2.1-5.7z"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg>`,
   // Trophy — tiers / best
   tiers:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 6H4.4v1A2.6 2.6 0 0 0 7 9.6M17 6h2.6v1A2.6 2.6 0 0 1 17 9.6"/><path d="M12 13v3"/><path d="M8.6 20h6.8l-.8-3.6H9.4z"/></svg>`,
+  // Open book — wiki
+  wiki:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 5 8 4.2 4.5 4.5v13c3.5-.3 6 .5 7.5 2 1.5-1.5 4-2.3 7.5-2v-13C16 4.2 13.5 5 12 6.5z"/><path d="M12 6.5V21"/></svg>`,
 };
 const PAGE_META = {
   path:{t:"Path to a target", s:()=>"SHORTEST BREEDING ROUTE"},
@@ -925,22 +966,25 @@ const PAGE_META = {
   all:{t:"All combinations", s:()=>"EVERY CHILD FROM ONE PARENT"},
   lookup:{t:"Pairing", s:()=>"WHO MAKES WHAT"},
   mypals:{t:"My Pals", s:()=>`${ownedCount()} OWNED · ${Engine.pals.length} PALS`},
-  info:{t:"Pal Dex", s:()=>`${Engine.pals.length} PALS · STATS & MOUNTS`},
   wishlist:{t:"Wishlist", s:()=>`${STATE.wishlist.length} TARGET${STATE.wishlist.length===1?"":"S"}`},
   map:{t:"Palpagos Map", s:()=>(MAPDATA&&MAPDATA.markers?MAPDATA.markers.length+" MARKERS · ":"")+"PALPAGOS ISLANDS"},
+  dex:{t:"Pal Dex", s:()=>`${Engine.pals.length} PALS · TAP FOR STATS`},
+  items:{t:"Items", s:()=>ITEMS?`${ITEMS.length} ITEMS`:"LOADING…"},
+  buildings:{t:"Buildings", s:()=>BUILDINGS?`${BUILDINGS.length} STRUCTURES`:"LOADING…"},
   schematics:{t:"Schematics", s:()=>(SCHEMATICS&&SCHEMATICS.length?SCHEMATICS.length+" ENTRIES":"COMING SOON")},
   jobs:{t:"Best Pals for a Job", s:()=>"RANKED BY WORK LEVEL"},
   tierlists:{t:"Tier Lists", s:()=>"MOUNTS · ATTACK · HP · BASE"},
 };
 const SECTIONS = [
   {id:"breed", icon:IC.breed, label:"Breed", panels:[["path","🎯 Path"],["mount","🏆 Perfect Pal"],["all","🧬 Combos"],["lookup","🔎 Pairing"]]},
-  {id:"pals",  icon:IC.pals,  label:"Pals", panels:[["mypals","📦 My Pals"],["info","🔍 Pal Dex"]]},
+  {id:"pals",  icon:IC.pals,  label:"Pals", panels:[["mypals","📦 My Pals"]]},
   {id:"wish",  icon:IC.wish,  label:"Wishlist", panels:[["wishlist","📝 Wishlist"]]},
-  {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"],["schematics","📜 Schematics"]]},
-  {id:"tiers", icon:IC.tiers, label:"Tiers", panels:[["jobs","🛠️ Jobs"],["tierlists","🏅 Tier Lists"]]},
+  {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"]]},
+  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["dex","🐾 Pals"],["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tierlists","🏅 Tiers"],["jobs","🛠️ Jobs"]]},
 ];
-const PANEL_RENDER = { mypals:renderMyPals, info:renderPalInfo, wishlist:renderWishlist, map:renderMap,
-  schematics:renderSchematics, jobs:renderJobs, tierlists:renderTiers };
+let ITEMS = null, BUILDINGS = null;
+const PANEL_RENDER = { mypals:renderMyPals, dex:renderDex, wishlist:renderWishlist, map:renderMap,
+  items:renderItems, buildings:renderBuildings, schematics:renderSchematics, jobs:renderJobs, tierlists:renderTiers };
 let curSection = null; const lastPanel = {};
 function selectPanel(pid){
   document.querySelectorAll(".tab-panel").forEach(p => p.style.display = "none");
@@ -1344,8 +1388,12 @@ function renderTiers(){
 function statBar(label, val, max){ const pct = Math.max(4, Math.min(100, Math.round((val/max)*100))); return `<div class="statbar"><span class="sbl">${label}</span><div class="sbtrack"><div class="sbfill" style="width:${pct}%"></div></div><b>${val}</b></div>`; }
 function workDots(t, lvl){ let d=""; for(let i=1;i<=5;i++) d += `<span class="wd${i<=lvl?" on":""}"></span>`; return `<div class="workrow"><span class="wname">${prettyWork(t)}</span><span class="wdots">${d}</span><b>Lv${lvl}</b></div>`; }
 function rarityStars(r){ if(r==null) return ""; const n = r>=18?5:r>=13?4:r>=9?3:r>=5?2:1; let s=""; for(let i=1;i<=5;i++) s += `<span class="star${i<=n?" on":""}">★</span>`; return `<div class="pdstars">${s}</div>`; }
-function renderPalInfo(){
-  const n = $("#info-pal").value, box = $("#info-card"), p = Engine.byName.get(n), s = STATS_BY.get(n);
+function renderPalInfo(name){
+  const box = $("#info-card"); if(!box) return;
+  const n = name || renderPalInfo._last;
+  if(!n){ box.innerHTML = `<div class="empty">Tap a Pal above to see its full stats, mount, partner skill &amp; drops.</div>`; return; }
+  renderPalInfo._last = n;
+  const p = Engine.byName.get(n), s = STATS_BY.get(n);
   if(!p){ box.innerHTML = ""; return; }
   const types = typesOf(n).map(t=>`<span class="tb tb-${t}" style="font-size:.78rem;padding:5px 13px;border-radius:999px">${t}</span>`).join("");
   const works = (p.works||[]).slice().sort((a,b)=>b.lvl-a.lvl);
@@ -1489,6 +1537,56 @@ function renderSchematics(){
   }).join("") + `</div>`;
 }
 
+/* ---------- Wiki: Pal Dex (browsable grid → detail) ---------- */
+function renderDex(){
+  const grid = $("#dex-grid"); if(!grid) return;
+  const q = ($("#dex-search").value||"").trim().toLowerCase();
+  const num = /^#?\d+$/.test(q) ? parseInt(q.replace("#",""),10) : null;
+  const tf = $("#dex-type").value, wf = $("#dex-work").value;
+  const rows = namesByDex.filter(n => {
+    if(num!=null){ if(dexNum(dexOf(n))!==num) return false; }
+    else if(q && !n.toLowerCase().includes(q)) return false;
+    if(tf && !typesOf(n).includes(tf)) return false;
+    if(wf && !worksOf(n).includes(wf)) return false;
+    return true;
+  });
+  grid.innerHTML = rows.map(n => `<div class="owncard dexcard" data-n="${n}"><span class="dextag">${dexStr(n)}</span><img class="thumb ocimg" loading="lazy" style="--ring:${ringOf(n)}" alt="${n}" data-name="${n}" src="${imgURL(n)}"><div class="ocn">${n}</div><div class="ocdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div></div>`).join("") || `<div class="empty">no matches</div>`;
+  renderPalInfo(renderPalInfo._last);
+}
+
+/* ---------- Wiki: Items & Buildings ---------- */
+const RARITY = ["Common","Uncommon","Rare","Epic","Legendary"];
+function rarityTag(r){ if(r==null) return ""; const lbl = RARITY[Math.min(r,4)] || "Common"; return `<span class="schtier rar-${Math.min(r,4)}">${lbl}</span>`; }
+function craftCard(it, folder, emoji){
+  const recipe = (it.recipe && it.recipe.length) ? `<div class="recipe"><div class="recipehead">Crafting</div>${it.recipe.map(r=>`<div class="ingrow"><span>${r.item}</span><b>×${r.qty}</b></div>`).join("")}</div>` : "";
+  const sub = [it.category, it.tech!=null?`Tech ${it.tech}`:""].filter(Boolean).join(" · ");
+  return `<div class="schcard">
+    <div class="schtop"><img class="itemimg" data-emoji="${emoji}" alt="" src="img/${folder}/${it.slug}.png"><div class="schnames"><div class="schunlock">${it.name}</div><div class="schsub">${sub||"&nbsp;"}</div></div>${rarityTag(it.rarity)}</div>
+    ${it.description?`<div class="itemdesc">${it.description}</div>`:""}
+    ${recipe}
+  </div>`;
+}
+async function loadItems(){ if(ITEMS) return ITEMS; try{ const r=await fetch("data/items.json"); ITEMS=(await r.json()).items||[]; }catch(e){ ITEMS=[]; } return ITEMS; }
+async function loadBuildings(){ if(BUILDINGS) return BUILDINGS; try{ const r=await fetch("data/buildings.json"); BUILDINGS=(await r.json()).buildings||[]; }catch(e){ BUILDINGS=[]; } return BUILDINGS; }
+function fillCatSelect(sel, arr){ if(sel && sel.options.length===0){ const cats=[...new Set(arr.map(s=>s.category).filter(Boolean))].sort(); sel.innerHTML=`<option value="">All categories</option>`+cats.map(c=>`<option value="${c}">${c[0].toUpperCase()+c.slice(1)}</option>`).join(""); } }
+function renderCraftList(box, data, searchEl, catSel, folder, emoji, noun){
+  if(!data){ box.innerHTML = `<div class="empty">Loading ${noun}…</div>`; return; }
+  if(!data.length){ box.innerHTML = `<div class="empty">${noun[0].toUpperCase()+noun.slice(1)} data is coming in an update.</div>`; return; }
+  fillCatSelect(catSel, data);
+  const q=(searchEl.value||"").trim().toLowerCase(), cat=catSel?catSel.value:"";
+  const full = data.filter(it => (!cat||it.category===cat) && (!q || it.name.toLowerCase().includes(q)));
+  const capped = full.length > 300, list = capped ? full.slice(0,300) : full;
+  box.innerHTML = `<div class="summary">${full.length} ${noun}${capped?` · showing first 300, search to narrow`:""}.</div><div class="schgrid">` + list.map(it=>craftCard(it, folder, emoji)).join("") + `</div>`;
+}
+async function renderItems(){
+  const box=$("#items-list"); if(!ITEMS){ box.innerHTML=`<div class="empty">Loading items…</div>`; await loadItems(); const ps=document.querySelector("#pagehead .pagesub"); if(ps) ps.textContent=`${ITEMS.length} ITEMS`; }
+  renderCraftList(box, ITEMS, $("#items-search"), $("#items-cat"), "items", "📦", "items");
+}
+async function renderBuildings(){
+  const box=$("#bld-list"); if(!BUILDINGS){ box.innerHTML=`<div class="empty">Loading buildings…</div>`; await loadBuildings(); const ps=document.querySelector("#pagehead .pagesub"); if(ps) ps.textContent=`${BUILDINGS.length} STRUCTURES`; }
+  renderCraftList(box, BUILDINGS, $("#bld-search"), $("#bld-cat"), "buildings", "🏠", "buildings");
+}
+
 /* ---------- Init ---------- */
 ["p-parent","p-target","a-parent","l-a","l-b","m-target"].forEach(id => fillSelect($("#"+id)));
 $("#p-parent").value = namesSorted.includes("Cattiva") ? "Cattiva" : namesSorted[0];
@@ -1563,9 +1661,17 @@ $("#job-work").value = ALL_WORKS.includes("mining") ? "mining" : ALL_WORKS[0];
 $("#job-work").addEventListener("change", renderJobs);
 $("#job-owned").addEventListener("change", renderJobs);
 
-// Pal info detail
-fillSelect($("#info-pal")); $("#info-pal").value = namesByDex.includes("Jetragon") ? "Jetragon" : namesByDex[0]; makePicker("info-pal");
-$("#info-pal").addEventListener("change", renderPalInfo);
+// Wiki: Pal Dex (grid → detail)
+$("#dex-type").innerHTML = `<option value="">All types</option>` + ALL_TYPES.map(t => `<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");
+$("#dex-work").innerHTML = `<option value="">All work skills</option>` + ALL_WORKS.map(w => `<option value="${w}">${prettyWork(w)}</option>`).join("");
+$("#dex-search").addEventListener("input", renderDex);
+["dex-type","dex-work"].forEach(id => $("#"+id).addEventListener("change", renderDex));
+$("#dex-grid").addEventListener("click", e => { const c = e.target.closest(".dexcard"); if(!c) return; renderPalInfo(c.dataset.n); $("#info-card").scrollIntoView({behavior:"smooth", block:"nearest"}); });
+// Wiki: Items & Buildings
+$("#items-search").addEventListener("input", renderItems);
+$("#items-cat").addEventListener("change", renderItems);
+$("#bld-search").addEventListener("input", renderBuildings);
+$("#bld-cat").addEventListener("change", renderBuildings);
 
 // Schematics search + "bosses on map" jump
 $("#sch-search").addEventListener("input", renderSchematics);
