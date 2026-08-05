@@ -323,6 +323,55 @@
   .mapchip.clearpal{opacity:1;border-color:var(--line2)}
   .mapchip.clearpal::before{display:none}
 
+
+  /* ===== v3 polish ===== */
+  /* Full-width bottom navigation bar (anchored, edge-to-edge) */
+  .dock{left:0;right:0;bottom:0;transform:none;max-width:none;border-radius:0;border:none;border-top:1px solid var(--line2);
+    padding:5px 8px calc(5px + env(safe-area-inset-bottom));gap:0;justify-content:center;box-shadow:0 -8px 28px rgba(0,0,0,.45);background:rgba(9,13,22,.95)}
+  .dock button{flex:1 1 0;max-width:132px;min-width:0;position:relative;border-radius:12px;padding:7px 6px;gap:4px}
+  .dock button.active{color:var(--accent);background:transparent;box-shadow:none}
+  .dock button.active::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:30px;height:3px;border-radius:0 0 3px 3px;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+  .wrap{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+
+  /* icon button (theme toggle) */
+  .iconbtn{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,transform .1s}
+  .iconbtn:hover{border-color:var(--accent)} .iconbtn:active{transform:translateY(1px)}
+
+  /* element-tinted rings on Pal art */
+  .owncard .ocimg{border:2.5px solid var(--ring, var(--line2))}
+  .pdimg{border:3px solid var(--ring, var(--line2)); box-shadow:0 0 22px -6px var(--ring)}
+
+  /* edge-to-edge map */
+  .card{--cardpad:20px;padding:var(--cardpad)}
+  @media (max-width:560px){ .card{--cardpad:15px} }
+  #map-wrap{margin:12px calc(-1 * var(--cardpad)) calc(-1 * var(--cardpad))}
+  .mapview{height:clamp(440px,74vh,780px);border-radius:0 0 var(--radius) var(--radius);border-left:none;border-right:none;border-bottom:none}
+
+  /* ===== Light / parchment theme ===== */
+  :root[data-theme=light]{
+    --bg:#f2ead9; --bg2:#efe7d5;
+    --panel:rgba(255,252,245,.94); --panel2:rgba(247,241,228,.95); --panelSolid:#fdfaf2;
+    --line:rgba(110,86,54,.2); --line2:rgba(110,86,54,.34);
+    --txt:#241f16; --muted:#7a6e59;
+    --accent:#0e9c84; --accent2:#2b7fd0; --ink:#ffffff;
+    --violet:#7c4ddb; --good:#1aa863; --warn:#b9821a; --bad:#d9564e; --gold:#c69518;
+    --chip:rgba(110,86,54,.12);
+    --shadow:0 12px 30px rgba(90,70,40,.16);
+  }
+  :root[data-theme=light] body{
+    background:
+      radial-gradient(1000px 560px at 8% -10%, rgba(14,156,132,.16), transparent 58%),
+      radial-gradient(900px 620px at 112% 4%, rgba(43,127,208,.13), transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='1.4' cy='1.4' r='1.4' fill='%236b5636' fill-opacity='0.06'/%3E%3C/svg%3E"),
+      linear-gradient(180deg,#f5eddc,#ece3cf);
+  }
+  :root[data-theme=light] .dock{background:rgba(253,250,242,.96)}
+  :root[data-theme=light] .tabs{background:linear-gradient(180deg,var(--bg2) 62%,rgba(242,234,217,0))}
+  :root[data-theme=light] .mapzoom button,:root[data-theme=light] .maptip{background:rgba(253,250,242,.94)}
+  :root[data-theme=light] .mapview{background:#dfe8ef}
+  :root[data-theme=light] .mk{border-color:rgba(255,255,255,.9)}
+  :root[data-theme=light] ::selection{background:rgba(14,156,132,.25)}
+
 </style>
 </head>
 <body>
@@ -330,6 +379,7 @@
   <header class="brandbar">
     <div class="brandmark">🥚</div>
     <div class="brandtext"><h1>Palworld <span>Companion</span></h1><div class="brandsub">Breeding · Collection · Map · Tiers</div></div>
+    <button id="themebtn" class="iconbtn" title="Toggle theme">☾</button>
     <button id="installbtn" style="display:none">⬇ Install</button>
   </header>
   <div id="pagehead"></div>
@@ -680,7 +730,9 @@ function fallbackURI(name){
   const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><rect width='64' height='64' rx='14' fill='hsl(${h},42%,30%)'/><text x='32' y='43' font-size='34' font-family='sans-serif' font-weight='700' fill='hsl(${h},70%,84%)' text-anchor='middle'>${letter}</text></svg>`;
   return "data:image/svg+xml,"+encodeURIComponent(svg);
 }
-function thumb(name){ return `<img class="thumb" loading="lazy" decoding="async" alt="${name}" data-name="${name}" src="${imgURL(name)}">`; }
+const TYPE_COLOR = { fire:"#ff7a59", water:"#5aa9ff", grass:"#49cf7d", electric:"#ffd23f", ice:"#8fe6e2", ground:"#d0a86e", dark:"#a98ce0", dragon:"#b98cff", neutral:"#c2cad6" };
+function ringOf(name){ const p = Engine.byName.get(name); const t = p && p.types && p.types[0]; return TYPE_COLOR[t] || "rgba(255,255,255,.14)"; }
+function thumb(name){ return `<img class="thumb" loading="lazy" decoding="async" style="--ring:${ringOf(name)}" alt="${name}" data-name="${name}" src="${imgURL(name)}">`; }
 // One capturing listener swaps any failed thumbnail (including dynamically added ones) for its badge.
 document.addEventListener("error", e => {
   const t = e.target;
@@ -1459,6 +1511,11 @@ function openMapCat(cat){ mapPal = null; if(MAPDATA && MAPDATA.markers) mapActiv
 // Map: Pal-spawn picker
 fillSelect($("#map-pal")); $("#map-pal").value = namesByDex.includes("Chikipi") ? "Chikipi" : namesByDex[0]; makePicker("map-pal");
 $("#map-pal").addEventListener("change", () => selectSpawnPal($("#map-pal").value));
+
+// Theme toggle (dark default; light/parchment optional), persisted.
+function applyTheme(t){ document.documentElement.dataset.theme = t; $("#themebtn").textContent = t==="light" ? "☀" : "☾"; const tc=document.querySelector('meta[name="theme-color"]'); if(tc) tc.setAttribute("content", t==="light" ? "#efe7d5" : "#0a0f18"); }
+applyTheme((()=>{ try{ return localStorage.getItem("palcompanion_theme") || "dark"; }catch(e){ return "dark"; } })());
+$("#themebtn").addEventListener("click", () => { const t = document.documentElement.dataset.theme==="light" ? "dark" : "light"; applyTheme(t); try{ localStorage.setItem("palcompanion_theme", t); }catch(e){} });
 
 // Build the section / bottom-dock navigation (replaces the old flat tab bar).
 buildNav();
