@@ -1409,7 +1409,7 @@ function ensureMapView(){
 function renderMarkers(){
   const mk = $("#mapmarkers"), view = $("#mapview"), st = $("#mapstage"); if(!mk || !view) return;
   const sw = (st && st.offsetWidth) || view.clientWidth || 1;
-  const cell = 46 / (sw * mapState.scale);               // normalized cluster cell size
+  const cell = 26 / (sw * mapState.scale);               // normalized cluster cell size (smaller = clusters split sooner)
   const cells = new Map();
   currentPoints.forEach(p => { const k = Math.floor(p.x/cell)+"_"+Math.floor(p.y/cell); let a = cells.get(k); if(!a){ a=[]; cells.set(k,a); } a.push(p); });
   let html = "";
