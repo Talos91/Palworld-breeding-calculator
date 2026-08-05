@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Palworld Breeding Path Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Palworld Companion</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#0d1117" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="PalDex" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <style>
   :root{
     --bg:#0d1117; --panel:#161b22; --panel2:#1c2430; --line:#2a3441;
@@ -17,7 +24,8 @@
     background:radial-gradient(1200px 600px at 20% -10%,#16233b 0%,var(--bg) 55%);
     color:var(--txt); line-height:1.5; min-height:100vh;
   }
-  .wrap{max-width:1000px;margin:0 auto;padding:28px 18px 80px}
+  .wrap{max-width:1000px;margin:0 auto;padding:calc(28px + env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) calc(80px + env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}
+  #installbtn{margin-top:12px;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#0d1117;border:none;padding:10px 18px;border-radius:10px;font-weight:800;font-size:.9rem;cursor:pointer}
   header h1{font-size:1.7rem;margin:0 0 4px;letter-spacing:.3px}
   header h1 span{color:var(--accent)}
   header p{color:var(--muted);margin:0 0 22px;font-size:.95rem}
@@ -162,8 +170,9 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>🥚 Palworld <span>Breeding Path</span> Calculator</h1>
-    <p>Start from one parent → find every child it can make, the shortest path to any target, and how to carry a passive skill down the line.</p>
+    <h1>🥚 Palworld <span>Companion</span></h1>
+    <p>Breeding paths, skill transfer, your collection, wishlist, tier lists &amp; a Pal dex — for the full 288-Pal roster.</p>
+    <button id="installbtn" style="display:none">⬇ Install app</button>
   </header>
 
   <div class="tabs">
@@ -1115,6 +1124,26 @@ const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank`
   + (m.source ? ` · data: ${m.source}` : "")
   + `<br><span class="hint">Not affiliated with Pocketpair. Breeding data is community-sourced and may need updating for new game patches.</span>`;
+
+/* ---------- PWA: service worker + install prompt ---------- */
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+let deferredPrompt = null;
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferredPrompt = e; $("#installbtn").style.display = "inline-block"; });
+$("#installbtn").addEventListener("click", async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null; $("#installbtn").style.display = "none";
+});
+window.addEventListener("appinstalled", () => { $("#installbtn").style.display = "none"; });
+// iOS Safari has no install prompt — show a hint to use Share → Add to Home Screen.
+(function(){
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone;
+  if(ios && !standalone){ const b = $("#installbtn"); b.textContent = "⬇ Add to Home Screen: tap Share ￪ then “Add to Home Screen”"; b.style.display = "inline-block"; b.style.cursor = "default"; }
+})();
 </script>
 </body>
 </html>
