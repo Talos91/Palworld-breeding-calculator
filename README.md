@@ -12,9 +12,12 @@ A single-file, offline web app covering the full current (Feybreak) roster of
 - **🧬 All combinations** — every child a parent can make and the partner for each.
 - **🔎 Single pairing** — "A + B = ?" plus a **best-partner finder** (parent +
   wanted child → every partner that makes it).
-- **📦 My Pals** — mark the Pals you own (saved in-browser, import/export JSON);
-  filter routes to **only Pals you own**; **breed a Pal you don't have** from your
-  collection; **"what can I breed?"** from what you have.
+- **🐾 Paldex** — a filterable dex of all Pals: search, filter by element/work,
+  sort, and an **All/Owned/Missing/★Favorites** view. Tap **＋** to add to your
+  collection or tap a Pal for a full **detail drawer** (stats incl. stamina/walk/
+  run/ride/transport/craft/stomach, rhythm, price, breed power, drops with rates,
+  work suitability, skills, matchups, favorite + breeding shortcut). Collection
+  tools (traits/notes, breed-from-collection, "what can I breed?") live here too.
 - **📝 Wishlist** — target Pals + desired skills, with per-entry plans and a
   **whole-wishlist farm optimizer** (shared intermediates merged).
 - **🏅 Tiers & Jobs** — per-Pal **stat card** (HP/Atk/Def, rarity, size, mount

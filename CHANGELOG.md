@@ -5,7 +5,36 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.5.1`).
+The current release is shown in the app footer (`v1.6.0`).
+
+---
+
+## [1.6.0] — Full Paldex with detail drawer
+
+The "Pals" section is now a proper **Paldex** (and the Wiki's Pals tab is gone —
+it lived here now).
+
+### Added
+- **Filterable Paldex grid** — search by name/number, filter by **work** and by
+  **element** (chip row), sort by **Paldex no. / name / HP / Attack / Defense**,
+  and an **All / Owned / Missing / ★ Favorites** segment.
+- **Two actions per card:** tap the **＋** to add/remove from your collection, or
+  tap the card to open a **slide-in detail drawer**.
+- **Detail drawer** (palcompanion-style): big portrait, element badges, **＋ Add
+  to my collection**, **Breeding** shortcut, a **favorite** star, an Overview
+  grid (Rarity, Size, **Rhythm** diurnal/nocturnal, **Price**, **Breed power**,
+  **Male %**), work-suitability levels, a full stat block now including the
+  fields we were missing — **Stamina, Walk, Run, Ride sprint, Transport, Craft,
+  Stomach** — element matchups, active + partner skills, **drops with rates**,
+  and a **Where to find it** jump to the map.
+- **Favorites** — star any Pal; syncs to the cloud with the rest of your data.
+- Collection tools (traits/notes + breed-from-collection) tucked into a
+  collapsible panel so the Paldex stays clean.
+
+### Data
+- New **`data/palstats.json`** — datamined Stamina, Walk/Run/Ride/Transport/Craft
+  speeds, Stomach, Rhythm, Price, Male % and drop rates for the full roster
+  (Wild-level & egg-size aren't in the datamine, so those are omitted).
 
 ---
 

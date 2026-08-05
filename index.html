@@ -700,6 +700,84 @@
     .hero-actions .iconbtn{width:34px;height:34px;font-size:.98rem}
   }
 
+  /* ============================================================
+     ===================   PALDEX   ============================
+     ============================================================ */
+  .pdx-controls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 8px}
+  .pdx-search{flex:1 1 220px;min-width:0;padding:11px 14px;border-radius:12px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-size:.95rem}
+  .pdx-sel{flex:0 0 auto;padding:11px 12px;border-radius:12px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-weight:700;font-size:.85rem}
+  .pdx-status{display:flex;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:8px;width:fit-content;max-width:100%;overflow-x:auto}
+  .segbtn{flex:0 0 auto;padding:8px 15px;border-radius:9px;font-weight:800;font-size:.82rem;cursor:pointer;color:var(--muted);white-space:nowrap;transition:all .15s}
+  .segbtn.on{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#04120f}
+  .pdx-elems{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .elchip{padding:5px 11px;border-radius:999px;font-size:.74rem;font-weight:800;text-transform:capitalize;cursor:pointer;
+    background:var(--chip);border:1px solid var(--line2);color:var(--muted);opacity:.85;transition:all .15s}
+  .elchip.tb-neutral,.elchip.tb-fire,.elchip.tb-water,.elchip.tb-grass,.elchip.tb-electric,.elchip.tb-ice,.elchip.tb-ground,.elchip.tb-dark,.elchip.tb-dragon{color:#0a121a}
+  .elchip:not(.on){filter:grayscale(.5) brightness(.85);opacity:.7}
+  .elchip.on{opacity:1;filter:none;box-shadow:0 3px 10px -3px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.15) inset}
+  .elchip[data-el=""]{background:var(--chip);color:var(--txt)}
+  .pdx-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .pdxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+  .pdxcard{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px 8px 8px;text-align:center;cursor:pointer;
+    transition:transform .16s cubic-bezier(.22,.9,.28,1),box-shadow .16s,border-color .16s}
+  @media (hover:hover){ .pdxcard:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 12px 26px -8px rgba(0,0,0,.6)} }
+  .pdxcard:active{transform:scale(.97)}
+  .pdxcard.own{border-color:rgba(53,227,198,.55);box-shadow:inset 0 0 0 1px rgba(53,227,198,.3)}
+  .pdxcard .pdximg{width:100%;height:auto;aspect-ratio:1/1;border-radius:11px;object-fit:cover;border:2px solid var(--ring,var(--line2));background:radial-gradient(circle at 50% 35%,rgba(53,227,198,.08),transparent 70%)}
+  .pdxno{position:absolute;top:6px;left:8px;font-size:.6rem;font-weight:800;color:var(--muted);letter-spacing:.3px}
+  .pdxn{font-size:.8rem;font-weight:700;line-height:1.15;margin-top:5px;white-space:normal}
+  .pdx-add{position:absolute;top:5px;right:5px;z-index:2;width:26px;height:26px;border-radius:8px;border:1px solid var(--line2);
+    background:rgba(9,14,22,.78);backdrop-filter:blur(6px);color:var(--txt);font-size:1.05rem;font-weight:800;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .14s}
+  .pdx-add:hover{border-color:var(--accent)}
+  .pdx-add.on{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#04120f;border-color:transparent}
+  .pdx-fav{position:absolute;bottom:34px;right:5px;z-index:2;width:24px;height:24px;border-radius:8px;border:none;background:rgba(9,14,22,.6);backdrop-filter:blur(6px);color:#8b97a7;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .14s}
+  .pdx-fav.on{color:var(--gold);text-shadow:0 0 8px rgba(255,207,92,.6)}
+  .pdx-tools{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:var(--panel2);overflow:hidden}
+  .pdx-tools>summary{cursor:pointer;padding:14px 16px;font-weight:800;list-style:none;user-select:none}
+  .pdx-tools>summary::-webkit-details-marker{display:none}
+  .pdx-tools>summary::before{content:"▸ ";color:var(--accent)}
+  .pdx-tools[open]>summary::before{content:"▾ "}
+  .pdx-tools>*:not(summary){padding:0 16px 16px}
+
+  /* Paldex detail drawer */
+  .paldrawer{position:fixed;inset:0;z-index:240}
+  .pd-scrim{position:absolute;inset:0;background:rgba(4,8,14,.6);backdrop-filter:blur(3px);opacity:0;transition:opacity .26s}
+  .paldrawer.open .pd-scrim{opacity:1}
+  .pd-sheet{position:absolute;top:0;right:0;height:100%;width:min(460px,100%);background:var(--panelSolid);border-left:1px solid var(--line2);
+    box-shadow:-16px 0 44px rgba(0,0,0,.5);overflow-y:auto;overscroll-behavior:contain;
+    transform:translateX(100%);transition:transform .28s cubic-bezier(.22,.9,.28,1);padding:18px 18px calc(24px + env(safe-area-inset-bottom))}
+  .paldrawer.open .pd-sheet{transform:none}
+  @media (prefers-reduced-motion:reduce){ .pd-sheet,.pd-scrim{transition:none} }
+  .pd-close{position:sticky;top:0;float:right;width:34px;height:34px;border-radius:10px;border:1px solid var(--line2);background:var(--chip);color:var(--txt);font-size:1rem;cursor:pointer;z-index:3}
+  .pd-hero{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding-right:38px}
+  .pd-heroimg{width:88px;height:88px;border-radius:18px;border:3px solid var(--ring,var(--line2));box-shadow:0 0 22px -6px var(--ring);flex:0 0 auto;background:radial-gradient(circle at 50% 40%,rgba(53,227,198,.14),transparent 70%)}
+  .pd-heroinfo{flex:1;min-width:0}
+  .pd-no{font-size:.72rem;font-weight:800;color:var(--muted)}
+  .pd-title{font-size:1.5rem;font-weight:900;letter-spacing:-.5px;line-height:1.05;margin:2px 0 6px}
+  .pd-favbig{flex:0 0 auto;align-self:flex-start;width:38px;height:38px;border-radius:11px;border:1px solid var(--line2);background:var(--chip);color:#8b97a7;font-size:1.15rem;cursor:pointer}
+  .pd-favbig.on{color:var(--gold);text-shadow:0 0 10px rgba(255,207,92,.6);border-color:rgba(255,207,92,.4)}
+  .pd-cta{display:flex;gap:8px;margin-bottom:6px}
+  .pd-own{flex:1;padding:12px;border-radius:12px;border:none;font-weight:800;cursor:pointer;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#04120f;transition:filter .15s}
+  .pd-own.on{background:var(--panel2);color:var(--accent2);border:1px solid rgba(53,227,198,.4)}
+  .pd-own:hover{filter:brightness(1.06)}
+  .pd-breed2{flex:0 0 auto;padding:12px 16px;border-radius:12px;border:1px solid var(--line2);background:var(--chip);color:var(--txt);font-weight:800;cursor:pointer}
+  .pd-breed2:hover{border-color:var(--accent)}
+  .infogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .infocell{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:9px 10px}
+  .infocell .icl{display:block;font-size:.6rem;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800}
+  .infocell .icv{display:block;font-size:.98rem;font-weight:800;margin-top:3px}
+  .bstat{display:flex;align-items:center;gap:10px;margin:6px 0}
+  .bstat .bsl{flex:0 0 92px;font-size:.8rem;color:var(--muted);font-weight:600}
+  .bstat .bstrack{flex:1;height:8px;border-radius:5px;background:var(--panelSolid);border:1px solid var(--line);overflow:hidden}
+  .bstat .bsfill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--accent2),var(--accent));box-shadow:0 0 8px rgba(53,227,198,.35)}
+  .bstat b{flex:0 0 46px;text-align:right;font-weight:900}
+  .pddroplist{display:flex;flex-direction:column;gap:6px}
+  .droprow{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:7px 10px}
+  .droprow .itemimg,.droprow .itememoji{width:30px;height:30px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+  .droprow .dropn{flex:1;font-size:.86rem;font-weight:600}
+  .droprow .droprate{color:var(--accent2);font-weight:800}
+  @media (max-width:560px){ .infogrid{grid-template-columns:repeat(2,1fr)} }
+
 </style>
 </head>
 <body>
@@ -806,47 +884,60 @@
   </div>
 
   <!-- MY PALS -->
-  <div class="card tab-panel" id="panel-mypals" style="display:none">
-    <div class="mp-head">
-      <div><b id="mp-count">0</b> Pals owned <span class="hint">· sign in (👤) to sync, or Export to back up</span></div>
-      <div class="mp-actions">
-        <button class="mini" id="mp-tocatch-btn">🎯 To-catch</button>
-        <button class="mini" id="mp-share">📸 Share</button>
-        <button class="mini" id="mp-export">Export</button>
-        <button class="mini" id="mp-import">Import</button>
-        <button class="mini" id="mp-clear">Clear all</button>
-      </div>
-    </div>
+  <div class="card tab-panel" id="panel-paldex" style="display:none">
     <div id="mp-completion"></div>
+    <div class="pdx-controls">
+      <input id="mp-search" class="pdx-search" placeholder="🔎  Search a Pal or a Paldex number…" />
+      <select id="mp-work" class="pdx-sel"></select>
+      <select id="mp-sort" class="pdx-sel">
+        <option value="dex">Paldex no.</option>
+        <option value="name">Name A→Z</option>
+        <option value="hp">Highest HP</option>
+        <option value="atk">Highest Attack</option>
+        <option value="def">Highest Defense</option>
+      </select>
+    </div>
+    <div class="pdx-status" id="mp-status">
+      <span class="segbtn on" data-st="all">All</span>
+      <span class="segbtn" data-st="owned">Owned</span>
+      <span class="segbtn" data-st="missing">Missing</span>
+      <span class="segbtn" data-st="fav">★ Favorites</span>
+    </div>
+    <div class="pdx-elems" id="mp-elems"></div>
+    <div class="pdx-actions">
+      <span class="hint" id="mp-count-line"></span>
+      <span style="flex:1"></span>
+      <button class="mini" id="mp-tocatch-btn">🎯 To-catch</button>
+      <button class="mini" id="mp-share">📸 Share</button>
+      <button class="mini" id="mp-export">Export</button>
+      <button class="mini" id="mp-import">Import</button>
+      <button class="mini" id="mp-clear">Clear</button>
+    </div>
+    <span id="mp-count" style="display:none"></span>
     <div id="mp-tocatch" class="result" style="display:none"></div>
     <canvas id="mp-sharecanvas" width="1080" height="1080" style="display:none"></canvas>
     <div id="mp-io" style="display:none;margin-top:10px">
       <textarea id="mp-io-text" rows="4" style="width:100%;font-family:ui-monospace,monospace;font-size:.8rem" placeholder="Paste exported data here, then Load."></textarea>
       <div style="margin-top:6px"><button class="mini" id="mp-io-load">Load pasted data</button> <span class="hint" id="mp-io-msg"></span></div>
     </div>
-    <div class="row" style="margin-top:12px">
-      <div><label>Search</label><input id="mp-search" placeholder="name or #number…" /></div>
-      <div><label>Type</label><select id="mp-type"></select></div>
-      <div><label>Work skill</label><select id="mp-work"></select></div>
-      <div><label>&nbsp;</label><label class="optline"><input type="checkbox" id="mp-ownedonly" /> Show owned only</label></div>
-    </div>
-    <p class="hint" style="margin:10px 0 6px">Tap a Pal to toggle whether you own it.</p>
-    <div id="mp-grid" class="owngrid"></div>
+    <div id="mp-grid" class="pdxgrid"></div>
 
-    <div class="phase" style="margin-top:22px">📋 My Pals' traits <span class="hint" style="font-weight:600">— notes &amp; passives per owned Pal</span></div>
-    <div id="mp-traits"></div>
-
-    <div class="phase" style="margin-top:22px">🧬 Breed a Pal you don't have — from your collection</div>
-    <p class="hint" style="margin:0 0 10px">Pick a Pal you want. If it's reachable by breeding from the Pals you own, you'll get the full breeding tree (leaves = Pals you already have).</p>
-    <div class="row">
-      <div><label>Target Pal</label><select id="mp-target"></select></div>
-      <div style="flex:0 0 auto;display:flex;align-items:flex-end;gap:8px">
-        <button class="go" id="mp-plan" style="margin-top:0">Plan from my Pals →</button>
-        <button class="mini" id="mp-whatcan" style="align-self:flex-end;padding:12px 14px">What can I breed?</button>
+    <details class="pdx-tools">
+      <summary>🧰 Collection tools — traits, notes &amp; breeding from your Pals</summary>
+      <div class="phase" style="margin-top:16px">📋 Traits <span class="hint" style="font-weight:600">— notes &amp; passives per owned Pal</span></div>
+      <div id="mp-traits"></div>
+      <div class="phase" style="margin-top:22px">🧬 Breed a Pal you don't have — from your collection</div>
+      <p class="hint" style="margin:0 0 10px">Pick a Pal you want. If it's reachable by breeding from the Pals you own, you'll get the full breeding tree (leaves = Pals you already have).</p>
+      <div class="row">
+        <div><label>Target Pal</label><select id="mp-target"></select></div>
+        <div style="flex:0 0 auto;display:flex;align-items:flex-end;gap:8px">
+          <button class="go" id="mp-plan" style="margin-top:0">Plan from my Pals →</button>
+          <button class="mini" id="mp-whatcan" style="align-self:flex-end;padding:12px 14px">What can I breed?</button>
+        </div>
       </div>
-    </div>
-    <div id="mp-planresult" class="result"></div>
-    <div id="mp-whatresult" class="result"></div>
+      <div id="mp-planresult" class="result"></div>
+      <div id="mp-whatresult" class="result"></div>
+    </details>
   </div>
 
   <!-- WISHLIST -->
@@ -862,17 +953,6 @@
     <div class="phase" style="margin-top:22px">📝 My wishlist <button class="mini" id="wl-farm" style="margin-left:10px">Plan whole wishlist →</button></div>
     <div id="wl-farmresult" class="result"></div>
     <div id="wl-list"></div>
-  </div>
-
-  <!-- WIKI: PAL DEX -->
-  <div class="card tab-panel" id="panel-dex" style="display:none">
-    <div class="row" style="margin-bottom:8px">
-      <div><label>Search</label><input id="dex-search" placeholder="name or #number…" /></div>
-      <div><label>Type</label><select id="dex-type"></select></div>
-      <div><label>Work skill</label><select id="dex-work"></select></div>
-    </div>
-    <div id="dex-grid" class="owngrid"></div>
-    <div id="info-card" class="result" style="margin-top:14px"></div>
   </div>
 
   <!-- WIKI: ITEMS -->
@@ -1009,6 +1089,14 @@
   <div class="gsbox">
     <div class="gsbar"><input id="gs-input" placeholder="Search Pals, items, buildings, schematics…" /><button id="gs-close" class="iconbtn">✕</button></div>
     <div id="gs-results" class="gsresults"></div>
+  </div>
+</div>
+
+<div class="paldrawer" id="pal-drawer" style="display:none">
+  <div class="pd-scrim" id="pd-scrim"></div>
+  <div class="pd-sheet">
+    <button class="pd-close" id="pd-close" title="Close">✕</button>
+    <div id="pd-body"></div>
   </div>
 </div>
 
@@ -1178,8 +1266,11 @@ function catchable(name){ const p = Engine.byName.get(name); return p && p.catch
 
 /* ---------- Collection state (saved in this browser; real accounts coming later) ---------- */
 const STORE_KEY = "palworld_companion_v1";
-let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[], base:[], palmeta:{}}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[], base:[], palmeta:{}}; } })();
+let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[], base:[], palmeta:{}, fav:{}}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[], base:[], palmeta:{}, fav:{}}; } })();
 if(!STATE.palmeta) STATE.palmeta = {};
+if(!STATE.fav) STATE.fav = {};
+function isFav(n){ return !!STATE.fav[n]; }
+function setFav(n, v){ if(v) STATE.fav[n]=1; else delete STATE.fav[n]; saveState(); }
 function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){} if(typeof Cloud!=="undefined") Cloud.onLocalChange(); }
 function isOwned(n){ return !!STATE.owned[n]; }
 function setOwned(n, v){ if(v) STATE.owned[n]=1; else delete STATE.owned[n]; saveState(); }
@@ -1240,6 +1331,7 @@ const Cloud = (() => {
         STATE.wishlist = Array.isArray(r.wishlist) ? r.wishlist : [];
         STATE.base     = Array.isArray(r.base) ? r.base : [];
         STATE.palmeta  = (r.palmeta && typeof r.palmeta==="object") ? r.palmeta : {};
+        STATE.fav      = (r.fav && typeof r.fav==="object") ? r.fav : {};
         try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){}
         rerenderAll();
       } else if(!error && !data){
@@ -1250,7 +1342,7 @@ const Cloud = (() => {
 
   async function push(force){
     if(!client || !user || (pulling && !force)) return;
-    const payload = { id: user.id, data: { owned: STATE.owned, wishlist: STATE.wishlist, base: STATE.base, palmeta: STATE.palmeta } };
+    const payload = { id: user.id, data: { owned: STATE.owned, wishlist: STATE.wishlist, base: STATE.base, palmeta: STATE.palmeta, fav: STATE.fav } };
     await client.from("profiles").upsert(payload, { onConflict: "id" });
     emit();
   }
@@ -1441,10 +1533,9 @@ const PAGE_META = {
   mount:{t:"Perfect Pal", s:()=>"STACK PASSIVE SKILLS"},
   all:{t:"All combinations", s:()=>"EVERY CHILD FROM ONE PARENT"},
   lookup:{t:"Pairing", s:()=>"WHO MAKES WHAT"},
-  mypals:{t:"My Pals", s:()=>`${ownedCount()} OWNED · ${Engine.pals.length} PALS`},
+  paldex:{t:"Paldex", s:()=>`${ownedCount()}/${Engine.pals.length} OWNED · TAP A PAL FOR STATS`},
   wishlist:{t:"Wishlist", s:()=>`${STATE.wishlist.length} TARGET${STATE.wishlist.length===1?"":"S"}`},
   map:{t:"Palpagos Map", s:()=>(MAPDATA&&MAPDATA.markers?MAPDATA.markers.length+" MARKERS · ":"")+"PALPAGOS ISLANDS"},
-  dex:{t:"Pal Dex", s:()=>`${Engine.pals.length} PALS · TAP FOR STATS`},
   items:{t:"Items", s:()=>ITEMS?`${ITEMS.length} ITEMS`:"LOADING…"},
   buildings:{t:"Buildings", s:()=>BUILDINGS?`${BUILDINGS.length} STRUCTURES`:"LOADING…"},
   schematics:{t:"Schematics", s:()=>(SCHEMATICS&&SCHEMATICS.length?SCHEMATICS.length+" ENTRIES":"COMING SOON")},
@@ -1477,14 +1568,14 @@ function applyLang(){
 
 const SECTIONS = [
   {id:"breed", icon:IC.breed, label:"Breed", panels:[["path","🎯 Path"],["mount","🏆 Perfect Pal"],["all","🧬 Combos"],["lookup","🔎 Pairing"]]},
-  {id:"pals",  icon:IC.pals,  label:"Pals", panels:[["mypals","📦 My Pals"]]},
+  {id:"pals",  icon:IC.pals,  label:"Paldex", panels:[["paldex","🐾 Paldex"]]},
   {id:"wish",  icon:IC.wish,  label:"Wishlist", panels:[["wishlist","📝 Wishlist"]]},
   {id:"combat",icon:IC.combat,label:"Combat", panels:[["boss","🐲 Boss Counter"],["typechart","🔷 Type Chart"],["capture","🔴 Capture"],["damage","💥 Damage"]]},
   {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"]]},
-  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["dex","🐾 Pals"],["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"],["guides","📖 Guides"]]},
+  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"],["guides","📖 Guides"]]},
 ];
 let ITEMS = null, BUILDINGS = null, TECH = null;
-const PANEL_RENDER = { mypals:renderMyPals, dex:renderDex, wishlist:renderWishlist, map:renderMap,
+const PANEL_RENDER = { paldex:renderPaldex, wishlist:renderWishlist, map:renderMap,
   items:renderItems, buildings:renderBuildings, schematics:renderSchematics, tech:renderTech, base:renderBase, tierlists:renderTiers,
   guides:renderGuides, boss:renderBoss, typechart:renderTypeChart, capture:renderCapture, damage:renderDamage };
 let curSection = null; const lastPanel = {};
@@ -1710,23 +1801,43 @@ function collectSteps(target, producedBy){
   })(target);
   return steps;
 }
-function renderMyPals(){
-  $("#mp-count").textContent = ownedCount();
-  const psub = document.querySelector("#pagehead .pagesub"); if(psub) psub.textContent = `${ownedCount()} OWNED · ${Engine.pals.length} PALS`;
+let pdxStatus = "all", pdxElem = "";
+function renderPaldex(){
+  const psub = document.querySelector("#pagehead .pagesub"); if(psub) psub.textContent = `${ownedCount()}/${Engine.pals.length} OWNED · TAP A PAL FOR STATS`;
   const q = $("#mp-search").value.trim().toLowerCase();
   const num = /^#?\d+$/.test(q) ? parseInt(q.replace("#",""),10) : null;
-  const tf = $("#mp-type").value, wf = $("#mp-work").value, oo = $("#mp-ownedonly").checked;
-  const rows = namesByDex.filter(n => {
-    if(oo && !isOwned(n)) return false;
-    if(num!=null){ if(dexNum(dexOf(n))!==num) return false; }
-    else if(q && !n.toLowerCase().includes(q)) return false;
-    if(tf && !typesOf(n).includes(tf)) return false;
+  const wf = $("#mp-work").value, sort = $("#mp-sort").value;
+  let list = namesByDex.filter(n => {
+    if(pdxStatus==="owned" && !isOwned(n)) return false;
+    if(pdxStatus==="missing" && isOwned(n)) return false;
+    if(pdxStatus==="fav" && !isFav(n)) return false;
+    if(pdxElem && !typesOf(n).includes(pdxElem)) return false;
     if(wf && !worksOf(n).includes(wf)) return false;
+    if(num!=null) return dexNum(dexOf(n))===num;
+    if(q && !n.toLowerCase().includes(q)) return false;
     return true;
-  }).map(n => `<div class="owncard${isOwned(n)?" own":""}" data-n="${n}"><img class="thumb ocimg" loading="lazy" alt="${n}" data-name="${n}" src="${imgURL(n)}"><div class="ocn">${n}</div><div class="ocdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div>${isOwned(n)?'<span class="ock">✓</span>':""}</div>`).join("");
-  $("#mp-grid").innerHTML = rows || `<div class="empty">no matches</div>`;
+  });
+  const sat=n=>{const s=STATS_BY.get(n)||{};return s;};
+  if(sort==="name") list=list.slice().sort((a,b)=>a.localeCompare(b));
+  else if(sort==="hp") list=list.slice().sort((a,b)=>((sat(b).stats||{}).hp||0)-((sat(a).stats||{}).hp||0));
+  else if(sort==="atk") list=list.slice().sort((a,b)=>(sat(b).attack||0)-(sat(a).attack||0));
+  else if(sort==="def") list=list.slice().sort((a,b)=>((sat(b).stats||{}).defense||0)-((sat(a).stats||{}).defense||0));
+  const cl = $("#mp-count-line"); if(cl) cl.textContent = `${list.length} shown · ${ownedCount()}/${Engine.pals.length} owned`;
+  $("#mp-grid").innerHTML = list.map(n => {
+    const owned=isOwned(n), fav=isFav(n);
+    return `<div class="pdxcard${owned?" own":""}" data-n="${n}">
+      <button class="pdx-add${owned?" on":""}" data-add="${n}" title="${owned?"Owned — remove":"Add to my collection"}">${owned?"✓":"+"}</button>
+      <button class="pdx-fav${fav?" on":""}" data-fav="${n}" title="Favorite">${fav?"★":"☆"}</button>
+      <span class="pdxno">${dexStr(n)}</span>
+      <img class="thumb pdximg" loading="lazy" style="--ring:${ringOf(n)}" alt="${n}" data-name="${n}" src="${imgURL(n)}">
+      <div class="pdxn">${n}</div>
+      <div class="ocdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div>
+    </div>`;
+  }).join("") || `<div class="empty">no matches</div>`;
   renderCompletion(); renderTraits();
 }
+// back-compat alias (other code still calls renderMyPals)
+function renderMyPals(){ renderPaldex(); }
 /* ---------- Dex completion ---------- */
 function renderCompletion(){
   const box = $("#mp-completion"); if(!box) return;
@@ -2011,35 +2122,82 @@ function renderTiers(){
 function statBar(label, val, max){ const pct = Math.max(4, Math.min(100, Math.round((val/max)*100))); return `<div class="statbar"><span class="sbl">${label}</span><div class="sbtrack"><div class="sbfill" style="width:${pct}%"></div></div><b>${val}</b></div>`; }
 function workDots(t, lvl){ let d=""; for(let i=1;i<=5;i++) d += `<span class="wd${i<=lvl?" on":""}"></span>`; return `<div class="workrow"><span class="wname">${prettyWork(t)}</span><span class="wdots">${d}</span><b>Lv${lvl}</b></div>`; }
 function rarityStars(r){ if(r==null) return ""; const n = r>=18?5:r>=13?4:r>=9?3:r>=5?2:1; let s=""; for(let i=1;i<=5;i++) s += `<span class="star${i<=n?" on":""}">★</span>`; return `<div class="pdstars">${s}</div>`; }
-function renderPalInfo(name){
-  const box = $("#info-card"); if(!box) return;
-  const n = name || renderPalInfo._last;
-  if(!n){ box.innerHTML = `<div class="empty">Tap a Pal above to see its full stats, mount, partner skill &amp; drops.</div>`; return; }
-  renderPalInfo._last = n;
-  const p = Engine.byName.get(n), s = STATS_BY.get(n);
+/* ---------- Enriched Pal stats (lazy) ---------- */
+let PALSTATS = null;
+async function loadPalStats(){ if(PALSTATS) return PALSTATS; try{ const r=await fetch("data/palstats.json"); PALSTATS=await r.json(); }catch(e){ PALSTATS={}; } return PALSTATS; }
+function ex(n){ return (PALSTATS && PALSTATS[n]) || {}; }
+function infoCell(label, val){ return `<div class="infocell"><span class="icl">${label}</span><b class="icv">${val!=null&&val!==""?val:"—"}</b></div>`; }
+function bigStatRow(label, val, max){ if(val==null) return `<div class="bstat"><span class="bsl">${label}</span><div class="bstrack"><div class="bsfill" style="width:0"></div></div><b>—</b></div>`;
+  const pct=Math.max(3,Math.min(100,Math.round((val/max)*100))); return `<div class="bstat"><span class="bsl">${label}</span><div class="bstrack"><div class="bsfill" style="width:${pct}%"></div></div><b>${val}</b></div>`; }
+
+/* ---------- Pal detail drawer ---------- */
+function openPalDetail(name){ const d=$("#pal-drawer"); if(!d) return; d.style.display="block"; void d.offsetWidth; d.classList.add("open"); document.body.style.overflow="hidden"; renderPalDrawer(name); if(!PALSTATS) loadPalStats().then(()=>{ if(renderPalDrawer._last===name) renderPalDrawer(name); }); if(!SKILLS) loadSkills().then(()=>{ if(renderPalDrawer._last===name) renderPalDrawer(name); }); }
+function closePalDrawer(){ const d=$("#pal-drawer"); if(!d) return; d.classList.remove("open"); document.body.style.overflow=""; setTimeout(()=>{ if(!d.classList.contains("open")) d.style.display="none"; }, 260); }
+// legacy alias
+function renderPalInfo(name){ if(name) openPalDetail(name); }
+function renderPalDrawer(name){
+  const box = $("#pd-body"); if(!box || !name) return;
+  renderPalDrawer._last = name;
+  const n = name, p = Engine.byName.get(n), s = STATS_BY.get(n) || {}, e = ex(n);
   if(!p){ box.innerHTML = ""; return; }
-  const types = typesOf(n).map(t=>`<span class="tb tb-${t}" style="font-size:.78rem;padding:5px 13px;border-radius:999px">${t}</span>`).join("");
+  const owned = isOwned(n), fav = isFav(n);
+  const types = typesOf(n).map(t=>`<span class="tb tb-${t}" style="font-size:.74rem;padding:5px 12px;border-radius:999px">${ELEM_EMOJI[t]||""} ${t}</span>`).join("");
   const works = (p.works||[]).slice().sort((a,b)=>b.lvl-a.lvl);
-  let mount = "";
-  if(s && s.mount && s.mount.rideable){
-    const kinds = [s.mount.fly&&"Flying", s.mount.swim&&"Swimming", s.mount.ground&&"Ground"].filter(Boolean).join(" / ");
-    mount = `<div class="pdsection">Mount</div><div class="statline"><b>${kinds||"Rideable"}</b> · sprint speed ${s.rideSprintSpeed||"?"}</div>`;
-  }
-  box.innerHTML = `<div class="paldetail">
-    <div class="pdart"><img class="thumb pdimg" alt="${n}" data-name="${n}" src="${imgURL(n)}"></div>
-    <div class="pdname">${dexStr(n)} ${n}</div>
-    <div class="pdtypes">${types} ${catchable(n)?'<span class="tag catch">catchable</span>':'<span class="tag breed">breed-only</span>'}${isOwned(n)?' <span class="tag catch">★ owned</span>':''}</div>
-    ${s ? rarityStars(s.rarity) : ""}
-    ${s ? `<div class="pdsection">Stats</div>${statBar("HP", s.stats.hp, STATMAX.hp)}${statBar("Attack", s.attack, STATMAX.atk)}${statBar("Defense", s.stats.defense, STATMAX.def)}` : ""}
+  const st = s.stats||{};
+  const rhythm = e.nocturnal==null ? null : (e.nocturnal?"Nocturnal":"Diurnal");
+  const wild = (e.wildLevelMin!=null&&e.wildLevelMax!=null) ? `${e.wildLevelMin}–${e.wildLevelMax}` : null;
+  const breedPower = (typeof p.combiRank==="number") ? p.combiRank : null;
+  const drops = (Array.isArray(e.dropRates)&&e.dropRates.length) ? e.dropRates.map(d=>`<div class="droprow"><img class="itemimg" data-emoji="📦" src="img/items/${slug(d.item)}.png" alt=""><span class="dropn">${d.qtyMin&&d.qtyMax&&d.qtyMax>1?`${d.qtyMin}–${d.qtyMax}× `:d.qtyMin?`${d.qtyMin}× `:""}${d.item}</span><b class="droprate">${d.rate}%</b></div>`).join("")
+      : (s.drops&&s.drops.length ? s.drops.map(d=>`<div class="droprow"><img class="itemimg" data-emoji="📦" src="img/items/${slug(d)}.png" alt=""><span class="dropn">${d}</span></div>`).join("") : `<div class="hint">No drop data.</div>`);
+  const where = catchable(n) ? `<button class="mini" id="pd-where" data-where="${n}">📍 View spawns on the map</button>` : `<div class="hint">Breed-only — not a wild spawn. Use the Breeding tab to make it.</div>`;
+  box.innerHTML = `
+    <div class="pd-hero">
+      <img class="thumb pd-heroimg" style="--ring:${ringOf(n)}" alt="${n}" data-name="${n}" src="${imgURL(n)}">
+      <div class="pd-heroinfo">
+        <div class="pd-no">${dexStr(n)}</div>
+        <div class="pd-title">${n}</div>
+        <div class="pdtypes">${types}</div>
+      </div>
+      <button class="pd-favbig${fav?" on":""}" id="pd-fav" title="Favorite">${fav?"★":"☆"}</button>
+    </div>
+    <div class="pd-cta">
+      <button class="pd-own${owned?" on":""}" id="pd-own">${owned?"✓ In my collection":"+ Add to my collection"}</button>
+      <button class="pd-breed2" id="pd-breed">🧬 Breeding</button>
+    </div>
+    <div class="pdsection">Overview</div>
+    <div class="infogrid">
+      ${infoCell("Rarity", s.rarity!=null?s.rarity:null)}
+      ${infoCell("Size", s.size?s.size.toUpperCase():null)}
+      ${infoCell("Rhythm", rhythm)}
+      ${infoCell("Price", e.price!=null?e.price+" ⛁":null)}
+      ${infoCell("Breed power", breedPower)}
+      ${infoCell("Male %", e.maleProbability!=null?e.maleProbability+" %":null)}
+      ${wild!=null?infoCell("Wild level", wild):""}
+    </div>
     <div class="pdsection">Work suitability</div>
     ${works.length ? works.map(w=>workDots(w.t, w.lvl)).join("") : '<div class="hint">None</div>'}
-    ${mount}
+    <div class="pdsection">Stats</div>
+    ${bigStatRow("HP", st.hp, STATMAX.hp)}
+    ${bigStatRow("Attack", s.attack, STATMAX.atk)}
+    ${bigStatRow("Defense", st.defense, STATMAX.def)}
+    ${bigStatRow("Stamina", e.stamina, 150)}
+    ${bigStatRow("Walk", e.walkSpeed, 120)}
+    ${bigStatRow("Run", e.runSpeed!=null?e.runSpeed:s.runSpeed, 800)}
+    ${bigStatRow("Ride sprint", e.rideSprintSpeed!=null?e.rideSprintSpeed:s.rideSprintSpeed, 1400)}
+    ${bigStatRow("Transport", e.transportSpeed, 400)}
+    ${bigStatRow("Craft", e.craftSpeed, 200)}
+    ${bigStatRow("Stomach", e.maxFullStomach, 600)}
     ${matchupHTML(n)}
-    ${s && s.partnerSkill && s.partnerSkill.name ? `<div class="pdsection">Partner skill</div><div class="statline"><b>${s.partnerSkill.name}</b> — ${s.partnerSkill.description||""}</div>` : ""}
+    ${s.partnerSkill && s.partnerSkill.name ? `<div class="pdsection">Partner skill</div><div class="statline"><b>${s.partnerSkill.name}</b> — ${s.partnerSkill.description||""}</div>` : ""}
     ${skillsHTML(n)}
-    ${s && s.drops && s.drops.length ? `<div class="pdsection">Drops</div><div class="pddrops">${s.drops.map(d=>`<span class="chip">${d}</span>`).join("")}</div>` : ""}
-  </div>`;
-  if(!SKILLS) loadSkills().then(() => { if(renderPalInfo._last===n) renderPalInfo(n); });
+    <div class="pdsection">Drops</div><div class="pddroplist">${drops}</div>
+    <div class="pdsection">Where to find it</div>${where}
+  `;
+  const own=$("#pd-own"); if(own) own.addEventListener("click", ()=>{ setOwned(n,!isOwned(n)); renderPalDrawer(n); renderPaldex(); });
+  const fv=$("#pd-fav"); if(fv) fv.addEventListener("click", ()=>{ setFav(n,!isFav(n)); renderPalDrawer(n); renderPaldex(); });
+  const br=$("#pd-breed"); if(br) br.addEventListener("click", ()=>{ closePalDrawer(); setPicker("p-target", n); goToPanel("path"); setTimeout(renderPath,60); });
+  const wh=$("#pd-where"); if(wh) wh.addEventListener("click", ()=>{ closePalDrawer(); selectSpawnPal(n); goToPanel("map"); });
+  box.querySelectorAll(".itemimg").forEach(img=>{ img.addEventListener("error", ()=>{ img.replaceWith(Object.assign(document.createElement("span"),{className:"itememoji",textContent:img.dataset.emoji||"📦"})); }); });
 }
 
 /* ---------- Map (pan + pinch/wheel zoom + marker clustering) ---------- */
@@ -2242,23 +2400,6 @@ function renderSchematics(){
   }).join("") + `</div>`;
 }
 
-/* ---------- Wiki: Pal Dex (browsable grid → detail) ---------- */
-function renderDex(){
-  const grid = $("#dex-grid"); if(!grid) return;
-  const q = ($("#dex-search").value||"").trim().toLowerCase();
-  const num = /^#?\d+$/.test(q) ? parseInt(q.replace("#",""),10) : null;
-  const tf = $("#dex-type").value, wf = $("#dex-work").value;
-  const rows = namesByDex.filter(n => {
-    if(num!=null){ if(dexNum(dexOf(n))!==num) return false; }
-    else if(q && !n.toLowerCase().includes(q)) return false;
-    if(tf && !typesOf(n).includes(tf)) return false;
-    if(wf && !worksOf(n).includes(wf)) return false;
-    return true;
-  });
-  grid.innerHTML = rows.map(n => `<div class="owncard dexcard" data-n="${n}"><span class="dextag">${dexStr(n)}</span><img class="thumb ocimg" loading="lazy" style="--ring:${ringOf(n)}" alt="${n}" data-name="${n}" src="${imgURL(n)}"><div class="ocn">${n}</div><div class="ocdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div></div>`).join("") || `<div class="empty">no matches</div>`;
-  renderPalInfo(renderPalInfo._last);
-}
-
 /* ---------- Wiki: Items & Buildings ---------- */
 const RARITY = ["Common","Uncommon","Rare","Epic","Legendary"];
 function rarityTag(r){ if(r==null) return ""; const lbl = RARITY[Math.min(r,4)] || "Common"; return `<span class="schtier rar-${Math.min(r,4)}">${lbl}</span>`; }
@@ -2402,7 +2543,7 @@ function renderBoss(){
   html += `<p class="hint" style="margin-top:10px">Element advantage adds roughly <b>×${SUPER_MULT}</b> damage (community estimate). Tap a Pal to view its full stats in the Dex.</p>`;
   box.innerHTML = html;
   const mb = $("#boss-map"); if(mb) mb.addEventListener("click", ()=>openMapCat("alpha"));
-  box.querySelectorAll(".owncard").forEach(c=>c.addEventListener("click", ()=>{ renderPalInfo(c.dataset.n); goToPanel("dex"); setTimeout(()=>$("#info-card")&&$("#info-card").scrollIntoView({behavior:"smooth",block:"nearest"}),80); }));
+  box.querySelectorAll(".owncard").forEach(c=>c.addEventListener("click", ()=>openPalDetail(c.dataset.n)));
 }
 
 /* ---------- Combat: Type chart ---------- */
@@ -2586,19 +2727,31 @@ $("#m-target").value = namesSorted.includes("Vanwyrm") ? "Vanwyrm" : namesSorted
 // Build the passive-skill pickers for the 4 Perfect Pal rows (hidden values seeded above).
 ["m-k1","m-k2","m-k3","m-k4"].forEach(id => makeSkillPicker(id));
 
-// ----- My Pals + Wishlist -----
-$("#mp-type").innerHTML = `<option value="">All types</option>` + ALL_TYPES.map(t => `<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");
-$("#mp-work").innerHTML = `<option value="">All work skills</option>` + ALL_WORKS.map(w => `<option value="${w}">${prettyWork(w)}</option>`).join("");
+// ----- Paldex + Wishlist -----
+$("#mp-work").innerHTML = `<option value="">Any work</option>` + ALL_WORKS.map(w => `<option value="${w}">${prettyWork(w)}</option>`).join("");
 fillSelect($("#mp-target")); $("#mp-target").value = namesByDex.find(n => !isOwned(n)) || namesByDex[0]; makePicker("mp-target");
 fillSelect($("#wl-pal")); makePicker("wl-pal");
 makeSkillPicker("wl-skill", { onPick: v => { if(v && wlTemp.length < 4 && !wlTemp.includes(v)){ wlTemp.push(v); renderWlChips(); } }, resetAfter: true });
 renderWlChips();
 
-$("#mp-grid").addEventListener("click", e => { const c = e.target.closest(".owncard"); if(!c) return; setOwned(c.dataset.n, !isOwned(c.dataset.n)); renderMyPals(); });
-$("#mp-search").addEventListener("input", renderMyPals);
-["mp-type","mp-work"].forEach(id => $("#"+id).addEventListener("change", renderMyPals));
-$("#mp-ownedonly").addEventListener("change", renderMyPals);
-$("#mp-clear").addEventListener("click", () => { if(confirm("Clear all owned Pals?")){ STATE.owned = {}; saveState(); renderMyPals(); } });
+// Element filter chips
+$("#mp-elems").innerHTML = `<span class="elchip on" data-el="">All</span>` + ELEM_ORDER.map(t=>`<span class="elchip tb-${t}" data-el="${t}">${ELEM_EMOJI[t]} ${t}</span>`).join("");
+$("#mp-elems").addEventListener("click", e => { const c=e.target.closest(".elchip"); if(!c) return; pdxElem=c.dataset.el; $("#mp-elems").querySelectorAll(".elchip").forEach(x=>x.classList.toggle("on",x===c)); renderPaldex(); });
+// Status segment
+$("#mp-status").addEventListener("click", e => { const c=e.target.closest(".segbtn"); if(!c) return; pdxStatus=c.dataset.st; $("#mp-status").querySelectorAll(".segbtn").forEach(x=>x.classList.toggle("on",x===c)); renderPaldex(); });
+// Grid: + toggles owned, ★ toggles fav, card opens detail drawer
+$("#mp-grid").addEventListener("click", e => {
+  const add=e.target.closest("[data-add]"); if(add){ e.stopPropagation(); setOwned(add.dataset.add,!isOwned(add.dataset.add)); renderPaldex(); return; }
+  const fav=e.target.closest("[data-fav]"); if(fav){ e.stopPropagation(); setFav(fav.dataset.fav,!isFav(fav.dataset.fav)); renderPaldex(); return; }
+  const c=e.target.closest(".pdxcard"); if(c) openPalDetail(c.dataset.n);
+});
+$("#mp-search").addEventListener("input", renderPaldex);
+["mp-work","mp-sort"].forEach(id => $("#"+id).addEventListener("change", renderPaldex));
+// Drawer close
+$("#pd-close").addEventListener("click", closePalDrawer);
+$("#pd-scrim").addEventListener("click", closePalDrawer);
+document.addEventListener("keydown", e => { if(e.key==="Escape") closePalDrawer(); });
+$("#mp-clear").addEventListener("click", () => { if(confirm("Clear all owned Pals?")){ STATE.owned = {}; saveState(); renderPaldex(); } });
 $("#mp-plan").addEventListener("click", renderMissingBreed);
 $("#mp-share").addEventListener("click", shareCollection);
 $("#mp-tocatch-btn").addEventListener("click", async () => { const box=$("#mp-tocatch"); if(box.style.display==="none"){ await loadSpawns(); box.style.display="block"; renderToCatch(); box.scrollIntoView({behavior:"smooth",block:"nearest"}); } else { box.style.display="none"; } });
@@ -2643,12 +2796,6 @@ $("#base-add").addEventListener("click", () => baseAdd($("#base-pick").value));
 $("#base-clear").addEventListener("click", () => { if(confirm("Clear your base team?")){ STATE.base=[]; saveState(); renderBase(); } });
 $("#base-team").addEventListener("click", e => { const c=e.target.closest(".basecard"); if(c && e.target.classList.contains("baserm")) baseRemove(c.dataset.n); });
 
-// Wiki: Pal Dex (grid → detail)
-$("#dex-type").innerHTML = `<option value="">All types</option>` + ALL_TYPES.map(t => `<option value="${t}">${t[0].toUpperCase()+t.slice(1)}</option>`).join("");
-$("#dex-work").innerHTML = `<option value="">All work skills</option>` + ALL_WORKS.map(w => `<option value="${w}">${prettyWork(w)}</option>`).join("");
-$("#dex-search").addEventListener("input", renderDex);
-["dex-type","dex-work"].forEach(id => $("#"+id).addEventListener("change", renderDex));
-$("#dex-grid").addEventListener("click", e => { const c = e.target.closest(".dexcard"); if(!c) return; renderPalInfo(c.dataset.n); $("#info-card").scrollIntoView({behavior:"smooth", block:"nearest"}); });
 // Wiki: Items & Buildings
 $("#items-search").addEventListener("input", renderItems);
 $("#items-cat").addEventListener("change", renderItems);
@@ -2702,7 +2849,7 @@ function gsRun(){
   const q = $("#gs-input").value.trim().toLowerCase(), box = $("#gs-results");
   if(!q){ box.innerHTML = `<div class="hint" style="padding:16px">Search across Pals, items, buildings &amp; schematics…</div>`; return; }
   const groups = [];
-  const pals = namesByDex.filter(n => n.toLowerCase().includes(q)).slice(0,8).map(n => ({t:"Pal", n, thumb:imgURL(n), act:()=>{ goToPanel("dex"); renderPalInfo(n); const c=$("#info-card"); if(c) c.scrollIntoView({block:"nearest"}); }}));
+  const pals = namesByDex.filter(n => n.toLowerCase().includes(q)).slice(0,8).map(n => ({t:"Pal", n, thumb:imgURL(n), act:()=>openPalDetail(n)}));
   if(pals.length) groups.push(["Pals", pals]);
   if(ITEMS){ const r = ITEMS.filter(i=>i.name.toLowerCase().includes(q)).slice(0,8).map(i=>({t:"Item", n:i.name, thumb:`img/items/${i.slug}.png`, act:()=>{ goToPanel("items"); $("#items-search").value=i.name; renderItems(); }})); if(r.length) groups.push(["Items", r]); }
   if(BUILDINGS){ const r = BUILDINGS.filter(x=>x.name.toLowerCase().includes(q)).slice(0,8).map(x=>({t:"Building", n:x.name, thumb:`img/buildings/${x.slug}.png`, act:()=>{ goToPanel("buildings"); $("#bld-search").value=x.name; renderBuildings(); }})); if(r.length) groups.push(["Buildings", r]); }
@@ -2782,7 +2929,7 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.5.1";
+const APP_VERSION = "1.6.0";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")
