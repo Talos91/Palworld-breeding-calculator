@@ -408,6 +408,12 @@
   /* egg brand badge: drop the flat gradient square for a subtle ringed chip */
   .brandmark{background:radial-gradient(circle at 50% 38%, rgba(53,227,198,.25), rgba(74,168,255,.12));border:1px solid var(--line2)}
 
+
+  /* schematic item icon + source tags */
+  .itemimg{width:38px;height:38px;flex:0 0 auto;border-radius:10px;object-fit:cover;background:var(--chip);border:1px solid var(--line)}
+  .tag.src-boss{background:rgba(224,69,63,.16);color:#ff9a95}
+  .tag.src-dungeon{background:rgba(255,194,75,.14);color:var(--warn)}
+
 </style>
 </head>
 <body>
@@ -776,6 +782,8 @@ document.addEventListener("error", e => {
   const t = e.target;
   if(t && t.tagName==="IMG" && t.classList.contains("thumb") && !t.dataset.fb){
     t.dataset.fb="1"; t.src = fallbackURI(t.getAttribute("alt") || t.dataset.name || "?");
+  } else if(t && t.tagName==="IMG" && t.classList.contains("itemimg") && !t.dataset.fb){
+    t.dataset.fb="1"; const span=document.createElement("span"); span.className="schicon"; span.textContent=t.dataset.emoji||"📦"; t.replaceWith(span);
   }
 }, true);
 
@@ -1466,10 +1474,16 @@ function renderSchematics(){
   const CATICON = { weapon:"⚔️", armor:"🛡️", accessory:"💍", other:"📦" };
   box.innerHTML = `<div class="summary">${list.length} schematic${list.length!==1?"s":""}.</div><div class="schgrid">` + list.map(s => {
     const boss = /Dropped by .*?Pal (.+?) \(/i.exec(s.source||""); const bossName = boss ? boss[1] : null;
-    const mapBtn = /Dropped by/i.test(s.source||"") ? `<button class="mini schmap">📍 View boss on map</button>` : "";
+    const emoji = CATICON[s.category] || "📦";
+    const srcTag = bossName ? `<span class="tag src-boss">📍 ${bossName}</span>` : `<span class="tag src-dungeon">📦 Found in dungeons</span>`;
+    const mapBtn = bossName ? `<button class="mini schmap">📍 View boss on map</button>` : "";
     return `<div class="schcard">
-      <div class="schtop"><span class="schicon">${CATICON[s.category]||"📦"}</span><div class="schnames"><div class="schunlock">${s.unlocks||s.name}</div><div class="schsub">${s.name}</div></div>${s.tier!=null?`<span class="schtier">T${s.tier}</span>`:""}</div>
-      <div class="schmeta">${s.category?`<span class="tag">${s.category}</span>`:""}<span class="schsrc">📍 ${bossName?`<b>${bossName}</b> (Alpha/boss drop)`:(s.source||"unknown")}</span></div>
+      <div class="schtop">
+        <img class="itemimg" data-emoji="${emoji}" alt="" src="img/items/${slug(s.unlocks||s.name)}.png">
+        <div class="schnames"><div class="schunlock">${s.unlocks||s.name}</div><div class="schsub">${s.name}</div></div>
+        ${s.tier!=null?`<span class="schtier">T${s.tier}</span>`:""}
+      </div>
+      <div class="schmeta">${s.category?`<span class="tag">${s.category}</span>`:""}${srcTag}</div>
       ${mapBtn}
     </div>`;
   }).join("") + `</div>`;
