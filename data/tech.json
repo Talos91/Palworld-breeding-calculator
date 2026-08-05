@@ -1,0 +1,6150 @@
+{
+  "tech": [
+    {
+      "name": "Hand-Held Torch",
+      "level": 1,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Hand-Held Torch"
+      ],
+      "description": "Lights up dark areas and keeps you warm. Can also be used for close-range combat in a pinch. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Primitive Workbench",
+      "level": 1,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Primitive Workbench"
+      ],
+      "description": "Primitive Workbench for producing simple items. Pals with Handiwork suitability help speed up production."
+    },
+    {
+      "name": "Stone Axe",
+      "level": 1,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Stone Axe"
+      ],
+      "description": "An axe for cutting wood. Made from stone, it's not very sharp."
+    },
+    {
+      "name": "Stone Pickaxe",
+      "level": 1,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Stone Pickaxe"
+      ],
+      "description": "A pickaxe used for mining. Made from stone, the efficiency is questionable."
+    },
+    {
+      "name": "Wooden Club",
+      "level": 1,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Club"
+      ],
+      "description": "A Wooden Club for close range combat. Can beat a small Pal to a pulp if need be."
+    },
+    {
+      "name": "Campfire",
+      "level": 2,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Campfire"
+      ],
+      "description": "Used to make simple food or provide meager warmth and light."
+    },
+    {
+      "name": "Pal Dressing Facility",
+      "level": 2,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Pal Dressing Facility"
+      ],
+      "description": "Pal Dressing Facility. Give your Pals a new look! Skins obtained inside and outside the game can be applied here!"
+    },
+    {
+      "name": "Pal Sphere",
+      "level": 2,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Pal Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. This basic model is only effective on low level Pals."
+    },
+    {
+      "name": "Palbox",
+      "level": 2,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Palbox"
+      ],
+      "description": "Facility for storing captured Pals. Pals inside gradually recover Health. The area around this structure will become your base."
+    },
+    {
+      "name": "Repair Bench",
+      "level": 2,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Repair Bench"
+      ],
+      "description": "Repairs damaged weapons and tools."
+    },
+    {
+      "name": "Wooden Chest",
+      "level": 2,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Chest"
+      ],
+      "description": "Used to store items. Place at a base and Pals with Transporting suitability will automatically carry items to it."
+    },
+    {
+      "name": "Wooden Structure Set",
+      "level": 2,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Foundation",
+        "Wooden Wall",
+        "Wooden Roof",
+        "Wooden Stairs",
+        "Wooden Wall and Window",
+        "Wooden Triangular Wall",
+        "Wooden Slanted Roof",
+        "Wooden Door",
+        "Wooden Pillar",
+        "Wooden Fence",
+        "Wooden Triangular Foundation",
+        "Wooden Diagonal Wall",
+        "Wooden Triangular Roof",
+        "Wooden Corner Roof",
+        "Wooden Triangular Wall (Inverted)",
+        "Wooden Pal Passage Entrance",
+        "Wooden Slanted Triangular Roof",
+        "Wooden Pyramid Roof",
+        "Wooden Slanted Corner Roof (Inverted)"
+      ],
+      "description": "Set for building bases using wood. Allows building of wooden foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Arrow",
+      "level": 3,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Arrow"
+      ],
+      "description": "Arrows for use with bows. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Global Palbox",
+      "level": 3,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Global Palbox"
+      ],
+      "description": "A facility that can store the genetic data of Pals and allows you to reconstruct them from this data. The stored genetic data can also be transferred to other worlds."
+    },
+    {
+      "name": "Old Bow",
+      "level": 3,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Old Bow"
+      ],
+      "description": "Primitive long-range weapon. Hastily put together, it isn't very powerful. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Shoddy Bed",
+      "level": 3,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Shoddy Bed"
+      ],
+      "description": "Human bed. Sleeping restores Health. Sleep at night and time will pass until morning. Cannot sleep unless built under a roof."
+    },
+    {
+      "name": "Stone Spear",
+      "level": 3,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Stone Spear"
+      ],
+      "description": "Useful for close-range combat. Its length allows you to stand further away when attacking."
+    },
+    {
+      "name": "Straw Pal Bed",
+      "level": 3,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Straw Pal Bed"
+      ],
+      "description": "Pals at base recover SAN when sleeping in beds at night. Without a Pal Bed, Pals cannot sleep soundly, and no SAN is recovered."
+    },
+    {
+      "name": "Cloth",
+      "level": 4,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Cloth"
+      ],
+      "description": "Cloth woven from Wool. Required to create armor. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Cloth Outfit",
+      "level": 4,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cloth Outfit"
+      ],
+      "description": "Clothes made from Cloth. Protects against cold nights. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Common Shield",
+      "level": 4,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Common Shield"
+      ],
+      "description": "Strange shield made with Paldium technology. It automatically repair itself after not taking damage for a while."
+    },
+    {
+      "name": "Feed Box",
+      "level": 4,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Feed Box"
+      ],
+      "description": "Place food here, and Pals at the base will eat from it."
+    },
+    {
+      "name": "Berry Plantation",
+      "level": 5,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Berry Plantation"
+      ],
+      "description": "Can produce berries at a base. Requires Pal with Planting, Watering, and Gathering suitabilities."
+    },
+    {
+      "name": "Normal Parachute",
+      "level": 5,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Normal Parachute"
+      ],
+      "description": "A glider for soaring through the air. Cheaply made, it isn't very fast."
+    },
+    {
+      "name": "Ranch",
+      "level": 5,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Ranch"
+      ],
+      "description": "Ranch for raising sheep and fowl-like Pals. Assign Pals with the appropriate work suitability to the ranch to automatically produce items."
+    },
+    {
+      "name": "Wooden Living Room Furniture Set",
+      "level": 5,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Square Table",
+        "Round Table",
+        "Wooden Bench",
+        "Wooden Stool",
+        "Wooden Bar Stool",
+        "Wooden Chair"
+      ],
+      "description": "Decorative furniture set. Place furniture in your living space and enjoy life with your Pals."
+    },
+    {
+      "name": "Wooden Tavern Cabinet Furniture Set",
+      "level": 5,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Barrel",
+        "Wooden Box",
+        "Wooden Shelf",
+        "Wooden Wall Shelf",
+        "Wooden Barrel Shelf"
+      ],
+      "description": "Set of wooden cabinets that look at home in a tavern. Can store items."
+    },
+    {
+      "name": "Wooden Tavern Furniture Set",
+      "level": 5,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Counter",
+        "Wooden Decorative Wall Shelf"
+      ],
+      "description": "Decorative furniture set. Set up a bar and enjoy life with your Pals."
+    },
+    {
+      "name": "Fire Arrow",
+      "level": 6,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Fire Arrow"
+      ],
+      "description": "Fire Arrows for use with bows. Deals <img id=|ElemIcon_Fire|/><uiCommon id=|COMMON_ELEMENT_NAME_Fire| style=|Elem_Fire|/> damage on contact. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Foxparks' Harness",
+      "level": 6,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Foxparks' Harness"
+      ],
+      "description": "Harness for holding Foxparks. Activate its Partner Skill to hold Foxparks and attack using it as a flamethrower."
+    },
+    {
+      "name": "Houseplant Set",
+      "level": 6,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Houseplant",
+        "Houseplant and Chair",
+        "Tabletop Houseplant",
+        "Potted Houseplant"
+      ],
+      "description": "Decorative furniture set. Place plants around your base for a splash of color."
+    },
+    {
+      "name": "Mounted Torch",
+      "level": 6,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Hand-Held Torch"
+      ],
+      "description": "Place it at a base to light the surrounding area."
+    },
+    {
+      "name": "Pal Gear Workbench",
+      "level": 6,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pal Gear Workbench"
+      ],
+      "description": "Produces items that allow Pals to use Partner Skills."
+    },
+    {
+      "name": "Rushoar Saddle",
+      "level": 6,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Rushoar Saddle"
+      ],
+      "description": "Saddle for safely riding Rushoar."
+    },
+    {
+      "name": "Sign",
+      "level": 6,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Sign"
+      ],
+      "description": "Can be written on."
+    },
+    {
+      "name": "WallSignBoard",
+      "level": 6,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Wall-Mounted Sign"
+      ],
+      "description": "A signboard to write on. Can be hung on walls."
+    },
+    {
+      "name": "Alarm Bell",
+      "level": 7,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Alarm Bell"
+      ],
+      "description": "Bell that sets the alert status for Pals on base. Change Pal behavior to either attack invading enemies or focus entirely on work whenever you like."
+    },
+    {
+      "name": "Bat",
+      "level": 7,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Bat"
+      ],
+      "description": "Baseball bat for close-range combat. Might be tough to get a home run with a Pal."
+    },
+    {
+      "name": "Logging Site",
+      "level": 7,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Logging Site"
+      ],
+      "description": "Can produce wood at a base. Requires Pal with Lumbering suitability."
+    },
+    {
+      "name": "Melpaca Saddle",
+      "level": 7,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Melpaca Saddle"
+      ],
+      "description": "Saddle for safely riding Melpaca."
+    },
+    {
+      "name": "Monitoring Stand",
+      "level": 7,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Monitoring Stand"
+      ],
+      "description": "Command your Pals to work on various things inside a base. You can allow or prohibit individual kinds of work."
+    },
+    {
+      "name": "Sandbag",
+      "level": 7,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Sandbag"
+      ],
+      "description": "Pals assigned to it will watch for approaching enemies."
+    },
+    {
+      "name": "Stone Pit",
+      "level": 7,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Stone Pit"
+      ],
+      "description": "Can produce stone at a base. Requires Pal with Mining suitability."
+    },
+    {
+      "name": "Wall-Mounted Houseplant Set",
+      "level": 7,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Big Wall Ivy",
+        "Small Wall Ivy",
+        "Horizontal Wall Ivy"
+      ],
+      "description": "Decorative furniture set. Place plants on your base's walls for a splash of color."
+    },
+    {
+      "name": "Crusher",
+      "level": 8,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Crusher"
+      ],
+      "description": "Facility for breaking down Stone and Wood to exchange them for other materials. Requires Pal with the Watering suitability to spin the water turbine."
+    },
+    {
+      "name": "Fireplace Set",
+      "level": 8,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Brick Fireplace",
+        "Fireplace"
+      ],
+      "description": "Brick fireplace set to provide illumination. Must be lit with fire."
+    },
+    {
+      "name": "Hanging Trap",
+      "level": 8,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Hanging Trap"
+      ],
+      "description": "Catches Pals that pass through. Only effective on small Pals and humans."
+    },
+    {
+      "name": "Poison Arrow",
+      "level": 8,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Poison Arrow"
+      ],
+      "description": "Poison Arrows for use with bows. Afflicts target with <uiCommon id=|ADDITIONAL_EFFECT_Poison| style=|Effect_Poison|/> on contact. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Wooden Defensive Wall",
+      "level": 8,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Defensive Wall"
+      ],
+      "description": "Massive defensive wall to prevent enemy intrusions. Made from wood, it breaks easily."
+    },
+    {
+      "name": "Wooden Gate",
+      "level": 8,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Gate"
+      ],
+      "description": "Wooden gate large enough for big Pals to pass through."
+    },
+    {
+      "name": "Carpet Set",
+      "level": 9,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Carpet",
+        "Antique Red Carpet",
+        "Antique Green Carpet",
+        "Antique Long Carpet"
+      ],
+      "description": "Decorative furniture set. Place on a foundation in your base for that homey feel."
+    },
+    {
+      "name": "Direhowl's Saddled Harness",
+      "level": 9,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Direhowl's Saddled Harness"
+      ],
+      "description": "Saddle for safely riding Direhowl."
+    },
+    {
+      "name": "Hot Spring",
+      "level": 9,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Hot Spring"
+      ],
+      "description": "Pals recover SAN while in a Hot Spring."
+    },
+    {
+      "name": "Small Feed Bag",
+      "level": 9,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Small Feed Bag"
+      ],
+      "description": "A small pouch for holding food. Unlocks a food slot in your inventory. Players and Pals automatically consume food when hungry. Carrying one is enough."
+    },
+    {
+      "name": "Statue of Power",
+      "level": 9,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Statue of Power"
+      ],
+      "description": "Make offerings to enhance the stats of the Player and their Pals."
+    },
+    {
+      "name": "Tropical Outfit",
+      "level": 9,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Tropical Outfit"
+      ],
+      "description": "A Cloth Outfit produced in hot regions. Boasts high heat resistance. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Tundra Outfit",
+      "level": 9,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Tundra Outfit"
+      ],
+      "description": "A Cloth Outfit produced in cold regions. Useful for surviving in cold climates. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Antique Storage Set",
+      "level": 10,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Bookshelf",
+        "Antique Wardrobe",
+        "Antique Chest",
+        "Antique Side Chest",
+        "Iron Wall Shelf"
+      ],
+      "description": "Antique storage furniture set. Can store items."
+    },
+    {
+      "name": "Bear Trap (Small)",
+      "level": 10,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Bear Trap (Small)"
+      ],
+      "description": "Immobilizes those who step on it. Only effective on small Pals or humans."
+    },
+    {
+      "name": "Egg Incubator",
+      "level": 10,
+      "cost": 1,
+      "ancient": true,
+      "unlocks": [
+        "Egg Incubator"
+      ],
+      "description": "Place a Pal Egg inside to incubate it."
+    },
+    {
+      "name": "Feathered Hair Band",
+      "level": 10,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Feathered Hair Band"
+      ],
+      "description": "A beautiful feathered headband. Though improbable, it somehow seems to protect its wearer from lethal head injuries. Can be crafted at Workbench."
+    },
+    {
+      "name": "Ladder",
+      "level": 10,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Ladder"
+      ],
+      "description": "A ladder that allows you to climb to a slightly higher place."
+    },
+    {
+      "name": "Nail",
+      "level": 10,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Nail"
+      ],
+      "description": "Necessary for building various facilities. Can be made with a Primitive Workbench."
+    },
+    {
+      "name": "Primitive Furnace",
+      "level": 10,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Primitive Furnace"
+      ],
+      "description": "Uses Ore to produce Ingots."
+    },
+    {
+      "name": "Three Shot Bow",
+      "level": 10,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Three Shot Bow"
+      ],
+      "description": "An enhanced bow that allows three arrows to be fired simultaneously. By some strange mechanism, it only consumes a single Arrow when fired."
+    },
+    {
+      "name": "Antique Chair Set",
+      "level": 11,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Wooden Chair",
+        "Antique Green Wooden Chair",
+        "Antique Stool"
+      ],
+      "description": "Decorative furniture set. Use with an antique desk."
+    },
+    {
+      "name": "Chillet Saddle",
+      "level": 11,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Chillet Saddle"
+      ],
+      "description": "Saddle for safely riding Chillet."
+    },
+    {
+      "name": "High-Quality Workbench",
+      "level": 11,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "High-Quality Workbench"
+      ],
+      "description": "Produces faster than Primitive Workbench. Requires Pal with Handiwork trait."
+    },
+    {
+      "name": "Lifmunk's Submachine Gun",
+      "level": 11,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Lifmunk's Submachine Gun"
+      ],
+      "description": "Submachine gun made specifically for Lifmunk. Activate its Partner Skill, and Lifmunk will ride on your head and fire at enemies."
+    },
+    {
+      "name": "Metal Axe",
+      "level": 11,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Metal Axe"
+      ],
+      "description": "A metal axe capable of cutting down even hard trees. Effective against the sturdy trees that grow deep within the continent. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Metal Pickaxe",
+      "level": 11,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Metal Pickaxe"
+      ],
+      "description": "A pickaxe used for mining. Made from metal, its durability and efficiency have improved. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Rayne Syndicate Flag Set",
+      "level": 11,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Rayne Syndicate Standard",
+        "Rayne Syndicate Vertical Banner"
+      ],
+      "description": "Rayne Syndicate Standard and Rayne Syndicate Vertical Banner set. Proof of your victory over the Rayne Syndicate."
+    },
+    {
+      "name": "Eikthyrdeer Saddle",
+      "level": 12,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Eikthyrdeer Saddle"
+      ],
+      "description": "Saddle for safely riding Eikthyrdeer."
+    },
+    {
+      "name": "Faux Greenery Set",
+      "level": 12,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Greenery A",
+        "Faux Greenery B",
+        "Faux Greenery C",
+        "Faux Bush"
+      ],
+      "description": "A decorative artificial tree set. Use them to create a natural-looking base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Grappling Gun",
+      "level": 12,
+      "cost": 1,
+      "ancient": true,
+      "unlocks": [
+        "Grappling Gun"
+      ],
+      "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. It allows for easy movement between places with varying elevation."
+    },
+    {
+      "name": "Meat Cleaver",
+      "level": 12,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Meat Cleaver"
+      ],
+      "description": "Knife for butchering Pals. When equipped, the Pet command becomes Butcher. Butchered Pals will be gone for good."
+    },
+    {
+      "name": "Medieval Medicine Workbench",
+      "level": 12,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Medieval Medicine Workbench"
+      ],
+      "description": "Can produce simple medicine. Requires Pal with Medicine Production trait."
+    },
+    {
+      "name": "Pelt Armor",
+      "level": 12,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pelt Armor"
+      ],
+      "description": "Armor made from Leather. Its warmth and defense have been improved. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Tanzee's Assault Rifle",
+      "level": 12,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Tanzee's Assault Rifle"
+      ],
+      "description": "Assault rifle made specifically for Tanzee. Activate its Partner Skill, and Tanzee will enter gunner mode and begin shooting at nearby enemies."
+    },
+    {
+      "name": "Tidy Table Set",
+      "level": 12,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Tidy Round Table",
+        "Tidy Square Table"
+      ],
+      "description": "A neat decorative table set for building a clean and well-kept base."
+    },
+    {
+      "name": "Antique Storage Cabinet Set",
+      "level": 13,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Cabinet",
+        "Antique Long Cabinet",
+        "Large Antique Cabinet",
+        "Antique Wall Cabinet"
+      ],
+      "description": "Antique storage cabinet set. Can store items."
+    },
+    {
+      "name": "Cooler Box",
+      "level": 13,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cooler Box"
+      ],
+      "description": "Small food vault. Assign an Ice Pal to help prevent food stored inside from spoiling."
+    },
+    {
+      "name": "Crossbow",
+      "level": 13,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Crossbow"
+      ],
+      "description": "Fires an Arrow effortlessly. Though it takes time to load, it delivers a powerful shot. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Metal Chest",
+      "level": 13,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Metal Chest"
+      ],
+      "description": "Can be used to store more items. Pals with Transporting suitability will automatically carry items to it."
+    },
+    {
+      "name": "Metal Spear",
+      "level": 13,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Metal Spear"
+      ],
+      "description": "Useful for close-range combat. The metal tip gives it increased attack power. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Tanzee Ignis's Assault Rifle",
+      "level": 13,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Tanzee Ignis's Assault Rifle"
+      ],
+      "description": "Assault rifle made specifically for Tanzee Ignis. Activate its Partner Skill, and Tanzee Ignis will enter gunner mode and begin shooting at nearby enemies."
+    },
+    {
+      "name": "Training Dummy",
+      "level": 13,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Training Dummy"
+      ],
+      "description": "Training dummy shaped like a Pengullet."
+    },
+    {
+      "name": "Antique Desk Set",
+      "level": 14,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Desk",
+        "Antique Round Table"
+      ],
+      "description": "Decorative furniture set. Use with an antique chair."
+    },
+    {
+      "name": "Average Feed Bag",
+      "level": 14,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Average Feed Bag"
+      ],
+      "description": "A decently sized pouch for holding food. Unlocks 2 food slots in your inventory. Players and Pals automatically consume food when hungry. Carrying one is enough."
+    },
+    {
+      "name": "Faux Crimson Foliage Set",
+      "level": 14,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Crimson Foliage A",
+        "Faux Crimson Foliage B",
+        "Faux Crimson Foliage C",
+        "Faux Rock"
+      ],
+      "description": "A decorative artificial autumn tree set. Use them to create a natural-looking base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Mega Sphere",
+      "level": 14,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mega Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Its capabilities have been improved, allowing it to catch a wider range of Pals. Can be crafted at Sphere Workbench."
+    },
+    {
+      "name": "Pal Essence Condenser",
+      "level": 14,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Pal Essence Condenser"
+      ],
+      "description": "Combines several Pals of the same type to create a higher-ranked version."
+    },
+    {
+      "name": "Sphere Workbench",
+      "level": 14,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Sphere Workbench"
+      ],
+      "description": "Produces Spheres for capturing Pals. Requires Pal with Handiwork suitability."
+    },
+    {
+      "name": "Univolt Saddle",
+      "level": 14,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Univolt Saddle"
+      ],
+      "description": "Saddle for safely riding Univolt."
+    },
+    {
+      "name": "Wall Torch",
+      "level": 14,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Wall Torch"
+      ],
+      "description": "Place it on a wall to light the surrounding area."
+    },
+    {
+      "name": "Arsox Saddle",
+      "level": 15,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Arsox Saddle"
+      ],
+      "description": "Saddle for safely riding Arsox."
+    },
+    {
+      "name": "Beginner Fishing Set",
+      "level": 15,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Beginner Fishing Rod (Chillet)",
+        "Simple Bait"
+      ],
+      "description": "Beginner-friendly fishing rod and bait set. Once you craft both, you'll be able to fish for Pals near bodies of water."
+    },
+    {
+      "name": "Hip Lantern",
+      "level": 15,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Hip Lantern"
+      ],
+      "description": "A lantern that can be attached to the hip. It lights up automatically at night. You can also switch its lighting mode to keep it on at all times. Just one is enough to find your way in the dark."
+    },
+    {
+      "name": "Mill",
+      "level": 15,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mill"
+      ],
+      "description": "Facility for milling Wheat to produce Flour. Requires Pal with the Watering suitability to spin the water turbine."
+    },
+    {
+      "name": "Nitewing Saddle",
+      "level": 15,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Nitewing Saddle"
+      ],
+      "description": "Saddle for safely riding Nitewing."
+    },
+    {
+      "name": "Viewing Cage",
+      "level": 15,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Viewing Cage"
+      ],
+      "description": "Container for observing captured Pals. Pals inside cannot participate in battle or production, but they do not become hungry."
+    },
+    {
+      "name": "Wheat Plantation",
+      "level": 15,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Wheat Plantation"
+      ],
+      "description": "Use it to grow ingredients for Bread. Requires Pal with Planting, Watering, and Gathering suitabilities."
+    },
+    {
+      "name": "Wooden Board",
+      "level": 15,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wooden Board"
+      ],
+      "description": "Planks made from processed wood for easier use. More versatile than raw logs, with a wide variety of uses. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Antique Bath Set",
+      "level": 16,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Bathtub",
+        "Antique Braided Basket",
+        "Antique Partition",
+        "Antique Towel Rack"
+      ],
+      "description": "Decorative furniture set. Can't actually be used to stay clean."
+    },
+    {
+      "name": "Antique Mirror Set",
+      "level": 16,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Oval Mirror",
+        "Antique Mirror",
+        "Antique Wall Mirror"
+      ],
+      "description": "Decorative furniture set. Essentially for making sure you look good."
+    },
+    {
+      "name": "Faux Golden Foliage Set",
+      "level": 16,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Golden Foliage A",
+        "Faux Golden Foliage B",
+        "Faux Golden Foliage C",
+        "Faux Golden Bush"
+      ],
+      "description": "A decorative artificial yellow autumn tree set. Use them to create a natural-looking base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Heat Resistant Pelt Armor",
+      "level": 16,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Heat Resistant Pelt Armor"
+      ],
+      "description": "A Pelt Armor produced in hot regions. Boasts high heat resistance. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Lockpicking Tool v1",
+      "level": 16,
+      "cost": 1,
+      "ancient": true,
+      "unlocks": [
+        "Lockpicking Tool v1"
+      ],
+      "description": "No key? No problem! These tools will allow you to try and pry open any treasure chest that would normally require a Copper Key."
+    },
+    {
+      "name": "Mega Shield",
+      "level": 16,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mega Shield"
+      ],
+      "description": "Strange shield made with Paldium technology. The new model has been improved, enhancing its defense. Can be made at High-Quality Workbench."
+    },
+    {
+      "name": "Surfent Saddle",
+      "level": 16,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Surfent Saddle"
+      ],
+      "description": "Saddle for safely riding Surfent."
+    },
+    {
+      "name": "Cooking Pot",
+      "level": 17,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cooking Pot"
+      ],
+      "description": "Can efficiently prepare more varieties of foods."
+    },
+    {
+      "name": "Heater",
+      "level": 17,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Heater"
+      ],
+      "description": "Warms the nearby area and protects against the cold."
+    },
+    {
+      "name": "Mega Grappling Gun",
+      "level": 17,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Mega Grappling Gun"
+      ],
+      "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. Since it's upgraded, it now has greater range."
+    },
+    {
+      "name": "Metal Shelf Set",
+      "level": 17,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Iron Shelf",
+        "Long Iron Shelf",
+        "Orange Locker",
+        "Locker"
+      ],
+      "description": "Metal shelf set. Can store items."
+    },
+    {
+      "name": "Pengullet Rocket Launcher",
+      "level": 17,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pengullet Rocket Launcher"
+      ],
+      "description": "Rocket launcher for launching Pengullet. Activate its Partner Skill to fire Pengullet and damage enemies. After firing, Pengullet will become incapacitated."
+    },
+    {
+      "name": "Piano Furniture Set",
+      "level": 17,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Grand Piano",
+        "Upright Piano"
+      ],
+      "description": "Decorative furniture set. Place in your base and dream about living a life of luxury."
+    },
+    {
+      "name": "Primitive Sword",
+      "level": 17,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Primitive Sword"
+      ],
+      "description": "A sword for close-range combat. Not bad for a battered sword. Perfect for getting up close and personal."
+    },
+    {
+      "name": "Tombstone",
+      "level": 17,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Tombstone"
+      ],
+      "description": "A gravestone that can be inscribed with text. Use it for recording purposes."
+    },
+    {
+      "name": "Antique High Quality Furniture Set",
+      "level": 18,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Curtain",
+        "Antique Globe",
+        "Antique Stove"
+      ],
+      "description": "Decorative furniture set. Gives an air of stately elegance to your base."
+    },
+    {
+      "name": "Bathroom Set",
+      "level": 18,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Toilet",
+        "Antique Toilet Paper Holder",
+        "Antique Washstand"
+      ],
+      "description": "Decorative furniture set. Can't be used for its original purpose."
+    },
+    {
+      "name": "Cold Resistant Pelt Armor",
+      "level": 18,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Cold Resistant Pelt Armor"
+      ],
+      "description": "A Pelt Armor produced in cold regions. Useful for surviving in cold climates. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Cooler",
+      "level": 18,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cooler"
+      ],
+      "description": "Cools the nearby area and protects against the heat."
+    },
+    {
+      "name": "Mega Glider",
+      "level": 18,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mega Glider"
+      ],
+      "description": "A glider for soaring through the air. A mass produced commercial model, it’s decently fast. Can be made at High-Quality Workbench."
+    },
+    {
+      "name": "Pengullet Lux's Rocket Launcher",
+      "level": 18,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pengullet Lux's Rocket Launcher"
+      ],
+      "description": "Rocket launcher for launching Pengullet Lux. Activate its Partner Skill to fire Pengullet Lux and damage enemies. After firing, Pengullet Lux will become incapacitated."
+    },
+    {
+      "name": "Ring of Mercy",
+      "level": 18,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Ring of Mercy"
+      ],
+      "description": "Pacifist's ring. The wearer's attacks will not reduce the target's Health below 1."
+    },
+    {
+      "name": "Tocotoco's Gloves",
+      "level": 18,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Tocotoco's Gloves"
+      ],
+      "description": "Gloves for gently holding Tocotoco. Activate its Partner Skill to hold Tocotoco and use it to fire explosive eggs."
+    },
+    {
+      "name": "Breeding Farm",
+      "level": 19,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Breeding Farm"
+      ],
+      "description": "Assign a male and a female Pal to produce eggs. Cake is required for breeding."
+    },
+    {
+      "name": "Cement",
+      "level": 19,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Cement"
+      ],
+      "description": "Cement used for creating structures and more. Can be produced in a High-Quality Workbench."
+    },
+    {
+      "name": "Grintale Saddle",
+      "level": 19,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Grintale Saddle"
+      ],
+      "description": "Saddle for safely riding Grintale."
+    },
+    {
+      "name": "Heavy Weight Module",
+      "level": 19,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Heavy Weight Module"
+      ],
+      "description": "Equipping it makes the sphere heavier, reducing its range but increasing its capture power."
+    },
+    {
+      "name": "Pal Labor Research Lab",
+      "level": 19,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pal Labor Research Lab"
+      ],
+      "description": "A facility for conducting research on the various tasks of Pals. By assigning tasks to Pals in this facility, research progresses, granting various benefits."
+    },
+    {
+      "name": "Stone Defensive Wall",
+      "level": 19,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Stone Defensive Wall"
+      ],
+      "description": "Large defensive wall that protects from enemy invasions."
+    },
+    {
+      "name": "Stone Gate",
+      "level": 19,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Stone Gate"
+      ],
+      "description": "Stone gate large enough for big Pals to pass through."
+    },
+    {
+      "name": "Stone Structure Set",
+      "level": 19,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Stone Foundation",
+        "Stone Wall",
+        "Stone Roof",
+        "Stone Stairs",
+        "Stone Wall and Window",
+        "Stone Triangular Wall",
+        "Stone Slanted Roof",
+        "Stone Door",
+        "Stone Pillar",
+        "Stone Fence",
+        "Stone Triangular Foundation",
+        "Stone Diagonal Wall",
+        "Stone Triangular Roof",
+        "Stone Corner Roof",
+        "Stone Triangular Wall (Inverted)",
+        "Stone Pal Passage Entrance",
+        "Stone Slanted Triangular Roof",
+        "Stone Pyramid Roof",
+        "Stone Slanted Corner Roof (Inverted)"
+      ],
+      "description": "Set for building bases using stone. Allows building of stone foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Antique Couch Set",
+      "level": 20,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Armchair",
+        "Antique Couch",
+        "Antique Ottoman"
+      ],
+      "description": "Decorative furniture set. Gives the air of luxury to your base."
+    },
+    {
+      "name": "Dimensional Pal Storage",
+      "level": 20,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Dimensional Pal Storage"
+      ],
+      "description": "A facility for storing a large number of captured Pals. Any guild member can deposit or withdraw Pals. If you set it to private, it can serve as your personal Pal storage."
+    },
+    {
+      "name": "Elphidran Saddle",
+      "level": 20,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Elphidran Saddle"
+      ],
+      "description": "Saddle for safely riding Elphidran."
+    },
+    {
+      "name": "Free Pal Alliance Flag Set",
+      "level": 20,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Free Pal Alliance Standard",
+        "Free Pal Alliance Vertical Banner"
+      ],
+      "description": "Free Pal Alliance Standard and Free Pal Alliance Vertical Banner set. Proof of your victory over the Free Pal Alliance."
+    },
+    {
+      "name": "Giga Sphere",
+      "level": 20,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Giga Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Able to capture moderately powerful Pals. Can be crafted at Sphere Workbench."
+    },
+    {
+      "name": "Large Toolbox",
+      "level": 20,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Large Toolbox"
+      ],
+      "description": "Place in base to improve handiwork speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Sweepa Saddle",
+      "level": 20,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Sweepa Saddle"
+      ],
+      "description": "Saddle for safely riding Sweepa."
+    },
+    {
+      "name": "Tarantriss Saddle",
+      "level": 20,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Tarantriss Saddle"
+      ],
+      "description": "Saddle for safely riding Tarantriss."
+    },
+    {
+      "name": "Weapon Workbench",
+      "level": 20,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Weapon Workbench"
+      ],
+      "description": "Produces simple mechanical weapons. Requires Pal with Handiwork suitability."
+    },
+    {
+      "name": "Antique Dresser",
+      "level": 21,
+      "cost": 1,
+      "ancient": true,
+      "unlocks": [
+        "Antique Dresser"
+      ],
+      "description": "Dresser useful for giving yourself a remake. Allows players to edit their appearance."
+    },
+    {
+      "name": "Bear Trap (Large)",
+      "level": 21,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Bear Trap (Large)"
+      ],
+      "description": "Immobilizes those who step on it. Only effective on large Pals."
+    },
+    {
+      "name": "Coarse Ammo",
+      "level": 21,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Coarse Ammo"
+      ],
+      "description": "Ammo for the Musket, Makeshift Handgun, and similar weapons. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Eikthyrdeer Terra Saddle",
+      "level": 21,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Eikthyrdeer Terra Saddle"
+      ],
+      "description": "Saddle for safely riding Eikthyrdeer Terra."
+    },
+    {
+      "name": "Flame Cauldron",
+      "level": 21,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Flame Cauldron"
+      ],
+      "description": "Place in base to improve fire-making speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Gunpowder",
+      "level": 21,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Gunpowder"
+      ],
+      "description": "Gunpowder used to fire ammunition. Required to make bullets. Can be made at High-Quality Workbench."
+    },
+    {
+      "name": "Musket",
+      "level": 21,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Musket"
+      ],
+      "description": "Simple, old-fashioned gun. Fires a single, powerful shot at the expense of a long reload time. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Tomato Plantation",
+      "level": 21,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Tomato Plantation"
+      ],
+      "description": "Farm for producing tomatoes. Requires Pal with Planting, Watering, and Gathering suitabilities."
+    },
+    {
+      "name": "Vanwyrm Saddle",
+      "level": 21,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Vanwyrm Saddle"
+      ],
+      "description": "Saddle for safely riding Vanwyrm."
+    },
+    {
+      "name": "Clock Set",
+      "level": 22,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Wall Clock",
+        "Antique Grandfather Clock"
+      ],
+      "description": "Decorative furniture set. Doesn't actually tell time."
+    },
+    {
+      "name": "Flea Market (Items)",
+      "level": 22,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Flea Market (Items)"
+      ],
+      "description": "A facility for selling items. By setting products in the sales list, you can sell items to other players. Assign an Ice Pal to it and the food inside will be less likely to spoil."
+    },
+    {
+      "name": "Flea Market (Pals)",
+      "level": 22,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Flea Market (Pals)"
+      ],
+      "description": "A facility for selling Pals. By setting Pals in the sales list, you can sell them to other players. Assign an Ice Pal to it and the food inside will be less likely to spoil."
+    },
+    {
+      "name": "High Quality Bait",
+      "level": 22,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "High Quality Bait"
+      ],
+      "description": "Bait that lures in Pals. Improved from Simple Bait to increase the chances of Pals biting the bait."
+    },
+    {
+      "name": "Homeward Thundercloud",
+      "level": 22,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Homeward Thundercloud"
+      ],
+      "description": "Transports you to the nearest base. Cannot be used in dungeons and other similar locations."
+    },
+    {
+      "name": "Metal Chair and Desk Set",
+      "level": 22,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Iron Stool",
+        "Round Iron Table",
+        "Iron Chair",
+        "Iron Desk"
+      ],
+      "description": "Decorative furniture set. Match with metal structures and enjoy life with your Pals."
+    },
+    {
+      "name": "Pal Expedition Station",
+      "level": 22,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pal Expedition Station"
+      ],
+      "description": "A facility that allows Pals to be sent on expeditions to places like dungeons. The dispatched Pals engage in battles and gather items, bringing back resources to the base."
+    },
+    {
+      "name": "Stun Baton",
+      "level": 22,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Stun Baton"
+      ],
+      "description": "Close range weapon that sends out an electric jolt upon contact. Pals are easier to capture when electrocuted. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Vanwyrm Cryst Saddle",
+      "level": 22,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Vanwyrm Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Vanwyrm Cryst."
+    },
+    {
+      "name": "Curve Module",
+      "level": 23,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Curve Module"
+      ],
+      "description": "Equipping it causes the sphere to spin with a curved trajectory. It becomes easier to catch Pals off guard, and increases capture power."
+    },
+    {
+      "name": "Faux Bamboo Set",
+      "level": 23,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Bamboo A",
+        "Faux Bamboo B",
+        "Faux Bamboo C",
+        "Faux Flowering Bush A",
+        "Faux Flowering Bush B"
+      ],
+      "description": "A decorative artificial bamboo set. Use them to create a Bamboo Grove-inspired base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Kingpaca Saddle",
+      "level": 23,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Kingpaca Saddle"
+      ],
+      "description": "Saddle for safely riding Kingpaca."
+    },
+    {
+      "name": "Large Feed Bag",
+      "level": 23,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Large Feed Bag"
+      ],
+      "description": "A large pouch for holding food. Unlocks 3 food slots in your inventory. Players and Pals automatically consume food when hungry. Carrying one is enough."
+    },
+    {
+      "name": "Metal Armor",
+      "level": 23,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Metal Armor"
+      ],
+      "description": "Armor made of metal. Somewhat heavy, but provides good defense. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Metal Helm",
+      "level": 23,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Metal Helm"
+      ],
+      "description": "A helm made of metal. A reliable piece of armor that protects your head, and all the thoughts within. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Storage Container Set",
+      "level": 23,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Large Container",
+        "Small Container",
+        "Cloth Covered Container"
+      ],
+      "description": "Container furniture set. Can store items."
+    },
+    {
+      "name": "Water Fountain",
+      "level": 23,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Water Fountain"
+      ],
+      "description": "Place in base to improve watering speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Azurobe Saddle",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Azurobe Saddle"
+      ],
+      "description": "Saddle for safely riding Azurobe."
+    },
+    {
+      "name": "Clinic",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Clinic"
+      ],
+      "description": "A basic medical facility for managing the health of Pals working at the base. Assigning a Pal with Medicine Production suitability helps reduce SAN depletion and prevent illness and injury. While sanitation has its limits, it plays a crucial role in early base development."
+    },
+    {
+      "name": "Dinossom Saddle",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Dinossom Saddle"
+      ],
+      "description": "Saddle for safely riding Dinossom."
+    },
+    {
+      "name": "Flower Bed",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Flower Bed"
+      ],
+      "description": "Place in base to improve gathering speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Fluffy Pal Bed",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Fluffy Pal Bed"
+      ],
+      "description": "Pals sleep more soundly, improving the amount of Health and SAN recovered while sleeping."
+    },
+    {
+      "name": "Foxparks Cryst's Harness",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Foxparks Cryst's Harness"
+      ],
+      "description": "Harness for holding Foxparks Cryst. Activate its Partner Skill to hold Foxparks Cryst and release freezing air to attack."
+    },
+    {
+      "name": "Makeshift Handgun",
+      "level": 24,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Makeshift Handgun"
+      ],
+      "description": "A handgun created from spare parts. Relatively well suited for close quarters combat, but can only fire one shot before needing to reload. Crafted at Weapon Workbench."
+    },
+    {
+      "name": "Medicine Rack",
+      "level": 24,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Medicine Rack"
+      ],
+      "description": "A shelf for storing medicine. Sick Pals will come here to take their medicine. Be sure to keep the medicine stocked."
+    },
+    {
+      "name": "Ore Mining Site",
+      "level": 24,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Ore Mining Site"
+      ],
+      "description": "Facility for producing Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining."
+    },
+    {
+      "name": "Boost Gun",
+      "level": 25,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Boost Gun"
+      ],
+      "description": "Firing this at a Pal in your team temporarily boosts that Pal's attack and defense. Firing it at an enemy deals damage instead."
+    },
+    {
+      "name": "Boost Gun Ammo",
+      "level": 25,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Boost Gun Ammo"
+      ],
+      "description": "Ammo for the Boost Gun and similar weapons. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Frag Grenade",
+      "level": 25,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Frag Grenade"
+      ],
+      "description": "A Frag Grenade useful for mid-range combat. It detonates a few seconds after being thrown, dealing damage to enemies."
+    },
+    {
+      "name": "Heat Resistant Metal Armor",
+      "level": 25,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Heat Resistant Metal Armor"
+      ],
+      "description": "Improved Metal Armor. Boasts high heat resistance. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Helzephyr Saddle",
+      "level": 25,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Helzephyr Saddle"
+      ],
+      "description": "Saddle for safely riding Helzephyr."
+    },
+    {
+      "name": "Lettuce Plantation",
+      "level": 25,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Lettuce Plantation"
+      ],
+      "description": "Farm for producing lettuce. Requires Pal with Planting, Watering, and Gathering suitabilities."
+    },
+    {
+      "name": "Lockpicking Tool v2",
+      "level": 25,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Lockpicking Tool v2"
+      ],
+      "description": "No key? No problem! These tools will allow you to try and pry open any treasure chest that would normally require a Silver Key."
+    },
+    {
+      "name": "Silo",
+      "level": 25,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Silo"
+      ],
+      "description": "Place in base to improve planting speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Surfent Terra Saddle",
+      "level": 25,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Surfent Terra Saddle"
+      ],
+      "description": "Saddle for safely riding Surfent Terra."
+    },
+    {
+      "name": "Antique Lamp Set",
+      "level": 26,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Antique Brown Floor Lamp",
+        "Antique Red Floor Lamp",
+        "Chandelier",
+        "Wall Lamp"
+      ],
+      "description": "Antique lamp set to provide illumination. Requires electricity to light."
+    },
+    {
+      "name": "Fenglope Saddle",
+      "level": 26,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Fenglope Saddle"
+      ],
+      "description": "Saddle for safely riding Fenglope."
+    },
+    {
+      "name": "Human-Powered Generator",
+      "level": 26,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Human-Powered Generator"
+      ],
+      "description": "A facility that converts rotational motion into electrical energy. The efficiency is low, and the Pals working here will experience a decrease in SAN value, but they will gain experience points."
+    },
+    {
+      "name": "Lamp",
+      "level": 26,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Lamp"
+      ],
+      "description": "Lights up dark areas at a base."
+    },
+    {
+      "name": "Makeshift SMG",
+      "level": 26,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Makeshift SMG"
+      ],
+      "description": "A submachine gun handmade from scraps. It excels in rate of fire, but its single-shot power is low."
+    },
+    {
+      "name": "Mounted Crossbow",
+      "level": 26,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mounted Crossbow"
+      ],
+      "description": "Assign a Pal with Handiwork suitability and it will protect a base using the crossbow."
+    },
+    {
+      "name": "Polapup Saddle",
+      "level": 26,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Polapup Saddle"
+      ],
+      "description": "Saddle for safely riding Polapup."
+    },
+    {
+      "name": "Power Generator",
+      "level": 26,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Power Generator"
+      ],
+      "description": "Electric Pals at the base can now store electricity, allowing the use of electric facilities."
+    },
+    {
+      "name": "Single-Shot Sphere Launcher",
+      "level": 26,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "Single-Shot Sphere Launcher"
+      ],
+      "description": "A launcher that fires spheres. It can capture Pals from a greater distance. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Azurobe Cryst Saddle",
+      "level": 27,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Azurobe Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Azurobe Cryst."
+    },
+    {
+      "name": "Ceiling Lamp",
+      "level": 27,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Ceiling Lamp"
+      ],
+      "description": "Lights up dark areas below at a base."
+    },
+    {
+      "name": "Cold Resistant Metal Armor",
+      "level": 27,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cold Resistant Metal Armor"
+      ],
+      "description": "Improved Metal Armor. Useful for surviving in cold climates. Can be crafted at High-Quality Workbench."
+    },
+    {
+      "name": "Extra Weapon Holster",
+      "level": 27,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Extra Weapon Holster"
+      ],
+      "description": "A holster that allows an additional weapon to be equipped. While in possession, it increases weapon equip slots by 1. Carrying one is enough."
+    },
+    {
+      "name": "Faux Tropical Greenery Set",
+      "level": 27,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Tropical Greenery A",
+        "Faux Tropical Greenery B",
+        "Faux Tropical Greenery C",
+        "Faux Tropical Bush"
+      ],
+      "description": "A decorative artificial tropical tree set. Use them to create a tropical-inspired base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Hyper Sphere",
+      "level": 27,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Hyper Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Enhanced capabilities allow it to capture even more powerful Pals. Can be crafted at Sphere Assembly Line."
+    },
+    {
+      "name": "Shock Grenade",
+      "level": 27,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Shock Grenade"
+      ],
+      "description": "A Shock Grenade useful for mid-range combat. It detonates a few seconds after being thrown, electrocuting everything in the blast radius."
+    },
+    {
+      "name": "Small Pouch",
+      "level": 27,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Small Pouch"
+      ],
+      "description": "A small pouch that allows you to carry additional items. Holding it increases your inventory slots. Carrying one is enough."
+    },
+    {
+      "name": "Sphere Assembly Line",
+      "level": 27,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Sphere Assembly Line"
+      ],
+      "description": "Creates Pal Spheres at a faster pace. Requires Pal with Handiwork suitability."
+    },
+    {
+      "name": "Anti-Gravity Belt",
+      "level": 28,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Anti-Gravity Belt"
+      ],
+      "description": "An accessory that increases the player's jump power when equipped."
+    },
+    {
+      "name": "Brothers of the Eternal Pyre Flag Set",
+      "level": 28,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Brothers of the Eternal Pyre Standard",
+        "Brothers of the Eternal Pyre Vertical Banner"
+      ],
+      "description": "Brothers of the Eternal Pyre Standard and Brothers of the Eternal Pyre Vertical Banner set. Proof of your victory over the Brothers of the Eternal Pyre."
+    },
+    {
+      "name": "Dazemu Saddle",
+      "level": 28,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Dazemu Saddle"
+      ],
+      "description": "Saddle for safely riding Dazemu."
+    },
+    {
+      "name": "Fine Bed",
+      "level": 28,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Fine Bed"
+      ],
+      "description": "Soft bed with improved restorative capabilities. Cannot sleep unless built under a roof."
+    },
+    {
+      "name": "Handgun",
+      "level": 28,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Handgun"
+      ],
+      "description": "A handgun with improved capacity and rapid-fire capabilities. Has more immediate firepower than a Makeshift Handgun. Crafted at Weapon Workbench."
+    },
+    {
+      "name": "Handgun Ammo",
+      "level": 28,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Handgun Ammo"
+      ],
+      "description": "Ammo for the Handgun and similar weapons. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "High Quality Monitoring Stand",
+      "level": 28,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "High Quality Monitoring Stand"
+      ],
+      "description": "A refined monitoring station with improved materials and structure. In addition to being able to issue work orders, the system also lowers the SAN cost for Pals working at the base. Working conditions are slightly improved, making Pals less likely to become dissatisfied."
+    },
+    {
+      "name": "Mammorest Saddle",
+      "level": 28,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mammorest Saddle"
+      ],
+      "description": "Saddle for safely riding Mammorest."
+    },
+    {
+      "name": "Stump and Axe",
+      "level": 28,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Stump and Axe"
+      ],
+      "description": "Place in base to improve logging speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Beakon Saddle",
+      "level": 29,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Beakon Saddle"
+      ],
+      "description": "Saddle for safely riding Beakon."
+    },
+    {
+      "name": "Enhanced Hip Lantern",
+      "level": 29,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Enhanced Hip Lantern"
+      ],
+      "description": "A lantern that can be attached to the hip. It lights up automatically at night. You can also switch its lighting mode to keep it on at all times. Just one is enough to find your way in the dark."
+    },
+    {
+      "name": "Giga Shield",
+      "level": 29,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Giga Shield"
+      ],
+      "description": "Strange shield made with Paldium technology. Modifications have enhanced its effectiveness even further. Can be made at Production Assembly Line."
+    },
+    {
+      "name": "Ice Grenade",
+      "level": 29,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Ice Grenade"
+      ],
+      "description": "A Ice Grenade useful for mid-range combat. It detonates a few seconds after being thrown, freezing the surrounding area."
+    },
+    {
+      "name": "Intermediate Fishing Rod (Cattiva)",
+      "level": 29,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Intermediate Fishing Rod (Cattiva)",
+        "Simple Bait"
+      ],
+      "description": "A fishing rod designed for catching Pals. Use it with bait near water where shadows are visible to start fishing. It boasts improved performance, making catches a bit easier."
+    },
+    {
+      "name": "Potato Plantation",
+      "level": 29,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Potato Plantation"
+      ],
+      "description": "A farm where you can grow Potato. It takes time to harvest, but increases the variety of meals you can prepare. Requires a few Pals to plant seeds, water, and harvest the crops."
+    },
+    {
+      "name": "Production Assembly Line",
+      "level": 29,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Production Assembly Line"
+      ],
+      "description": "Needs electricity but produces items at a faster pace. Requires Pal with Handiwork trait."
+    },
+    {
+      "name": "Pyrin Saddle",
+      "level": 29,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pyrin Saddle"
+      ],
+      "description": "Saddle for safely riding Pyrin."
+    },
+    {
+      "name": "Sword",
+      "level": 29,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Sword"
+      ],
+      "description": "Sword for close-range combat. The blade is extremely sharp! Mightier than a pen, for sure. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Iron Gate",
+      "level": 30,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Iron Gate"
+      ],
+      "description": "Metal gate large enough for big Pals to pass through."
+    },
+    {
+      "name": "Makeshift Shotgun",
+      "level": 30,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Makeshift Shotgun"
+      ],
+      "description": "A shotgun handmade from scraps. It has a short range but excels in close-range combat"
+    },
+    {
+      "name": "Meowmere",
+      "level": 30,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Meowmere"
+      ],
+      "description": "[Tides of Terraria] According to the legend, this sword was brought back from a distant land by Croajiro. Why? We have no idea... Fires a bouncing cat projectile with each swing to attack enemies."
+    },
+    {
+      "name": "Metal Defensive Wall",
+      "level": 30,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Metal Defensive Wall"
+      ],
+      "description": "Massive defensive wall to prevent enemy intrusions. Made from metal, it is extremely durable."
+    },
+    {
+      "name": "Metal Structure Set",
+      "level": 30,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Metal Foundation",
+        "Metal Wall",
+        "Metal Roof",
+        "Metal Stairs",
+        "Metal Wall and Window",
+        "Metal Triangular Wall",
+        "Metal Slanted Roof",
+        "Metal Door",
+        "Metal Pillar",
+        "Metal Fence",
+        "Metal Triangular Foundation",
+        "Metal Diagonal Wall",
+        "Metal Triangular Roof",
+        "Metal Corner Roof",
+        "Metal Triangular Wall (Inverted)",
+        "Metal Pal Passage Entrance",
+        "Metal Slanted Triangular Roof",
+        "Metal Pyramid Roof",
+        "Metal Slanted Corner Roof (Inverted)"
+      ],
+      "description": "Set for building bases using metal. Allows building of metal foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Mine",
+      "level": 30,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mine"
+      ],
+      "description": "Automatically detonates when stepped on."
+    },
+    {
+      "name": "Mining Cart",
+      "level": 30,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mining Cart"
+      ],
+      "description": "Place in base to improve mining speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Mushroom Cake",
+      "level": 30,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Mushroom Cake"
+      ],
+      "description": "Place it in the chest at a Breeding Farm to make Pals lay a particularly healthy egg. The talents of the resulting Pals will grow slightly more easily."
+    },
+    {
+      "name": "Rayhound Saddle",
+      "level": 30,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Rayhound Saddle"
+      ],
+      "description": "Saddle for safely riding Rayhound."
+    },
+    {
+      "name": "Cryogenic Coolant",
+      "level": 31,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cryogenic Coolant"
+      ],
+      "description": "A high-efficiency cooling medium made from special components derived from Pals. Used to regulate temperature in high-output devices. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Fishing Pond",
+      "level": 31,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Fishing Pond"
+      ],
+      "description": "A ready-to-use fishing pond. Assign a Pal to fish here at their own leisure. Requires Pals that can work with their hands."
+    },
+    {
+      "name": "Ghangler Saddle",
+      "level": 31,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Ghangler Saddle"
+      ],
+      "description": "Saddle for safely riding Ghangler."
+    },
+    {
+      "name": "Giga Grappling Gun",
+      "level": 31,
+      "cost": 3,
+      "ancient": true,
+      "unlocks": [
+        "Giga Grappling Gun"
+      ],
+      "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. Using data from prototype versions, its capabilities have been further increased."
+    },
+    {
+      "name": "High Quality Hot Spring",
+      "level": 31,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "High Quality Hot Spring"
+      ],
+      "description": "Pals recover plenty of SAN while in the hot spring."
+    },
+    {
+      "name": "Incendiary Grenade",
+      "level": 31,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Incendiary Grenade"
+      ],
+      "description": "A Incendiary Grenade useful for mid-range combat. It detonates a few seconds after being thrown, setting the surrounding area on fire."
+    },
+    {
+      "name": "Makeshift Assault Rifle",
+      "level": 31,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Makeshift Assault Rifle"
+      ],
+      "description": "An assault rifle handmade from scraps. It excels in rate of fire and long range, but its single-shot power is low."
+    },
+    {
+      "name": "Reindrix Saddle",
+      "level": 31,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Reindrix Saddle"
+      ],
+      "description": "Saddle for safely riding Reindrix."
+    },
+    {
+      "name": "Sniper Module",
+      "level": 31,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Sniper Module"
+      ],
+      "description": "Equipping it increases the sphere's range, allowing it to sharply capture Pals and enhancing capture power."
+    },
+    {
+      "name": "Carrot Plantation",
+      "level": 32,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Carrot Plantation"
+      ],
+      "description": "A farm where you can grow Carrot. It takes time to harvest, but increases the variety of meals you can prepare. Requires a few Pals to plant seeds, water, and harvest the crops."
+    },
+    {
+      "name": "Elphidran Aqua Saddle",
+      "level": 32,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Elphidran Aqua Saddle"
+      ],
+      "description": "Saddle for safely riding Elphidran Aqua."
+    },
+    {
+      "name": "Mossanda's Grenade Launcher",
+      "level": 32,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mossanda's Grenade Launcher"
+      ],
+      "description": "Makes Mossanda fire a grenade launcher when ridden."
+    },
+    {
+      "name": "Pal Recovery Grenade",
+      "level": 32,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Pal Recovery Grenade"
+      ],
+      "description": "A Frag Grenade with healing effects. It bursts on impact, restoring HP to allied Pals."
+    },
+    {
+      "name": "Palbox Control Device",
+      "level": 32,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Palbox Control Device"
+      ],
+      "description": "A remote-access terminal for the Palbox. Set it up wherever you'd like and build a base of your own design."
+    },
+    {
+      "name": "Rayhound Cryst Saddle",
+      "level": 32,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Rayhound Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Thunderdog_Ice."
+    },
+    {
+      "name": "ULTRAKILL Collab Set 1",
+      "level": 32,
+      "cost": 3,
+      "ancient": true,
+      "unlocks": [
+        "V1 Armor",
+        "Marksman Revolver"
+      ],
+      "description": "[ULTRAKILL Collab] A set containing V1 Armor and Marksman Revolver."
+    },
+    {
+      "name": "Weapon Assembly Line",
+      "level": 32,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Weapon Assembly Line"
+      ],
+      "description": "Needs electricity but produces weapons and ammunition at a faster pace. Requires Pal with Handiwork trait."
+    },
+    {
+      "name": "Witch Cauldron",
+      "level": 32,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Witch Cauldron"
+      ],
+      "description": "Place in base to improve medicine manufacturing speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Blazehowl Saddle",
+      "level": 33,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Blazehowl Saddle"
+      ],
+      "description": "Saddle for safely riding Blazehowl."
+    },
+    {
+      "name": "Broncherry Saddle",
+      "level": 33,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Broncherry Saddle"
+      ],
+      "description": "Saddle for safely riding Broncherry."
+    },
+    {
+      "name": "Electric Mine",
+      "level": 33,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Electric Mine"
+      ],
+      "description": "Electrocutes those who step on it. Electrocuted Pals are easier to capture."
+    },
+    {
+      "name": "Old Revolver",
+      "level": 33,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Old Revolver"
+      ],
+      "description": "A slightly outdated revolving handgun. Compared to Handgun_default, it excels in single-shot power."
+    },
+    {
+      "name": "Polymer",
+      "level": 33,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Polymer"
+      ],
+      "description": "Polymer made from refined oil. Required for producing various advanced items such as firearms. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Ragnahawk Saddle",
+      "level": 33,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Ragnahawk Saddle"
+      ],
+      "description": "Saddle for safely riding Ragnahawk."
+    },
+    {
+      "name": "Snowman",
+      "level": 33,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Snowman"
+      ],
+      "description": "Place in base to improve cooling speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Summoning Altar",
+      "level": 33,
+      "cost": 3,
+      "ancient": true,
+      "unlocks": [
+        "Summoning Altar"
+      ],
+      "description": "Offer a Slab depicting a Pal to summon a powerful Pal to your base. Adequate caution and battle readiness is paramount."
+    },
+    {
+      "name": "Water Grenade",
+      "level": 33,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Water Grenade"
+      ],
+      "description": "A Water Grenade useful for mid-range combat. It detonates a few seconds after being thrown, dealing Water damage to enemies."
+    },
+    {
+      "name": "Ability Glasses",
+      "level": 34,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "Ability Glasses"
+      ],
+      "description": "Glasses used to discern hidden Pal potentials. Displays Health, Attack and Defense stats on a scale of 0 to 100."
+    },
+    {
+      "name": "Dinossom Lux Saddle",
+      "level": 34,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Dinossom Lux Saddle"
+      ],
+      "description": "Saddle for safely riding Dinossom Lux."
+    },
+    {
+      "name": "Improved Furnace",
+      "level": 34,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Improved Furnace"
+      ],
+      "description": "Uses Ore and Coal to produce Refined Ingots."
+    },
+    {
+      "name": "Metal Barrel Set",
+      "level": 34,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Red Metal Barrel",
+        "Blue Metal Barrel",
+        "Green Metal Barrel"
+      ],
+      "description": "Decorative furniture set. Not suitable for doing keg stands."
+    },
+    {
+      "name": "Mossanda Lux's Grenade Launcher",
+      "level": 34,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mossanda Lux's Grenade Launcher"
+      ],
+      "description": "Makes Mossanda Lux fire a grenade launcher when ridden."
+    },
+    {
+      "name": "Pyrin Noct Saddle",
+      "level": 34,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pyrin Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Pyrin Noct."
+    },
+    {
+      "name": "Refined Metal Axe",
+      "level": 34,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Refined Metal Axe"
+      ],
+      "description": "An axe that can gather Hardwood from trees found in harsh environments such as deserts and volcanic areas. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Refined Metal Pickaxe",
+      "level": 34,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Refined Metal Pickaxe"
+      ],
+      "description": "A pickaxe used for mining. Its durability and efficiency have further improved. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Refined Metal Spear",
+      "level": 34,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Refined Metal Spear"
+      ],
+      "description": "Useful for close-range combat. The high-quality metal tip gives it increased attack power. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Air Dash Boots",
+      "level": 35,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Air Dash Boots"
+      ],
+      "description": "An accessory that allows the player to dash in mid-air when equipped."
+    },
+    {
+      "name": "Blazehowl Noct Saddle",
+      "level": 35,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Blazehowl Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Blazehowl Noct."
+    },
+    {
+      "name": "Carbon Fiber",
+      "level": 35,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Carbon Fiber"
+      ],
+      "description": "A lightweight yet sturdy material. Used to create armor and other equipment. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Circuit Board",
+      "level": 35,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Circuit Board"
+      ],
+      "description": "Circuit Board required to create precision equipment. Can be made at Production Assembly Line."
+    },
+    {
+      "name": "Grass Grenade",
+      "level": 35,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Grass Grenade"
+      ],
+      "description": "A Grass Grenade useful for mid-range combat. It detonates a few seconds after being thrown, dealing Grass damage to enemies."
+    },
+    {
+      "name": "Ironwood Table Set",
+      "level": 35,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Ironwood Side Table",
+        "Ironwood Table",
+        "Ironwood Low Table"
+      ],
+      "description": "Decorative furniture set. Match with metal structures and enjoy life with your Pals."
+    },
+    {
+      "name": "Palumba Saddle",
+      "level": 35,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Palumba Saddle"
+      ],
+      "description": "Saddle for safely riding Palumba."
+    },
+    {
+      "name": "Sphere Assembly Line II",
+      "level": 35,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Sphere Assembly Line II"
+      ],
+      "description": "Creates Pal Spheres at an even faster pace. Requires Pal with Handiwork suitability."
+    },
+    {
+      "name": "Ultra Sphere",
+      "level": 35,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Ultra Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Not many Pals can escape its highly efficient design. Can be crafted at Sphere Assembly Line II."
+    },
+    {
+      "name": "Braloha Saddle",
+      "level": 36,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Braloha Saddle"
+      ],
+      "description": "Saddle for safely riding Braloha."
+    },
+    {
+      "name": "Electric Egg Incubator",
+      "level": 36,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Electric Egg Incubator"
+      ],
+      "description": "Device for incubating Pal eggs. Requires electricity, but automatically keeps the inside of the incubator at appropriate temperatures."
+    },
+    {
+      "name": "High Quality Cloth",
+      "level": 36,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "High Quality Cloth"
+      ],
+      "description": "Woven from large amounts of Wool. Required to create high quality armor. Can be made at High-Quality Workbench."
+    },
+    {
+      "name": "Huge Feed Bag",
+      "level": 36,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Huge Feed Bag"
+      ],
+      "description": "A extra-large pouch for holding food. Unlocks 4 food slots in your inventory. Players and Pals automatically consume food when hungry. Carrying one is enough."
+    },
+    {
+      "name": "Large Pal Bed",
+      "level": 36,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Large Pal Bed"
+      ],
+      "description": "A fluffy bed that Pals can get a good rest on. Pals can rest on it when injured, or to sleep at night. Even large Pals can sleep soundly on a bed like this."
+    },
+    {
+      "name": "Moldron Saddle",
+      "level": 36,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Moldron Saddle"
+      ],
+      "description": "Saddle for safely riding Moldron."
+    },
+    {
+      "name": "Onion Plantation",
+      "level": 36,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Onion Plantation"
+      ],
+      "description": "A farm where you can grow Onion. It takes time to harvest, but increases the variety of meals you can prepare. Requires a few Pals to plant seeds, water, and harvest the crops."
+    },
+    {
+      "name": "Rifle Ammo",
+      "level": 36,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Rifle Ammo"
+      ],
+      "description": "Ammo for the Single-Shot Rifle and similar weapons. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Single-Shot Rifle",
+      "level": 36,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Single-Shot Rifle"
+      ],
+      "description": "A single-shot rifle. Takes time to load. What it lacks in capacity, it makes up for with sheer power. Crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Accumulator",
+      "level": 37,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Accumulator"
+      ],
+      "description": "A facility for storing excess electricity generated by the Power Generator."
+    },
+    {
+      "name": "Coal Quarry",
+      "level": 37,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Coal Quarry"
+      ],
+      "description": "Facility for producing Coal. Digging Coal is grueling physical work. Leave it to a Pal that is good at mining."
+    },
+    {
+      "name": "Corrosive Solvent",
+      "level": 37,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Corrosive Solvent"
+      ],
+      "description": "A dangerous chemical solvent with strong decomposing properties. Used for precision processing and special treatments. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Faux Desert Greenery Set",
+      "level": 37,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Desert Greenery A",
+        "Faux Desert Greenery B",
+        "Faux Desert Greenery C"
+      ],
+      "description": "A decorative artificial desert tree set. Use them to create a oasis-inspired base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Maraith Saddle",
+      "level": 37,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Maraith Saddle"
+      ],
+      "description": "Saddle for safely riding Maraith."
+    },
+    {
+      "name": "Outdoor Furniture Set",
+      "level": 37,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Cable Reel",
+        "Garbage Bag",
+        "Earthen Pipe",
+        "Tire"
+      ],
+      "description": "Decorative furniture set. Spruces up the outside of your base."
+    },
+    {
+      "name": "Refined Metal Armor",
+      "level": 37,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Refined Metal Armor"
+      ],
+      "description": "Armor made from high quality metal. Quite heavy, but provides excellent defense. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Refined Metal Helm",
+      "level": 37,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Refined Metal Helm"
+      ],
+      "description": "A helm made from high quality metal. The luster from the polished metal gives the wearer that added boost of confidence. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "SMG",
+      "level": 37,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "SMG"
+      ],
+      "description": "A submachine gun with exceptional rate of fire. It’s easy to handle and effective in close-range combat."
+    },
+    {
+      "name": "Deluxe Bait",
+      "level": 38,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Deluxe Bait"
+      ],
+      "description": "Bait that lures in Pals. Improved to slightly enlarge the size of the bar in the fishing minigame."
+    },
+    {
+      "name": "Ground Grenade",
+      "level": 38,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Ground Grenade"
+      ],
+      "description": "A Ground Grenade useful for mid-range combat. It detonates a few seconds after being thrown, dealing Ground damage to enemies."
+    },
+    {
+      "name": "Ice Mine",
+      "level": 38,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Ice Mine"
+      ],
+      "description": "Freezes those who step on it. Frozen Pals are easier to capture."
+    },
+    {
+      "name": "Leather Chair Set",
+      "level": 38,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Leather Armchair",
+        "Leather Couch",
+        "Leather Chair",
+        "Frog Chair"
+      ],
+      "description": "Decorative furniture set. Leather screams luxury."
+    },
+    {
+      "name": "Meteor Launcher",
+      "level": 38,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Meteor Launcher",
+        "Meteorite Ammo"
+      ],
+      "description": "A phenomenal weapon that fires a meteor. Upon striking its target, it creates an explosion similar to a meteorite impact. Can be crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Pal Surgery Table",
+      "level": 38,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Pal Surgery Table"
+      ],
+      "description": "A facility where surgery can be performed on Pals to change their gender or passive skills."
+    },
+    {
+      "name": "Quivern Saddle",
+      "level": 38,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Quivern Saddle"
+      ],
+      "description": "Saddle for safely riding Quivern."
+    },
+    {
+      "name": "Refrigerator",
+      "level": 38,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Refrigerator"
+      ],
+      "description": "Large food vault. Assign an Ice Pal to help prevent food stored inside from spoiling."
+    },
+    {
+      "name": "Scatter Sphere Launcher",
+      "level": 38,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Scatter Sphere Launcher"
+      ],
+      "description": "A new type of launcher that fires a large number of spheres. It can easily capture a herd of Pals. Can be crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Astegon Saddle",
+      "level": 39,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Astegon Saddle"
+      ],
+      "description": "Saddle for safely riding Astegon."
+    },
+    {
+      "name": "Double-Barreled Shotgun",
+      "level": 39,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Double-Barreled Shotgun"
+      ],
+      "description": "Wreaks havoc at close range. Can fire twice before reloading. Despite the limited load capacity, it still packs a punch. Crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Ore Mining Site II",
+      "level": 39,
+      "cost": 3,
+      "ancient": true,
+      "unlocks": [
+        "Ore Mining Site II"
+      ],
+      "description": "Facility for producing large quantities of Ore. Mining Ore is hard work that requires physical endurance. Leave it to Pals skilled at mining."
+    },
+    {
+      "name": "PIDF Flag Set",
+      "level": 39,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "PIDF Standard",
+        "PIDF Vertical Banner"
+      ],
+      "description": "PIDF Standard and PIDF Vertical Banner set. Proof of your victory over the PIDF."
+    },
+    {
+      "name": "Refined Metal Chest",
+      "level": 39,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Refined Metal Chest"
+      ],
+      "description": "Can be used to store even more items. Pals with Transporting suitability will automatically carry items to it."
+    },
+    {
+      "name": "Shotgun Shell",
+      "level": 39,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Shotgun Shell"
+      ],
+      "description": "Ammo for shotguns and other similar weapons. Can be crafted at Weapon Workbench."
+    },
+    {
+      "name": "Shroomer Noct Saddle",
+      "level": 39,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Shroomer Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Shroomer Noct."
+    },
+    {
+      "name": "Shroomer Saddle",
+      "level": 39,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Shroomer Saddle"
+      ],
+      "description": "Saddle for safely riding Shroomer."
+    },
+    {
+      "name": "Slider Module",
+      "level": 39,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Slider Module"
+      ],
+      "description": "Equipping it adds a slider spin to the sphere. The sphere curves at a sharp angle, making it easier to catch Pals off guard and increasing capture power."
+    },
+    {
+      "name": "Chillet Ignis Saddle",
+      "level": 40,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Chillet Ignis Saddle"
+      ],
+      "description": "Saddle for safely riding Chillet Ignis."
+    },
+    {
+      "name": "Dark Grenade",
+      "level": 40,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Dark Grenade"
+      ],
+      "description": "A Dark Grenade useful for mid-range combat. It detonates a few seconds after being thrown, dealing Dark damage to enemies."
+    },
+    {
+      "name": "Double Jump Boots",
+      "level": 40,
+      "cost": 2,
+      "ancient": true,
+      "unlocks": [
+        "Double Jump Boots"
+      ],
+      "description": "An accessory that allows the player to jump in mid-air when equipped."
+    },
+    {
+      "name": "Giga Glider",
+      "level": 40,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Giga Glider"
+      ],
+      "description": "A glider for soaring through the air. With its capabilities improved, it can soar at high speed. Can be made at Production Assembly Line"
+    },
+    {
+      "name": "Grizzbolt's Minigun",
+      "level": 40,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Grizzbolt's Minigun"
+      ],
+      "description": "Makes Grizzbolt fire a minigun when ridden."
+    },
+    {
+      "name": "Heat Resistant Refined Metal Armor",
+      "level": 40,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Heat Resistant Refined Metal Armor"
+      ],
+      "description": "Improved Refined Metal Armor. Boasts high heat resistance. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Jormuntide Saddle",
+      "level": 40,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Jormuntide Saddle"
+      ],
+      "description": "Saddle for safely riding Jormuntide."
+    },
+    {
+      "name": "Metal Bat",
+      "level": 40,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Metal Bat"
+      ],
+      "description": "A Metal Bat that works well in close combat. Use it to beat down anyone you don't like."
+    },
+    {
+      "name": "Mounted Machine Gun",
+      "level": 40,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Mounted Machine Gun"
+      ],
+      "description": "Assign a Pal with Handiwork suitability and it will protect a base using the machine gun."
+    },
+    {
+      "name": "Alpha Wave Generator",
+      "level": 41,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Alpha Wave Generator"
+      ],
+      "description": "A device that emits alpha waves to help Pals relax. Slows the rate at which the SAN value of Base Pals decreases. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Cold Resistant Refined Metal Armor",
+      "level": 41,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Cold Resistant Refined Metal Armor"
+      ],
+      "description": "Improved Refined Metal Armor. Useful for surviving in cold climates. Can be crafted at Production Assembly Line."
+    },
+    {
+      "name": "Electric Heater",
+      "level": 41,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Electric Heater"
+      ],
+      "description": "Warms the nearby area and protects against the cold. Improved range and heating capabilities."
+    },
+    {
+      "name": "Electric Kitchen",
+      "level": 41,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Electric Kitchen"
+      ],
+      "description": "Needs electricity but can prepare high-quality food more efficiently. Requires Pal with Kindling suitability."
+    },
+    {
+      "name": "Guild Chest",
+      "level": 41,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "Guild Chest"
+      ],
+      "description": "A chest that can instantly send and receive items through subspace. The items inside are shared across all bases where it is placed."
+    },
+    {
+      "name": "Mammorest Cryst Saddle",
+      "level": 41,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mammorest Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Mammorest Cryst."
+    },
+    {
+      "name": "Semi-Auto Rifle",
+      "level": 41,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Semi-Auto Rifle"
+      ],
+      "description": "A rifle that allows for a certain degree of rapid fire. It’s easy to aim and has high firepower, making it effective for mid-range combat."
+    },
+    {
+      "name": "Xenogard Saddle",
+      "level": 41,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Xenogard Saddle"
+      ],
+      "description": "Saddle for safely riding Xenogard."
+    },
+    {
+      "name": "Yakumo Saddle",
+      "level": 41,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Yakumo Saddle"
+      ],
+      "description": "Saddle for safely riding Yakumo."
+    },
+    {
+      "name": "Compound Bow",
+      "level": 42,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Compound Bow"
+      ],
+      "description": "A modernized bow. Capable of firing more powerful arrows."
+    },
+    {
+      "name": "Dragon Grenade",
+      "level": 42,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Dragon Grenade"
+      ],
+      "description": "A Dragon Grenade useful for mid-range combat. It detonates a few seconds after being thrown, dealing Dragon damage to enemies."
+    },
+    {
+      "name": "Electric Cooler",
+      "level": 42,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Electric Cooler"
+      ],
+      "description": "Cools the nearby area and protects against the heat. Improved range and cooling capabilities."
+    },
+    {
+      "name": "Ghangler Ignis Saddle",
+      "level": 42,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Ghangler Ignis Saddle"
+      ],
+      "description": "Saddle for safely riding Ghangler Ignis."
+    },
+    {
+      "name": "Production Assembly Line II",
+      "level": 42,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Production Assembly Line II"
+      ],
+      "description": "Needs electricity but produces items at an even faster pace. Requires Pal with Handiwork trait."
+    },
+    {
+      "name": "Reinforced Arrow",
+      "level": 42,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Reinforced Arrow"
+      ],
+      "description": "Enhanced arrows for shooting with Compound Bow. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Reptyro Saddle",
+      "level": 42,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Reptyro Saddle"
+      ],
+      "description": "Saddle for safely riding Reptyro."
+    },
+    {
+      "name": "Whalaska Saddle",
+      "level": 42,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Whalaska Saddle"
+      ],
+      "description": "Saddle for safely riding Whalaska."
+    },
+    {
+      "name": "Electric Medicine Workbench",
+      "level": 43,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Electric Medicine Workbench"
+      ],
+      "description": "Needs electricity but can produce higher-quality medicine. Requires Pal with Medicine Production trait."
+    },
+    {
+      "name": "High Quality Wooden Board",
+      "level": 43,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "High Quality Wooden Board"
+      ],
+      "description": "Fine planks carefully carved from Hardwood. They have beautiful wood grain and are used for structures with a luxurious feel. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Hyper Shield",
+      "level": 43,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Hyper Shield"
+      ],
+      "description": "Strange shield made with Paldium technology. Through repeated testing, the highest quality has been achieved. Can be made at Production Assembly Line II."
+    },
+    {
+      "name": "Logging Site II",
+      "level": 43,
+      "cost": 3,
+      "ancient": true,
+      "unlocks": [
+        "Logging Site II"
+      ],
+      "description": "Facility for producing Hardwood. Cutting wood is hard work that requires much physical endurance. Leave it to Pals skilled in logging."
+    },
+    {
+      "name": "Medium Pouch",
+      "level": 43,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Medium Pouch"
+      ],
+      "description": "A modest pouch that allows you to carry additional items. Holding it increases your inventory slots. Carrying one is enough."
+    },
+    {
+      "name": "Pump-Action Shotgun",
+      "level": 43,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Pump-Action Shotgun"
+      ],
+      "description": "A high capacity, powerful shotgun. It has outstanding close range DPS. Can be crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Reptyro Cryst Saddle",
+      "level": 43,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Reptyro Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Reptyro Cryst."
+    },
+    {
+      "name": "Suzaku Saddle",
+      "level": 43,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Suzaku Saddle"
+      ],
+      "description": "Saddle for safely riding Suzaku."
+    },
+    {
+      "name": "Bio Battery",
+      "level": 44,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Bio Battery"
+      ],
+      "description": "A device that stores bio-energy as electrical power. Used for equipment requiring high energy density. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Broncherry Aqua Saddle",
+      "level": 44,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Broncherry Aqua Saddle"
+      ],
+      "description": "Saddle for safely riding Broncherry Aqua."
+    },
+    {
+      "name": "Electric Furnace",
+      "level": 44,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Electric Furnace"
+      ],
+      "description": "Allows refinement of Pal Metal Ingot."
+    },
+    {
+      "name": "Katana",
+      "level": 44,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Katana"
+      ],
+      "description": "Katana for close-range combat. Slices through with razor-sharp precision, cutting cleanly in one strike."
+    },
+    {
+      "name": "Legendary Sphere",
+      "level": 44,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Legendary Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Very few Pals can escape its perfected design. Can be crafted at Sphere Assembly Line II."
+    },
+    {
+      "name": "Pal Metal Axe",
+      "level": 44,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pal Metal Axe"
+      ],
+      "description": "An axe for chopping wood. It has achieved extraordinary sharpness thanks to Pal Metal. It can slice through high-grade trees from the harshest regions without trouble."
+    },
+    {
+      "name": "Pal Metal Pickaxe",
+      "level": 44,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Pal Metal Pickaxe"
+      ],
+      "description": "A pickaxe for mining. It has achieved extraordinary efficiency thanks to Pal Metal."
+    },
+    {
+      "name": "Suzaku Aqua Saddle",
+      "level": 44,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Suzaku Aqua Saddle"
+      ],
+      "description": "Saddle for safely riding Suzaku Aqua."
+    },
+    {
+      "name": "Advanced Fishing Rod (Pengullet)",
+      "level": 45,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Fishing Rod (Pengullet)",
+        "Simple Bait"
+      ],
+      "description": "A fishing rod designed for catching Pals. Use it with bait near water where shadows are visible to start fishing. It boasts improved performance, making catches vastly easier."
+    },
+    {
+      "name": "Assault Rifle",
+      "level": 45,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Assault Rifle"
+      ],
+      "description": "An Assault Rifle that mows down enemies with overwhelming force. It excels at rapid-fire and is well suited to taking down powerful foes. Can be crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Assault Rifle Ammo",
+      "level": 45,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Assault Rifle Ammo"
+      ],
+      "description": "Ammo for the Assault Rifle and similar weapons. Can be crafted at Weapon Assembly Line."
+    },
+    {
+      "name": "Decal Gun Set",
+      "level": 45,
+      "cost": 1,
+      "ancient": true,
+      "unlocks": [
+        "Decal Gun 1",
+        "Decal Gun 2",
+        "Decal Gun 3",
+        "Decal Gun 4",
+        "Decal Gun 5",
+        "Decal Ink"
+      ],
+      "description": "Decal gun set. Allows crafting of a strange gun that paints a Pal decal where it is fired. Required ammo also becomes craftable."
+    },
+    {
+      "name": "Drafting Table",
+      "level": 45,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Drafting Table"
+      ],
+      "description": "A facility that lets you combine multiple schematics to create more advanced ones."
+    },
+    {
+      "name": "Glass Structure Set",
+      "level": 45,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Glass Foundation",
+        "Glass Wall",
+        "Glass Roof",
+        "Glass Stairs",
+        "Glass Wall and Window",
+        "Glass Triangular Wall",
+        "Glass Slanted Roof",
+        "Glass Wall and Door",
+        "Glass Pillar",
+        "Glass Fence",
+        "Glass Triangular Foundation",
+        "Glass Diagonal Wall",
+        "Glass Triangular Roof",
+        "Glass Corner Roof",
+        "Glass Triangular Wall (Inverted)",
+        "Glass Pal Passage Entrance",
+        "Glass Slanted Triangular Roof",
+        "Glass Pyramid Roof",
+        "Glass Slanted Corner Roof (Inverted)"
+      ],
+      "description": "Set for building bases using glass. Allows building of glass foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Quivern Botan Saddle",
+      "level": 45,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Quivern Botan Saddle"
+      ],
+      "description": "Saddle for safely riding Quivern Botan."
+    },
+    {
+      "name": "Relaxaurus' Missile Launcher",
+      "level": 45,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Relaxaurus' Missile Launcher"
+      ],
+      "description": "Makes Relaxaurus fire a missile launcher when ridden."
+    },
+    {
+      "name": "Wumpo Saddle",
+      "level": 45,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Wumpo Saddle"
+      ],
+      "description": "Saddle for safely riding Wumpo."
+    },
+    {
+      "name": "Amusement Furniture Set",
+      "level": 46,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Soccer Goal",
+        "Claw Machine",
+        "Cola Vending Machine",
+        "Old TV",
+        "Arcade Game Cabinet"
+      ],
+      "description": "Decorative furniture set. Your Pals will keep on working."
+    },
+    {
+      "name": "Beta Wave Generator",
+      "level": 46,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Beta Wave Generator"
+      ],
+      "description": "A device that emits beta waves to energize Pals. Increases the work speed of Base Pals. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Blazamut Saddle",
+      "level": 46,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Blazamut Saddle"
+      ],
+      "description": "Saddle for safely riding Blazamut."
+    },
+    {
+      "name": "Kingpaca Cryst Saddle",
+      "level": 46,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Kingpaca Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Kingpaca Cryst."
+    },
+    {
+      "name": "Large Mounted Lamp",
+      "level": 46,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Large Mounted Lamp"
+      ],
+      "description": "Lights up large areas at a base."
+    },
+    {
+      "name": "Pal Metal Armor",
+      "level": 46,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Pal Metal Armor"
+      ],
+      "description": "Armor made from Pal Metal Ingot. High defense, but extremely heavy. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Pal Metal Helm",
+      "level": 46,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Pal Metal Helm"
+      ],
+      "description": "A helm made from Pal Metal Ingot. Envied for its immaculate quality, it is proof of a chosen warrior. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Street Lamp Set",
+      "level": 46,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Simple Street Lamp",
+        "Double Street Lamp",
+        "Retro Street Lamp",
+        "Stylish Street Lamp"
+      ],
+      "description": "Street lamp set to provide illumination. Requires electricity to light."
+    },
+    {
+      "name": "Sulfur Quarry",
+      "level": 46,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Sulfur Quarry"
+      ],
+      "description": "Facility for producing Sulfur. Digging Sulfur is grueling physical work. Leave it to a Pal that is good at mining."
+    },
+    {
+      "name": "Emergency Exit Sign Set",
+      "level": 47,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Emergency Exit Ceiling Sign",
+        "Emergency Exit Wall Sign"
+      ],
+      "description": "Decorative furniture set. Apparently a priceless artifact in more civilized times."
+    },
+    {
+      "name": "Giant Feed Bag",
+      "level": 47,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Giant Feed Bag"
+      ],
+      "description": "An enormous pouch for holding food. Unlocks 5 food slots in your inventory. Players and Pals automatically consume food when hungry. Carrying one is enough."
+    },
+    {
+      "name": "Helzephyr Lux Saddle",
+      "level": 47,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Helzephyr Lux Saddle"
+      ],
+      "description": "Saddle for safely riding Helzephyr Lux."
+    },
+    {
+      "name": "Large Ceiling Lamp",
+      "level": 47,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Large Ceiling Lamp"
+      ],
+      "description": "Lights up large areas below at a base."
+    },
+    {
+      "name": "Semi-Auto Shotgun",
+      "level": 47,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Semi-Auto Shotgun"
+      ],
+      "description": "A rapid-fire shotgun with immense power. Its close-range damage output is top-notch."
+    },
+    {
+      "name": "Shadowbeak Saddle",
+      "level": 47,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Shadowbeak Saddle"
+      ],
+      "description": "Saddle for safely riding Shadowbeak."
+    },
+    {
+      "name": "Vegetable Cake",
+      "level": 47,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Vegetable Cake"
+      ],
+      "description": "Place it in the chest at a Breeding Farm to make Pals lay a particularly healthy egg. Lay eggs twice at once."
+    },
+    {
+      "name": "Weapon Assembly Line II",
+      "level": 47,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Weapon Assembly Line II"
+      ],
+      "description": "Needs electricity but produces weapons and ammunition at an even faster pace. Requires Pal with Handiwork trait."
+    },
+    {
+      "name": "Dualith Saddle",
+      "level": 48,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Dualith Saddle"
+      ],
+      "description": "Saddle for safely riding Dualith. Grants the ability to fire a powerful Grass-element laser while mounted."
+    },
+    {
+      "name": "Electric Pylon",
+      "level": 48,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Electric Pylon"
+      ],
+      "description": "Place in base to improve electricity generating speed. Placing more than one has no additional effect."
+    },
+    {
+      "name": "Heat Resistant Pal Metal Armor",
+      "level": 48,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Heat Resistant Pal Metal Armor"
+      ],
+      "description": "Improved Pal Metal Armor. Boasts high heat resistance. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Large Incubator",
+      "level": 48,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Large Incubator"
+      ],
+      "description": "Device for incubating Pal eggs. It automatically maintains a suitable temperature and can hatch multiple eggs at once."
+    },
+    {
+      "name": "Relaxaurus Lux's Missile Launcher",
+      "level": 48,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Relaxaurus Lux's Missile Launcher"
+      ],
+      "description": "Makes Relaxaurus Lux fire a missile launcher when ridden."
+    },
+    {
+      "name": "Sniper Module II",
+      "level": 48,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Sniper Module II"
+      ],
+      "description": "Equipping it significantly increases the sphere's range, allowing it to sharply capture Pals and enhancing capture power."
+    },
+    {
+      "name": "Tetroise Saddle",
+      "level": 48,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Tetroise Saddle"
+      ],
+      "description": "Saddle for safely riding Tetroise ."
+    },
+    {
+      "name": "Traffic Control Set",
+      "level": 48,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Traffic Cone",
+        "Fat Traffic Cone",
+        "Skinny Traffic Cone",
+        "Traffic Light"
+      ],
+      "description": "Decorative furniture set. No roads mean no traffic control."
+    },
+    {
+      "name": "Barricade Set",
+      "level": 49,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Barricade",
+        "Orange Barricade",
+        "Red Iron Barricade",
+        "White Iron Barricade",
+        "Iron Fence"
+      ],
+      "description": "Decorative furniture set. Place to keep somewhere off limits."
+    },
+    {
+      "name": "Faux Snowy Greenery Set",
+      "level": 49,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Snowy Greenery A",
+        "Faux Snowy Greenery B",
+        "Faux Snowy Greenery C",
+        "Faux White Bush"
+      ],
+      "description": "A decorative artificial snow-covered tree set. Use them to create a winte-inspired base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Hyper Grappling Gun",
+      "level": 49,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "Hyper Grappling Gun"
+      ],
+      "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. As a result of research, it has achieved overwhelming mobility."
+    },
+    {
+      "name": "Item Retrieval Machine",
+      "level": 49,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Item Retrieval Machine"
+      ],
+      "description": "A device that lets you freely access items from all chests in the base."
+    },
+    {
+      "name": "Japanese-Style Structure Set",
+      "level": 49,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Japanese-Style Wall",
+        "Japanese-Style Door A",
+        "Japanese-Style Door B",
+        "Japanese-Style Roof A",
+        "Japanese-Style Roof B",
+        "Japanese-Style Slanted Roof",
+        "Japanese-Style Triangular Wall",
+        "Japanese-Style Wall and Window",
+        "Japanese-Style Foundation",
+        "Japanese-Style Stairs",
+        "Japanese-Style Pillar",
+        "Japanese-Style Door C",
+        "Japanese-Style Fence",
+        "Japanese-Style Triangular Foundation",
+        "Japanese-Style Diagonal Wall",
+        "Japanese-Style Triangular Roof A",
+        "Japanese-Style Triangular Roof B",
+        "Japanese-Style Corner Roof",
+        "Japanese-Style Triangular Wall (Inverted)",
+        "Japanese-Style Pal Passage Entrance",
+        "Japanese-Style Slanted Triangular Roof",
+        "Japanese-Style Pyramid Roof",
+        "Japanese-Style Slanted Corner Roof (Inverted)"
+      ],
+      "description": "Set for building bases using Japanese-style architecture. Allows building of Japanese-style foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Large-Scale Stone Oven",
+      "level": 49,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Large-Scale Stone Oven"
+      ],
+      "description": "Needed for cooking food. By becoming larger, multiple Pals can cooperate to cook together. Requires a Fire Pal to light a flame."
+    },
+    {
+      "name": "Road Sign Set",
+      "level": 49,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "No Pals Beyond Sign",
+        "Stop Sign",
+        "Beware of Eikthyrdeer Sign",
+        "Beware of Mammorest Sign"
+      ],
+      "description": "Decorative furniture set. No roads mean no traffic control."
+    },
+    {
+      "name": "Cold Resistant Pal Metal Armor",
+      "level": 50,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Cold Resistant Pal Metal Armor"
+      ],
+      "description": "Improved Pal Metal Armor. Useful for surviving in cold climates. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Computer",
+      "level": 50,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Computer"
+      ],
+      "description": "A component used in the control of automated equipment and precision machinery. It's a key component forming the foundation of modern technology. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Crude Oil Extractor",
+      "level": 50,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Crude Oil Extractor"
+      ],
+      "description": "Equipment required to extract Crude Oil from oil fields. Requires a power supply to operate."
+    },
+    {
+      "name": "Large Power Generator",
+      "level": 50,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "Large Power Generator"
+      ],
+      "description": "A power generator fueled by Electric Pals. Larger and with improved power generation efficiency."
+    },
+    {
+      "name": "Mounted Missile Launcher",
+      "level": 50,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Mounted Missile Launcher"
+      ],
+      "description": "Assign a Pal with Handiwork suitability and it will protect a base using the missile launcher."
+    },
+    {
+      "name": "PAL Genetic Research Unit Flag Set",
+      "level": 50,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "PAL Genetic Research Unit Standard",
+        "PAL Genetic Research Unit Vertical Banner"
+      ],
+      "description": "PAL Genetic Research Unit Standard and PAL Genetic Research Unit Vertical Banner set. Proof of your victory over the PAL Genetic Research Unit."
+    },
+    {
+      "name": "Plasteel",
+      "level": 50,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Plasteel"
+      ],
+      "description": "Plasteel created by processing Crude Oil and metal. Can be produced in a Electric Furnace."
+    },
+    {
+      "name": "Cold Food Box",
+      "level": 51,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cold Food Box"
+      ],
+      "description": "A feeding box that can be kept cold. Assign an Ice Pal to it and the food inside will be less likely to spoil."
+    },
+    {
+      "name": "Energy Cartridge",
+      "level": 51,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Energy Cartridge"
+      ],
+      "description": "Ammo for the Laser Rifle and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "High-Pressure Crude Oil Extractor",
+      "level": 51,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "High-Pressure Crude Oil Extractor"
+      ],
+      "description": "A device that pumps and extracts Crude Oil from deep underground. It can produce Crude Oil even in areas without oil fields, but it can only be placed on open ground with no structures beneath it. It requires a far greater supply of electricity than the Crude Oil Extractor."
+    },
+    {
+      "name": "Laser Rifle",
+      "level": 51,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Laser Rifle"
+      ],
+      "description": "A weapon that fires high-energy lasers. It has impressive firepower and is easy to handle. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Plasteel Armor",
+      "level": 51,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Plasteel Armor"
+      ],
+      "description": "Armor made of Plasteel. In addition to enhanced defense capabilities, its weight was also reduced. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Plasteel Helmet",
+      "level": 51,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Plasteel Helmet"
+      ],
+      "description": "Helmet made of Plasteel. In addition to enhanced defense capabilities, its weight was also reduced. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Ultimate Sphere",
+      "level": 51,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ultimate Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Almost no Pals can escape its flawless design. Can be crafted at Sphere Assembly Line II."
+    },
+    {
+      "name": "Wumpo Botan Saddle",
+      "level": 51,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Wumpo Botan Saddle"
+      ],
+      "description": "Saddle for safely riding Wumpo Botan."
+    },
+    {
+      "name": "Alluring Bait",
+      "level": 52,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Alluring Bait"
+      ],
+      "description": "Bait that lures in Pals. Improved to enlarge the size of the bar in the fishing minigame and increase the number of items obtained from fishing."
+    },
+    {
+      "name": "FlameThrower",
+      "level": 52,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "FlameThrower"
+      ],
+      "description": "Flamethrower that fires long-range flames. Can set the enemy on fire. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Flamethrower Fuel",
+      "level": 52,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Flamethrower Fuel"
+      ],
+      "description": "Ammo for the Flamethrower and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Hyper Glider",
+      "level": 52,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Hyper Glider"
+      ],
+      "description": "A glider for soaring through the air. Its performance has been further improved, with increased speed and lift. Can be made at Production Assembly Line II."
+    },
+    {
+      "name": "Nyafia's Shotgun",
+      "level": 52,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Nyafia's Shotgun"
+      ],
+      "description": "A shotgun for Nyafia to hold. Activate its Partner Skill, and Nyafia will unleash a barrage of shotgun blasts at nearby enemies."
+    },
+    {
+      "name": "Pure Quartz Quarry",
+      "level": 52,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Pure Quartz Quarry"
+      ],
+      "description": "A facility for producing Pure Quartz. Mining Pure Quartz is grueling physical work. Leave it to Pals skilled at mining."
+    },
+    {
+      "name": "Bulldosu Saddle",
+      "level": 53,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Bulldosu Saddle"
+      ],
+      "description": "Saddle for safely riding Bulldosu."
+    },
+    {
+      "name": "Frag Grenade Mk2",
+      "level": 53,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Frag Grenade Mk2"
+      ],
+      "description": "An improved frag grenade. It explodes a few seconds after being thrown, dealing massive damage to enemies."
+    },
+    {
+      "name": "Grenade Ammo",
+      "level": 53,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Grenade Ammo"
+      ],
+      "description": "Ammo for the Grenade Launcher and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Grenade Launcher",
+      "level": 53,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Grenade Launcher"
+      ],
+      "description": "Fires grenades that cause wide-ranging explosions. Useful when dealing with a large number of enemies. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Heat Resistant Plasteel Armor",
+      "level": 53,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Heat Resistant Plasteel Armor"
+      ],
+      "description": "Improved Plasteel Armor. Boasts high heat resistance. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Large Pouch",
+      "level": 53,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Large Pouch"
+      ],
+      "description": "A large pouch that allows you to carry additional items. Holding it increases your inventory slots. Carrying one is enough."
+    },
+    {
+      "name": "Lockpicking Tool v3",
+      "level": 53,
+      "cost": 3,
+      "ancient": true,
+      "unlocks": [
+        "Lockpicking Tool v3"
+      ],
+      "description": "No key? No problem! These tools will allow you to try and pry open any treasure chest that would normally require a Gold Key."
+    },
+    {
+      "name": "Selyne Saddle",
+      "level": 53,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Selyne Saddle"
+      ],
+      "description": "Saddle for safely riding Selyne."
+    },
+    {
+      "name": "Celesdir Saddle",
+      "level": 54,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Celesdir Saddle"
+      ],
+      "description": "Saddle for safely riding Celesdir."
+    },
+    {
+      "name": "Cold Resistant Plasteel Armor",
+      "level": 54,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Cold Resistant Plasteel Armor"
+      ],
+      "description": "Improved Plasteel Armor. Useful for surviving in cold climates. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Cryogenic Crusher",
+      "level": 54,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Cryogenic Crusher"
+      ],
+      "description": "Facility that crushes Ore and converts it into other materials. Requires a power supply and a Pal with Cooling suitability, but it's very efficient."
+    },
+    {
+      "name": "Extra Weapon Holster 2",
+      "level": 54,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Extra Weapon Holster 2"
+      ],
+      "description": "A holster that lets you equip additional weapons. When in inventory, adds an extra weapon slot. Carrying one is enough."
+    },
+    {
+      "name": "Gatling Gun",
+      "level": 54,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Gatling Gun"
+      ],
+      "description": "A Gatling Gun capable of rapid fire. Mows down enemies with suppressive shots. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Gatling Gun Ammo",
+      "level": 54,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Gatling Gun Ammo"
+      ],
+      "description": "Ammo for the Gatling Gun and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Gildane Saddle",
+      "level": 54,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Gildane Saddle"
+      ],
+      "description": "Saddle for safely riding Gildane."
+    },
+    {
+      "name": "Plasma Multicutter",
+      "level": 54,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Plasma Multicutter"
+      ],
+      "description": "A portable plasma cutter that concentrates and emits plasma energy. It supports a wide range of uses, from ore excavation to tree cutting. Its high-output energy also allows for the mining of special ores."
+    },
+    {
+      "name": "Blazamut Ryu Saddle",
+      "level": 55,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Blazamut Ryu Saddle"
+      ],
+      "description": "Saddle for safely riding Blazamut Ryu."
+    },
+    {
+      "name": "Homing Sphere Launcher",
+      "level": 55,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Homing Sphere Launcher"
+      ],
+      "description": "A launcher for firing spheres. Fired spheres home in on Pals. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Japanese-Style Furniture Set",
+      "level": 55,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Folding Screen",
+        "Hanging Scroll",
+        "Japanese Floor Chair",
+        "Japanese Floor Cushion",
+        "Japanese Hearth",
+        "Stone Lantern",
+        "Japanese Paper Lantern",
+        "Deer Scare",
+        "Bonsai",
+        "Incense Burner",
+        "Flower Arrangement",
+        "Japanese-Style Chest",
+        "Japanese Writing Table"
+      ],
+      "description": "Japanese-style decorative furniture set. Transform your base into a traditional Japanese haven."
+    },
+    {
+      "name": "Lightweight Plasteel Armor",
+      "level": 55,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Lightweight Plasteel Armor"
+      ],
+      "description": "Improved Plasteel Armor. Increases carrying capacity. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Lily's Spear",
+      "level": 55,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Lily's Spear"
+      ],
+      "description": "The spear cherished by Lily. Punishes those who neglect their Pals."
+    },
+    {
+      "name": "Moonflower Flag Set",
+      "level": 55,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Moonflower Standard",
+        "Moonflower Vertical Banner"
+      ],
+      "description": "Moonflower Standard and Moonflower Vertical Banner set. Proof of your victory over the Moonflowers."
+    },
+    {
+      "name": "Polapup Terra Saddle",
+      "level": 55,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Polapup Terra Saddle"
+      ],
+      "description": "Saddle for safely riding Polapup Terra."
+    },
+    {
+      "name": "Ultra Shield",
+      "level": 55,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Ultra Shield"
+      ],
+      "description": "Strange shield made with Paldium technology. As a result of further experiments, ultimate quality has been achieved. Can be made at Production Assembly Line II."
+    },
+    {
+      "name": "Faux Cherry Blossoms Set",
+      "level": 56,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Faux Cherry Blossoms A",
+        "Faux Cherry Blossoms B",
+        "Faux Cherry Blossoms C"
+      ],
+      "description": "A decorative artificial cherry blossom tree set. Use them to create a Sakurajima-inspired base. No materials can be obtained from this structure."
+    },
+    {
+      "name": "Guided Missile Launcher",
+      "level": 56,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Guided Missile Launcher"
+      ],
+      "description": "Fires missiles that automatically track and pursue enemies. Missiles explode upon impact, causing damage over a wide area. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Missile Ammo",
+      "level": 56,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Missile Ammo"
+      ],
+      "description": "Ammo for the Guided Missile Launcher and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Pal Disassembly Conveyor",
+      "level": 56,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Pal Disassembly Conveyor"
+      ],
+      "description": "A dream-like facility that automatically butchers any Pal that is placed inside."
+    },
+    {
+      "name": "Pal Pod",
+      "level": 56,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Pal Pod"
+      ],
+      "description": "A healing pod for Pals. Used when Pals are injured or to rest at night. Thanks to technological advancements, the healing amount has increased."
+    },
+    {
+      "name": "ULTRAKILL Collab Set 2",
+      "level": 56,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "V2 Armor",
+        "Core Eject Shotgun"
+      ],
+      "description": "[ULTRAKILL Collab] A set containing V2 Armor and Core Eject Shotgun."
+    },
+    {
+      "name": "Advanced Arrow",
+      "level": 57,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Arrow"
+      ],
+      "description": "Enhanced arrows for shooting with Advanced Bow. Can be crafted at Primitive Workbench."
+    },
+    {
+      "name": "Advanced Bow",
+      "level": 57,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Bow"
+      ],
+      "description": "A bow reconstructed with advanced technology. Capable of firing extremely powerful arrows."
+    },
+    {
+      "name": "Beam Sword",
+      "level": 57,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Beam Sword"
+      ],
+      "description": "Beam Sword for close-range combat. Slices through opponents, burning them with a high-output laser."
+    },
+    {
+      "name": "Fenglope Lux Saddle",
+      "level": 57,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Fenglope Lux Saddle"
+      ],
+      "description": "Saddle for safely riding Fenglope Lux."
+    },
+    {
+      "name": "Giant Pouch",
+      "level": 57,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Giant Pouch"
+      ],
+      "description": "A massive pouch that allows you to carry additional items. Holding it increases your inventory slots. Carrying one is enough."
+    },
+    {
+      "name": "Kitsun Saddle",
+      "level": 57,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Kitsun Saddle"
+      ],
+      "description": "Saddle for safely riding Kitsun."
+    },
+    {
+      "name": "Starryon Saddle",
+      "level": 57,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Starryon Saddle"
+      ],
+      "description": "Saddle for safely riding Starryon."
+    },
+    {
+      "name": "Advanced Sphere Assembly Line",
+      "level": 58,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Sphere Assembly Line"
+      ],
+      "description": "An Assembly Line for producing spheres used for capturing Pals. Advanced machinery has been introduced, allowing for the production of spheres at high speed. Requires Pals that can work with their hands."
+    },
+    {
+      "name": "Azurmane Saddle",
+      "level": 58,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Azurmane Saddle"
+      ],
+      "description": "Saddle for safely riding Azurmane."
+    },
+    {
+      "name": "Exotic Sphere",
+      "level": 58,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Exotic Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. Boasting incredible performance, it can capture Pals that fall outside regular standards."
+    },
+    {
+      "name": "Gigantic Furnace",
+      "level": 58,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Gigantic Furnace"
+      ],
+      "description": "Allows refinement of Hexolite. By growing in size, multiple Pals can collaborate to perform smelting. Requires a Fire Pal to light a flame."
+    },
+    {
+      "name": "Hexolite",
+      "level": 58,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Hexolite"
+      ],
+      "description": "An alloy of Chromite and Hexolite Quartz. Used for building advanced equipment and structures. Can be refined at Gigantic Furnace."
+    },
+    {
+      "name": "Large-Scale Electric Egg Incubator",
+      "level": 58,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Large-Scale Electric Egg Incubator"
+      ],
+      "description": "Device for incubating Pal eggs. While power supply is required, it allows multiple eggs to be incubated simultaneously at the optimal temperature."
+    },
+    {
+      "name": "Metal Detector",
+      "level": 58,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Metal Detector"
+      ],
+      "description": "Using this reveals hidden Chromite deposits in dungeons, marking them for easier mining. Deposits will become unmarked if you move too far away."
+    },
+    {
+      "name": "Smokie's Harness",
+      "level": 58,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Smokie's Harness"
+      ],
+      "description": "Harness for Smokie. Activate its Partner Skill to detect the location of nearby Chromite."
+    },
+    {
+      "name": "Advanced Chest",
+      "level": 59,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Chest"
+      ],
+      "description": "Stores items. Quite sturdy, with plenty of storage space. It is useful as a large, secure storage box."
+    },
+    {
+      "name": "Hexolite Armor",
+      "level": 59,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Hexolite Armor"
+      ],
+      "description": "Armor made of Hexolite. Possesses overwhelming durability and defense."
+    },
+    {
+      "name": "Jormuntide Ignis Saddle",
+      "level": 59,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Jormuntide Ignis Saddle"
+      ],
+      "description": "Saddle for safely riding Jormuntide Ignis."
+    },
+    {
+      "name": "Kitsun Noct Saddle",
+      "level": 59,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Kitsun Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Kitsun Noct."
+    },
+    {
+      "name": "Laser Gatling Cartridge",
+      "level": 59,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Laser Gatling Cartridge"
+      ],
+      "description": "Ammo for the Laser Gatling Gun and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Laser Gatling Gun",
+      "level": 59,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Laser Gatling Gun"
+      ],
+      "description": "Fires beam-like energy blasts at high speed. Its overwhelming firepower can take down multiple enemies at once."
+    },
+    {
+      "name": "Thermal Core",
+      "level": 59,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Thermal Core"
+      ],
+      "description": "A high-temperature reaction core containing vast thermal energy. Used as a power component in advanced devices. Can be crafted at Production Assembly Line II."
+    },
+    {
+      "name": "Advanced Shield",
+      "level": 60,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Shield"
+      ],
+      "description": "Strange shield made with advanced technology. It automatically repairs itself after not taking damage for a while."
+    },
+    {
+      "name": "Extravagant Vegetable Cake",
+      "level": 60,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Extravagant Vegetable Cake"
+      ],
+      "description": "Place it in the chest at a Breeding Farm to make Pals lay a particularly healthy egg. Mutations are more likely to occur, and talents will grow more easily."
+    },
+    {
+      "name": "Faleris Aqua Saddle",
+      "level": 60,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Faleris Aqua Saddle"
+      ],
+      "description": "Saddle for safely riding Faleris Aqua."
+    },
+    {
+      "name": "Faleris Saddle",
+      "level": 60,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Faleris Saddle"
+      ],
+      "description": "Saddle for safely riding Faleris."
+    },
+    {
+      "name": "Feybreak Flag Set",
+      "level": 60,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Feybreak Flag",
+        "Feybreak Banner"
+      ],
+      "description": "Feybreak Flag and Feybreak Banner set. Proof of your victory over the Feybreak."
+    },
+    {
+      "name": "Hexolite Helmet",
+      "level": 60,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Hexolite Helmet"
+      ],
+      "description": "Helmet made of Hexolite. Combines incredible strength and lightness."
+    },
+    {
+      "name": "Silvegis Saddle",
+      "level": 60,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Silvegis Saddle"
+      ],
+      "description": "Saddle for safely riding Silvegis."
+    },
+    {
+      "name": "Advanced Medicine Workbench",
+      "level": 61,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Medicine Workbench"
+      ],
+      "description": "A facility for making medicine to cure Pals' illnesses. With advanced technology, it can also create unknown medicines. Assign the task to a Pal capable of pharmacy work."
+    },
+    {
+      "name": "Advanced Recovery Meds",
+      "level": 61,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Recovery Meds"
+      ],
+      "description": "Medicine that heals wounds over time. Extremely high quality, it rapidly restores HP before your eyes."
+    },
+    {
+      "name": "Double Air Dash Boots",
+      "level": 61,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Double Air Dash Boots"
+      ],
+      "description": "An accessory that allows the player to perform double dashes in mid-air when equipped."
+    },
+    {
+      "name": "Necromus Saddle",
+      "level": 61,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Necromus Saddle"
+      ],
+      "description": "Saddle for safely riding Necromus."
+    },
+    {
+      "name": "Paladius Saddle",
+      "level": 61,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Paladius Saddle"
+      ],
+      "description": "Saddle for safely riding Paladius."
+    },
+    {
+      "name": "Plasma Cannon",
+      "level": 61,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Plasma Cannon"
+      ],
+      "description": "Fires high-output energy projectiles. Causes an energy explosion upon impact."
+    },
+    {
+      "name": "Plasma Cartridge",
+      "level": 61,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Plasma Cartridge"
+      ],
+      "description": "Ammo for the Plasma Cannon and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Revival Potion",
+      "level": 61,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Revival Potion"
+      ],
+      "description": "A potion that revives a Pal that has been injured and is unable to move."
+    },
+    {
+      "name": "Advanced Workshop",
+      "level": 62,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Workshop"
+      ],
+      "description": "An Assembly Line for producing items and gear. Advanced machinery has been introduced, enabling high-speed production. Requires Pals that can work with their hands."
+    },
+    {
+      "name": "Coralum Ingot",
+      "level": 62,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Coralum Ingot"
+      ],
+      "description": "An alloy made from Coralum Ore found on the ocean floor. Highly resistant to energy, making it ideal for crafting weapons. Can be refined at Gigantic Furnace."
+    },
+    {
+      "name": "Frostallion Noct Saddle",
+      "level": 62,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Frostallion Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Frostallion Noct."
+    },
+    {
+      "name": "Frostallion Saddle",
+      "level": 62,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Frostallion Saddle"
+      ],
+      "description": "Saddle for safely riding Frostallion."
+    },
+    {
+      "name": "Futuristic Structure Set",
+      "level": 62,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Clean Foundation",
+        "Clean Wall",
+        "Clean Roof",
+        "Clean Stairs",
+        "Clean Wall and Window",
+        "Clean Triangular Wall",
+        "Clean Slanted Roof",
+        "Clean Wall and Door",
+        "Futuristic Pillar",
+        "Clean Fence",
+        "Clean Triangular Foundation",
+        "Clean Diagonal Wall",
+        "Clean Triangular Roof",
+        "Clean Corner Roof",
+        "Clean Triangular Wall (Inverted)",
+        "Clean Pal Passage Entrance",
+        "Clean Slanted Triangular Roof",
+        "Clean Pyramid Roof",
+        "Clean Slanted Corner Roof (Inverted)"
+      ],
+      "description": "Set for building bases using futuristic architecture. Allows building of futuristic foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Hexolite Quartz Mine",
+      "level": 62,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Hexolite Quartz Mine"
+      ],
+      "description": "Facility for producing Hexolite Quartzs. Digging Hexolite Quartzs is grueling physical work. Leave it to a Pal that is good at mining."
+    },
+    {
+      "name": "Powerful Fishing Magnet",
+      "level": 62,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Powerful Fishing Magnet"
+      ],
+      "description": "A high-powered magnet used in advanced salvage operations. Its strong magnetic pull can retrieve resources and supplies from the ocean floor."
+    },
+    {
+      "name": "Advanced Weapon Assembly Line",
+      "level": 63,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Advanced Weapon Assembly Line"
+      ],
+      "description": "An Assembly Line for producing weapons and ammunition. Advanced machinery has been introduced, enabling high-speed weapon production. Requires Pals that can work with their hands."
+    },
+    {
+      "name": "Energy Shotgun",
+      "level": 63,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Energy Shotgun"
+      ],
+      "description": "A shotgun that fires energy rounds. Excelling in rapid fire, its close-range firepower is truly otherworldly."
+    },
+    {
+      "name": "Energy Shotgun Ammo",
+      "level": 63,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Energy Shotgun Ammo"
+      ],
+      "description": "Ammo for the Energy Shotgun and similar weapons. Can be crafted at Advanced Weapon Assembly Line."
+    },
+    {
+      "name": "Heat Resistant Hexolite Armor",
+      "level": 63,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Heat Resistant Hexolite Armor"
+      ],
+      "description": "Improved Hexolite Armor. Boasts high heat resistance."
+    },
+    {
+      "name": "Megaboost Gun",
+      "level": 63,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Megaboost Gun"
+      ],
+      "description": "Firing it at an allied Pal boosts their attack and defense, while hitting an enemy deals damage. Thanks to improvements, the boost is stronger and lasts longer, and it deals more damage to enemies."
+    },
+    {
+      "name": "Ultra Grappling Gun",
+      "level": 63,
+      "cost": 5,
+      "ancient": true,
+      "unlocks": [
+        "Ultra Grappling Gun"
+      ],
+      "description": "It fires a hook that latches on to distant targets, pulling the user's body towards the target. With new materials, cooldown time has been significantly reduced."
+    },
+    {
+      "name": "Cold Resistant Hexolite Armor",
+      "level": 64,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Cold Resistant Hexolite Armor"
+      ],
+      "description": "Improved Hexolite Armor. Useful for surviving in cold climates."
+    },
+    {
+      "name": "Frostallion Statue",
+      "level": 64,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Frostallion Statue"
+      ],
+      "description": "Decorative Frostallion statue."
+    },
+    {
+      "name": "Japanese-Style Hot Spring",
+      "level": 64,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Japanese-Style Hot Spring"
+      ],
+      "description": "Facility where Pals on base can rest. Its calming, traditional Japanese design offers an extra boost to SAN recovery."
+    },
+    {
+      "name": "Neptilius Saddle",
+      "level": 64,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Neptilius Saddle"
+      ],
+      "description": "Saddle for safely riding Neptilius."
+    },
+    {
+      "name": "Overheat Rifle",
+      "level": 64,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Overheat Rifle"
+      ],
+      "description": "An assault rifle capable of firing endlessly without reloading. Prolonged bursts cause overheating, leaving you exposed. Use with caution."
+    },
+    {
+      "name": "Overheat Rifle Ammo",
+      "level": 64,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Overheat Rifle Ammo"
+      ],
+      "description": "Ammo for the Overheat Rifle and similar weapons. Can be crafted at Advanced Weapon Assembly Line."
+    },
+    {
+      "name": "Univolt Cryst Saddle",
+      "level": 64,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Univolt Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Univolt Cryst."
+    },
+    {
+      "name": "Charge Rifle",
+      "level": 65,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Charge Rifle"
+      ],
+      "description": "A beam rifle crafted with advanced technology. Charges energy to deliver one powerful shot."
+    },
+    {
+      "name": "Charge Rifle Ammo",
+      "level": 65,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Charge Rifle Ammo"
+      ],
+      "description": "Ammo for the Charge Rifle and similar weapons. Can be crafted at Advanced Weapon Assembly Line."
+    },
+    {
+      "name": "Lightweight Hexolite Armor",
+      "level": 65,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Lightweight Hexolite Armor"
+      ],
+      "description": "Improved Hexolite Armor. Increases carrying capacity."
+    },
+    {
+      "name": "Rocket Ammo",
+      "level": 65,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Rocket Ammo"
+      ],
+      "description": "Ammo for the Rocket Launcher and similar weapons. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Rocket Launcher",
+      "level": 65,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Rocket Launcher"
+      ],
+      "description": "A Rocket Launcher that can fire a powerful round from long distances. Can be crafted at Weapon Assembly Line II."
+    },
+    {
+      "name": "Solmora Saddle",
+      "level": 65,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Solmora Saddle"
+      ],
+      "description": "Saddle for safely riding Solmora."
+    },
+    {
+      "name": "Triple Air Dash Boots",
+      "level": 65,
+      "cost": 6,
+      "ancient": true,
+      "unlocks": [
+        "Triple Air Dash Boots"
+      ],
+      "description": "An accessory that allows the player to perform triple dashes in mid-air when equipped."
+    },
+    {
+      "name": "Ancient Furnace",
+      "level": 66,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Furnace"
+      ],
+      "description": "A special furnace based on ancient technology that can smelt all types of ingots. Materials are melted with fire, then quickly cooled and solidified using ice. It requires Pals with high-level Kindling and Cooling suitability."
+    },
+    {
+      "name": "Aquatic Construction Kit",
+      "level": 66,
+      "cost": 4,
+      "ancient": true,
+      "unlocks": [
+        "Aquatic Construction Kit"
+      ],
+      "description": "Construction kit that allows foundations to be placed on water."
+    },
+    {
+      "name": "Dynamoff Saddle",
+      "level": 66,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Dynamoff Saddle"
+      ],
+      "description": "Saddle for safely riding Dynamoff."
+    },
+    {
+      "name": "Solmora Lux Saddle",
+      "level": 66,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Solmora Lux Saddle"
+      ],
+      "description": "Saddle for safely riding Solmora Lux."
+    },
+    {
+      "name": "Soralite Ingot",
+      "level": 66,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Soralite Ingot"
+      ],
+      "description": "An ancient metal refined from ore that slumbers in Sunreach. A rare processed material, forming the foundation of high-grade equipment and structures. Can be refined at Ancient Furnace."
+    },
+    {
+      "name": "Xenolord Saddle",
+      "level": 66,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Xenolord Saddle"
+      ],
+      "description": "Saddle for safely riding Xenolord."
+    },
+    {
+      "name": "AI Core",
+      "level": 67,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "AI Core"
+      ],
+      "description": "A core component essential to cutting-edge devices, enabling complex decision-making and autonomous control. Can be crafted at Advanced Workshop."
+    },
+    {
+      "name": "Ancient Structure Set",
+      "level": 67,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Foundation",
+        "Ancient Wall",
+        "Ancient Roof",
+        "Ancient Stairs",
+        "Ancient Wall and Door",
+        "Ancient Triangular Wall",
+        "Ancient Slanted Roof",
+        "Ancient Wall and Window",
+        "Ancient Pillar",
+        "Ancient Fence",
+        "Ancient Triangular Foundation",
+        "Ancient Diagonal Wall",
+        "Ancient Triangular Roof",
+        "Ancient Corner Roof",
+        "Ancient Triangular Wall (Inverted)",
+        "Ancient Pal Passage Entrance",
+        "Ancient Slanted Triangular Roof",
+        "Ancient Pyramid Roof",
+        "Ancient Slanted Triangular Roof (Inverted)"
+      ],
+      "description": "Set for building bases using ancient architecture. Allows building of ancient-styled foundations, walls, ceilings, stairs and other things necessary for shelters."
+    },
+    {
+      "name": "Ancient Workbench",
+      "level": 67,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Workbench"
+      ],
+      "description": "A Pal-exclusive workbench that is capable of crafting any item in one place. It cannot be used by the player, and operates at the same speed as a regular workbench. Due to its advanced equipment, it requires Pals with high-level Handiwork and Medicine Production suitability."
+    },
+    {
+      "name": "Mechanical Bow",
+      "level": 67,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Mechanical Bow"
+      ],
+      "description": "A bow crafted from Soralite Ingots. With greatly enhanced initial velocity and piercing power, this high-precision weapon excels at ranged combat."
+    },
+    {
+      "name": "Mechanical Bow Ammo",
+      "level": 67,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Mechanical Bow Ammo"
+      ],
+      "description": "Enhanced arrows for shooting with Mechanical Bow. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Sol Sphere",
+      "level": 67,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Sol Sphere"
+      ],
+      "description": "An item that captures Pals when thrown. A high-grade Sphere from an ancient civilization that secured coexistence with Pals."
+    },
+    {
+      "name": "Ancient Armor",
+      "level": 68,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Armor"
+      ],
+      "description": "Ancient armor forged from Soralite Ingot. Crafted with the essence of a lost civilization, it boasts overwhelming defensive power and is capable of withstanding cataclysmic threats."
+    },
+    {
+      "name": "Ancient Helm",
+      "level": 68,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Helm"
+      ],
+      "description": "An ancient helmet forged from Soralite Ingot. It is imbued with wisdom passed down through the ages, protecting its wearer with unwavering strength. Its defensive capabilities far surpass those of modern equipment."
+    },
+    {
+      "name": "Combat SMG",
+      "level": 68,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Combat SMG"
+      ],
+      "description": "Ammo for the Combat SMG. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Combat SMG Ammo",
+      "level": 68,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Combat SMG Ammo"
+      ],
+      "description": "Ammo for the Combat SMG. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Eidrolon Saddle",
+      "level": 68,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Eidrolon Saddle"
+      ],
+      "description": "Saddle for safely riding Eidrolon."
+    },
+    {
+      "name": "Enhanced Lily's Spear",
+      "level": 68,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Enhanced Lily's Spear"
+      ],
+      "description": "An enhanced version of Lily's beloved spear. Pierces those who neglect their Pals."
+    },
+    {
+      "name": "Dualith Noct Saddle",
+      "level": 69,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Dualith Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Dualith Noct. Grants the ability to fire a powerful Dark-element laser while mounted."
+    },
+    {
+      "name": "Homing Module",
+      "level": 69,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Homing Module"
+      ],
+      "description": "Equipping it makes the sphere home in on Pals, further increasing capture power."
+    },
+    {
+      "name": "Large Fishing Pond",
+      "level": 69,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Large Fishing Pond"
+      ],
+      "description": "A ready-to-use large fishing pond. The expanded body of water makes it possible to catch even larger Pals. Requires Pals that can work with their hands."
+    },
+    {
+      "name": "Prototype Shotgun",
+      "level": 69,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Prototype Shotgun"
+      ],
+      "description": "Ammo for the Prototype Shotgun. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Prototype Shotgun Ammo",
+      "level": 69,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Prototype Shotgun Ammo"
+      ],
+      "description": "Ammo for the Prototype Shotgun. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Ancient Kitchen",
+      "level": 70,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Kitchen"
+      ],
+      "description": "A special kitchen based on ancient technology that can create everything from existing dishes to entirely new recipes. It retains heat through fire and completes cooking with manual preparation, allowing it to prepare any kind of cuisine. It requires Pals with high-level Kindling and Handiwork suitability."
+    },
+    {
+      "name": "Hartalis Saddle",
+      "level": 70,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Hartalis Saddle"
+      ],
+      "description": "Saddle for safely riding Hartalis. Grants the ability to generate a barrier that blocks incoming attacks."
+    },
+    {
+      "name": "Heavy Assault Rifle",
+      "level": 70,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Heavy Assault Rifle"
+      ],
+      "description": "Ammo for the Heavy Assault Rifle. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Heavy Assault Rifle Ammo",
+      "level": 70,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Heavy Assault Rifle Ammo"
+      ],
+      "description": "Ammo for the Heavy Assault Rifle. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Moldron Cryst Saddle",
+      "level": 70,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Moldron Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Moldron Cryst."
+    },
+    {
+      "name": "Triple Jump Boots",
+      "level": 70,
+      "cost": 6,
+      "ancient": true,
+      "unlocks": [
+        "Triple Jump Boots"
+      ],
+      "description": "An accessory that allows the player to perform double jumps in mid-air when equipped."
+    },
+    {
+      "name": "Ancient Monitoring Stand",
+      "level": 71,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Monitoring Stand"
+      ],
+      "description": "A monitoring station based on ancient technology, embedded with Red Paldium. It issues commands across the entire base through a holographic interface, reducing SAN depletion in Pals. A special wavelength surrounds the base, keeping Pals calm even in harsh working environments."
+    },
+    {
+      "name": "Ancient Shield",
+      "level": 71,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Shield"
+      ],
+      "description": "A shield created using lost ancient technology. It automatically repairs itself after not taking damage for a while. Its performance is said to be impossible to reproduce in the modern era."
+    },
+    {
+      "name": "Azure Covenant Flag Set",
+      "level": 71,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Azure Covenant Flag",
+        "Azure Covenant Banner"
+      ],
+      "description": "Azure Covenant Flag and Azure Covenant Banner set. Proof of your victory over the Azure Covenant."
+    },
+    {
+      "name": "Beakon Cryst Saddle",
+      "level": 71,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Beakon Cryst Saddle"
+      ],
+      "description": "Saddle for safely riding Beakon Cryst."
+    },
+    {
+      "name": "Skillfruit Orchard",
+      "level": 71,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Skillfruit Orchard"
+      ],
+      "description": "A farm where Skillfruits can be cultivated. By planting the original fruit in the ground, multiple fruits of the same type can be harvested."
+    },
+    {
+      "name": "Whalaska Ignis Saddle",
+      "level": 71,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Whalaska Ignis Saddle"
+      ],
+      "description": "Saddle for safely riding Whalaska Ignis."
+    },
+    {
+      "name": "Ophydia Saddle",
+      "level": 72,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Ophydia Saddle"
+      ],
+      "description": "Saddle for safely riding Ophydia."
+    },
+    {
+      "name": "Roujay Saddle",
+      "level": 72,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Roujay Saddle"
+      ],
+      "description": "Saddle for safely riding Roujay."
+    },
+    {
+      "name": "Soralite Quarry",
+      "level": 72,
+      "cost": 7,
+      "ancient": true,
+      "unlocks": [
+        "Soralite Quarry"
+      ],
+      "description": "Facility for producing Soralite. Digging Soralite is grueling physical work. Leave it to a Pal that is good at mining."
+    },
+    {
+      "name": "Tactical Grenade Launcher",
+      "level": 72,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Tactical Grenade Launcher"
+      ],
+      "description": "Ammo for the Tactical Grenade Launcher. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Tactical Grenade Launcher Ammo",
+      "level": 72,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Tactical Grenade Launcher Ammo"
+      ],
+      "description": "Ammo for the Tactical Grenade Launcher. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Ancient Clinic",
+      "level": 73,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Clinic"
+      ],
+      "description": "A top-tier medical facility that reproduces advanced ancient medical technology. It offers significantly greater protective capability than a standard clinic. By assigning a Pal with Medicine Production suitability, even bases with harsh working conditions can maintain the highest level of hygiene."
+    },
+    {
+      "name": "Ancient Pal Bed",
+      "level": 73,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Pal Bed"
+      ],
+      "description": "A ulitmate Pal Bed made from ancient recovery pod with soft matress. It offers one of the highest SAN recovery rates of all Pal beds, quickly relieving fatigue. It is the same size as a Large Pal Bed, allowing large Pals to rest comfortably."
+    },
+    {
+      "name": "Bastigor's Hammer",
+      "level": 73,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Bastigor's Hammer"
+      ],
+      "description": "Saddle for safely riding Bastigor."
+    },
+    {
+      "name": "Gold Coin Assembly Line",
+      "level": 73,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Gold Coin Assembly Line"
+      ],
+      "description": "An Assembly Line that manufactures Gold Coin. The work puts a strain on the mind, causing a decrease in Pal's SAN value. Requires Pals that can work with their hands. Warning: building this facility may draw severe scrutiny from the PIDF."
+    },
+    {
+      "name": "Laser Sword",
+      "level": 73,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Laser Sword"
+      ],
+      "description": "A Beam Sword made from Soralite Ingots. A close-range weapon that instantly cuts targets using its high-output energy blade."
+    },
+    {
+      "name": "Ancient Relic Recycler",
+      "level": 74,
+      "cost": 3,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Relic Recycler"
+      ],
+      "description": "An ancient civilization device that converts materials using repurposed technology from a lost civilization. It deciphers the technology left within Ancient Relics and refines them into new forms. A highly specialized facility designed for the efficient use of relics without waste."
+    },
+    {
+      "name": "Ancient Sphere",
+      "level": 74,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Sphere"
+      ],
+      "description": "A tool that captures Pals when thrown. An ultimate Sphere created as the pinnacle of an ancient civilization, imbued with the power of the World Tree."
+    },
+    {
+      "name": "Paloxite Ingot",
+      "level": 74,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Paloxite Ingot"
+      ],
+      "description": "An indomitable alloy created by fusing Soralite and Paloxite. A highly rare material, crystallizing the technology of ancient civilization and the power of the World Tree. It is vital for crafting the highest-grade equipment and structures."
+    },
+    {
+      "name": "Special Cake",
+      "level": 74,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Special Cake"
+      ],
+      "description": "Place it in the chest at a Breeding Farm to make Pals lay a particularly healthy egg. More likely inherit multiple passive skills from their parents."
+    },
+    {
+      "name": "Ancient Power Generator",
+      "level": 75,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Power Generator"
+      ],
+      "description": "A highly efficient power generator restored from lost ancient technology. It produces massive amounts of electricity, but is prone to overheating while in operation. It requires Pals with high-level Generating Electricity and any level of Watering suitability."
+    },
+    {
+      "name": "Beam Scatter",
+      "level": 75,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Beam Scatter"
+      ],
+      "description": "A specialized beam weapon for close-range combat. It fires compressed energy in a wide, scattering blast."
+    },
+    {
+      "name": "Beam Scatter Ammo",
+      "level": 75,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Beam Scatter Ammo"
+      ],
+      "description": "Ammo for the Beam Scatter. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Heat-Resistant Ancient Armor",
+      "level": 75,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Heat-Resistant Ancient Armor"
+      ],
+      "description": "Refined Ancient Armor. Its heat resistance has been further enhanced using ancient technology, allowing it to endure scorching environments"
+    },
+    {
+      "name": "Tetroise Primo Saddle",
+      "level": 75,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Tetroise Primo Saddle"
+      ],
+      "description": "Saddle for safely riding Tetroise Primo."
+    },
+    {
+      "name": "Ancient Hatchery",
+      "level": 76,
+      "cost": 8,
+      "ancient": true,
+      "unlocks": [
+        "Ancient Hatchery"
+      ],
+      "description": "An advanced breeding facility of ancient civilization technology, enclosed in electronic glass. It fully automates everything from egg production to incubation at high speed, and increases the inheritance rate of rare skills. Pals are managed through holograms, it requires minimal pasture space."
+    },
+    {
+      "name": "Ancient Hot Spring",
+      "level": 76,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Hot Spring"
+      ],
+      "description": "A hot spring built with ancient technology, filled with special water infused with Paldium. It offers the highest SAN recovery of all hot springs and also restores Health. It is the same size as a standard hot spring, and can fully heal injured Pals."
+    },
+    {
+      "name": "Corrosive Mist Mask",
+      "level": 76,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Corrosive Mist Mask"
+      ],
+      "description": "A mask with a special filtration system. Negates damage taken from corrosive mist."
+    },
+    {
+      "name": "Eidrolon Ignis Saddle",
+      "level": 76,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Eidrolon Ignis Saddle"
+      ],
+      "description": "Saddle for safely riding Eidrolon Ignis."
+    },
+    {
+      "name": "Explosion-Resistant Undershirt",
+      "level": 76,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Explosion-Resistant Undershirt"
+      ],
+      "description": "A lightweight yet durable undergarment made from special fibers. It nullifies damage from explosions."
+    },
+    {
+      "name": "Cold-Resistant Ancient Armor",
+      "level": 77,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Cold-Resistant Ancient Armor"
+      ],
+      "description": "Refined Ancient Armor. Its cold resistance has been further enhanced using ancient technology, allowing the wearer to maintain their strength even in extreme cold regions."
+    },
+    {
+      "name": "Drone Launcher",
+      "level": 77,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Drone Launcher"
+      ],
+      "description": "A launcher that fires drones which perform autonomous attacks. Capable of deploying up to 9 units, enabling sustained suppression."
+    },
+    {
+      "name": "Shaolong Saddle",
+      "level": 77,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Shaolong Saddle"
+      ],
+      "description": "Saddle for safely riding Shaolong."
+    },
+    {
+      "name": "Starryon Primo Saddle",
+      "level": 77,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Starryon Primo Saddle"
+      ],
+      "description": "Saddle for safely riding Starryon Primo."
+    },
+    {
+      "name": "Ancient Farm",
+      "level": 78,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Farm"
+      ],
+      "description": "A special cultivation device based on ancient technology that harnesses the power of the World Tree to grow all kinds of plants on Palpagos Island. Smaller than a berry plantation and suitable for indoor placement, it still follows the same cultivation process as standard plots. It requires Pals with high-level Planting, Watering, and Harvesting suitability."
+    },
+    {
+      "name": "Ancient Material Synthesizer",
+      "level": 78,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Ancient Material Synthesizer"
+      ],
+      "description": "A special generator based on ancient technology that uses the power of the World Tree to produce all kinds of wood and ore. Due to its complex structure, only one Pal can be assigned to it."
+    },
+    {
+      "name": "Celesdir Noct Saddle",
+      "level": 78,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Celesdir Noct Saddle"
+      ],
+      "description": "Saddle for safely riding Celesdir Noct."
+    },
+    {
+      "name": "Plasma Rifle",
+      "level": 78,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Plasma Rifle"
+      ],
+      "description": "A rifle that releases an electrical discharge from the point of impact, which chains to multiple enemies."
+    },
+    {
+      "name": "Plasma Rifle Ammo",
+      "level": 78,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Plasma Rifle Ammo"
+      ],
+      "description": "Ammo for the Plasma Rifle. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Aegidron Saddle",
+      "level": 79,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Aegidron Saddle"
+      ],
+      "description": "Saddle for safely riding Aegidron."
+    },
+    {
+      "name": "Jetragon Statue",
+      "level": 79,
+      "cost": 1,
+      "ancient": false,
+      "unlocks": [
+        "Jetragon Statue"
+      ],
+      "description": "Decorative Jetragon statue."
+    },
+    {
+      "name": "Jetragon's Missile Launcher",
+      "level": 79,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Jetragon's Missile Launcher"
+      ],
+      "description": "Makes Jetragon fire missiles when ridden."
+    },
+    {
+      "name": "Lightweight Ancient Armor",
+      "level": 79,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Lightweight Ancient Armor"
+      ],
+      "description": "Refined Ancient Armor. It is equipped with ancient auxiliary mechanisms, allowing the wearer to carry more supplies."
+    },
+    {
+      "name": "Nutrient Tonic",
+      "level": 79,
+      "cost": 4,
+      "ancient": false,
+      "unlocks": [
+        "Nutrient Tonic"
+      ],
+      "description": "A nutrient-rich Nutrient Tonic that prevents hunger for a period of time. A concentrated, flavorful blend of nutrients ideal for long journeys."
+    },
+    {
+      "name": "Beam Launcher",
+      "level": 80,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Beam Launcher"
+      ],
+      "description": "Fires a high-density beam that causes explosions over a wide area. Caution is required to prevent overheating during rapid fire."
+    },
+    {
+      "name": "Beam Launcher Ammo",
+      "level": 80,
+      "cost": 2,
+      "ancient": false,
+      "unlocks": [
+        "Beam Launcher Ammo"
+      ],
+      "description": "Ammo for the Beam Launcher. Can be crafted at Ancient Workbench."
+    },
+    {
+      "name": "Wing Cell",
+      "level": 80,
+      "cost": 5,
+      "ancient": false,
+      "unlocks": [
+        "Wing Cell"
+      ],
+      "description": "The fuel required to power the Wing Pack."
+    },
+    {
+      "name": "Wing Pack",
+      "level": 80,
+      "cost": 9,
+      "ancient": true,
+      "unlocks": [
+        "Wing Pack"
+      ],
+      "description": "A portable glider that enables flight. Consumes Wing Cell to propel the user through the skies."
+    }
+  ]
+}
