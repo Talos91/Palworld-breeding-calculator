@@ -71,6 +71,9 @@
   .row{display:flex;gap:14px;flex-wrap:wrap}
   .row > div{flex:1;min-width:190px}
   select,input,textarea{width:100%;padding:11px 13px;background:var(--panelSolid);border:1px solid var(--line2);border-radius:var(--radius-sm);color:var(--txt);font-size:.95rem;transition:border-color .15s,box-shadow .15s;font-family:inherit}
+  /* native dropdown popups: force a readable solid bg + text in BOTH themes */
+  select{color-scheme:dark} :root[data-theme="light"] select{color-scheme:light}
+  select option,select optgroup{background:var(--panelSolid);color:var(--txt)}
   select:focus,input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(53,227,198,.16)}
   .opts{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:.88rem;color:var(--muted)}
   .opts label{display:inline-flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;margin:0;color:var(--txt);cursor:pointer;font-weight:600}
@@ -683,8 +686,9 @@
   .hero-brand{position:relative;z-index:1;display:flex;align-items:center;gap:14px}
   .brandbar.hero .brandmark{width:56px;height:56px;font-size:2rem;border-radius:16px;
     box-shadow:0 8px 22px rgba(53,227,198,.4),inset 0 0 0 1px rgba(255,255,255,.15)}
+  /* the hero banner is always dark, so its text stays light in BOTH themes */
   .brandbar.hero h1{font-size:clamp(1.5rem,6.4vw,2rem);font-weight:900;letter-spacing:-.6px;line-height:1.02;
-    text-shadow:0 2px 14px rgba(0,0,0,.5)}
+    color:#eef5fb;text-shadow:0 2px 14px rgba(0,0,0,.5)}
   .brandbar.hero h1 span{display:inline;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;
     filter:drop-shadow(0 1px 8px rgba(53,227,198,.35))}
   .brandbar.hero .brandsub{margin-top:5px;font-size:.64rem;letter-spacing:2px;color:#dfeaf6;
@@ -705,9 +709,10 @@
      ============================================================ */
   .pdx-controls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 8px}
   .pdx-search{flex:1 1 220px;min-width:0;padding:11px 14px;border-radius:12px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-size:.95rem}
-  .pdx-sel{flex:0 0 auto;padding:11px 12px;border-radius:12px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-weight:700;font-size:.85rem}
-  .pdx-status{display:flex;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:8px;width:fit-content;max-width:100%;overflow-x:auto}
-  .segbtn{flex:0 0 auto;padding:8px 15px;border-radius:9px;font-weight:800;font-size:.82rem;cursor:pointer;color:var(--muted);white-space:nowrap;transition:all .15s}
+  .pdx-sel{flex:0 0 auto;padding:11px 12px;border-radius:12px;background:var(--panelSolid);border:1px solid var(--line2);color:var(--txt);font-weight:700;font-size:.85rem;cursor:pointer}
+  .pdx-sel:hover{border-color:var(--accent)}
+  .pdx-status{display:flex;gap:4px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:8px;width:100%}
+  .segbtn{flex:1 1 0;text-align:center;padding:8px 6px;border-radius:9px;font-weight:800;font-size:.8rem;cursor:pointer;color:var(--muted);white-space:nowrap;transition:all .15s}
   .segbtn.on{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#04120f}
   .pdx-elems{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
   .elchip{padding:5px 11px;border-radius:999px;font-size:.74rem;font-weight:800;text-transform:capitalize;cursor:pointer;
@@ -901,7 +906,7 @@
       <span class="segbtn on" data-st="all">All</span>
       <span class="segbtn" data-st="owned">Owned</span>
       <span class="segbtn" data-st="missing">Missing</span>
-      <span class="segbtn" data-st="fav">★ Favorites</span>
+      <span class="segbtn" data-st="fav">★ Favs</span>
     </div>
     <div class="pdx-elems" id="mp-elems"></div>
     <div class="pdx-actions">
@@ -2929,7 +2934,7 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.6.0";
+const APP_VERSION = "1.6.1";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")

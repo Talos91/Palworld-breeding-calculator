@@ -5,7 +5,20 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.6.0`).
+The current release is shown in the app footer (`v1.6.1`).
+
+---
+
+## [1.6.1] — Readability polish
+
+### Fixed
+- **Dropdowns** (Paldex work/sort and all `<select>` menus) rendered black-on-dark
+  and were unreadable — now forced to a solid, theme-aware background with a
+  matching option-list `color-scheme` in both light and dark.
+- **Hero title** ("Palworld Companion") was near-black on the always-dark banner
+  in light theme — its text is now light in both themes.
+- **All / Owned / Missing / ★ Favs** segment no longer overflows on narrow
+  phones; the four options share the width evenly.
 
 ---
 
