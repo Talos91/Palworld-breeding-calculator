@@ -5,7 +5,20 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.5.0`).
+The current release is shown in the app footer (`v1.5.1`).
+
+---
+
+## [1.5.1] — Hero header redesign
+
+### Changed
+- Rebuilt the app header into a **cinematic hero banner** — a layered scenic
+  background (sky glow + mountain silhouette in the app's palette), a large
+  "Palworld Companion" wordmark, a glass subtitle pill, and the action buttons
+  cleanly clustered top-right (no more cramped/overlapping layout).
+- **Optional custom key art:** drop an image at `img/hero.jpg` and it becomes
+  the header background automatically (behind a readability scrim); without it,
+  the designed default shows. Keeps the repo free of third-party art by default.
 
 ---
 
