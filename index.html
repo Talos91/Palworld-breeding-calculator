@@ -336,6 +336,7 @@
   /* icon button (theme toggle) */
   .iconbtn{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,transform .1s}
   .iconbtn:hover{border-color:var(--accent)} .iconbtn:active{transform:translateY(1px)}
+  .langwrap{position:relative;flex:0 0 auto} .langwrap select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px}
 
   /* element-tinted rings on Pal art */
   .owncard .ocimg{border:2.5px solid var(--ring, var(--line2))}
@@ -465,6 +466,68 @@
   .acctsetup code{background:var(--panel2);padding:1px 6px;border-radius:6px;font-size:.78rem}
   .acctsetup ol{margin:8px 0 0;padding-left:20px} .acctsetup li{margin:4px 0}
 
+  /* combat: boss counter */
+  .bosshero{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .bosshero .thumb{width:64px;height:64px}
+  .bossname{font-size:1.25rem;font-weight:800}
+  .bossgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin-top:8px}
+  .bossgrid .owncard{cursor:pointer}
+  .bossmeta{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:3px}
+  .bossatk{font-size:.72rem;font-weight:800;color:var(--accent2)}
+  .boss-chip{cursor:pointer}
+  /* combat: type chart */
+  .chartscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px}
+  table.typechart{border-collapse:collapse;font-size:.8rem;margin:0 auto}
+  table.typechart th,table.typechart td{width:34px;height:34px;text-align:center;border:1px solid var(--line);padding:0}
+  table.typechart thead th{font-size:1rem}
+  table.typechart tbody th{text-align:right;padding-right:8px;font-weight:800;text-transform:capitalize;white-space:nowrap}
+  table.typechart td.se{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#04120f;font-weight:900}
+  .elemref{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
+  .elemcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .elemhead{font-weight:800;text-transform:capitalize;margin-bottom:6px;padding:2px 8px;border-radius:8px;display:inline-block}
+  /* combat: calculators */
+  .bighero{display:flex;align-items:center;gap:16px;background:var(--panel2);border:1px solid var(--line2);border-radius:14px;padding:16px;margin-bottom:6px}
+  .bignum{font-size:2.6rem;font-weight:900;line-height:1;color:var(--accent2);min-width:110px;text-align:center}
+  .biglabel{font-size:1rem;line-height:1.4}
+  table.minitable{width:100%;border-collapse:collapse;font-size:.85rem}
+  table.minitable th,table.minitable td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+  table.minitable th{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px}
+  table.minitable tr.hl{background:rgba(53,227,198,.1)}
+  table.minitable tr.hl td{font-weight:800}
+  .dmgrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:8px}
+  .dmgrow .thumb{width:44px;height:44px}
+  .dmgarrow{font-size:1.4rem;color:var(--muted)}
+  input[type=range]{width:100%;accent-color:var(--accent2)}
+  /* guides + mini tabs */
+  .tabmini,#guide-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .minitab{padding:8px 14px;border-radius:999px;background:var(--chip);border:1px solid var(--line2);font-weight:700;font-size:.85rem;cursor:pointer;transition:border-color .15s,background .15s}
+  .minitab.on{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#04120f;border:none}
+  ul.guide{margin:6px 0 4px;padding-left:20px;line-height:1.6} ul.guide li{margin:6px 0}
+  ul.guide b{color:var(--txt)}
+  /* dex completion + to-catch + traits */
+  #mp-completion{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0 4px}
+  .compbar{flex:1;min-width:200px}
+  .compl{display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:5px} .compl b{color:var(--accent2)}
+  .comptrack{height:10px;border-radius:999px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+  .compfill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:999px;transition:width .4s}
+  .tocatchlist{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+  .tocatchrow{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:10px;background:var(--panel2);border:1px solid var(--line)}
+  .tocatchrow .thumb{width:34px;height:34px} .tcn{flex:1;font-weight:700;font-size:.9rem} .tcdots{display:flex;gap:3px}
+  .traitrow{display:flex;gap:10px;align-items:flex-start;padding:8px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);margin-bottom:8px}
+  .traitrow .thumb{width:44px;height:44px;flex:0 0 auto}
+  .traitmain{flex:1;min-width:0} .traitname{font-weight:800;margin-bottom:5px}
+  .traitnote{width:100%;padding:7px 10px;border-radius:9px;background:var(--chip);border:1px solid var(--line2);color:var(--txt);font-size:.85rem;margin-bottom:6px}
+  .traitchips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .traitpass{cursor:default} .traitpass .x{cursor:pointer;opacity:.7} .traitpass .x:hover{opacity:1}
+  /* base production */
+  .prodrow{display:flex;align-items:center;gap:10px;margin:6px 0}
+  .prodwork{flex:0 0 130px;font-size:.85rem;font-weight:700;text-transform:capitalize}
+  .prodtrack{flex:1;height:12px;border-radius:999px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+  .prodfill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:999px}
+  .prodfill.weak{background:linear-gradient(90deg,#e0902f,#e0c534)}
+  .prodval{flex:0 0 auto;min-width:28px;text-align:right;color:var(--accent2)}
+  .prodn{flex:0 0 auto;font-size:.75rem;color:var(--muted)}
+
 
   /* tech, base planner, skill rows */
   .techlvl{flex:0 0 auto;width:44px;height:38px;border-radius:9px;background:var(--chip);color:var(--accent);font-weight:900;font-size:.78rem;display:flex;align-items:center;justify-content:center}
@@ -492,6 +555,7 @@
     <div class="brandmark">🥚</div>
     <div class="brandtext"><h1>Palworld <span>Companion</span></h1><div class="brandsub">Breeding · Collection · Map · Tiers</div></div>
     <button id="searchbtn" class="iconbtn" title="Search everything">🔎</button>
+    <div class="langwrap"><button id="langbtn" class="iconbtn" title="Language">🌐</button><select id="langsel" aria-label="Language"></select></div>
     <button id="acctbtn" class="iconbtn" title="Account &amp; cloud sync">👤</button>
     <button id="themebtn" class="iconbtn" title="Toggle theme">☾</button>
     <button id="installbtn" style="display:none">⬇ Install</button>
@@ -582,13 +646,18 @@
   <!-- MY PALS -->
   <div class="card tab-panel" id="panel-mypals" style="display:none">
     <div class="mp-head">
-      <div><b id="mp-count">0</b> Pals owned <span class="hint">· saved in this browser (accounts coming later)</span></div>
+      <div><b id="mp-count">0</b> Pals owned <span class="hint">· sign in (👤) to sync, or Export to back up</span></div>
       <div class="mp-actions">
+        <button class="mini" id="mp-tocatch-btn">🎯 To-catch</button>
+        <button class="mini" id="mp-share">📸 Share</button>
         <button class="mini" id="mp-export">Export</button>
         <button class="mini" id="mp-import">Import</button>
         <button class="mini" id="mp-clear">Clear all</button>
       </div>
     </div>
+    <div id="mp-completion"></div>
+    <div id="mp-tocatch" class="result" style="display:none"></div>
+    <canvas id="mp-sharecanvas" width="1080" height="1080" style="display:none"></canvas>
     <div id="mp-io" style="display:none;margin-top:10px">
       <textarea id="mp-io-text" rows="4" style="width:100%;font-family:ui-monospace,monospace;font-size:.8rem" placeholder="Paste exported data here, then Load."></textarea>
       <div style="margin-top:6px"><button class="mini" id="mp-io-load">Load pasted data</button> <span class="hint" id="mp-io-msg"></span></div>
@@ -601,6 +670,9 @@
     </div>
     <p class="hint" style="margin:10px 0 6px">Tap a Pal to toggle whether you own it.</p>
     <div id="mp-grid" class="owngrid"></div>
+
+    <div class="phase" style="margin-top:22px">📋 My Pals' traits <span class="hint" style="font-weight:600">— notes &amp; passives per owned Pal</span></div>
+    <div id="mp-traits"></div>
 
     <div class="phase" style="margin-top:22px">🧬 Breed a Pal you don't have — from your collection</div>
     <p class="hint" style="margin:0 0 10px">Pick a Pal you want. If it's reachable by breeding from the Pals you own, you'll get the full breeding tree (leaves = Pals you already have).</p>
@@ -680,6 +752,8 @@
     </div>
     <div class="phase">⚙️ Work coverage</div>
     <div id="base-cov" class="covgrid"></div>
+    <div class="phase">📊 Production throughput <span class="hint" style="font-weight:600">— combined work power per job</span></div>
+    <div id="base-prod"></div>
     <div class="phase">🛠️ Best Pals for a job</div>
     <div class="row">
       <div><label>Work skill</label><select id="job-work"></select></div>
@@ -690,6 +764,59 @@
 
   <div class="card tab-panel" id="panel-tierlists" style="display:none">
     <div id="tier-result" class="result"></div>
+  </div>
+
+  <!-- GUIDES -->
+  <div class="card tab-panel" id="panel-guides" style="display:none">
+    <div id="guide-nav" class="tabmini"></div>
+    <div id="guide-body" class="result"></div>
+  </div>
+
+  <!-- BOSS COUNTER -->
+  <div class="card tab-panel" id="panel-boss" style="display:none">
+    <div class="row" style="margin-bottom:10px">
+      <div><label>Boss / target Pal</label><select id="boss-pal"></select></div>
+    </div>
+    <div id="boss-alphas" class="chipbar" style="margin-bottom:10px"></div>
+    <div class="opts"><label><input type="checkbox" id="boss-ownedonly" /> Only recommend Pals I own</label></div>
+    <div id="boss-result" class="result"></div>
+  </div>
+
+  <!-- TYPE CHART -->
+  <div class="card tab-panel" id="panel-typechart" style="display:none">
+    <div id="typechart-body" class="result"></div>
+  </div>
+
+  <!-- CAPTURE CALCULATOR -->
+  <div class="card tab-panel" id="panel-capture" style="display:none">
+    <div class="row">
+      <div><label>Target Pal</label><select id="cap-pal"></select></div>
+      <div><label>Sphere</label><select id="cap-sphere"></select></div>
+    </div>
+    <div class="row">
+      <div><label>Pal level</label><input type="number" id="cap-level" value="20" min="1" max="60" /></div>
+      <div><label>Target HP remaining: <b id="cap-hpval">30%</b></label><input type="range" id="cap-hp" min="1" max="100" value="30" /></div>
+    </div>
+    <div class="opts">
+      <label><input type="checkbox" id="cap-status" /> Status ailment (poison/sleep/…)</label>
+      <label><input type="checkbox" id="cap-grab" /> Grappled / partner-hold</label>
+      <label><input type="checkbox" id="cap-night" /> Night</label>
+      <label><input type="checkbox" id="cap-alpha" /> Alpha / boss</label>
+    </div>
+    <div id="cap-result" class="result"></div>
+  </div>
+
+  <!-- DAMAGE CALCULATOR -->
+  <div class="card tab-panel" id="panel-damage" style="display:none">
+    <div class="row">
+      <div><label>Attacker</label><select id="dmg-atk"></select></div>
+      <div><label>Defender</label><select id="dmg-def"></select></div>
+    </div>
+    <div class="row">
+      <div><label>Attack skill power</label><input type="number" id="dmg-power" value="100" min="10" max="200" /></div>
+      <div><label>Attack element</label><select id="dmg-elem"></select></div>
+    </div>
+    <div id="dmg-result" class="result"></div>
   </div>
 
   <!-- MAP -->
@@ -889,7 +1016,8 @@ function catchable(name){ const p = Engine.byName.get(name); return p && p.catch
 
 /* ---------- Collection state (saved in this browser; real accounts coming later) ---------- */
 const STORE_KEY = "palworld_companion_v1";
-let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[], base:[]}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[], base:[]}; } })();
+let STATE = (() => { try { return Object.assign({owned:{}, wishlist:[], base:[], palmeta:{}}, JSON.parse(localStorage.getItem(STORE_KEY) || "{}")); } catch(e){ return {owned:{}, wishlist:[], base:[], palmeta:{}}; } })();
+if(!STATE.palmeta) STATE.palmeta = {};
 function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){} if(typeof Cloud!=="undefined") Cloud.onLocalChange(); }
 function isOwned(n){ return !!STATE.owned[n]; }
 function setOwned(n, v){ if(v) STATE.owned[n]=1; else delete STATE.owned[n]; saveState(); }
@@ -944,6 +1072,7 @@ const Cloud = (() => {
         STATE.owned    = Object.assign({}, r.owned || {});
         STATE.wishlist = Array.isArray(r.wishlist) ? r.wishlist : [];
         STATE.base     = Array.isArray(r.base) ? r.base : [];
+        STATE.palmeta  = (r.palmeta && typeof r.palmeta==="object") ? r.palmeta : {};
         try { localStorage.setItem(STORE_KEY, JSON.stringify(STATE)); } catch(e){}
         rerenderAll();
       } else if(!error && !data){
@@ -954,7 +1083,7 @@ const Cloud = (() => {
 
   async function push(force){
     if(!client || !user || (pulling && !force)) return;
-    const payload = { id: user.id, data: { owned: STATE.owned, wishlist: STATE.wishlist, base: STATE.base } };
+    const payload = { id: user.id, data: { owned: STATE.owned, wishlist: STATE.wishlist, base: STATE.base, palmeta: STATE.palmeta } };
     await client.from("profiles").upsert(payload, { onConflict: "id" });
     emit();
   }
@@ -1137,6 +1266,8 @@ const IC = {
   tiers:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 6H4.4v1A2.6 2.6 0 0 0 7 9.6M17 6h2.6v1A2.6 2.6 0 0 1 17 9.6"/><path d="M12 13v3"/><path d="M8.6 20h6.8l-.8-3.6H9.4z"/></svg>`,
   // Open book — wiki
   wiki:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 5 8 4.2 4.5 4.5v13c3.5-.3 6 .5 7.5 2 1.5-1.5 4-2.3 7.5-2v-13C16 4.2 13.5 5 12 6.5z"/><path d="M12 6.5V21"/></svg>`,
+  // Crossed swords — combat
+  combat:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 14.5L21 21M17 3l-9 9M3 17l9-9"/><path d="M14.5 14.5l2-2M3 17l1.5 1.5M17 3h4v4M7 3H3v4"/><path d="M9.5 14.5L3 21"/></svg>`,
 };
 const PAGE_META = {
   path:{t:"Path to a target", s:()=>"SHORTEST BREEDING ROUTE"},
@@ -1153,17 +1284,42 @@ const PAGE_META = {
   tech:{t:"Technology", s:()=>TECH?`${TECH.length} TECHS`:"LOADING…"},
   base:{t:"Base Planner", s:()=>`${(STATE.base||[]).length}/15 ASSIGNED · WORK COVERAGE`},
   tierlists:{t:"Tier Lists", s:()=>"MOUNTS · ATTACK · HP · BASE"},
+  guides:{t:"Guides", s:()=>"BEGINNER · BREEDING · BASES · COMBAT"},
+  boss:{t:"Boss Counter", s:()=>"WHAT TO BRING TO A FIGHT"},
+  typechart:{t:"Type Chart", s:()=>"ELEMENT STRENGTHS & WEAKNESSES"},
+  capture:{t:"Capture Calculator", s:()=>"CATCH-ODDS ESTIMATE"},
+  damage:{t:"Damage Calculator", s:()=>"ELEMENT DAMAGE ESTIMATE"},
 };
+/* ---------- Localization (UI chrome) ---------- */
+const LANGS = [["en","English"],["es","Español"],["fr","Français"],["de","Deutsch"],["it","Italiano"],["pt","Português"],["ja","日本語"]];
+const I18N = {
+  es:{"Breed":"Criar","Pals":"Pals","Wishlist":"Deseos","Combat":"Combate","Map":"Mapa","Wiki":"Wiki","Breeding · Collection · Map · Tiers":"Cría · Colección · Mapa · Rankings","Path to a target":"Ruta a un objetivo","Perfect Pal":"Pal Perfecto","All combinations":"Todas las combinaciones","Pairing":"Emparejamiento","My Pals":"Mis Pals","Palpagos Map":"Mapa de Palpagos","Pal Dex":"Paldex","Items":"Objetos","Buildings":"Edificios","Schematics":"Esquemas","Technology":"Tecnología","Base Planner":"Planificador de base","Tier Lists":"Rankings","Guides":"Guías","Boss Counter":"Contra jefes","Type Chart":"Tabla de tipos","Capture Calculator":"Calc. de captura","Damage Calculator":"Calc. de daño","🎯 Path":"🎯 Ruta","🏆 Perfect Pal":"🏆 Pal Perfecto","🧬 Combos":"🧬 Combos","🔎 Pairing":"🔎 Emparejar","📦 My Pals":"📦 Mis Pals","📝 Wishlist":"📝 Deseos","🐲 Boss Counter":"🐲 Contra jefes","🔷 Type Chart":"🔷 Tipos","🔴 Capture":"🔴 Captura","💥 Damage":"💥 Daño","🗺️ Map":"🗺️ Mapa","🐾 Pals":"🐾 Pals","⚔️ Items":"⚔️ Objetos","🏠 Buildings":"🏠 Edificios","📜 Schematics":"📜 Esquemas","🔬 Tech":"🔬 Tecnología","🏭 Base":"🏭 Base","🏅 Tiers":"🏅 Rankings","📖 Guides":"📖 Guías"},
+  fr:{"Breed":"Élevage","Pals":"Pals","Wishlist":"Souhaits","Combat":"Combat","Map":"Carte","Wiki":"Wiki","Breeding · Collection · Map · Tiers":"Élevage · Collection · Carte · Classements","Path to a target":"Chemin vers une cible","Perfect Pal":"Pal Parfait","All combinations":"Toutes les combinaisons","Pairing":"Appariement","My Pals":"Mes Pals","Palpagos Map":"Carte de Palpagos","Pal Dex":"Paldex","Items":"Objets","Buildings":"Bâtiments","Schematics":"Schémas","Technology":"Technologie","Base Planner":"Planif. de base","Tier Lists":"Classements","Guides":"Guides","Boss Counter":"Anti-boss","Type Chart":"Table des types","Capture Calculator":"Calc. de capture","Damage Calculator":"Calc. de dégâts","🎯 Path":"🎯 Chemin","🏆 Perfect Pal":"🏆 Pal Parfait","🧬 Combos":"🧬 Combos","🔎 Pairing":"🔎 Apparier","📦 My Pals":"📦 Mes Pals","📝 Wishlist":"📝 Souhaits","🐲 Boss Counter":"🐲 Anti-boss","🔷 Type Chart":"🔷 Types","🔴 Capture":"🔴 Capture","💥 Damage":"💥 Dégâts","🗺️ Map":"🗺️ Carte","🐾 Pals":"🐾 Pals","⚔️ Items":"⚔️ Objets","🏠 Buildings":"🏠 Bâtiments","📜 Schematics":"📜 Schémas","🔬 Tech":"🔬 Techno","🏭 Base":"🏭 Base","🏅 Tiers":"🏅 Classements","📖 Guides":"📖 Guides"},
+  de:{"Breed":"Zucht","Pals":"Pals","Wishlist":"Wunschliste","Combat":"Kampf","Map":"Karte","Wiki":"Wiki","Breeding · Collection · Map · Tiers":"Zucht · Sammlung · Karte · Ranglisten","Path to a target":"Weg zum Ziel","Perfect Pal":"Perfektes Pal","All combinations":"Alle Kombinationen","Pairing":"Paarung","My Pals":"Meine Pals","Palpagos Map":"Palpagos-Karte","Pal Dex":"Paldex","Items":"Gegenstände","Buildings":"Gebäude","Schematics":"Baupläne","Technology":"Technologie","Base Planner":"Basisplaner","Tier Lists":"Ranglisten","Guides":"Anleitungen","Boss Counter":"Boss-Konter","Type Chart":"Typentabelle","Capture Calculator":"Fang-Rechner","Damage Calculator":"Schadensrechner","🎯 Path":"🎯 Weg","🏆 Perfect Pal":"🏆 Perfektes Pal","🧬 Combos":"🧬 Kombis","🔎 Pairing":"🔎 Paarung","📦 My Pals":"📦 Meine Pals","📝 Wishlist":"📝 Wunschliste","🐲 Boss Counter":"🐲 Boss-Konter","🔷 Type Chart":"🔷 Typen","🔴 Capture":"🔴 Fangen","💥 Damage":"💥 Schaden","🗺️ Map":"🗺️ Karte","🐾 Pals":"🐾 Pals","⚔️ Items":"⚔️ Gegenstände","🏠 Buildings":"🏠 Gebäude","📜 Schematics":"📜 Baupläne","🔬 Tech":"🔬 Technik","🏭 Base":"🏭 Basis","🏅 Tiers":"🏅 Ranglisten","📖 Guides":"📖 Anleitungen"},
+  it:{"Breed":"Riproduzione","Pals":"Pal","Wishlist":"Desideri","Combat":"Combattimento","Map":"Mappa","Wiki":"Wiki","Breeding · Collection · Map · Tiers":"Riproduzione · Collezione · Mappa · Classifiche","Path to a target":"Percorso verso un obiettivo","Perfect Pal":"Pal Perfetto","All combinations":"Tutte le combinazioni","Pairing":"Accoppiamento","My Pals":"I miei Pal","Palpagos Map":"Mappa di Palpagos","Pal Dex":"Paldex","Items":"Oggetti","Buildings":"Edifici","Schematics":"Schemi","Technology":"Tecnologia","Base Planner":"Pianificatore base","Tier Lists":"Classifiche","Guides":"Guide","Boss Counter":"Anti-boss","Type Chart":"Tabella dei tipi","Capture Calculator":"Calc. cattura","Damage Calculator":"Calc. danni","🎯 Path":"🎯 Percorso","🏆 Perfect Pal":"🏆 Pal Perfetto","🧬 Combos":"🧬 Combo","🔎 Pairing":"🔎 Accoppia","📦 My Pals":"📦 I miei Pal","📝 Wishlist":"📝 Desideri","🐲 Boss Counter":"🐲 Anti-boss","🔷 Type Chart":"🔷 Tipi","🔴 Capture":"🔴 Cattura","💥 Damage":"💥 Danni","🗺️ Map":"🗺️ Mappa","🐾 Pals":"🐾 Pal","⚔️ Items":"⚔️ Oggetti","🏠 Buildings":"🏠 Edifici","📜 Schematics":"📜 Schemi","🔬 Tech":"🔬 Tecnologia","🏭 Base":"🏭 Base","🏅 Tiers":"🏅 Classifiche","📖 Guides":"📖 Guide"},
+  pt:{"Breed":"Criação","Pals":"Pals","Wishlist":"Desejos","Combat":"Combate","Map":"Mapa","Wiki":"Wiki","Breeding · Collection · Map · Tiers":"Criação · Coleção · Mapa · Rankings","Path to a target":"Caminho até um alvo","Perfect Pal":"Pal Perfeito","All combinations":"Todas as combinações","Pairing":"Emparelhamento","My Pals":"Meus Pals","Palpagos Map":"Mapa de Palpagos","Pal Dex":"Paldex","Items":"Itens","Buildings":"Construções","Schematics":"Esquemas","Technology":"Tecnologia","Base Planner":"Planejador de base","Tier Lists":"Rankings","Guides":"Guias","Boss Counter":"Anti-chefe","Type Chart":"Tabela de tipos","Capture Calculator":"Calc. de captura","Damage Calculator":"Calc. de dano","🎯 Path":"🎯 Caminho","🏆 Perfect Pal":"🏆 Pal Perfeito","🧬 Combos":"🧬 Combos","🔎 Pairing":"🔎 Emparelhar","📦 My Pals":"📦 Meus Pals","📝 Wishlist":"📝 Desejos","🐲 Boss Counter":"🐲 Anti-chefe","🔷 Type Chart":"🔷 Tipos","🔴 Capture":"🔴 Captura","💥 Damage":"💥 Dano","🗺️ Map":"🗺️ Mapa","🐾 Pals":"🐾 Pals","⚔️ Items":"⚔️ Itens","🏠 Buildings":"🏠 Construções","📜 Schematics":"📜 Esquemas","🔬 Tech":"🔬 Tecnologia","🏭 Base":"🏭 Base","🏅 Tiers":"🏅 Rankings","📖 Guides":"📖 Guias"},
+  ja:{"Breed":"配合","Pals":"パル","Wishlist":"ほしいもの","Combat":"戦闘","Map":"マップ","Wiki":"ウィキ","Breeding · Collection · Map · Tiers":"配合 · コレクション · マップ · ランキング","Path to a target":"目標への経路","Perfect Pal":"パーフェクトパル","All combinations":"全組み合わせ","Pairing":"ペアリング","My Pals":"マイパル","Palpagos Map":"パルパゴスマップ","Pal Dex":"パル図鑑","Items":"アイテム","Buildings":"建築物","Schematics":"設計図","Technology":"テクノロジー","Base Planner":"拠点プランナー","Tier Lists":"ランキング","Guides":"ガイド","Boss Counter":"ボス対策","Type Chart":"タイプ相性表","Capture Calculator":"捕獲計算機","Damage Calculator":"ダメージ計算機","🎯 Path":"🎯 経路","🏆 Perfect Pal":"🏆 パーフェクトパル","🧬 Combos":"🧬 組み合わせ","🔎 Pairing":"🔎 ペア","📦 My Pals":"📦 マイパル","📝 Wishlist":"📝 ほしいもの","🐲 Boss Counter":"🐲 ボス対策","🔷 Type Chart":"🔷 タイプ","🔴 Capture":"🔴 捕獲","💥 Damage":"💥 ダメージ","🗺️ Map":"🗺️ マップ","🐾 Pals":"🐾 パル","⚔️ Items":"⚔️ アイテム","🏠 Buildings":"🏠 建築","📜 Schematics":"📜 設計図","🔬 Tech":"🔬 テック","🏭 Base":"🏭 拠点","🏅 Tiers":"🏅 ランキング","📖 Guides":"📖 ガイド"},
+};
+let curLang = (()=>{ try{ return localStorage.getItem("palcompanion_lang") || "en"; }catch(e){ return "en"; } })();
+function TL(s){ if(curLang==="en"||!I18N[curLang]) return s; return I18N[curLang][s] || s; }
+function applyLang(){
+  const sub = document.querySelector(".brandsub"); if(sub) sub.textContent = TL("Breeding · Collection · Map · Tiers");
+  try{ document.documentElement.lang = curLang; }catch(e){}
+  if(typeof buildNav==="function") buildNav();
+}
+
 const SECTIONS = [
   {id:"breed", icon:IC.breed, label:"Breed", panels:[["path","🎯 Path"],["mount","🏆 Perfect Pal"],["all","🧬 Combos"],["lookup","🔎 Pairing"]]},
   {id:"pals",  icon:IC.pals,  label:"Pals", panels:[["mypals","📦 My Pals"]]},
   {id:"wish",  icon:IC.wish,  label:"Wishlist", panels:[["wishlist","📝 Wishlist"]]},
+  {id:"combat",icon:IC.combat,label:"Combat", panels:[["boss","🐲 Boss Counter"],["typechart","🔷 Type Chart"],["capture","🔴 Capture"],["damage","💥 Damage"]]},
   {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"]]},
-  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["dex","🐾 Pals"],["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"]]},
+  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["dex","🐾 Pals"],["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"],["guides","📖 Guides"]]},
 ];
 let ITEMS = null, BUILDINGS = null, TECH = null;
 const PANEL_RENDER = { mypals:renderMyPals, dex:renderDex, wishlist:renderWishlist, map:renderMap,
-  items:renderItems, buildings:renderBuildings, schematics:renderSchematics, tech:renderTech, base:renderBase, tierlists:renderTiers };
+  items:renderItems, buildings:renderBuildings, schematics:renderSchematics, tech:renderTech, base:renderBase, tierlists:renderTiers,
+  guides:renderGuides, boss:renderBoss, typechart:renderTypeChart, capture:renderCapture, damage:renderDamage };
 let curSection = null; const lastPanel = {};
 function selectPanel(pid){
   document.querySelectorAll(".tab-panel").forEach(p => p.style.display = "none");
@@ -1171,7 +1327,7 @@ function selectPanel(pid){
   document.querySelectorAll("#subtabs .tab").forEach(t => t.classList.toggle("active", t.dataset.tab===pid));
   const sec = SECTIONS.find(s => s.id===curSection); if(sec) lastPanel[sec.id] = pid;
   const meta = PAGE_META[pid], ph = $("#pagehead");
-  if(meta && ph) ph.innerHTML = `<h2>${meta.t}</h2><div class="pagesub">${typeof meta.s==="function"?meta.s():meta.s}</div>`;
+  if(meta && ph) ph.innerHTML = `<h2>${TL(meta.t)}</h2><div class="pagesub">${typeof meta.s==="function"?meta.s():meta.s}</div>`;
   if(PANEL_RENDER[pid]) PANEL_RENDER[pid]();
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -1179,16 +1335,16 @@ function selectSection(sid){
   curSection = sid; const sec = SECTIONS.find(s => s.id===sid); if(!sec) return;
   const st = document.getElementById("subtabs");
   st.style.display = sec.panels.length>1 ? "flex" : "none";
-  st.innerHTML = sec.panels.map(([pid,label]) => `<div class="tab" data-tab="${pid}">${label}</div>`).join("");
+  st.innerHTML = sec.panels.map(([pid,label]) => `<div class="tab" data-tab="${pid}">${TL(label)}</div>`).join("");
   st.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => selectPanel(t.dataset.tab)));
   document.querySelectorAll("#dock button").forEach(b => b.classList.toggle("active", b.dataset.sec===sid));
   selectPanel(lastPanel[sid] || sec.panels[0][0]);
 }
 function buildNav(){
   const dock = document.getElementById("dock");
-  dock.innerHTML = SECTIONS.map(s => `<button data-sec="${s.id}"><span class="di">${s.icon}</span><span class="dl">${s.label}</span></button>`).join("");
+  dock.innerHTML = SECTIONS.map(s => `<button data-sec="${s.id}"><span class="di">${s.icon}</span><span class="dl">${TL(s.label)}</span></button>`).join("");
   dock.querySelectorAll("button").forEach(b => b.addEventListener("click", () => selectSection(b.dataset.sec)));
-  selectSection("breed");
+  selectSection(curSection || "breed");
 }
 
 /* ---------- Path / skill transfer ---------- */
@@ -1402,7 +1558,85 @@ function renderMyPals(){
     return true;
   }).map(n => `<div class="owncard${isOwned(n)?" own":""}" data-n="${n}"><img class="thumb ocimg" loading="lazy" alt="${n}" data-name="${n}" src="${imgURL(n)}"><div class="ocn">${n}</div><div class="ocdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div>${isOwned(n)?'<span class="ock">✓</span>':""}</div>`).join("");
   $("#mp-grid").innerHTML = rows || `<div class="empty">no matches</div>`;
+  renderCompletion(); renderTraits();
 }
+/* ---------- Dex completion ---------- */
+function renderCompletion(){
+  const box = $("#mp-completion"); if(!box) return;
+  const total = Engine.pals.length, owned = ownedCount();
+  const catchables = Engine.pals.filter(p=>p.catchable), cOwned = catchables.filter(p=>isOwned(p.name)).length;
+  const pct = total? Math.round(owned/total*100):0, cPct = catchables.length? Math.round(cOwned/catchables.length*100):0;
+  const bar = (lbl, a, b, p) => `<div class="compbar"><div class="compl"><span>${lbl}</span><b>${a}/${b} · ${p}%</b></div><div class="comptrack"><div class="compfill" style="width:${p}%"></div></div></div>`;
+  box.innerHTML = bar("Dex completion", owned, total, pct) + bar("Catchable owned", cOwned, catchables.length, cPct);
+}
+/* ---------- To-catch checklist (unowned catchables, with map links) ---------- */
+function renderToCatch(){
+  const box = $("#mp-tocatch"); if(!box) return;
+  const missing = namesByDex.filter(n => !isOwned(n) && catchable(n));
+  if(!missing.length){ box.innerHTML = `<div class="summary">🎉 You own every catchable Pal!</div>`; return; }
+  const withSpawn = new Set(Object.keys(spawnsData||{}));
+  box.innerHTML = `<div class="summary">🎯 <b>${missing.length}</b> catchable Pal${missing.length>1?"s":""} still to catch. Tap 📍 to see where.</div>`
+    + `<div class="tocatchlist">` + missing.map(n => `<div class="tocatchrow">${thumb(n)}<span class="tcn">${dexStr(n)} ${n}</span><div class="tcdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div><button class="mini tcmap" data-n="${n}">📍 Map</button></div>`).join("") + `</div>`;
+  box.querySelectorAll(".tcmap").forEach(b => b.addEventListener("click", () => { selectSpawnPal(b.dataset.n); goToPanel("map"); }));
+}
+/* ---------- Per-owned-Pal notes + passives ---------- */
+function palMeta(n){ STATE.palmeta=STATE.palmeta||{}; return STATE.palmeta[n] || {notes:"", passives:[]}; }
+function setPalMeta(n, m){ STATE.palmeta=STATE.palmeta||{}; if((!m.notes||!m.notes.trim()) && (!m.passives||!m.passives.length)) delete STATE.palmeta[n]; else STATE.palmeta[n]=m; saveState(); }
+function renderTraits(){
+  const box = $("#mp-traits"); if(!box) return;
+  const owned = ownedNames().sort((a,b)=>dexNum(dexOf(a))-dexNum(dexOf(b)));
+  if(!owned.length){ box.innerHTML = `<div class="hint" style="padding:8px">Mark some Pals as owned above to track their passives &amp; notes here.</div>`; return; }
+  box.innerHTML = owned.map(n => { const m = palMeta(n); return `<div class="traitrow" data-n="${n}">
+      ${thumb(n)}
+      <div class="traitmain">
+        <div class="traitname">${dexStr(n)} ${n}</div>
+        <input class="traitnote" data-n="${n}" placeholder="notes (e.g. 4IV, ready to breed)" value="${(m.notes||"").replace(/"/g,"&quot;")}">
+        <div class="traitchips">${(m.passives||[]).map((s,i)=>`<span class="skilltag traitpass" data-n="${n}" data-i="${i}">${s} <span class="x">✕</span></span>`).join("")}<button class="mini traitadd" data-n="${n}">+ passive</button></div>
+      </div>
+    </div>`; }).join("");
+  box.querySelectorAll(".traitnote").forEach(inp => inp.addEventListener("change", () => { const n=inp.dataset.n, m=palMeta(n); m.notes=inp.value; setPalMeta(n,m); }));
+  box.querySelectorAll(".traitpass .x").forEach(x => x.addEventListener("click", () => { const chip=x.closest(".traitpass"); const n=chip.dataset.n, i=+chip.dataset.i, m=palMeta(n); m.passives.splice(i,1); setPalMeta(n,m); renderTraits(); }));
+  box.querySelectorAll(".traitadd").forEach(b => b.addEventListener("click", () => openPassivePicker(b.dataset.n)));
+}
+function openPassivePicker(n){
+  const names = (typeof PASSIVES!=="undefined" && Array.isArray(PASSIVES)) ? PASSIVES.map(p=>p.name) : [];
+  const choice = prompt(`Add a passive skill to ${n}${names.length?` (e.g. Swift, Legend, Ferocious, Artisan…)`:""}:`);
+  if(!choice || !choice.trim()) return;
+  const val = choice.trim();
+  const match = names.find(x => x.toLowerCase()===val.toLowerCase()) || val;
+  const m=palMeta(n); m.passives=m.passives||[]; if(m.passives.length<4 && !m.passives.includes(match)){ m.passives.push(match); setPalMeta(n,m); renderTraits(); }
+}
+/* ---------- Share collection as image ---------- */
+async function shareCollection(){
+  const cv = $("#mp-sharecanvas"); if(!cv) return; const ctx = cv.getContext("2d"); const W=cv.width, H=cv.height;
+  const dark = document.documentElement.dataset.theme!=="light";
+  const g = ctx.createLinearGradient(0,0,W,H); g.addColorStop(0, dark?"#0a0f18":"#efe7d5"); g.addColorStop(1, dark?"#111a2b":"#e2d6bd"); ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle="#35e3c6"; ctx.fillRect(0,0,W,14);
+  ctx.fillStyle = dark?"#eaf2ff":"#20242c"; ctx.textAlign="left";
+  ctx.font="900 76px system-ui,sans-serif"; ctx.fillText("My Palworld", 60, 130);
+  ctx.fillText("Collection", 60, 214);
+  const total=Engine.pals.length, owned=ownedCount(), pct=total?Math.round(owned/total*100):0;
+  ctx.font="900 200px system-ui,sans-serif"; ctx.fillStyle="#35e3c6"; ctx.fillText(pct+"%", 60, 470);
+  ctx.font="600 44px system-ui,sans-serif"; ctx.fillStyle=dark?"#9fb0c9":"#5a5142";
+  ctx.fillText(`${owned} of ${total} Pals owned`, 60, 545);
+  // top owned by attack
+  const top = ownedNames().map(n=>({n, a:statAtk(n)})).sort((x,y)=>y.a-x.a).slice(0,5);
+  ctx.fillStyle=dark?"#eaf2ff":"#20242c"; ctx.font="800 40px system-ui,sans-serif";
+  ctx.fillText(top.length?"Top attackers:":"", 60, 650);
+  ctx.font="600 36px system-ui,sans-serif"; ctx.fillStyle=dark?"#cdd8ea":"#3a3428";
+  top.forEach((t,i)=> ctx.fillText(`${i+1}.  ${t.n}${t.a?`  (⚔ ${t.a})`:""}`, 80, 712+i*58));
+  // load a few portraits
+  const imgs = ownedNames().slice(0,6);
+  await Promise.all(imgs.map((n,i)=> new Promise(res => { const im=new Image(); im.onload=()=>{ const x=60+(i%6)*165, y=1000; ctx.save(); ctx.beginPath(); const rad=24; const sz=150; roundRect(ctx,x,y-sz,sz,sz,rad); ctx.clip(); ctx.drawImage(im,x,y-sz,sz,sz); ctx.restore(); res(); }; im.onerror=res; im.src=imgURL(n); })));
+  ctx.fillStyle=dark?"#6b7890":"#8a7f6a"; ctx.font="600 30px system-ui,sans-serif"; ctx.textAlign="right"; ctx.fillText("Palworld Companion", W-50, H-40);
+  cv.toBlob(async (blob) => {
+    if(!blob) return;
+    const file = new File([blob], "my-palworld-collection.png", {type:"image/png"});
+    if(navigator.canShare && navigator.canShare({files:[file]})){ try{ await navigator.share({files:[file], title:"My Palworld Collection"}); return; }catch(e){} }
+    const url = URL.createObjectURL(blob); const a=document.createElement("a"); a.href=url; a.download="my-palworld-collection.png"; a.click(); setTimeout(()=>URL.revokeObjectURL(url), 4000);
+  }, "image/png");
+}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 function renderMissingBreed(){
   const target = $("#mp-target").value, box = $("#mp-planresult");
   if(ownedCount() === 0){ box.innerHTML = `<div class="summary">Mark some Pals as owned first (tap them above).</div>`; return; }
@@ -1441,13 +1675,38 @@ function renderWishlist(){
   }).join("");
 }
 
-/* ---------- Passive inheritance odds (rough estimate) ---------- */
-// Approx community weights for how many passives a child inherits from the combined parent pool.
-const INH_W = [0, 0.40, 0.30, 0.20, 0.10];
-function estCleanEggs(k){ k = Math.min(Math.max(k,1), 4); let p = 0; for(let c=k; c<=4; c++) p += INH_W[c]; return p>0 ? Math.ceil(1/p) : 99; }
+/* ---------- Passive inheritance odds ----------
+   Model from the DATAMINED array Combi_PassiveInheritNum = [4,3,2,1]: the child
+   inherits n passives from the combined parent pool where n is (community
+   consensus) ~uniform over the candidate counts 1..min(4,poolSize). Given a
+   pool of P distinct passives, the chance a specific wanted set of size w is
+   ALL inherited when n are drawn is C(P-w, n-w)/C(P, n). We average that over
+   the uniform n. This is exact combinatorics on a datamined-but-uniform count
+   assumption (the exact per-count weighting lives in Blueprint bytecode). */
+function nCr(n, r){ if(r<0||r>n) return 0; r=Math.min(r,n-r); let num=1,den=1; for(let i=0;i<r;i++){ num*=(n-i); den*=(i+1); } return num/den; }
+// Probability that a wanted set of `want` passives is all inherited from a pool of `pool` passives.
+function inheritProb(pool, want){
+  pool=Math.max(1,pool|0); want=Math.max(0,Math.min(want|0, pool));
+  if(want===0) return 1;
+  const maxN=Math.min(4,pool); let acc=0, cnt=0;
+  for(let n=1;n<=maxN;n++){ cnt++; if(n<want) continue; acc += nCr(pool-want, n-want)/nCr(pool, n); }
+  return cnt? acc/cnt : 0;
+}
+// Expected eggs to hit a clean roll of the wanted passives (1/p, capped).
+function estEggs(pool, want){ const p=inheritProb(pool, want); return p>0 ? Math.max(1, Math.ceil(1/p)) : 99; }
+// Back-compat: k desired passives already sitting in a 4-slot pool.
+function estCleanEggs(k){ return estEggs(4, Math.min(Math.max(k,1),4)); }
+const INH_W = [0, 0.40, 0.30, 0.20, 0.10]; // retained for any legacy callers
 
 /* ---------- Elements + active skills ---------- */
 const ELEMENTS = {"neutral":{"strongVs":[],"weakVs":["dark"]},"fire":{"strongVs":["ice","grass"],"weakVs":["water"]},"water":{"strongVs":["fire"],"weakVs":["electric"]},"grass":{"strongVs":["ground"],"weakVs":["fire"]},"electric":{"strongVs":["water"],"weakVs":["ground"]},"ice":{"strongVs":["dragon"],"weakVs":["fire"]},"ground":{"strongVs":["electric"],"weakVs":["grass"]},"dark":{"strongVs":["neutral"],"weakVs":["dragon"]},"dragon":{"strongVs":["dark"],"weakVs":["ice"]}};
+const ELEM_ORDER = ["neutral","fire","water","grass","electric","ice","ground","dark","dragon"];
+const ELEM_EMOJI = {neutral:"⚪",fire:"🔥",water:"💧",grass:"🌿",electric:"⚡",ice:"❄️",ground:"⛰️",dark:"🌑",dragon:"🐉"};
+const SUPER_MULT = 1.5; // Palworld's community-documented element advantage multiplier
+// Is attacking element `atk` super-effective against a defender with element list `defTypes`?
+function isSuperEffective(atk, defTypes){ const e=ELEMENTS[atk]; if(!e) return false; return (defTypes||[]).some(d => e.strongVs.includes(d)); }
+// Best offensive element(s) to use against a Pal, from its weaknesses.
+function counterElements(name){ const set=new Set(); typesOf(name).forEach(t=>{ const e=ELEMENTS[t]; if(e) e.weakVs.forEach(w=>set.add(w)); }); return [...set]; }
 let SKILLS = null;
 async function loadSkills(){ if(SKILLS) return SKILLS; try{ const r=await fetch("data/skills.json"); SKILLS=await r.json(); }catch(e){ SKILLS={skills:{},palSkills:{}}; } return SKILLS; }
 function matchupHTML(name){
@@ -1670,11 +1929,16 @@ function renderMarkers(){
   currentPoints.forEach(p => { const k = Math.floor(p.x/cell)+"_"+Math.floor(p.y/cell); let a = cells.get(k); if(!a){ a=[]; cells.set(k,a); } a.push(p); });
   let html = "";
   cells.forEach(arr => {
-    if(arr.length === 1){ const p = arr[0]; html += `<span class="mk${p.cat==="alpha"?" mkalpha":""}" data-single="1" data-name="${(p.name||"").replace(/"/g,"&quot;")}" style="left:${(p.x*100).toFixed(3)}%;top:${(p.y*100).toFixed(3)}%;--cc:${p.color}"></span>`; }
+    if(arr.length === 1){ const p = arr[0]; html += `<span class="mk${p.cat==="alpha"?" mkalpha":""}" data-single="1" data-name="${(p.name||"").replace(/"/g,"&quot;")}" data-x="${p.x}" data-y="${p.y}" data-cat="${p.cat}" style="left:${(p.x*100).toFixed(3)}%;top:${(p.y*100).toFixed(3)}%;--cc:${p.color}"></span>`; }
     else { let cx=0, cy=0; arr.forEach(p=>{cx+=p.x; cy+=p.y;}); cx/=arr.length; cy/=arr.length; html += `<span class="mkcluster" style="left:${(cx*100).toFixed(3)}%;top:${(cy*100).toFixed(3)}%">${arr.length}</span>`; }
   });
   mk.innerHTML = html;
-  mk.querySelectorAll(".mk[data-single]").forEach(el => el.addEventListener("click", e => { e.stopPropagation(); showTip(el, el.dataset.name); }));
+  mk.querySelectorAll(".mk[data-single]").forEach(el => el.addEventListener("click", e => {
+    e.stopPropagation();
+    let text = el.dataset.name || "";
+    if(el.dataset.cat !== "fasttravel"){ const ft = nearestFT(+el.dataset.x, +el.dataset.y); if(ft) text += `  ·  🚩 nearest: ${ft.name}`; }
+    showTip(el, text);
+  }));
   mk.querySelectorAll(".mkcluster").forEach(el => el.addEventListener("click", e => { e.stopPropagation(); const rr=el.getBoundingClientRect(), vr=view.getBoundingClientRect(); setZoom(rr.left-vr.left+rr.width/2, rr.top-vr.top+rr.height/2, mapState.scale*2.2); }));
 }
 function setCategoryPoints(){
@@ -1699,10 +1963,24 @@ function renderTimeFilters(name){
 }
 async function loadSpawns(){ if(spawnsData) return spawnsData; try { const r = await fetch("data/spawns.json"); spawnsData = (await r.json()).pals || {}; } catch(e){ spawnsData = {}; } return spawnsData; }
 async function selectSpawnPal(name){ mapPal = name; if(spawnTimes===null) spawnTimes = new Set(["day","night","alpha"]); await loadSpawns(); renderMap(); }
+// Extra layers (chest/ore/egg/fishing) are large, so default them OFF and load lazily.
+const HEAVY_LAYERS = new Set(["chest","ore","egg","fishing"]);
+let MAP_LAYERS_LOADED = false, FASTTRAVEL_PTS = null;
+async function mergeMapLayers(){
+  if(MAP_LAYERS_LOADED) return; MAP_LAYERS_LOADED = true;
+  try{
+    const r = await fetch("data/maplayers.json"); const d = await r.json();
+    (d.categories||[]).forEach(c => { if(!MAPDATA.categories.some(x=>x.id===c.id)) MAPDATA.categories.push(c); });
+    (d.markers||[]).forEach(m => MAPDATA.markers.push(m));
+  }catch(e){}
+}
+function fastTravelPts(){ if(!FASTTRAVEL_PTS) FASTTRAVEL_PTS = MAPDATA.markers.filter(m=>m.cat==="fasttravel"); return FASTTRAVEL_PTS; }
+function nearestFT(x,y){ let best=null,bd=1e9; fastTravelPts().forEach(m=>{ const d=Math.hypot(m.x-x,m.y-y); if(d<bd){bd=d;best=m;} }); return best?{name:best.name||"Fast Travel",dist:bd}:null; }
 function renderMap(){
   const fbox = $("#map-filters"), tbox = $("#map-timefilters");
   if(!ensureMapView()){ if(fbox) fbox.innerHTML=""; $("#map-wrap").innerHTML = `<div class="empty">Map data isn't available yet.</div>`; return; }
-  if(mapActiveCats === null) mapActiveCats = new Set(MAPDATA.categories.map(c => c.id));
+  if(!MAP_LAYERS_LOADED){ mergeMapLayers().then(() => { FASTTRAVEL_PTS=null; renderMap(); }); }
+  if(mapActiveCats === null) mapActiveCats = new Set(MAPDATA.categories.map(c => c.id).filter(id => !HEAVY_LAYERS.has(id)));
   if(mapPal){ fbox.style.display="none"; tbox.style.display="flex"; renderTimeFilters(mapPal); setSpawnPoints(mapPal); }
   else { tbox.style.display="none"; fbox.style.display="flex"; renderCategoryFilters(); setCategoryPoints(); }
   applyMapTransform(); renderMarkers();
@@ -1819,7 +2097,223 @@ function renderBase(){
     const sug=bestForWork(w);
     return `<div class="covrow gap"><span class="covwork">${prettyWork(w)}</span><span class="covnone">no cover</span>${sug?`<span class="covpal">try ${sug}${isOwned(sug)?" ★":""}</span>`:""}</div>`;
   }).join("");
+  renderBaseProd(team);
   renderJobs();
+}
+function renderBaseProd(team){
+  const box = $("#base-prod"); if(!box) return;
+  team = team || STATE.base || [];
+  // Combined work power = sum of each assigned Pal's level for that job (a proxy for output rate).
+  const power = {}; let maxP = 1;
+  ALL_WORKS.forEach(w => { let s=0; team.forEach(n=>{ s+=worksLvl(n,w); }); power[w]=s; if(s>maxP) maxP=s; });
+  const active = ALL_WORKS.filter(w=>power[w]>0).sort((a,b)=>power[b]-power[a]);
+  if(!team.length || !active.length){ box.innerHTML = `<div class="hint" style="padding:8px">Assign Pals above to estimate each job's throughput.</div>`; return; }
+  box.innerHTML = active.map(w => {
+    const p = power[w], pct = Math.round(p/maxP*100), workers = team.filter(n=>worksLvl(n,w)>0).length;
+    const weak = p<=2;
+    return `<div class="prodrow"><span class="prodwork">${prettyWork(w)}</span><div class="prodtrack"><div class="prodfill${weak?" weak":""}" style="width:${Math.max(6,pct)}%"></div></div><b class="prodval">${p}</b><span class="prodn">${workers}🐾</span></div>`;
+  }).join("") + `<p class="hint" style="margin-top:8px">Higher bars = faster output for that job. A single low bar (⚠ amber) is your bottleneck — add or upgrade a worker for it. Values are combined work levels, a proxy for real craft speed.</p>`;
+}
+
+/* ---------- Combat: shared data loaders ---------- */
+let COMBAT = null;
+async function loadCombat(){ if(COMBAT) return COMBAT; try{ const r=await fetch("data/combat.json"); COMBAT=await r.json(); }catch(e){ COMBAT={captureRateCorrect:{},spheres:[]}; } return COMBAT; }
+function statAtk(n){ const s=STATS_BY.get(n); return s&&s.attack ? s.attack : 0; }
+function statDef(n){ const s=STATS_BY.get(n); return s&&s.stats&&s.stats.defense ? s.stats.defense : 0; }
+
+/* ---------- Combat: Boss counter ---------- */
+let BOSS_ALPHAS = null;
+function buildBossList(){
+  if(BOSS_ALPHAS) return BOSS_ALPHAS;
+  BOSS_ALPHAS = [];
+  const seen = new Set();
+  if(typeof MAPDATA!=="undefined" && MAPDATA && MAPDATA.markers){
+    MAPDATA.markers.filter(m=>m.cat==="alpha").forEach(m => {
+      const raw = (m.name||"").replace(/\s*\(Lv\s*\d+\)\s*$/i,"").trim();
+      const lvl = (/(\(Lv\s*(\d+)\))/i.exec(m.name)||[])[2];
+      if(!raw || seen.has(raw)) return;
+      if(Engine.byName.has(raw)){ seen.add(raw); BOSS_ALPHAS.push({name:raw, lvl:lvl?+lvl:null}); }
+    });
+  }
+  BOSS_ALPHAS.sort((a,b)=>(a.lvl||0)-(b.lvl||0));
+  return BOSS_ALPHAS;
+}
+function recommendCounters(bossName, ownedOnly){
+  const cset = new Set(counterElements(bossName));
+  let cand = Engine.pals.filter(p => {
+    if(p.name===bossName) return false;
+    if(ownedOnly && !isOwned(p.name)) return false;
+    return (p.types||[]).some(t => cset.has(t));
+  }).map(p => ({n:p.name, atk:statAtk(p.name), els:(p.types||[]).filter(t=>cset.has(t))}));
+  cand.sort((a,b)=> b.atk-a.atk || a.n.localeCompare(b.n));
+  return {cset:[...cset], list:cand.slice(0,15)};
+}
+function renderBoss(){
+  const box = $("#boss-result"); if(!box) return;
+  buildBossList();
+  const chips = $("#boss-alphas");
+  if(chips && !chips.dataset.built){
+    chips.dataset.built="1";
+    chips.innerHTML = `<span class="hint" style="align-self:center;margin-right:4px">Map alpha bosses:</span>` +
+      BOSS_ALPHAS.map(b=>`<span class="mapchip boss-chip" data-n="${b.name}" style="--cc:#e0453f">${b.name}${b.lvl?` <b>Lv${b.lvl}</b>`:""}</span>`).join("");
+    chips.querySelectorAll(".boss-chip").forEach(ch=>ch.addEventListener("click", ()=>{ setPicker("boss-pal", ch.dataset.n); renderBoss(); }));
+  }
+  const boss = $("#boss-pal").value; if(!boss){ box.innerHTML=""; return; }
+  const ownedOnly = $("#boss-ownedonly").checked;
+  const ts = typesOf(boss);
+  const {cset, list} = recommendCounters(boss, ownedOnly);
+  const elBadges = arr => arr.map(t=>`<span class="tb tb-${t}">${ELEM_EMOJI[t]||""} ${t}</span>`).join("") || '<span class="hint">—</span>';
+  let html = `<div class="bosshero">${thumb(boss)}<div><div class="bossname">${dexStr(boss)} ${boss}</div><div class="pdtypes">${ts.map(t=>`<span class="tb tb-${t}">${ELEM_EMOJI[t]||""} ${t}</span>`).join("")}</div></div></div>`;
+  html += `<div class="pdsection">Bring these elements</div><div class="statline">🎯 Hit it with: ${elBadges(cset)}</div>`;
+  html += `<div class="pdsection">Recommended Pals ${ownedOnly?"you own":""} <small style="color:var(--muted);font-weight:600">(counter element · by attack)</small></div>`;
+  if(!list.length){ html += `<div class="empty">${ownedOnly?"You don't own a Pal with a counter element yet — untick the filter to see all options.":"No counter Pals found."}</div>`; }
+  else {
+    html += `<div class="bossgrid">` + list.map(c => `<div class="owncard" data-n="${c.n}"><img class="thumb ocimg" loading="lazy" style="--ring:${ringOf(c.n)}" alt="${c.n}" data-name="${c.n}" src="${imgURL(c.n)}"><div class="ocn">${c.n}</div><div class="bossmeta">${c.els.map(e=>`<span class="ocdot tb-${e}"></span>`).join("")}${c.atk?`<span class="bossatk">⚔ ${c.atk}</span>`:""}</div>${isOwned(c.n)?'<span class="ock">✓</span>':""}</div>`).join("") + `</div>`;
+  }
+  const isAlpha = BOSS_ALPHAS.some(b=>b.name===boss);
+  html += `<div style="margin-top:12px"><button class="mini" id="boss-map">📍 Show alpha bosses on map</button></div>`;
+  html += `<p class="hint" style="margin-top:10px">Element advantage adds roughly <b>×${SUPER_MULT}</b> damage (community estimate). Tap a Pal to view its full stats in the Dex.</p>`;
+  box.innerHTML = html;
+  const mb = $("#boss-map"); if(mb) mb.addEventListener("click", ()=>openMapCat("alpha"));
+  box.querySelectorAll(".owncard").forEach(c=>c.addEventListener("click", ()=>{ renderPalInfo(c.dataset.n); goToPanel("dex"); setTimeout(()=>$("#info-card")&&$("#info-card").scrollIntoView({behavior:"smooth",block:"nearest"}),80); }));
+}
+
+/* ---------- Combat: Type chart ---------- */
+function renderTypeChart(){
+  const box = $("#typechart-body"); if(!box) return;
+  let t = `<p class="hint" style="margin:0 0 12px">Row = <b>attacking</b> element, column = <b>defending</b> element. ★ = super-effective (≈ ×${SUPER_MULT} damage). Palworld has no "resisted" penalty like Pokémon — only the advantage bonus.</p>`;
+  t += `<div class="chartscroll"><table class="typechart"><thead><tr><th></th>` + ELEM_ORDER.map(d=>`<th class="tb-${d}" title="${d}">${ELEM_EMOJI[d]}</th>`).join("") + `</tr></thead><tbody>`;
+  ELEM_ORDER.forEach(atk => {
+    t += `<tr><th class="tb-${atk}">${ELEM_EMOJI[atk]} ${atk}</th>` + ELEM_ORDER.map(def => {
+      const se = ELEMENTS[atk].strongVs.includes(def);
+      return `<td class="${se?"se":""}" title="${atk} → ${def}${se?" (super-effective)":""}">${se?"★":""}</td>`;
+    }).join("") + `</tr>`;
+  });
+  t += `</tbody></table></div>`;
+  t += `<div class="pdsection">Quick reference</div><div class="elemref">` + ELEM_ORDER.map(e => {
+    const strong = ELEMENTS[e].strongVs, weak = ELEMENTS[e].weakVs;
+    return `<div class="elemcard"><div class="elemhead tb-${e}">${ELEM_EMOJI[e]} ${e}</div>
+      <div class="statline">⚔️ strong vs ${strong.map(x=>`<span class="tb tb-${x}">${x}</span>`).join("")||"—"}</div>
+      <div class="statline">🛡️ weak vs ${weak.map(x=>`<span class="tb tb-${x}">${x}</span>`).join("")||"—"}</div></div>`;
+  }).join("") + `</div>`;
+  box.innerHTML = t;
+}
+
+/* ---------- Combat: Capture calculator ---------- */
+function captureEstimate(o){
+  const base = 1.0;
+  const hpTerm = 1 - 0.85*o.hpFrac;                              // low HP → higher
+  const levelTerm = Math.min(1.4, o.captureLevel / Math.max(1,o.palLevel)); // sphere tier vs level
+  let bonus = 1 + (o.status?0.3:0) + (o.grab?0.5:0) + (o.night?0.2:0) - (o.alpha?0.5:0);
+  bonus = Math.max(0.2, bonus);
+  return Math.max(0.01, Math.min(1, base * o.correct * o.sphereMult * hpTerm * levelTerm * bonus));
+}
+async function renderCapture(){
+  const box = $("#cap-result"); if(!box) return;
+  await loadCombat();
+  const spheres = (COMBAT.spheres||[]);
+  const sSel = $("#cap-sphere");
+  if(sSel && !sSel.options.length){ sSel.innerHTML = spheres.map((s,i)=>`<option value="${i}">${s.name}</option>`).join(""); sSel.value = "0"; }
+  const pal = $("#cap-pal").value;
+  const correct = (COMBAT.captureRateCorrect||{})[pal] != null ? COMBAT.captureRateCorrect[pal] : 1.0;
+  const palLevel = Math.max(1, +$("#cap-level").value||1);
+  const hpFrac = Math.max(0.01, Math.min(1, (+$("#cap-hp").value||100)/100));
+  $("#cap-hpval").textContent = Math.round(hpFrac*100)+"%";
+  const o = { correct, palLevel, hpFrac, status:$("#cap-status").checked, grab:$("#cap-grab").checked, night:$("#cap-night").checked, alpha:$("#cap-alpha").checked };
+  const rows = spheres.map(s => { const p = captureEstimate(Object.assign({}, o, {sphereMult:s.mult, captureLevel:s.captureLevel_datamined||s.captureLevel||7})); return {name:s.name, p, eggs:Math.max(1,Math.ceil(1/p))}; });
+  const picked = rows[+(sSel?sSel.value:0)] || rows[0];
+  let html = `<div class="bighero"><div class="bignum">${Math.round(picked.p*100)}%</div><div class="biglabel">catch chance with a <b>${picked.name}</b><br><span class="hint">${correct!==1?`${pal} has a capture-correction of ×${correct}. `:""}~${picked.eggs} throw${picked.eggs>1?"s":""} on average</span></div></div>`;
+  html += `<div class="pdsection">All spheres</div><div class="chartscroll"><table class="minitable"><thead><tr><th>Sphere</th><th>Chance</th><th>Avg throws</th></tr></thead><tbody>`;
+  rows.forEach(r => { html += `<tr class="${r.name===picked.name?"hl":""}"><td>${r.name}</td><td>${Math.round(r.p*100)}%</td><td>${r.eggs}</td></tr>`; });
+  html += `</tbody></table></div>`;
+  html += `<p class="hint" style="margin-top:10px">⚠️ <b>Estimate.</b> Palworld's real capture routine is Blueprint bytecode and isn't public. This uses the datamined per-Pal correction, sphere capture-levels and status/night bonuses in a community-documented formula — treat it as a guide, not exact odds.</p>`;
+  box.innerHTML = html;
+}
+
+/* ---------- Combat: Damage calculator ---------- */
+function renderDamage(){
+  const box = $("#dmg-result"); if(!box) return;
+  const atk = $("#dmg-atk").value, def = $("#dmg-def").value;
+  const eSel = $("#dmg-elem");
+  if(eSel && !eSel.options.length){ eSel.innerHTML = ELEM_ORDER.map(e=>`<option value="${e}">${ELEM_EMOJI[e]} ${e[0].toUpperCase()+e.slice(1)}</option>`).join(""); }
+  // default the element to the attacker's primary type when it changes
+  if(eSel && eSel.dataset.forpal !== atk){ const t=typesOf(atk)[0]||"neutral"; eSel.value=t; eSel.dataset.forpal=atk; }
+  const power = Math.max(1, +$("#dmg-power").value||100);
+  const aStat = statAtk(atk), dStat = statDef(def);
+  const elem = eSel ? eSel.value : (typesOf(atk)[0]||"neutral");
+  const se = isSuperEffective(elem, typesOf(def));
+  const mult = se ? SUPER_MULT : 1;
+  const raw = power * (aStat/100);
+  const mitig = raw * (100 / (100 + dStat));
+  const dmg = Math.round(mitig * mult);
+  let html = `<div class="bighero"><div class="bignum">${dmg}</div><div class="biglabel">estimated hit<br><span class="hint">per attack, before crits & buffs</span></div></div>`;
+  html += `<div class="dmgrow">${thumb(atk)}<div><b>${atk}</b><div class="hint">Attack ${aStat||"?"} · <span class="tb tb-${elem}">${ELEM_EMOJI[elem]} ${elem}</span></div></div><span class="dmgarrow">→</span>${thumb(def)}<div><b>${def}</b><div class="hint">Defense ${dStat||"?"} · ${typesOf(def).map(t=>`<span class="tb tb-${t}">${t}</span>`).join("")}</div></div></div>`;
+  html += `<div class="statline" style="margin-top:10px">${se?`<span class="tag src-boss">★ Super-effective ×${SUPER_MULT}</span> — ${elem} beats ${typesOf(def).filter(t=>ELEMENTS[elem].strongVs.includes(t)).join("/")}`:`<span class="tag">Neutral ×1</span> — no element advantage`}</div>`;
+  const better = counterElements(def);
+  if(better.length && !se) html += `<div class="statline">💡 For advantage, hit ${def} with ${better.map(e=>`<span class="tb tb-${e}">${ELEM_EMOJI[e]} ${e}</span>`).join("")}</div>`;
+  html += `<p class="hint" style="margin-top:10px">⚠️ <b>Estimate.</b> Uses datamined Attack/Defense with a simplified <code>power × Atk/100 × elem ÷ (1+Def/100)</code> model — relative comparisons are meaningful; absolute numbers are approximate.</p>`;
+  box.innerHTML = html;
+  box.querySelectorAll(".thumb").forEach(t=>{});
+}
+
+/* ---------- Wiki: Guides ---------- */
+const GUIDES = [
+  {id:"beginner", t:"🌅 Beginner", body:`
+    <div class="pdsection">First hour</div>
+    <ul class="guide">
+      <li>Catch a few <b>Lamball</b>, <b>Cattiva</b> and <b>Lifmunk</b> early — they cover handiwork, transport, gathering and planting, enough to boot a base.</li>
+      <li>Craft a <b>Palbox</b>, then a few <b>wooden foundations, a campfire and a bed</b>. Assign 3–4 Pals.</li>
+      <li>Throwing spheres at <b>low HP</b> hugely raises catch odds — soften wild Pals first (see the Capture tab).</li>
+      <li>Keep one Pal with <b>kindling</b> (Foxparks) and one with <b>watering</b> (Fuack/Pengullet) so cooking and farming don't stall.</li>
+    </ul>
+    <div class="pdsection">Don't forget</div>
+    <ul class="guide"><li>Grab every <b>Lifmunk Effigy</b> you pass (Map → effigy layer) to raise catch rate account-wide.</li>
+      <li>Fast-travel statues double as respawn points — unlock them as you explore.</li></ul>`},
+  {id:"breeding", t:"🧬 Breeding meta", body:`
+    <div class="pdsection">How it works</div>
+    <ul class="guide">
+      <li>Any two Pals of opposite gender at a <b>Breeding Farm</b> (+ cake) make an egg. The <b>child species</b> is fixed by the parents' combi-ranks — use the <b>Path</b> and <b>Combos</b> tabs to find the exact pair.</li>
+      <li><b>Passive skills</b> are species-independent: the child draws from <b>both parents' pooled passives</b>. Route a wanted passive down a chain, then stack it (see <b>Perfect Pal</b>).</li>
+      <li>Same species + same species always breeds <b>true</b>.</li>
+    </ul>
+    <div class="pdsection">Meta tips</div>
+    <ul class="guide">
+      <li>Build a <b>4-passive "template" Pal</b> once (e.g. Legend / Ferocious / Musclehead / Swift for an attacker), then breed it into anything — the passives carry over.</li>
+      <li>Fewer passives in the parent pool = higher odds the ones you want are inherited. The <b>Perfect Pal</b> egg estimate uses the datamined inherit counts.</li>
+      <li><b>Cake</b> needs a farm: Wheat (planting), Milk (Mozzarina), Eggs (Chikipi), Honey (Beegarde), Flour (mill). Set this up before mass breeding.</li>
+    </ul>`},
+  {id:"bases", t:"🏭 Best bases", body:`
+    <div class="pdsection">Work coverage</div>
+    <ul class="guide">
+      <li>Aim to cover every work type. Use the <b>Base</b> planner (Wiki → Base) — it flags gaps and suggests a Pal for each.</li>
+      <li>High-value all-rounders: <b>Anubis</b> (handiwork 4/mining 3), <b>Blazamut</b> (mining 4), <b>Orserk</b> (electricity 4/handiwork 3), <b>Jormuntide Ignis</b> (kindling 4), <b>Petallia</b> (planting/medicine).</li>
+    </ul>
+    <div class="pdsection">Layout</div>
+    <ul class="guide">
+      <li>Keep the <b>ore/coal</b> near your base radius so miners auto-haul. Put the <b>ranch</b> where farmers can reach food.</li>
+      <li>One <b>cooling</b> Pal (Pengullet/Cryolinx) keeps a fridge/berry-plantation viable; one <b>electricity</b> Pal powers production lines.</li>
+      <li>Don't over-assign: a Pal locked to a station it can't service just idles. Match work level to the station tier.</li>
+    </ul>`},
+  {id:"combat", t:"⚔️ Combat & types", body:`
+    <div class="pdsection">Element rules</div>
+    <ul class="guide">
+      <li>Nine elements. Each is <b>strong vs</b> one or two others for a ≈×${SUPER_MULT} damage bonus. There's no "resisted" penalty — use the <b>Type Chart</b> tab.</li>
+      <li>Before a tower/alpha, open the <b>Boss Counter</b> tab: it reads the boss's element and lists your best counter Pals by attack.</li>
+    </ul>
+    <div class="pdsection">Fighting bosses</div>
+    <ul class="guide">
+      <li>Bring a Pal whose <b>element beats the boss</b> AND high raw Attack (Tier Lists → strongest attackers).</li>
+      <li>Alphas hit hard — Pal HP and your own dodge matter as much as element. Legendary schematics (assault rifle, etc.) come from tower bosses.</li>
+      <li>Status effects (poison, chill) both damage and, on wild Pals, <b>raise capture odds</b>.</li>
+    </ul>`},
+];
+let curGuide = "beginner";
+function renderGuides(){
+  const nav = $("#guide-nav"), body = $("#guide-body"); if(!nav||!body) return;
+  nav.innerHTML = GUIDES.map(g=>`<span class="minitab${g.id===curGuide?" on":""}" data-g="${g.id}">${g.t}</span>`).join("");
+  nav.querySelectorAll(".minitab").forEach(el=>el.addEventListener("click", ()=>{ curGuide=el.dataset.g; renderGuides(); }));
+  const g = GUIDES.find(x=>x.id===curGuide) || GUIDES[0];
+  body.innerHTML = g.body;
 }
 
 /* ---------- Init ---------- */
@@ -1865,6 +2359,8 @@ $("#mp-search").addEventListener("input", renderMyPals);
 $("#mp-ownedonly").addEventListener("change", renderMyPals);
 $("#mp-clear").addEventListener("click", () => { if(confirm("Clear all owned Pals?")){ STATE.owned = {}; saveState(); renderMyPals(); } });
 $("#mp-plan").addEventListener("click", renderMissingBreed);
+$("#mp-share").addEventListener("click", shareCollection);
+$("#mp-tocatch-btn").addEventListener("click", async () => { const box=$("#mp-tocatch"); if(box.style.display==="none"){ await loadSpawns(); box.style.display="block"; renderToCatch(); box.scrollIntoView({behavior:"smooth",block:"nearest"}); } else { box.style.display="none"; } });
 
 $("#wl-chips").addEventListener("click", e => { if(e.target.classList.contains("x")){ wlTemp.splice(+e.target.closest(".chip").dataset.i, 1); renderWlChips(); } });
 $("#wl-add").addEventListener("click", () => { STATE.wishlist.push({pal: $("#wl-pal").value, skills: wlTemp.slice(), done: false}); wlTemp = []; renderWlChips(); saveState(); renderWishlist(); });
@@ -1928,13 +2424,32 @@ function openMapCat(cat){ mapPal = null; if(MAPDATA && MAPDATA.markers) mapActiv
 fillSelect($("#map-pal")); $("#map-pal").value = namesByDex.includes("Chikipi") ? "Chikipi" : namesByDex[0]; makePicker("map-pal");
 $("#map-pal").addEventListener("change", () => selectSpawnPal($("#map-pal").value));
 
+// Combat: Boss counter
+fillSelect($("#boss-pal")); $("#boss-pal").value = namesByDex.includes("Faleris") ? "Faleris" : namesByDex[0]; makePicker("boss-pal");
+$("#boss-pal").addEventListener("change", renderBoss);
+$("#boss-ownedonly").addEventListener("change", renderBoss);
+// Combat: Capture calc
+fillSelect($("#cap-pal")); $("#cap-pal").value = namesByDex.includes("Anubis") ? "Anubis" : namesByDex[0]; makePicker("cap-pal");
+$("#cap-pal").addEventListener("change", renderCapture);
+["cap-sphere","cap-level","cap-hp","cap-status","cap-grab","cap-night","cap-alpha"].forEach(id => { const el=$("#"+id); if(el){ el.addEventListener("input", renderCapture); el.addEventListener("change", renderCapture); } });
+// Combat: Damage calc
+fillSelect($("#dmg-atk")); $("#dmg-atk").value = namesByDex.includes("Jetragon") ? "Jetragon" : namesByDex[0]; makePicker("dmg-atk");
+fillSelect($("#dmg-def")); $("#dmg-def").value = namesByDex.includes("Anubis") ? "Anubis" : namesByDex[0]; makePicker("dmg-def");
+$("#dmg-atk").addEventListener("change", renderDamage); $("#dmg-def").addEventListener("change", renderDamage);
+["dmg-power","dmg-elem"].forEach(id => { const el=$("#"+id); if(el){ el.addEventListener("input", renderDamage); el.addEventListener("change", renderDamage); } });
+
 // Theme toggle (dark default; light/parchment optional), persisted.
 function applyTheme(t){ document.documentElement.dataset.theme = t; $("#themebtn").textContent = t==="light" ? "☀" : "☾"; const tc=document.querySelector('meta[name="theme-color"]'); if(tc) tc.setAttribute("content", t==="light" ? "#efe7d5" : "#0a0f18"); }
 applyTheme((()=>{ try{ return localStorage.getItem("palcompanion_theme") || "dark"; }catch(e){ return "dark"; } })());
 $("#themebtn").addEventListener("click", () => { const t = document.documentElement.dataset.theme==="light" ? "dark" : "light"; applyTheme(t); try{ localStorage.setItem("palcompanion_theme", t); }catch(e){} });
 
+// Language selector
+(function(){ const sel=$("#langsel"); if(!sel) return; sel.innerHTML = LANGS.map(([c,n])=>`<option value="${c}">${n}</option>`).join(""); sel.value = curLang;
+  sel.addEventListener("change", () => { curLang = sel.value; try{ localStorage.setItem("palcompanion_lang", curLang); }catch(e){} applyLang(); }); })();
+
 // Build the section / bottom-dock navigation (replaces the old flat tab bar).
 buildNav();
+if(curLang !== "en") applyLang();  // apply a saved non-English language on load
 
 // ----- Global search -----
 function goToPanel(pid){ const sec = SECTIONS.find(s => s.panels.some(p => p[0]===pid)); if(!sec) return; lastPanel[sec.id]=pid; selectSection(sec.id); }
@@ -2023,7 +2538,7 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.3.0";
+const APP_VERSION = "1.4.0";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")

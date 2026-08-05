@@ -5,17 +5,58 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.3.0`).
+The current release is shown in the app footer (`v1.4.0`).
 
 ---
 
-## [Unreleased]
+## [1.4.0] — Combat tools, calculators, map layers, guides & localization
 
-### Planned
-- **Capture-rate calculator** — estimate catch odds by sphere and HP (community
-  formula; flagged as an estimate).
-- **Damage / type-effectiveness calculator** — boss-counter suggestions from the
-  element chart.
+A large batch clearing the whole roadmap.
+
+### Added — ⚔️ Combat section (new)
+- **🐲 Boss Counter** — pick any boss (or one of the 83 map alpha bosses via a
+  chip) and get its element plus your best counter Pals, ranked by attack, with
+  a jump to the alphas on the map. Owned-only toggle.
+- **🔷 Type Chart** — full 9-element super-effective matrix plus a per-element
+  strong/weak quick reference.
+- **🔴 Capture Calculator** — catch-odds estimate across every sphere from the
+  target's datamined capture-correction, level, HP %, and status/grapple/night/
+  alpha modifiers. Clearly labelled as a community-formula estimate.
+- **💥 Damage Calculator** — attacker Attack × skill power × element advantage ÷
+  defender Defense, with super-effective detection and counter-element hints.
+
+### Added — collection & planning
+- **Dex completion** bars (overall + catchable) on My Pals.
+- **🎯 To-catch checklist** — every catchable Pal you're missing, each with a
+  📍 jump to its spawns on the map.
+- **Per-Pal notes & passives** — record notes and up to 4 passive skills on each
+  owned Pal (synced to the cloud when signed in).
+- **📸 Share as image** — render your collection (completion %, top attackers,
+  portraits) to a PNG and share via the native share sheet or download.
+- **📊 Base production throughput** — the Base planner now shows combined
+  work-power per job with bottleneck flags.
+- **Refined inheritance odds** — the Perfect Pal egg estimate now uses exact
+  combinatorics over the datamined `Combi_PassiveInheritNum` counts instead of a
+  flat guess.
+
+### Added — 🗺️ map depth
+- **Four new layers** merged from the PalDex datamine: **treasure chests
+  (9,202)**, **ore / mining nodes (7,547)**, **egg nests (1,786)** and **fishing
+  spots (700)** — aligned to the same map transform as the existing markers.
+  Heavy layers default off and load lazily.
+- **Nearest fast-travel** shown when you tap any non-fast-travel marker.
+
+### Added — 📖 Guides & 🌐 localization
+- **Guides** sub-tab in the Wiki: Beginner, Breeding meta, Best bases, and
+  Combat & types.
+- **Language selector** (🌐) — UI navigation & headings localized to Español,
+  Français, Deutsch, Italiano, Português and 日本語 (Pal/item names stay
+  canonical). Choice is persisted.
+
+### Notes
+- The capture and damage numbers are approximations — Palworld's real formulas
+  live in Blueprint bytecode. The app labels them as estimates; relative
+  comparisons are reliable, absolute values are not.
 
 ---
 

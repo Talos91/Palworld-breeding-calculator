@@ -21,6 +21,19 @@ A single-file, offline web app covering the full current (Feybreak) roster of
   type + speed, partner skill, work levels, drops); **tier lists** (fastest
   flying/ground/swimming mounts, strongest attackers, highest HP, best base
   Pals); and a **best-Pals-for-a-job** ranker.
+- **⚔️ Combat** — **boss counter** (boss → best counter Pals by element & attack),
+  a full **type-effectiveness chart**, and **capture** & **damage** calculators
+  (labelled community estimates).
+- **🏭 Base planner** — assign owned Pals to work slots, see work-coverage gaps
+  and **production throughput** per job.
+- **🗺️ Map** — Pal spawns (day/night/alpha), effigies, fast-travel, dungeons,
+  merchants, plus **treasure chests, ore, egg nests & fishing spots**; pinch-zoom,
+  clustering, and **nearest fast-travel** on any marker.
+- **📖 Guides** — beginner, breeding meta, best bases, combat & types.
+
+The UI navigation is **localized** (🌐): English, Español, Français, Deutsch,
+Italiano, Português, 日本語. Sign in (👤) to **sync** your collection, wishlist,
+base plan and per-Pal notes across devices (Supabase — see `SUPABASE_SETUP.md`).
 
 Every Pal is tagged **catch** (wild-obtainable) or **breed-only**, has an element
 badge and Paldeck number, and pickers filter by name/number/type/work skill.
