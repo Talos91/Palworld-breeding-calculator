@@ -5,7 +5,19 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.6.1`).
+The current release is shown in the app footer (`v1.6.2`).
+
+---
+
+## [1.6.2] — Paldex navigation & filter legibility
+
+### Changed
+- The Paldex now has two **sub-tabs — 🐾 Paldex and 🧰 Tools** — so the
+  collection tools (traits/notes, breed-from-collection, "what can I breed?") are
+  one tap away instead of buried under the 299-Pal grid.
+- **Element filter chips** redesigned for readability: clear light text on a
+  solid pill when unselected, filled with the element's colour when active
+  (previously they were dimmed/greyed and hard to read).
 
 ---
 

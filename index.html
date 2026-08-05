@@ -715,12 +715,11 @@
   .segbtn{flex:1 1 0;text-align:center;padding:8px 6px;border-radius:9px;font-weight:800;font-size:.8rem;cursor:pointer;color:var(--muted);white-space:nowrap;transition:all .15s}
   .segbtn.on{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#04120f}
   .pdx-elems{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-  .elchip{padding:5px 11px;border-radius:999px;font-size:.74rem;font-weight:800;text-transform:capitalize;cursor:pointer;
-    background:var(--chip);border:1px solid var(--line2);color:var(--muted);opacity:.85;transition:all .15s}
-  .elchip.tb-neutral,.elchip.tb-fire,.elchip.tb-water,.elchip.tb-grass,.elchip.tb-electric,.elchip.tb-ice,.elchip.tb-ground,.elchip.tb-dark,.elchip.tb-dragon{color:#0a121a}
-  .elchip:not(.on){filter:grayscale(.5) brightness(.85);opacity:.7}
-  .elchip.on{opacity:1;filter:none;box-shadow:0 3px 10px -3px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.15) inset}
-  .elchip[data-el=""]{background:var(--chip);color:var(--txt)}
+  .elchip{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:999px;font-size:.76rem;font-weight:800;text-transform:capitalize;cursor:pointer;
+    background:var(--panelSolid);border:1px solid var(--line2);color:var(--txt);transition:all .14s}
+  .elchip:hover{border-color:var(--cc,var(--accent));filter:brightness(1.08)}
+  .elchip.on{background:var(--cc);color:#0a121a;border-color:transparent;box-shadow:0 3px 12px -3px var(--cc)}
+  .elchip[data-el=""].on{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#04120f}
   .pdx-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:10px}
   .pdxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
   .pdxcard{position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:10px 8px 8px;text-align:center;cursor:pointer;
@@ -926,23 +925,23 @@
       <div style="margin-top:6px"><button class="mini" id="mp-io-load">Load pasted data</button> <span class="hint" id="mp-io-msg"></span></div>
     </div>
     <div id="mp-grid" class="pdxgrid"></div>
+  </div>
 
-    <details class="pdx-tools">
-      <summary>🧰 Collection tools — traits, notes &amp; breeding from your Pals</summary>
-      <div class="phase" style="margin-top:16px">📋 Traits <span class="hint" style="font-weight:600">— notes &amp; passives per owned Pal</span></div>
-      <div id="mp-traits"></div>
-      <div class="phase" style="margin-top:22px">🧬 Breed a Pal you don't have — from your collection</div>
-      <p class="hint" style="margin:0 0 10px">Pick a Pal you want. If it's reachable by breeding from the Pals you own, you'll get the full breeding tree (leaves = Pals you already have).</p>
-      <div class="row">
-        <div><label>Target Pal</label><select id="mp-target"></select></div>
-        <div style="flex:0 0 auto;display:flex;align-items:flex-end;gap:8px">
-          <button class="go" id="mp-plan" style="margin-top:0">Plan from my Pals →</button>
-          <button class="mini" id="mp-whatcan" style="align-self:flex-end;padding:12px 14px">What can I breed?</button>
-        </div>
+  <!-- PALDEX: COLLECTION TOOLS -->
+  <div class="card tab-panel" id="panel-paltools" style="display:none">
+    <div class="phase" style="margin-top:0">📋 Traits <span class="hint" style="font-weight:600">— notes &amp; passives per owned Pal</span></div>
+    <div id="mp-traits"></div>
+    <div class="phase" style="margin-top:22px">🧬 Breed a Pal you don't have — from your collection</div>
+    <p class="hint" style="margin:0 0 10px">Pick a Pal you want. If it's reachable by breeding from the Pals you own, you'll get the full breeding tree (leaves = Pals you already have).</p>
+    <div class="row">
+      <div><label>Target Pal</label><select id="mp-target"></select></div>
+      <div style="flex:0 0 auto;display:flex;align-items:flex-end;gap:8px">
+        <button class="go" id="mp-plan" style="margin-top:0">Plan from my Pals →</button>
+        <button class="mini" id="mp-whatcan" style="align-self:flex-end;padding:12px 14px">What can I breed?</button>
       </div>
-      <div id="mp-planresult" class="result"></div>
-      <div id="mp-whatresult" class="result"></div>
-    </details>
+    </div>
+    <div id="mp-planresult" class="result"></div>
+    <div id="mp-whatresult" class="result"></div>
   </div>
 
   <!-- WISHLIST -->
@@ -1539,6 +1538,7 @@ const PAGE_META = {
   all:{t:"All combinations", s:()=>"EVERY CHILD FROM ONE PARENT"},
   lookup:{t:"Pairing", s:()=>"WHO MAKES WHAT"},
   paldex:{t:"Paldex", s:()=>`${ownedCount()}/${Engine.pals.length} OWNED · TAP A PAL FOR STATS`},
+  paltools:{t:"Collection Tools", s:()=>"TRAITS · NOTES · BREED FROM YOUR PALS"},
   wishlist:{t:"Wishlist", s:()=>`${STATE.wishlist.length} TARGET${STATE.wishlist.length===1?"":"S"}`},
   map:{t:"Palpagos Map", s:()=>(MAPDATA&&MAPDATA.markers?MAPDATA.markers.length+" MARKERS · ":"")+"PALPAGOS ISLANDS"},
   items:{t:"Items", s:()=>ITEMS?`${ITEMS.length} ITEMS`:"LOADING…"},
@@ -1573,14 +1573,14 @@ function applyLang(){
 
 const SECTIONS = [
   {id:"breed", icon:IC.breed, label:"Breed", panels:[["path","🎯 Path"],["mount","🏆 Perfect Pal"],["all","🧬 Combos"],["lookup","🔎 Pairing"]]},
-  {id:"pals",  icon:IC.pals,  label:"Paldex", panels:[["paldex","🐾 Paldex"]]},
+  {id:"pals",  icon:IC.pals,  label:"Paldex", panels:[["paldex","🐾 Paldex"],["paltools","🧰 Tools"]]},
   {id:"wish",  icon:IC.wish,  label:"Wishlist", panels:[["wishlist","📝 Wishlist"]]},
   {id:"combat",icon:IC.combat,label:"Combat", panels:[["boss","🐲 Boss Counter"],["typechart","🔷 Type Chart"],["capture","🔴 Capture"],["damage","💥 Damage"]]},
   {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"]]},
   {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"],["guides","📖 Guides"]]},
 ];
 let ITEMS = null, BUILDINGS = null, TECH = null;
-const PANEL_RENDER = { paldex:renderPaldex, wishlist:renderWishlist, map:renderMap,
+const PANEL_RENDER = { paldex:renderPaldex, paltools:renderPalTools, wishlist:renderWishlist, map:renderMap,
   items:renderItems, buildings:renderBuildings, schematics:renderSchematics, tech:renderTech, base:renderBase, tierlists:renderTiers,
   guides:renderGuides, boss:renderBoss, typechart:renderTypeChart, capture:renderCapture, damage:renderDamage };
 let curSection = null; const lastPanel = {};
@@ -1839,10 +1839,11 @@ function renderPaldex(){
       <div class="ocdots">${typesOf(n).map(t=>`<span class="ocdot tb-${t}"></span>`).join("")}</div>
     </div>`;
   }).join("") || `<div class="empty">no matches</div>`;
-  renderCompletion(); renderTraits();
+  renderCompletion();
 }
+function renderPalTools(){ renderTraits(); }
 // back-compat alias (other code still calls renderMyPals)
-function renderMyPals(){ renderPaldex(); }
+function renderMyPals(){ renderPaldex(); if(document.getElementById("panel-paltools")&&document.getElementById("panel-paltools").style.display!=="none") renderTraits(); }
 /* ---------- Dex completion ---------- */
 function renderCompletion(){
   const box = $("#mp-completion"); if(!box) return;
@@ -1985,6 +1986,7 @@ const INH_W = [0, 0.40, 0.30, 0.20, 0.10]; // retained for any legacy callers
 const ELEMENTS = {"neutral":{"strongVs":[],"weakVs":["dark"]},"fire":{"strongVs":["ice","grass"],"weakVs":["water"]},"water":{"strongVs":["fire"],"weakVs":["electric"]},"grass":{"strongVs":["ground"],"weakVs":["fire"]},"electric":{"strongVs":["water"],"weakVs":["ground"]},"ice":{"strongVs":["dragon"],"weakVs":["fire"]},"ground":{"strongVs":["electric"],"weakVs":["grass"]},"dark":{"strongVs":["neutral"],"weakVs":["dragon"]},"dragon":{"strongVs":["dark"],"weakVs":["ice"]}};
 const ELEM_ORDER = ["neutral","fire","water","grass","electric","ice","ground","dark","dragon"];
 const ELEM_EMOJI = {neutral:"⚪",fire:"🔥",water:"💧",grass:"🌿",electric:"⚡",ice:"❄️",ground:"⛰️",dark:"🌑",dragon:"🐉"};
+const ELEM_COLOR = {neutral:"#c2cad6",fire:"#ff7a59",water:"#5aa9ff",grass:"#49cf7d",electric:"#ffd24d",ice:"#8fdcff",ground:"#d0a05a",dark:"#a98ce0",dragon:"#b98cff"};
 const SUPER_MULT = 1.5; // Palworld's community-documented element advantage multiplier
 // Is attacking element `atk` super-effective against a defender with element list `defTypes`?
 function isSuperEffective(atk, defTypes){ const e=ELEMENTS[atk]; if(!e) return false; return (defTypes||[]).some(d => e.strongVs.includes(d)); }
@@ -2740,7 +2742,7 @@ makeSkillPicker("wl-skill", { onPick: v => { if(v && wlTemp.length < 4 && !wlTem
 renderWlChips();
 
 // Element filter chips
-$("#mp-elems").innerHTML = `<span class="elchip on" data-el="">All</span>` + ELEM_ORDER.map(t=>`<span class="elchip tb-${t}" data-el="${t}">${ELEM_EMOJI[t]} ${t}</span>`).join("");
+$("#mp-elems").innerHTML = `<span class="elchip on" data-el="">All</span>` + ELEM_ORDER.map(t=>`<span class="elchip" data-el="${t}" style="--cc:${ELEM_COLOR[t]}">${ELEM_EMOJI[t]} ${t}</span>`).join("");
 $("#mp-elems").addEventListener("click", e => { const c=e.target.closest(".elchip"); if(!c) return; pdxElem=c.dataset.el; $("#mp-elems").querySelectorAll(".elchip").forEach(x=>x.classList.toggle("on",x===c)); renderPaldex(); });
 // Status segment
 $("#mp-status").addEventListener("click", e => { const c=e.target.closest(".segbtn"); if(!c) return; pdxStatus=c.dataset.st; $("#mp-status").querySelectorAll(".segbtn").forEach(x=>x.classList.toggle("on",x===c)); renderPaldex(); });
@@ -2934,7 +2936,7 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.6.1";
+const APP_VERSION = "1.6.2";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")
