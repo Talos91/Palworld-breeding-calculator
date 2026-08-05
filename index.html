@@ -392,6 +392,22 @@
   .schmeta .schsrc b{color:var(--txt)}
   .schcard .schmap{align-self:flex-start}
 
+
+  /* v5: sleek uniform sub-tab segmented control */
+  .tabs{position:sticky;top:6px;z-index:60;display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;
+    padding:5px;margin:0 0 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--shadow);scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:1 1 0;min-width:max-content;text-align:center;background:transparent;border:none;color:var(--muted);
+    padding:9px 14px;border-radius:10px;cursor:pointer;font-size:.86rem;font-weight:700;letter-spacing:-.1px;
+    transition:color .15s,background .2s,box-shadow .2s}
+  .tab:hover{color:var(--txt)}
+  .tab.active{background:linear-gradient(135deg,rgba(74,168,255,.16),rgba(53,227,198,.16));color:var(--accent);
+    box-shadow:inset 0 0 0 1px rgba(53,227,198,.4)}
+  .tab:active{transform:none}
+  /* egg brand badge: drop the flat gradient square for a subtle ringed chip */
+  .brandmark{background:radial-gradient(circle at 50% 38%, rgba(53,227,198,.25), rgba(74,168,255,.12));border:1px solid var(--line2)}
+
 </style>
 </head>
 <body>
@@ -884,11 +900,16 @@ function makeSkillPicker(hiddenId, opts){
 
 /* ---------- Tabs ---------- */
 const IC = {
-  breed:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-4.35-9-8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2.5 3.65-9 8-9 8z"/></svg>`,
+  // Egg — the breeding motif
+  breed:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3.7 0-6.4 5.4-6.4 9.6a6.4 6.4 0 0 0 12.8 0C18.4 8.4 15.7 3 12 3z"/><path d="M9.6 13.2a2.6 2.6 0 0 0 2.4 1.6" opacity=".55"/></svg>`,
+  // Paw (kept)
   pals:`<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="6" cy="10" r="2"/><circle cx="10.5" cy="6.3" r="2"/><circle cx="17" cy="8" r="2"/><circle cx="19" cy="13.4" r="1.7"/><path d="M12 12c-3 0-5.2 2.2-5.2 4.6C6.8 18.5 8.4 19 9.8 19c1 0 1.5-.4 2.2-.4s1.2.4 2.2.4c1.4 0 3-.5 3-2.4C17.2 14.2 15 12 12 12z"/></svg>`,
-  wish:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.3 12.4l2.1 2.1 4.3-4.7"/></svg>`,
-  map:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg>`,
-  tiers:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5" y="11" width="3.6" height="7" rx="1"/><rect x="10.2" y="6" width="3.6" height="12" rx="1"/><rect x="15.4" y="9" width="3.6" height="9" rx="1"/></svg>`,
+  // Star — wishlist / wanted
+  wish:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4l2.7 5.48 6.05.88-4.38 4.27 1.03 6.02L12 17.66 6.57 20.5l1.03-6.02L3.22 9.76l6.05-.88z"/></svg>`,
+  // Compass — explore the map
+  map:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.9 8.1l-2.1 5.7-5.7 2.1 2.1-5.7z"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg>`,
+  // Trophy — tiers / best
+  tiers:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 6H4.4v1A2.6 2.6 0 0 0 7 9.6M17 6h2.6v1A2.6 2.6 0 0 1 17 9.6"/><path d="M12 13v3"/><path d="M8.6 20h6.8l-.8-3.6H9.4z"/></svg>`,
 };
 const PAGE_META = {
   path:{t:"Path to a target", s:()=>"SHORTEST BREEDING ROUTE"},
