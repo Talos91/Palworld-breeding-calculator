@@ -5,7 +5,27 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.6.2`).
+The current release is shown in the app footer (`v1.7.0`).
+
+---
+
+## [1.7.0] — Wiki cleanup: recipe thumbnails, readable descriptions, schematics merge
+
+### Changed
+- **Crafting recipes** (items & buildings) now show each material's **thumbnail**
+  next to its name and quantity, instead of plain text.
+- **Schematics merged into Items** — the standalone Schematics tab (which mostly
+  duplicated item data) is gone; schematics are items, so they live in the Items
+  browser now with a **"📜 Schematics only"** toggle to isolate them.
+- **Tier-list rows are clickable** — tap any Pal in a tier list to open its full
+  detail drawer, same as in the Paldex.
+
+### Fixed
+- **Item / tech descriptions** were showing raw datamine markup (e.g.
+  `<uiCommon id=|COMMON ELEMENT NAME Dark|/>`), which broke sentences that
+  referenced elements, items, buildings or Pals. Descriptions are now parsed
+  into clean readable text — element references render as an emoji + name
+  (e.g. "🌑 Dark"), and internal item/building/Pal references are de-camelised.
 
 ---
 

@@ -201,7 +201,8 @@
 
   /* Rankings + tiers */
   .ranklist{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-  .rankrow{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;transition:border-color .15s}
+  .rankrow{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;transition:border-color .15s,transform .12s;cursor:pointer}
+  .rankrow:hover{border-color:var(--accent);transform:translateY(-1px)} .rankrow:active{transform:scale(.99)}
   .rankrow:hover{border-color:var(--line2)}
   .rankrow .rankn{width:24px;color:var(--muted);font-weight:900;font-size:.82rem;flex:0 0 auto;text-align:center}
   .ranklist .rankrow:nth-child(1) .rankn{color:var(--gold)}
@@ -426,8 +427,10 @@
   .itemdesc{font-size:.8rem;color:var(--muted);line-height:1.45}
   .recipe{background:var(--panelSolid);border:1px solid var(--line);border-radius:10px;padding:8px 11px}
   .recipehead{font-size:.62rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent2);font-weight:800;margin-bottom:5px}
-  .ingrow{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;padding:2px 0}
-  .ingrow span{color:var(--muted)} .ingrow b{color:var(--accent);font-weight:800;flex:0 0 auto}
+  .ingrow{display:flex;align-items:center;gap:9px;font-size:.82rem;padding:3px 0}
+  .ingrow .ingn{flex:1;color:var(--txt)} .ingrow b{color:var(--accent);font-weight:800;flex:0 0 auto}
+  .ingimg{width:26px;height:26px;border-radius:7px}
+  .ingrow .schicon{width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex:0 0 auto}
   .rar-0{background:var(--chip);color:var(--muted)}
   .rar-1{background:rgba(58,217,139,.18);color:var(--good)}
   .rar-2{background:rgba(74,168,255,.18);color:#8fc4ff}
@@ -959,11 +962,12 @@
     <div id="wl-list"></div>
   </div>
 
-  <!-- WIKI: ITEMS -->
+  <!-- WIKI: ITEMS (schematics live here too) -->
   <div class="card tab-panel" id="panel-items" style="display:none">
     <div class="row" style="margin-bottom:8px">
-      <div><label>Search</label><input id="items-search" placeholder="item name…" /></div>
+      <div><label>Search</label><input id="items-search" placeholder="item or schematic name…" /></div>
       <div><label>Category</label><select id="items-cat"></select></div>
+      <div><label>&nbsp;</label><label class="optline"><input type="checkbox" id="items-schem" /> 📜 Schematics only</label></div>
     </div>
     <div id="items-list" class="result"></div>
   </div>
@@ -1577,11 +1581,11 @@ const SECTIONS = [
   {id:"wish",  icon:IC.wish,  label:"Wishlist", panels:[["wishlist","📝 Wishlist"]]},
   {id:"combat",icon:IC.combat,label:"Combat", panels:[["boss","🐲 Boss Counter"],["typechart","🔷 Type Chart"],["capture","🔴 Capture"],["damage","💥 Damage"]]},
   {id:"map",   icon:IC.map,   label:"Map", panels:[["map","🗺️ Map"]]},
-  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["items","⚔️ Items"],["buildings","🏠 Buildings"],["schematics","📜 Schematics"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"],["guides","📖 Guides"]]},
+  {id:"wiki",  icon:IC.wiki,  label:"Wiki", panels:[["items","⚔️ Items"],["buildings","🏠 Buildings"],["tech","🔬 Tech"],["base","🏭 Base"],["tierlists","🏅 Tiers"],["guides","📖 Guides"]]},
 ];
 let ITEMS = null, BUILDINGS = null, TECH = null;
 const PANEL_RENDER = { paldex:renderPaldex, paltools:renderPalTools, wishlist:renderWishlist, map:renderMap,
-  items:renderItems, buildings:renderBuildings, schematics:renderSchematics, tech:renderTech, base:renderBase, tierlists:renderTiers,
+  items:renderItems, buildings:renderBuildings, tech:renderTech, base:renderBase, tierlists:renderTiers,
   guides:renderGuides, boss:renderBoss, typechart:renderTypeChart, capture:renderCapture, damage:renderDamage };
 let curSection = null; const lastPanel = {};
 function selectPanel(pid){
@@ -2099,7 +2103,7 @@ function renderJobs(){
 function baseScore(p){ return (p.works||[]).reduce((s,w)=>s+(w.lvl||0),0); }
 function tierBox(title, rows, fmt){
   return `<div class="tierbox"><h4>${title}</h4><div class="ranklist">` +
-    rows.map((r,i) => `<div class="rankrow"><span class="rankn">${i+1}</span>${thumb(r.n)}<span class="pn">${r.n}</span><span class="val">${fmt(r)}</span>${isOwned(r.n)?'<span class="ownstar">★</span>':''}</div>`).join("") +
+    rows.map((r,i) => `<div class="rankrow" data-n="${r.n}" title="View ${r.n}"><span class="rankn">${i+1}</span>${thumb(r.n)}<span class="pn">${r.n}</span><span class="val">${fmt(r)}</span>${isOwned(r.n)?'<span class="ownstar">★</span>':''}</div>`).join("") +
     `</div></div>`;
 }
 function renderTiers(){
@@ -2123,6 +2127,7 @@ function renderTiers(){
     html += `</div><p class="hint">Stat-based tiers (fastest mounts, strongest attackers, HP) load with the stats dataset.</p><div class="tiergrid" style="display:none">`;
   }
   box.innerHTML = html + `</div>`;
+  box.querySelectorAll(".rankrow").forEach(r => r.addEventListener("click", () => openPalDetail(r.dataset.n)));
 }
 
 /* ---------- Pal info detail ---------- */
@@ -2410,14 +2415,30 @@ function renderSchematics(){
 /* ---------- Wiki: Items & Buildings ---------- */
 const RARITY = ["Common","Uncommon","Rare","Epic","Legendary"];
 function rarityTag(r){ if(r==null) return ""; const lbl = RARITY[Math.min(r,4)] || "Common"; return `<span class="schtier rar-${Math.min(r,4)}">${lbl}</span>`; }
+// Turn datamined rich-text tags (<itemName id=|X|/>, <img id=|ElemIcon Dark|/>,
+// <uiCommon .. Dark|/>, <mapObjectName ..>, <Status_Up></> …) into readable text.
+function deCamel(id){ return String(id).replace(/([a-z0-9])([A-Z])/g,"$1 $2").replace(/_/g," ").replace(/\s{2,}/g," ").trim(); }
+function cleanDesc(s){
+  if(!s) return "";
+  s = String(s);
+  s = s.replace(/<img\s+id=\|ElemIcon\s+(\w+)\|\s*\/?>/gi, (m,el)=> (ELEM_EMOJI[el.toLowerCase()]||"")+" ");
+  s = s.replace(/<uiCommon\s+id=\|COMMON ELEMENT NAME\s+(\w+)\|[^>]*\/?>/gi, (m,el)=> el);
+  s = s.replace(/<uiCommon\s+id=\|[^|>]*?([A-Za-z0-9]+)\|[^>]*\/?>/gi, (m,w)=> w);
+  s = s.replace(/<(?:itemName|mapObjectName|MapObjectName|characterName|mapName|skillName|passiveName|actionName)\s+id=\|([^|]+)\|[^>]*\/?>/gi, (m,id)=> deCamel(id));
+  s = s.replace(/<[^>]*>/g, "");                 // strip any remaining tags (Status_Up, Keyword, etc.)
+  s = s.replace(/[ \t]{2,}/g," ").replace(/ +([,.;:!?])/g,"$1").replace(/\n{2,}/g,"\n").trim();
+  return s;
+}
+function escHtml(s){ return String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function craftCard(it, folder, emoji){
-  const recipe = (it.recipe && it.recipe.length) ? `<div class="recipe"><div class="recipehead">Crafting</div>${it.recipe.map(r=>`<div class="ingrow"><span>${r.item}</span><b>×${r.qty}</b></div>`).join("")}</div>` : "";
+  const recipe = (it.recipe && it.recipe.length) ? `<div class="recipe"><div class="recipehead">Crafting</div>${it.recipe.map(r=>`<div class="ingrow"><img class="itemimg ingimg" data-emoji="📦" alt="" src="img/items/${slug(r.item)}.png"><span class="ingn">${r.item}</span><b>×${r.qty}</b></div>`).join("")}</div>` : "";
   const sub = [it.category, it.tech!=null?`Tech ${it.tech}`:""].filter(Boolean).join(" · ");
   const droppers = DROP_INDEX.get((it.name||"").toLowerCase());
   const drops = droppers ? `<div class="itemdrops">🐾 <b>Dropped by:</b> ${droppers.slice(0,8).join(", ")}${droppers.length>8?` +${droppers.length-8} more`:""}</div>` : "";
+  const desc = cleanDesc(it.description);
   return `<div class="schcard">
     <div class="schtop"><img class="itemimg" data-emoji="${emoji}" alt="" src="img/${folder}/${it.slug}.png"><div class="schnames"><div class="schunlock">${it.name}</div><div class="schsub">${sub||"&nbsp;"}</div></div>${rarityTag(it.rarity)}</div>
-    ${it.description?`<div class="itemdesc">${it.description}</div>`:""}
+    ${desc?`<div class="itemdesc">${escHtml(desc)}</div>`:""}
     ${recipe}
     ${drops}
   </div>`;
@@ -2425,18 +2446,20 @@ function craftCard(it, folder, emoji){
 async function loadItems(){ if(ITEMS) return ITEMS; try{ const r=await fetch("data/items.json"); ITEMS=(await r.json()).items||[]; }catch(e){ ITEMS=[]; } return ITEMS; }
 async function loadBuildings(){ if(BUILDINGS) return BUILDINGS; try{ const r=await fetch("data/buildings.json"); BUILDINGS=(await r.json()).buildings||[]; }catch(e){ BUILDINGS=[]; } return BUILDINGS; }
 function fillCatSelect(sel, arr){ if(sel && sel.options.length===0){ const cats=[...new Set(arr.map(s=>s.category).filter(Boolean))].sort(); sel.innerHTML=`<option value="">All categories</option>`+cats.map(c=>`<option value="${c}">${c[0].toUpperCase()+c.slice(1)}</option>`).join(""); } }
-function renderCraftList(box, data, searchEl, catSel, folder, emoji, noun){
+function renderCraftList(box, data, searchEl, catSel, folder, emoji, noun, extra){
   if(!data){ box.innerHTML = `<div class="empty">Loading ${noun}…</div>`; return; }
   if(!data.length){ box.innerHTML = `<div class="empty">${noun[0].toUpperCase()+noun.slice(1)} data is coming in an update.</div>`; return; }
   fillCatSelect(catSel, data);
   const q=(searchEl.value||"").trim().toLowerCase(), cat=catSel?catSel.value:"";
-  const full = data.filter(it => (!cat||it.category===cat) && (!q || it.name.toLowerCase().includes(q)));
+  const full = data.filter(it => (!cat||it.category===cat) && (!q || it.name.toLowerCase().includes(q)) && (!extra || extra(it)));
   const capped = full.length > 300, list = capped ? full.slice(0,300) : full;
   box.innerHTML = `<div class="summary">${full.length} ${noun}${capped?` · showing first 300, search to narrow`:""}.</div><div class="schgrid">` + list.map(it=>craftCard(it, folder, emoji)).join("") + `</div>`;
 }
+const isSchematic = it => /\bschematic|\bblueprint|schematic diagram/i.test(it.name||"");
 async function renderItems(){
   const box=$("#items-list"); if(!ITEMS){ box.innerHTML=`<div class="empty">Loading items…</div>`; await loadItems(); const ps=document.querySelector("#pagehead .pagesub"); if(ps) ps.textContent=`${ITEMS.length} ITEMS`; }
-  renderCraftList(box, ITEMS, $("#items-search"), $("#items-cat"), "items", "📦", "items");
+  const schem = $("#items-schem") && $("#items-schem").checked;
+  renderCraftList(box, ITEMS, $("#items-search"), $("#items-cat"), "items", "📦", schem?"schematics":"items", schem?isSchematic:null);
 }
 async function renderBuildings(){
   const box=$("#bld-list"); if(!BUILDINGS){ box.innerHTML=`<div class="empty">Loading buildings…</div>`; await loadBuildings(); const ps=document.querySelector("#pagehead .pagesub"); if(ps) ps.textContent=`${BUILDINGS.length} STRUCTURES`; }
@@ -2452,7 +2475,7 @@ async function renderTech(){
   const q=($("#tech-search").value||"").trim().toLowerCase(), anc=$("#tech-ancient").checked;
   const list=TECH.filter(t => (!anc||t.ancient) && (!q || t.name.toLowerCase().includes(q) || (t.unlocks||[]).some(u=>u.toLowerCase().includes(q))));
   box.innerHTML=`<div class="summary">${list.length} tech${list.length!==1?"s":""}.</div><div class="schgrid">` + list.slice(0,400).map(t =>
-    `<div class="schcard"><div class="schtop"><span class="techlvl">Lv${t.level}</span><div class="schnames"><div class="schunlock">${t.name}</div><div class="schsub">${t.cost!=null?`${t.cost} ${t.ancient?"ancient ":""}point${t.cost!==1?"s":""}`:"&nbsp;"}</div></div>${t.ancient?`<span class="schtier rar-3">Ancient</span>`:""}</div>${t.description?`<div class="itemdesc">${t.description}</div>`:""}${(t.unlocks&&t.unlocks.length)?`<div class="itemdrops">🔓 ${t.unlocks.join(", ")}</div>`:""}</div>`).join("")
+    `<div class="schcard"><div class="schtop"><span class="techlvl">Lv${t.level}</span><div class="schnames"><div class="schunlock">${t.name}</div><div class="schsub">${t.cost!=null?`${t.cost} ${t.ancient?"ancient ":""}point${t.cost!==1?"s":""}`:"&nbsp;"}</div></div>${t.ancient?`<span class="schtier rar-3">Ancient</span>`:""}</div>${cleanDesc(t.description)?`<div class="itemdesc">${escHtml(cleanDesc(t.description))}</div>`:""}${(t.unlocks&&t.unlocks.length)?`<div class="itemdrops">🔓 ${t.unlocks.join(", ")}</div>`:""}</div>`).join("")
     + `</div>` + (list.length>400?`<p class="hint" style="padding:8px">Showing first 400 — search to narrow.</p>`:"");
 }
 
@@ -2806,13 +2829,9 @@ $("#base-team").addEventListener("click", e => { const c=e.target.closest(".base
 // Wiki: Items & Buildings
 $("#items-search").addEventListener("input", renderItems);
 $("#items-cat").addEventListener("change", renderItems);
+$("#items-schem").addEventListener("change", renderItems);
 $("#bld-search").addEventListener("input", renderBuildings);
 $("#bld-cat").addEventListener("change", renderBuildings);
-
-// Schematics search + "bosses on map" jump
-$("#sch-search").addEventListener("input", renderSchematics);
-$("#sch-cat").addEventListener("change", renderSchematics);
-$("#sch-list").addEventListener("click", e => { if(e.target.classList.contains("schmap")) openMapCat("alpha"); });
 function openMapCat(cat){ mapPal = null; if(MAPDATA && MAPDATA.markers) mapActiveCats = new Set([cat]); selectSection("map"); }
 
 // Map: Pal-spawn picker
@@ -2860,7 +2879,6 @@ function gsRun(){
   if(pals.length) groups.push(["Pals", pals]);
   if(ITEMS){ const r = ITEMS.filter(i=>i.name.toLowerCase().includes(q)).slice(0,8).map(i=>({t:"Item", n:i.name, thumb:`img/items/${i.slug}.png`, act:()=>{ goToPanel("items"); $("#items-search").value=i.name; renderItems(); }})); if(r.length) groups.push(["Items", r]); }
   if(BUILDINGS){ const r = BUILDINGS.filter(x=>x.name.toLowerCase().includes(q)).slice(0,8).map(x=>({t:"Building", n:x.name, thumb:`img/buildings/${x.slug}.png`, act:()=>{ goToPanel("buildings"); $("#bld-search").value=x.name; renderBuildings(); }})); if(r.length) groups.push(["Buildings", r]); }
-  if(SCHEMATICS){ const r = SCHEMATICS.filter(s=>(s.unlocks||s.name).toLowerCase().includes(q)).slice(0,6).map(s=>({t:"Schematic", n:s.unlocks||s.name, thumb:`img/items/${slug(s.unlocks||s.name)}.png`, act:()=>{ goToPanel("schematics"); $("#sch-search").value=s.unlocks||s.name; renderSchematics(); }})); if(r.length) groups.push(["Schematics", r]); }
   if(!groups.length){ box.innerHTML = `<div class="empty">No matches for “${q}”.</div>`; return; }
   gsActs = []; let html = "";
   groups.forEach(([label, rows]) => { html += `<div class="gsgroup">${label}</div>`; rows.forEach(r => { const idx = gsActs.push(r.act)-1; html += `<div class="gsrow" data-i="${idx}"><img class="thumb" data-name="${r.n}" src="${r.thumb}" alt=""><span class="pn">${r.n}</span><span class="tag">${r.t}</span></div>`; }); });
@@ -2936,7 +2954,7 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.6.2";
+const APP_VERSION = "1.7.0";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")
