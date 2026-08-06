@@ -5,7 +5,17 @@ documented here. Versions are assigned retroactively — one bump per developmen
 "passage" — using [Semantic Versioning](https://semver.org/)-ish rules
 (`MAJOR.MINOR.PATCH`).
 
-The current release is shown in the app footer (`v1.7.0`).
+The current release is shown in the app footer (`v1.7.1`).
+
+---
+
+## [1.7.1] — Description cleanup follow-up
+
+### Fixed
+- Some item descriptions used a **pipe-delimited** reference format
+  (`… the recipe for |Head015 5 (Legendary)| … at the |Primitive Workbench|.`)
+  that the previous pass didn't cover, so stray `|` characters were still
+  showing. Those references are now unwrapped to plain text.
 
 ---
 

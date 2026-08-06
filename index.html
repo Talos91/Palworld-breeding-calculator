@@ -2426,6 +2426,9 @@ function cleanDesc(s){
   s = s.replace(/<uiCommon\s+id=\|[^|>]*?([A-Za-z0-9]+)\|[^>]*\/?>/gi, (m,w)=> w);
   s = s.replace(/<(?:itemName|mapObjectName|MapObjectName|characterName|mapName|skillName|passiveName|actionName)\s+id=\|([^|]+)\|[^>]*\/?>/gi, (m,id)=> deCamel(id));
   s = s.replace(/<[^>]*>/g, "");                 // strip any remaining tags (Status_Up, Keyword, etc.)
+  // Some descriptions wrap references in bare pipes, e.g. "the recipe for |Head015 5 (Legendary)|
+  // is unlocked … at the |Primitive Workbench|." — unwrap them (keep the text, drop the pipes).
+  s = s.replace(/\|([^|]+)\|/g, "$1").replace(/\|/g, "");
   s = s.replace(/[ \t]{2,}/g," ").replace(/ +([,.;:!?])/g,"$1").replace(/\n{2,}/g,"\n").trim();
   return s;
 }
@@ -2954,7 +2957,7 @@ $("#a-go").addEventListener("click", renderAll);
 $("#l-go").addEventListener("click", renderLookup);
 $("#m-go").addEventListener("click", renderMount);
 
-const APP_VERSION = "1.7.0";
+const APP_VERSION = "1.7.1";
 const m = PAL_DATA.meta || {};
 $("#foot").innerHTML = `${Engine.pals.length} Pals loaded · default rule: nearest breeding rank · v${APP_VERSION}`
   + (m.source ? ` · data: ${m.source}` : "")
